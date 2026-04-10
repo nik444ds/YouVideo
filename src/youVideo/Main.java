@@ -1,4 +1,4 @@
- import youVideo.*;
+package youVideo;
 import dataStructures.*;
 
 public class Main {
