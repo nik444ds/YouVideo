@@ -99,7 +99,6 @@ public class Main {
 
 /*
 Classes and Interfaces
-PublishableVideos - A class which extend VideoStructure and implements a publisher, title and languages for a video .
 PremiumVideos - A class which extends the PublishableVideos and have a subtitle implemented early
 Podcasts - A class which implements a title, author and language. This class has a array of episodes
 Episode - A class which extends VideoStructure
