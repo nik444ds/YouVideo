@@ -28,6 +28,11 @@ public class Main {
     public static final String CMD_EXIT = "exit";
     public static final String UNKNOWN_COMMAND = "Unknown command";
 
+    //Error message
+    public static final String INVALID_LANGUAGE = "Invalid language type.";
+    public static final String INVALID_DURATION = "Invalid value.";
+    public static final String ID_ALREADY_EXISTS = "Video with this ID already exists.";
+
 
     public static void main(String[] args){
         commandInterpreter();
@@ -69,6 +74,7 @@ public class Main {
         sc.close();
     }
 
+
     private static void help(){
         System.out.println("createpublishable - creates a new publishable video");
         System.out.println("createpremium - creates a new publishable Premium video");
@@ -93,7 +99,6 @@ public class Main {
 
 /*
 Classes and Interfaces
-VideoStructure - A abstract class which implements: ID, Duration and URL.
 PublishableVideos - A class which extend VideoStructure and implements a publisher, title and languages for a video .
 PremiumVideos - A class which extends the PublishableVideos and have a subtitle implemented early
 Podcasts - A class which implements a title, author and language. This class has a array of episodes
