@@ -1,5 +1,6 @@
 # YouVideo 
-https://dribbble.com/shots/3697952-YouTube-Music
+![original-20752b0eaec2cc2a2e6eef7839a77daf](https://github.com/user-attachments/assets/3ad93389-f51a-4e16-9cce-deafc3723daa)
+
 
 A simplified **video streaming platform** built in Java, inspired by services like YouTube and Netflix. Developed as an Object-Oriented Programming university project at FCT NOVA Lisbon.
 
