@@ -103,7 +103,7 @@ PremiumVideos - A class which extends the PublishableVideos and have a subtitle 
 Podcasts - A class which implements a title, author and language. This class has a array of episodes
 Episode - A class which extends VideoStructure
 Shows -A class which takes publishable videos and give a transmission time(data) and one author
-subtitles -
+
 
 
  */

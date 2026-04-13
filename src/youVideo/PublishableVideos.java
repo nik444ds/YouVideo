@@ -8,6 +8,9 @@ public class PublishableVideos extends VideoStructure{
     private String publisher;
     private String title;
     private Locale language;
+    /*
+    Constructor class
+     */
     public PublishableVideos(String id, int duration, String url, String publisher, String title, String language) {
         super(id, duration, url);
         this.publisher = publisher;
