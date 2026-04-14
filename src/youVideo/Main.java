@@ -43,7 +43,7 @@ public class Main {
 
         while(!commands.equals(CMD_EXIT)){
             switch(commands){
-                case CMD_CREATE_PUBLISHABLE ->
+                case CMD_CREATE_PUBLISHABLE -> addPublishable(sc);
                 case CMD_CREATE_PREMIUM ->
                 case CMD_ADD_SUB ->
                 case CMD_GET_VIDEO ->
@@ -72,6 +72,9 @@ public class Main {
 
 
         sc.close();
+    }
+    private static void addPublishable(Scanner in){
+
     }
 
 
