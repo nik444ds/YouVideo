@@ -1,7 +1,7 @@
 package youVideo;
 import java.util.Locale;
 /*
-This class contains the subtitles of videos that can be used.
+This class contains the subtitles of videos that can be used by PremiumVideos.
  */
 public class Subtitles {
     private Locale language;

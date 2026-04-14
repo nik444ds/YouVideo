@@ -1,7 +1,9 @@
 package youVideo;
 
 import dataStructures.*;
-
+/*
+A class which extends the PublishableVideos and have a subtitle implementation
+ */
 public class PremiumVideos extends PublishableVideos {
 
     private Array<Subtitles> subtitles = new ArrayClass<>();
