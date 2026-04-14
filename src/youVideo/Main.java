@@ -36,6 +36,7 @@ public class Main {
 
     public static void main(String[] args){
         commandInterpreter();
+
     }
     private static void commandInterpreter(){
         Scanner sc = new Scanner(System.in);
@@ -73,8 +74,11 @@ public class Main {
 
         sc.close();
     }
-    private static void addPublishable(Scanner in){
+    private static void addPublishable(String id, int duration, String url, String publisher, String title,String code){
+        if(!Subtitles.g)
 
+
+        }
     }
 
 
