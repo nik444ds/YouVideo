@@ -6,6 +6,8 @@
 
 package youVideo;
 import dataStructures.*;
+
+import java.util.Iterator;
 import java.util.Scanner;
 public class Main {
     //Commands
@@ -35,17 +37,18 @@ public class Main {
 
 
     public static void main(String[] args){
-        commandInterpreter();
+        Scanner sc = new Scanner(System.in);
+        Array<VideoStructure> videos = new ArrayClass<>();
+        commandInterpreter(sc,videos);
 
     }
-    private static void commandInterpreter(){
-        Scanner sc = new Scanner(System.in);
-        String commands = sc.nextLine();
+    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos){
+        String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
             switch(commands){
-                case CMD_CREATE_PUBLISHABLE -> addPublishable(sc);
-                case CMD_CREATE_PREMIUM ->
+                case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, videos);
+              /*  case CMD_CREATE_PREMIUM ->
                 case CMD_ADD_SUB ->
                 case CMD_GET_VIDEO ->
                 case CMD_SUBTITLE ->
@@ -59,10 +62,12 @@ public class Main {
                 case CMD_GET_SHOW ->
                 case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->
-                case CMD_HELP -> help();
+                case CMD_HELP -> help();*/
                 default -> System.out.println(UNKNOWN_COMMAND);
             }
+            commands = sc.next().toLowerCase();
         }
+        System.out.println("Bye!");
 
 
 
@@ -74,13 +79,27 @@ public class Main {
 
         sc.close();
     }
-    private static void addPublishable(String id, int duration, String url, String publisher, String title,String code){
-        if(!Subtitles.g)
-
-
+    private static void addPublishable(Scanner sc, Array<VideoStructure> video){
+        String id = sc.next();
+        int duration = sc.nextInt();
+        String url = sc.next();
+        sc.nextLine();
+        String publisher = sc.nextLine();
+        String title = sc.nextLine();
+        String languageCode = sc.nextLine();
+        if(!PublishableVideos.isLanguageValid(languageCode)){
+            System.out.println(INVALID_LANGUAGE);
         }
-    }
+        if(duration <= 0)
+            System.out.println(INVALID_DURATION);
 
+
+        PublishableVideos pubVideos = new PublishableVideos(id,duration,url,publisher,title,languageCode);
+        video.insertLast(pubVideos);
+
+
+        System.out.println("Video " + id + " created successfully");
+    }
 
     private static void help(){
         System.out.println("createpublishable - creates a new publishable video");
@@ -101,6 +120,17 @@ public class Main {
         System.out.println("exit - terminates the execution of the program");
     }
 
+    private static boolean idAlreadyExists(String id, Array<VideoStructure> videos) {
+        Iterator<VideoStructure> it = videos.iterator();
+        while (it.hasNext()) {
+            VideoStructure v = it.next();
+            if (v.getId().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
 
@@ -108,7 +138,6 @@ public class Main {
 Classes and Interface
 Podcasts - A class which implements a title, author and language. This class has a array of episodes
 Shows -A class which takes publishable videos and give a transmission time(data) and one author
-
 
 
  */

@@ -1,13 +1,15 @@
 package youVideo;
+import java.util.Iterator;
 import java.util.Locale;
 /*
  A class which extend VideoStructure and implements a publisher, title and languages for a video .
 
  */
-public class PublishableVideos extends VideoStructure{
+public class PublishableVideos extends VideoStructure {
     private String publisher;
     private String title;
     private Locale language;
+
     /*
     Constructor class
      */
@@ -18,13 +20,27 @@ public class PublishableVideos extends VideoStructure{
         this.language = new Locale(language);
     }
 
-    public String getPublisher(){
+    public String getPublisher() {
         return publisher;
     }
-    public String getTitle(){
+
+    public String getTitle() {
         return title;
     }
-    public Locale getLanguages(){
+
+    public Locale getLanguages() {
         return language;
     }
+
+    public static boolean isLanguageValid(String code) {
+        String[] languages = Locale.getISOLanguages();
+
+        for (int i = 0; i < Locale.getISOLanguages().length; i++) {
+            if (languages[i].equalsIgnoreCase(code)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
