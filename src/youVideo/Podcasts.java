@@ -30,6 +30,6 @@ private Array<Episode> episode;
         return episode;
     }
     public void addEpisode(Episode episode){
-        this.episode.insertLast(episode);
+        this.episode.insertAt(episode,0);
     }
 }
