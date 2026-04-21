@@ -78,7 +78,7 @@ public class Main {
         sc.close();
     }
 
-    // Commands methods
+    // Commands methods =================
 
 
     /*
@@ -216,6 +216,10 @@ public class Main {
             Subtitles sub = it.next();
             System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage().toUpperCase() + ")");        }
     }
+
+
+
+
 
 //Implement the command help
     private static void help(){
