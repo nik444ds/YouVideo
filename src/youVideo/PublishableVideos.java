@@ -32,15 +32,6 @@ public class PublishableVideos extends VideoStructure {
         return language;
     }
 
-    public static boolean isLanguageValid(String code) {
-        String[] languages = Locale.getISOLanguages();
 
-        for (int i = 0; i < Locale.getISOLanguages().length; i++) {
-            if (languages[i].equalsIgnoreCase(code)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 }

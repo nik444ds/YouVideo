@@ -7,7 +7,7 @@
 package youVideo;
 import dataStructures.*;
 
-import java.util.Iterator;
+import java.util.Locale;
 import java.util.Scanner;
 public class Main {
     //Commands
@@ -34,6 +34,11 @@ public class Main {
     public static final String INVALID_LANGUAGE = "Invalid language type.";
     public static final String INVALID_DURATION = "Invalid value.";
     public static final String ID_ALREADY_EXISTS = "Video with this ID already exists.";
+    public static final String INVALID_LANGUAGE_SUBTITLE = "Invalid language type in subtitle.";
+    public static final String VIDEO_DOES_NOT_EXIST = "Video does not exist.";
+    public static final String NOT_A_PREMIUM_VIDEO = "This operation requires a Premium video.";
+    public static final String CREATED_SUB = "Subtitle added successfully.";
+
 
 
     public static void main(String[] args){
@@ -48,9 +53,9 @@ public class Main {
         while(!commands.equals(CMD_EXIT)){
             switch(commands){
                 case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, videos);
-              /*  case CMD_CREATE_PREMIUM ->
-                case CMD_ADD_SUB ->
-                case CMD_GET_VIDEO ->
+               case CMD_CREATE_PREMIUM -> addPremium(sc, videos);
+                 case CMD_ADD_SUB -> addSub(sc, videos);
+                /*case CMD_GET_VIDEO ->
                 case CMD_SUBTITLE ->
                 case CMD_CREATE_PODCAST ->
                 case CMD_ADD_EPISODE ->
@@ -61,24 +66,22 @@ public class Main {
                 case CMD_CREATE_SHOW ->
                 case CMD_GET_SHOW ->
                 case CMD_REMOVE_SHOW ->
-                case CMD_REMOVE_VIDEO ->
-                case CMD_HELP -> help();*/
+                case CMD_REMOVE_VIDEO ->*/
+                case CMD_HELP -> help();
                 default -> System.out.println(UNKNOWN_COMMAND);
             }
             commands = sc.next().toLowerCase();
         }
         System.out.println("Bye!");
-
-
-
-
-
-
-
-
-
         sc.close();
     }
+
+    // Commands methods
+
+
+    /*
+    Implement conditions for the command createpublishable
+     */
     private static void addPublishable(Scanner sc, Array<VideoStructure> video){
         String id = sc.next();
         int duration = sc.nextInt();
@@ -87,20 +90,95 @@ public class Main {
         String publisher = sc.nextLine();
         String title = sc.nextLine();
         String languageCode = sc.nextLine();
-        if(!PublishableVideos.isLanguageValid(languageCode)){
+        if(!isLanguageValid(languageCode)){
             System.out.println(INVALID_LANGUAGE);
+            return;
         }
-        if(duration <= 0)
+        if(duration <= 0) {
             System.out.println(INVALID_DURATION);
-
+            return;
+        }
+        if(idAlreadyExists(id, video)){
+            System.out.println(ID_ALREADY_EXISTS);
+            return;
+        }
 
         PublishableVideos pubVideos = new PublishableVideos(id,duration,url,publisher,title,languageCode);
         video.insertLast(pubVideos);
 
 
-        System.out.println("Video " + id + " created successfully");
+        System.out.println("Video " + id + " created successfully.");
+    }
+    /*
+    Implements the commandpremium
+     */
+    private static void addPremium(Scanner sc, Array<VideoStructure> video){
+        String id = sc.next();
+        int duration = sc.nextInt();
+        String url  = sc.next();
+        sc.nextLine();
+        String publisher = sc.nextLine();
+        String title = sc.nextLine();
+        String languageCode = sc.nextLine();
+        String initSubUrl = sc.nextLine();
+        String initLanguageCode = sc.nextLine();
+        if(!isLanguageValid(languageCode)){
+            System.out.println(INVALID_LANGUAGE);
+            return;
+        }
+        if(!isLanguageValid(initLanguageCode)){
+            System.out.println(INVALID_LANGUAGE_SUBTITLE);
+            return;
+        }
+        if(duration <= 0) {
+            System.out.println(INVALID_DURATION);
+            return;
+        }
+        if(idAlreadyExists(id, video)){
+            System.out.println(ID_ALREADY_EXISTS);
+            return;
+        }
+        PremiumVideos premiumVideos = new PremiumVideos(id,duration,url,publisher,title,languageCode,initSubUrl,initLanguageCode);
+        video.insertLast(premiumVideos);
+
+        System.out.println("PREMIUM Video " + id + " created successfully.");
+
+    }
+    /*
+    Create the addsubtitle command
+     */
+
+    private static void addSub(Scanner sc,Array<VideoStructure> videos){
+        String id = sc.next();
+        String  languageUrl = sc.next();
+        String languageCode = sc.next();
+        sc.nextLine();
+        VideoStructure videoStructure = getVideoById(id,videos);
+        if(!isLanguageValid(languageCode)){
+            System.out.println(INVALID_LANGUAGE_SUBTITLE);
+            return;
+        }
+        if(videoStructure == null){
+            System.out.println(VIDEO_DOES_NOT_EXIST);
+            return;
+        }
+
+
+        //VERIFY IF WE CAN USE instanceOf!
+        if(!(videoStructure instanceof PremiumVideos premiumVideos)){
+            System.out.println(NOT_A_PREMIUM_VIDEO);
+            return;
+        }
+        premiumVideos.addSubtitle(languageCode, languageUrl);
+
+        System.out.println(CREATED_SUB);
+
+
+
+
     }
 
+//Implement the command help
     private static void help(){
         System.out.println("createpublishable - creates a new publishable video");
         System.out.println("createpremium - creates a new publishable Premium video");
@@ -120,6 +198,10 @@ public class Main {
         System.out.println("exit - terminates the execution of the program");
     }
 
+    // Auxiliary Methods
+/*
+    Verify if the id from VideoStructure exist
+ */
     private static boolean idAlreadyExists(String id, Array<VideoStructure> videos) {
         Iterator<VideoStructure> it = videos.iterator();
         while (it.hasNext()) {
@@ -130,8 +212,29 @@ public class Main {
         }
         return false;
     }
+// Verify in String languages if the language inserted exist in the library ISOLanguages
+    private static boolean isLanguageValid(String code) {
+        String[] languages = Locale.getISOLanguages();
 
+        for (int i = 0; i < Locale.getISOLanguages().length; i++) {
+            if (languages[i].equalsIgnoreCase(code)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    // Can get the video from id
+    private static VideoStructure getVideoById(String id,Array<VideoStructure> video){
+        Iterator<VideoStructure> it = video.iterator();
+        while(it.hasNext()){
+            VideoStructure v = it.next();
+            if(v.getId().equalsIgnoreCase(id))
+                return v;
+        }
+        return null;
+
+    }
 }
 
 /*

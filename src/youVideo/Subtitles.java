@@ -18,4 +18,5 @@ public class Subtitles {
     public String getUrl(){
         return url;
     }
+
 }
