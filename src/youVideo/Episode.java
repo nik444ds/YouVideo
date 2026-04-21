@@ -11,8 +11,6 @@ public class Episode extends VideoStructure {
         super(id,duration,url);
         this.releaseDate = releaseDate;
         this.title = title;
-
-
     }
 
 }

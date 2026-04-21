@@ -1,6 +1,7 @@
 package youVideo;
 
 import dataStructures.Array;
+import dataStructures.ArrayClass;
 
 import java.util.Locale;
 
@@ -14,6 +15,7 @@ private Array<Episode> episode;
         this.title = title;
         this.author = author;
         this.language = new Locale (language);
+        this.episode = new ArrayClass<>();
     }
     public String getTitle(){
         return title;
@@ -26,5 +28,8 @@ private Array<Episode> episode;
     }
     public Array<Episode> getEpisode(){
         return episode;
+    }
+    public void addEpisode(Episode episode){
+        this.episode.insertLast(episode);
     }
 }
