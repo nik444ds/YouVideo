@@ -38,6 +38,7 @@ public class Main {
     public static final String VIDEO_DOES_NOT_EXIST = "Video does not exist.";
     public static final String NOT_A_PREMIUM_VIDEO = "This operation requires a Premium video.";
     public static final String CREATED_SUB = "Subtitle added successfully.";
+    public static final String INVALID_PUBLISHABLE_VIDEO = "Publishable Video videoId does not exist.";
 
 
 
@@ -55,8 +56,8 @@ public class Main {
                 case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, videos);
                case CMD_CREATE_PREMIUM -> addPremium(sc, videos);
                  case CMD_ADD_SUB -> addSub(sc, videos);
-                /*case CMD_GET_VIDEO ->
-                case CMD_SUBTITLE ->
+                case CMD_GET_VIDEO -> getVideo(sc, videos);
+               /* case CMD_SUBTITLE ->
                 case CMD_CREATE_PODCAST ->
                 case CMD_ADD_EPISODE ->
                 case CMD_GET_PODCAST ->
@@ -172,8 +173,28 @@ public class Main {
         premiumVideos.addSubtitle(languageCode, languageUrl);
 
         System.out.println(CREATED_SUB);
+    }
 
 
+    //GetVideo command
+
+    private static void getVideo(Scanner sc, Array<VideoStructure> videos){
+        String id = sc.next();
+        VideoStructure videoStructure = getVideoById(id,videos);
+        //Increment a statement if the id is from podcasts episode
+        if(videoStructure == null || videoStructure instanceof Episode){
+            System.out.println(INVALID_PUBLISHABLE_VIDEO);
+            return;
+        }
+        if(videoStructure instanceof PremiumVideos premiumVideos){
+            System.out.println("PREMIUM Video " + premiumVideos.getId() + " " +  premiumVideos.getDuration() + " Title: " + premiumVideos.getTitle());
+            System.out.println("File: " + premiumVideos.getUrl() + " Publisher: " + premiumVideos.getPublisher() + " Language: " + premiumVideos.getLanguages().getDisplayLanguage().toUpperCase());
+            return;
+        }
+        if(videoStructure instanceof PublishableVideos pubVideos){
+            System.out.println("Video " + pubVideos.getId() + " " + pubVideos.getDuration() + " Title: " + pubVideos.getTitle());
+            System.out.println("File: " + pubVideos.getUrl() + " Publisher: " + pubVideos.getPublisher() + " Language: " + pubVideos.getLanguages().getDisplayLanguage().toUpperCase());
+        }
 
 
     }
