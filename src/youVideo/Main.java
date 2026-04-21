@@ -39,6 +39,7 @@ public class Main {
     public static final String NOT_A_PREMIUM_VIDEO = "This operation requires a Premium video.";
     public static final String CREATED_SUB = "Subtitle added successfully.";
     public static final String INVALID_PUBLISHABLE_VIDEO = "Publishable Video videoId does not exist.";
+    public static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
 
 
 
@@ -57,8 +58,8 @@ public class Main {
                case CMD_CREATE_PREMIUM -> addPremium(sc, videos);
                  case CMD_ADD_SUB -> addSub(sc, videos);
                 case CMD_GET_VIDEO -> getVideo(sc, videos);
-               /* case CMD_SUBTITLE ->
-                case CMD_CREATE_PODCAST ->
+                case CMD_SUBTITLE -> subtitleList(sc,videos);
+                /*case CMD_CREATE_PODCAST ->
                 case CMD_ADD_EPISODE ->
                 case CMD_GET_PODCAST ->
                 case CMD_EPISODES ->
@@ -197,6 +198,23 @@ public class Main {
         }
 
 
+    }
+        //Subtitle Command
+    private static void subtitleList(Scanner sc, Array<VideoStructure> videos){
+        String id = sc.next();
+        VideoStructure video = getVideoById(id, videos);
+
+        if(!(video instanceof PremiumVideos premiumVideos)){
+            System.out.println(NO_PREMIUM_VIDEO);
+            return;
+        }
+
+        System.out.println("Subtitles for video " + premiumVideos.getTitle() + ":");
+
+        Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
+        while(it.hasNext()){
+            Subtitles sub = it.next();
+            System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage().toUpperCase() + ")");        }
     }
 
 //Implement the command help
