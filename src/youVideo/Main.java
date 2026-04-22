@@ -78,7 +78,7 @@ public class Main {
                 case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->*/
                 case CMD_CREATE_SHOW -> createshow(sc,videos,show);
-                case CMD_GET_SHOW -> getshow(sc,show);
+                case CMD_GET_SHOW -> getShow(sc,show);
                 /*
                 case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->*/
@@ -178,8 +178,6 @@ public class Main {
             return;
         }
 
-
-        //VERIFY IF WE CAN USE instanceOf!
         if(!(videoStructure instanceof PremiumVideos premiumVideos)){
             System.out.println(NOT_A_PREMIUM_VIDEO);
             return;
@@ -311,7 +309,7 @@ public class Main {
         System.out.println(SHOW_CREATED);
     }
 
-    private static void getshow(Scanner sc, Array<Shows> showStructure){
+    private static void getShow(Scanner sc, Array<Shows> showStructure){
         String title = sc.nextLine().trim();
         Iterator<Shows> it = showStructure.iterator();
         while(it.hasNext()){
