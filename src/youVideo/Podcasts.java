@@ -5,7 +5,7 @@ import dataStructures.ArrayClass;
 
 import java.util.Locale;
 
-public class Podcasts  {
+public class Podcasts implements  Titled, Authored, Languaged {
 private String title;
 private String author;
 private Locale language;
