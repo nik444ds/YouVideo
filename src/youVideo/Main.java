@@ -56,10 +56,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Array<VideoStructure> videos = new ArrayClass<>();
         Array<Podcasts> podcast = new ArrayClass<>();
-        commandInterpreter(sc,videos, podcast);
+        Array<Shows> show = new ArrayClass<>();
+        commandInterpreter(sc,videos, podcast, show);
 
     }
-    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast){
+    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show){
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -71,12 +72,12 @@ public class Main {
                 case CMD_SUBTITLE -> subtitleList(sc,videos);
                 case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
                 case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
-               /*  case CMD_GET_PODCAST ->
-                case CMD_EPISODES ->
+               /* case CMD_GET_PODCAST ->
+                 case CMD_EPISODES ->
                 case CMD_AUTHOR_PODCAST ->
-                case CMD_REMOVE_PODCAST ->
-                case CMD_CREATE_SHOW ->
-                case CMD_GET_SHOW ->
+                case CMD_REMOVE_PODCAST ->*/
+                case CMD_CREATE_SHOW -> createshow(sc,videos,show);
+               /* case CMD_GET_SHOW ->
                 case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->*/
                 case CMD_HELP -> help();
@@ -282,11 +283,12 @@ public class Main {
         video.insertLast(episode);
         System.out.println(EPISODE_CREATED);
     }
-    /*<<<<<<< HEAD
-    private static void createshow(Scanner sc , Array <VideoStructure> videos) {
+
+    private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
         String author = sc.next();
         String videoId = sc.next();
         String transmissionDate = sc.next();
+        sc.nextLine();
         VideoStructure videoStructure = getVideoById(videoId, videos);
         if (videoStructure == null || videoStructure instanceof Episode) {
             System.out.println(SHOW_VIDEO_DOES_NOT_EXIST);
@@ -294,7 +296,7 @@ public class Main {
         }
         PublishableVideos pubVideo = (PublishableVideos) videoStructure;
         String showTitle = pubVideo.getTitle();
-        Iterator<Shows> it = showStorage.iterator();
+        Iterator<Shows> it = showStructure.iterator();
         while(it.hasNext()){
             Shows show = it.next();
             if(show.getTitle().equalsIgnoreCase(showTitle)){
@@ -303,28 +305,10 @@ public class Main {
             }
         }
         Shows newShow = new Shows(author, pubVideo, transmissionDate);
-        showStorage.insertLast(newShow);
+        showStructure.insertLast(newShow);
         System.out.println(SHOW_CREATED);
     }
 
-=======
-        Podcasts pod = getPodcastByTitle(title,podcast);
-
-        //The recent episode are in position 0
-        if(pod.getEpisode().size() > 0){
-            String lastestDate = pod.getEpisode().get(0).getReleaseDate();
-            if(date.compareTo(lastestDate) < 0){
-                System.out.println(WRONG_DATE_EPISODE);
-                return;
-            }
-
-        }
-        Episode episode = new Episode(id,duration,url,date);
-        pod.addEpisode(episode);
-        video.insertLast(episode);
-        System.out.println(EPISODE_CREATED);
-    }
-*/
 
 //Implement the command help
     private static void help(){
