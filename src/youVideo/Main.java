@@ -40,40 +40,26 @@ public class Main {
     public static final String CREATED_SUB = "Subtitle added successfully.";
     public static final String INVALID_PUBLISHABLE_VIDEO = "Publishable Video videoId does not exist.";
     public static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
-<<<<<<< HEAD   /*
-    public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
-    public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
-    public static final String SHOW_CREATED = "Show created successfully.";
-      */
-
-
-=======
     public static final String TITLE_ALREADY_USED = "Podcast with this title already exists.";
     public static final String PODCAST_CREATED = "Podcast created successfully.";
     public static final String EPISODE_CREATED = "Episode added successfully.";
     public static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist";
     public static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
     public static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
->>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
+    public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
+    public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
+    public static final String SHOW_CREATED = "Show created successfully.";
 
 
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Array<VideoStructure> videos = new ArrayClass<>();
-<<<<<<< HEAD
-       // ArrayClass<Shows> showStorage = new ArrayClass<>();
-        commandInterpreter(sc,videos);
-
-    }
-    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos) {
-=======
         Array<Podcasts> podcast = new ArrayClass<>();
         commandInterpreter(sc,videos, podcast);
 
     }
     private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast){
->>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -83,20 +69,13 @@ public class Main {
                  case CMD_ADD_SUB -> addSub(sc, videos);
                 case CMD_GET_VIDEO -> getVideo(sc, videos);
                 case CMD_SUBTITLE -> subtitleList(sc,videos);
-<<<<<<< HEAD
-         //       case CMD_CREATE_SHOW -> createshow(sc,videos);
-                /*case CMD_CREATE_PODCAST ->
-                case CMD_ADD_EPISODE ->
-                case CMD_GET_PODCAST ->
-=======
                 case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
                 case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
                /*  case CMD_GET_PODCAST ->
->>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
                 case CMD_EPISODES ->
                 case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->
-                case CMD_CREATE_SHOW -> createShow(sc,videos);
+                case CMD_CREATE_SHOW ->
                 case CMD_GET_SHOW ->
                 case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->*/
@@ -287,7 +266,23 @@ public class Main {
             return;
         }
 
-<<<<<<< HEAD     /*
+        Podcasts pod = getPodcastByTitle(title,podcast);
+
+        //The recent episode are in position 0
+        if(pod.getEpisode().size() > 0){
+            String lastestDate = pod.getEpisode().get(0).getReleaseDate();
+            if(date.compareTo(lastestDate) < 0){
+                System.out.println(WRONG_DATE_EPISODE);
+                return;
+            }
+
+        }
+        Episode episode = new Episode(id,duration,url,date);
+        pod.addEpisode(episode);
+        video.insertLast(episode);
+        System.out.println(EPISODE_CREATED);
+    }
+    /*<<<<<<< HEAD
     private static void createshow(Scanner sc , Array <VideoStructure> videos) {
         String author = sc.next();
         String videoId = sc.next();
@@ -311,7 +306,7 @@ public class Main {
         showStorage.insertLast(newShow);
         System.out.println(SHOW_CREATED);
     }
-                 */
+
 =======
         Podcasts pod = getPodcastByTitle(title,podcast);
 
@@ -329,9 +324,7 @@ public class Main {
         video.insertLast(episode);
         System.out.println(EPISODE_CREATED);
     }
->>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
-
-
+*/
 
 //Implement the command help
     private static void help(){
@@ -370,6 +363,7 @@ public class Main {
 // Verify in String languages if the language inserted exist in the library ISOLanguages
     private static boolean isLanguageValid(String code) {
         String[] languages = Locale.getISOLanguages();
+
         for (int i = 0; i < Locale.getISOLanguages().length; i++) {
             if (languages[i].equalsIgnoreCase(code)) {
                 return true;
