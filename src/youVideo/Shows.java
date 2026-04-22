@@ -1,6 +1,6 @@
 package youVideo;
 
-public class Shows {
+public class Shows implements  Titled, Authored {
     private String author;
     private PublishableVideos video;
     private String transmissionDate;

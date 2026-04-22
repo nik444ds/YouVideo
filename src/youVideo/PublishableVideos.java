@@ -1,11 +1,10 @@
 package youVideo;
-import java.util.Iterator;
 import java.util.Locale;
 /*
  A class which extend VideoStructure and implements a publisher, title and languages for a video .
 
  */
-public class PublishableVideos extends VideoStructure {
+public class PublishableVideos extends VideoStructure implements Titled,Languaged{
     private String publisher;
     private String title;
     private Locale language;
@@ -28,7 +27,7 @@ public class PublishableVideos extends VideoStructure {
         return title;
     }
 
-    public Locale getLanguages() {
+    public Locale getLanguage() {
         return language;
     }
 
