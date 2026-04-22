@@ -49,6 +49,7 @@ public class Main {
     public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
     public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
     public static final String SHOW_CREATED = "Show created successfully.";
+    public static final String SHOW_DOES_NOT_EXIST = "Show does not exist.";
 
 
 
@@ -77,7 +78,8 @@ public class Main {
                 case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->*/
                 case CMD_CREATE_SHOW -> createshow(sc,videos,show);
-               /* case CMD_GET_SHOW ->
+                case CMD_GET_SHOW -> getshow(sc,show);
+                /*
                 case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->*/
                 case CMD_HELP -> help();
@@ -307,6 +309,20 @@ public class Main {
         Shows newShow = new Shows(author, pubVideo, transmissionDate);
         showStructure.insertLast(newShow);
         System.out.println(SHOW_CREATED);
+    }
+
+    private static void getshow(Scanner sc, Array<Shows> showStructure){
+        String title = sc.nextLine().trim();
+        Iterator<Shows> it = showStructure.iterator();
+        while(it.hasNext()){
+            Shows show = it.next();
+            if(show.getTitle().equalsIgnoreCase(title)){
+                System.out.println("Show Date: " + show.getTransmissionDate() + " Author: " + show.getAuthor());
+                System.out.println("Video: " + show.getTitle());
+                return;
+            }
+        }
+        System.out.println(SHOW_DOES_NOT_EXIST);
     }
 
 
