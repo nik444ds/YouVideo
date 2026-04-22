@@ -285,7 +285,7 @@ public class Main {
     }
 
     private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
-        String author = sc.next();
+        String author = sc.nextLine();
         String videoId = sc.next();
         String transmissionDate = sc.next();
         sc.nextLine();
