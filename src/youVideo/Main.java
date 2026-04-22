@@ -40,23 +40,40 @@ public class Main {
     public static final String CREATED_SUB = "Subtitle added successfully.";
     public static final String INVALID_PUBLISHABLE_VIDEO = "Publishable Video videoId does not exist.";
     public static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
+<<<<<<< HEAD   /*
     public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
     public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
     public static final String SHOW_CREATED = "Show created successfully.";
+      */
 
 
-
+=======
+    public static final String TITLE_ALREADY_USED = "Podcast with this title already exists.";
+    public static final String PODCAST_CREATED = "Podcast created successfully.";
+    public static final String EPISODE_CREATED = "Episode added successfully.";
+    public static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist";
+    public static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
+    public static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
+>>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
 
 
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Array<VideoStructure> videos = new ArrayClass<>();
-        ArrayClass<Shows> showStorage = new ArrayClass<>();
+<<<<<<< HEAD
+       // ArrayClass<Shows> showStorage = new ArrayClass<>();
         commandInterpreter(sc,videos);
 
     }
     private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos) {
+=======
+        Array<Podcasts> podcast = new ArrayClass<>();
+        commandInterpreter(sc,videos, podcast);
+
+    }
+    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast){
+>>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -66,10 +83,16 @@ public class Main {
                  case CMD_ADD_SUB -> addSub(sc, videos);
                 case CMD_GET_VIDEO -> getVideo(sc, videos);
                 case CMD_SUBTITLE -> subtitleList(sc,videos);
-                case CMD_CREATE_SHOW -> createshow(sc,videos);
+<<<<<<< HEAD
+         //       case CMD_CREATE_SHOW -> createshow(sc,videos);
                 /*case CMD_CREATE_PODCAST ->
                 case CMD_ADD_EPISODE ->
                 case CMD_GET_PODCAST ->
+=======
+                case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
+                case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
+               /*  case CMD_GET_PODCAST ->
+>>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
                 case CMD_EPISODES ->
                 case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->
@@ -225,7 +248,46 @@ public class Main {
             System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage().toUpperCase() + ")");        }
     }
 
+    // create a podcast
+    private static void addPodcast(Scanner sc, Array<Podcasts> podcast){
+        String title = sc.nextLine();
+        String author = sc.nextLine();
+        String language = sc.next();
+        sc.nextLine();
+        if(!isLanguageValid(language)){
+            System.out.println(INVALID_LANGUAGE);
+            return;
+        }
+        if(titleAlreadyExist(title, podcast)){
+            System.out.println(TITLE_ALREADY_USED);
+            return;
+        }
+        Podcasts pod = new Podcasts(title, author, language);
+        podcast.insertLast(pod);
+        System.out.println(PODCAST_CREATED);
+    }
+    // add a new episode to podcast what already exist
+    private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<Podcasts> podcast){
+        String title = sc.nextLine();
+        String id = sc.next();
+        int duration = sc.nextInt();
+        String url = sc.next();
+        String date = sc.next();
+        sc.nextLine();
+        if(duration <= 0){
+            System.out.println(INVALID_DURATION);
+            return;
+        }
+        if(!titleAlreadyExist(title,podcast)){
+            System.out.println(PODCAST_DOES_NOT_EXIST);
+            return;
+        }
+        if(idAlreadyExists(id,video)){
+            System.out.println(EPISODE_ID_EXIST);
+            return;
+        }
 
+<<<<<<< HEAD     /*
     private static void createshow(Scanner sc , Array <VideoStructure> videos) {
         String author = sc.next();
         String videoId = sc.next();
@@ -249,7 +311,25 @@ public class Main {
         showStorage.insertLast(newShow);
         System.out.println(SHOW_CREATED);
     }
+                 */
+=======
+        Podcasts pod = getPodcastByTitle(title,podcast);
 
+        //The recent episode are in position 0
+        if(pod.getEpisode().size() > 0){
+            String lastestDate = pod.getEpisode().get(0).getReleaseDate();
+            if(date.compareTo(lastestDate) < 0){
+                System.out.println(WRONG_DATE_EPISODE);
+                return;
+            }
+
+        }
+        Episode episode = new Episode(id,duration,url,date);
+        pod.addEpisode(episode);
+        video.insertLast(episode);
+        System.out.println(EPISODE_CREATED);
+    }
+>>>>>>> f214f8e7b9080bf179a44be647b260d1089ec743
 
 
 
@@ -308,6 +388,28 @@ public class Main {
         }
         return null;
 
+    }
+    // Search in podcast array if the title used already exist
+    private static boolean titleAlreadyExist(String title, Array<Podcasts> podcast){
+        Iterator<Podcasts> it = podcast.iterator();
+        while(it.hasNext()){
+            Podcasts pod = it.next();
+            if(pod.getTitle().equalsIgnoreCase(title))
+                return true;
+
+        }
+        return false;
+    }
+    // Search on loop for the title
+    private static Podcasts getPodcastByTitle(String title,Array<Podcasts> pod){
+        Iterator<Podcasts> it = pod.iterator();
+        while(it.hasNext()){
+            Podcasts p = it.next();
+            if(p.getTitle().equalsIgnoreCase(title)){
+                return p;
+            }
+        }
+        return null;
     }
 }
 
