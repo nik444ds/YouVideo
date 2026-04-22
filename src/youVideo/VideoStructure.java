@@ -3,9 +3,9 @@ package youVideo;
 An abstract class which implements: ID, Duration and URL.
  */
 public abstract class VideoStructure {
-   private String id;
-    private int duration;
-    private String url;
+   private final String id;
+    private final int duration;
+    private final String url;
 
     public VideoStructure(String id, int duration, String url ){
         this.id = id;

@@ -200,12 +200,12 @@ public class Main {
         }
         if(videoStructure instanceof PremiumVideos premiumVideos){
             System.out.println("PREMIUM Video " + premiumVideos.getId() + " " +  premiumVideos.getDuration() + " Title: " + premiumVideos.getTitle());
-            System.out.println("File: " + premiumVideos.getUrl() + " Publisher: " + premiumVideos.getPublisher() + " Language: " + premiumVideos.getLanguages().getDisplayLanguage().toUpperCase());
+            System.out.println("File: " + premiumVideos.getUrl() + " Publisher: " + premiumVideos.getPublisher() + " Language: " + premiumVideos.getLanguage().getDisplayLanguage().toUpperCase());
             return;
         }
         if(videoStructure instanceof PublishableVideos pubVideos){
             System.out.println("Video " + pubVideos.getId() + " " + pubVideos.getDuration() + " Title: " + pubVideos.getTitle());
-            System.out.println("File: " + pubVideos.getUrl() + " Publisher: " + pubVideos.getPublisher() + " Language: " + pubVideos.getLanguages().getDisplayLanguage().toUpperCase());
+            System.out.println("File: " + pubVideos.getUrl() + " Publisher: " + pubVideos.getPublisher() + " Language: " + pubVideos.getLanguage().getDisplayLanguage().toUpperCase());
         }
 
 

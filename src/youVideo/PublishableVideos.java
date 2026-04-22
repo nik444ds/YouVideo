@@ -5,9 +5,9 @@ import java.util.Locale;
 
  */
 public class PublishableVideos extends VideoStructure implements Titled,Languaged{
-    private String publisher;
-    private String title;
-    private Locale language;
+    private final String publisher;
+    private final String title;
+    private final Locale language;
 
     /*
     Constructor class
@@ -22,11 +22,12 @@ public class PublishableVideos extends VideoStructure implements Titled,Language
     public String getPublisher() {
         return publisher;
     }
-
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public Locale getLanguage() {
         return language;
     }

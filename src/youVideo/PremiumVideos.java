@@ -6,7 +6,7 @@ A class which extends the PublishableVideos and have a subtitle implementation
  */
 public class PremiumVideos extends PublishableVideos {
 
-    private Array<Subtitles> subtitles = new ArrayClass<>();
+    private final Array<Subtitles> subtitles = new ArrayClass<>();
     //Constructor
     public PremiumVideos(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl ){
         super(id, duration, url, publisher, title,language);
