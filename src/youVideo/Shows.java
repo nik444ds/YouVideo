@@ -3,12 +3,12 @@ package youVideo;
 public class Shows {
     private String author;
     private PublishableVideos video;
-    private String date;
+    private String transmissionDate;
 
     public Shows(String author, PublishableVideos video, String date) {
         this.author = author;
         this.video = video;
-        this.date = date;
+        this.transmissionDate = date;
     }
 
     public String getAuthor() {
@@ -19,8 +19,8 @@ public class Shows {
         return video;
     }
 
-    public String getDate() {
-        return date;
+    public String getTransmissionDate() {
+        return transmissionDate;
     }
     public String getTitle(){
         return video.getTitle();

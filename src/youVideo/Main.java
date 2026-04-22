@@ -40,16 +40,23 @@ public class Main {
     public static final String CREATED_SUB = "Subtitle added successfully.";
     public static final String INVALID_PUBLISHABLE_VIDEO = "Publishable Video videoId does not exist.";
     public static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
+    public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
+    public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
+    public static final String SHOW_CREATED = "Show created successfully.";
+
+
+
 
 
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         Array<VideoStructure> videos = new ArrayClass<>();
+        ArrayClass<Shows> showStorage = new ArrayClass<>();
         commandInterpreter(sc,videos);
 
     }
-    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos){
+    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos) {
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -59,13 +66,14 @@ public class Main {
                  case CMD_ADD_SUB -> addSub(sc, videos);
                 case CMD_GET_VIDEO -> getVideo(sc, videos);
                 case CMD_SUBTITLE -> subtitleList(sc,videos);
+                case CMD_CREATE_SHOW -> createshow(sc,videos);
                 /*case CMD_CREATE_PODCAST ->
                 case CMD_ADD_EPISODE ->
                 case CMD_GET_PODCAST ->
                 case CMD_EPISODES ->
                 case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->
-                case CMD_CREATE_SHOW ->
+                case CMD_CREATE_SHOW -> createShow(sc,videos);
                 case CMD_GET_SHOW ->
                 case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->*/
@@ -218,6 +226,30 @@ public class Main {
     }
 
 
+    private static void createshow(Scanner sc , Array <VideoStructure> videos) {
+        String author = sc.next();
+        String videoId = sc.next();
+        String transmissionDate = sc.next();
+        VideoStructure videoStructure = getVideoById(videoId, videos);
+        if (videoStructure == null || videoStructure instanceof Episode) {
+            System.out.println(SHOW_VIDEO_DOES_NOT_EXIST);
+            return;
+        }
+        PublishableVideos pubVideo = (PublishableVideos) videoStructure;
+        String showTitle = pubVideo.getTitle();
+        Iterator<Shows> it = showStorage.iterator();
+        while(it.hasNext()){
+            Shows show = it.next();
+            if(show.getTitle().equalsIgnoreCase(showTitle)){
+                System.out.println(SHOW_ALREADY_EXISTS);
+                return;
+            }
+        }
+        Shows newShow = new Shows(author, pubVideo, transmissionDate);
+        showStorage.insertLast(newShow);
+        System.out.println(SHOW_CREATED);
+    }
+
 
 
 
@@ -258,7 +290,6 @@ public class Main {
 // Verify in String languages if the language inserted exist in the library ISOLanguages
     private static boolean isLanguageValid(String code) {
         String[] languages = Locale.getISOLanguages();
-
         for (int i = 0; i < Locale.getISOLanguages().length; i++) {
             if (languages[i].equalsIgnoreCase(code)) {
                 return true;
