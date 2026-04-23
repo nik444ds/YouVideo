@@ -65,11 +65,10 @@ public class Main {
         Array<VideoStructure> videos = new ArrayClass<>();
         Array<Podcasts> podcast = new ArrayClass<>();
         Array<Shows> show = new ArrayClass<>();
-        Array<Episode> ep = new ArrayClass<>();
-        commandInterpreter(sc,videos, podcast, show,ep);
+        commandInterpreter(sc,videos, podcast, show);
 
     }
-    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show, Array<Episode> ep){
+    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show){
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -82,7 +81,7 @@ public class Main {
                 case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
                 case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
                 case CMD_GET_PODCAST -> getPodcast(sc,podcast);
-               case CMD_EPISODES -> episodesList(sc,podcast, ep);
+               case CMD_EPISODES -> episodesList(sc,podcast);
                /* case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->*/
                 case CMD_CREATE_SHOW -> createshow(sc,videos,show);
@@ -260,7 +259,7 @@ public class Main {
         String id = sc.next();
         int duration = sc.nextInt();
         String url = sc.next();
-        String date = sc.next();
+        String date = sc.next().trim();
         sc.nextLine();
         if(duration <= 0){
             System.out.println(INVALID_DURATION);
@@ -304,7 +303,7 @@ public class Main {
         System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
 
     }
-    private static void episodesList(Scanner sc, Array<Podcasts> podcast, Array<Episode> episode ){
+    private static void episodesList(Scanner sc, Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
 
         if(!titleAlreadyExist(title, podcast)){
@@ -317,11 +316,11 @@ public class Main {
             return;
         }
 
-        System.out.println("Episodes for podcast " + title);
-        Iterator<Episode> it = episode.iterator();
+        System.out.println("Episodes for podcast " + title + ":");
+        Iterator<Episode> it = pod.getEpisode().iterator();
         while(it.hasNext()){
             Episode ep = it.next();
-            System.out.println("Episode " + ep.getId() + ep.getDuration() + " min " + "Date: " + ep.getReleaseDate());
+            System.out.println("Episode " + ep.getId() + ": " + ep.getDuration() + " min Date: " + ep.getReleaseDate());
             System.out.println("URL: " + ep.getUrl());
         }
 
