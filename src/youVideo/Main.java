@@ -50,6 +50,7 @@ public class Main {
     public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
     public static final String SHOW_CREATED = "Show created successfully.";
     public static final String SHOW_DOES_NOT_EXIST = "Show does not exist.";
+    public static final String SHOW_REMOVED = "Show removed successfully.";
 
 
 
@@ -79,8 +80,8 @@ public class Main {
                 case CMD_REMOVE_PODCAST ->*/
                 case CMD_CREATE_SHOW -> createshow(sc,videos,show);
                 case CMD_GET_SHOW -> getShow(sc,show);
+                case CMD_REMOVE_SHOW -> removeShow(sc,show);
                 /*
-                case CMD_REMOVE_SHOW ->
                 case CMD_REMOVE_VIDEO ->*/
                 case CMD_HELP -> help();
                 default -> System.out.println(UNKNOWN_COMMAND);
@@ -320,6 +321,22 @@ public class Main {
                 System.out.println("Video: " + show.getTitle());
                 return;
             }
+        }
+        System.out.println(SHOW_DOES_NOT_EXIST);
+    }
+
+    private static void removeShow(Scanner sc, Array<Shows> showStructure){
+        String title = sc.nextLine().trim();
+        Iterator<Shows> it = showStructure.iterator();
+        int position = 0;
+        while(it.hasNext()){
+          Shows currentShow = it.next();
+            if(currentShow.getTitle().equalsIgnoreCase(title)){
+                showStructure.removeAt(position);
+                System.out.println(SHOW_REMOVED);
+                return;
+            }
+            position++;
         }
         System.out.println(SHOW_DOES_NOT_EXIST);
     }
