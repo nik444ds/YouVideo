@@ -28,7 +28,7 @@ public class Main {
     public static final String CMD_REMOVE_VIDEO = "removevideo";
     public static final String CMD_HELP = "help";
     public static final String CMD_EXIT = "exit";
-    public static final String UNKNOWN_COMMAND = "Unknown command";
+    public static final String UNKNOWN_COMMAND = "Unknown command. Type help to see available commands.";
 
     //Error message
     public static final String INVALID_LANGUAGE = "Invalid language type.";
