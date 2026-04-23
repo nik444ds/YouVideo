@@ -86,6 +86,7 @@ public class Main {
                 default -> System.out.println(UNKNOWN_COMMAND);
             }
             commands = sc.next().toLowerCase();
+
         }
         System.out.println("Bye!");
         sc.close();
@@ -136,7 +137,7 @@ public class Main {
         String title = sc.nextLine();
         String languageCode = sc.nextLine();
         String initSubUrl = sc.nextLine();
-        String initLanguageCode = sc.nextLine();
+        String initLanguageCode = sc.nextLine().trim();
         if(!isLanguageValid(languageCode)){
             System.out.println(INVALID_LANGUAGE);
             return;
@@ -153,7 +154,7 @@ public class Main {
             System.out.println(ID_ALREADY_EXISTS);
             return;
         }
-        PremiumVideos premiumVideos = new PremiumVideos(id,duration,url,publisher,title,languageCode,initSubUrl,initLanguageCode);
+        PremiumVideos premiumVideos = new PremiumVideos(id,duration,url,publisher,title,languageCode,initLanguageCode,initSubUrl);
         video.insertLast(premiumVideos);
 
         System.out.println("PREMIUM Video " + id + " created successfully.");
@@ -225,7 +226,7 @@ public class Main {
         Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
         while(it.hasNext()){
             Subtitles sub = it.next();
-            System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage().toUpperCase() + ")");        }
+            System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");        }
     }
 
     // create a podcast
