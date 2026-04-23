@@ -46,11 +46,17 @@ public class Main {
     public static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist";
     public static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
     public static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
+    public static final String HAS_NO_EPISODE = "No episodes available for this podcast.";
     public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
     public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
     public static final String SHOW_CREATED = "Show created successfully.";
     public static final String SHOW_DOES_NOT_EXIST = "Show does not exist.";
     public static final String SHOW_REMOVED = "Show removed successfully.";
+    public static final String CANNOT_REMOVE_EPISODE_VIDEO = "Cannot remove: video is an episode of a podcast.";
+    public static final String CANNOT_REMOVE_SHOW_VIDEO = "Cannot remove: video is used in a show.";
+    public static final String VIDEO_REMOVED = "Video removed successfully.";
+
+
 
 
 
@@ -59,10 +65,11 @@ public class Main {
         Array<VideoStructure> videos = new ArrayClass<>();
         Array<Podcasts> podcast = new ArrayClass<>();
         Array<Shows> show = new ArrayClass<>();
-        commandInterpreter(sc,videos, podcast, show);
+        Array<Episode> ep = new ArrayClass<>();
+        commandInterpreter(sc,videos, podcast, show,ep);
 
     }
-    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show){
+    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show, Array<Episode> ep){
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -74,14 +81,14 @@ public class Main {
                 case CMD_SUBTITLE -> subtitleList(sc,videos);
                 case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
                 case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
-               /* case CMD_GET_PODCAST ->
-                 case CMD_EPISODES ->
-                case CMD_AUTHOR_PODCAST ->
+                case CMD_GET_PODCAST -> getPodcast(sc,podcast);
+               case CMD_EPISODES -> episodesList(sc,podcast, ep);
+               /* case CMD_AUTHOR_PODCAST ->
                 case CMD_REMOVE_PODCAST ->*/
                 case CMD_CREATE_SHOW -> createshow(sc,videos,show);
                 case CMD_GET_SHOW -> getShow(sc,show);
                 case CMD_REMOVE_SHOW -> removeShow(sc,show);
-                //case CMD_REMOVE_VIDEO ->
+                case CMD_REMOVE_VIDEO -> removeVideo(sc,videos,show);
                 case CMD_HELP -> help();
                 default -> System.out.println(UNKNOWN_COMMAND);
             }
@@ -231,7 +238,7 @@ public class Main {
 
     // create a podcast
     private static void addPodcast(Scanner sc, Array<Podcasts> podcast){
-        String title = sc.nextLine();
+        String title = sc.nextLine().trim();
         String author = sc.nextLine();
         String language = sc.next();
         sc.nextLine();
@@ -249,7 +256,7 @@ public class Main {
     }
     // add a new episode to podcast what already exist
     private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<Podcasts> podcast){
-        String title = sc.nextLine();
+        String title = sc.nextLine().trim();
         String id = sc.next();
         int duration = sc.nextInt();
         String url = sc.next();
@@ -283,6 +290,41 @@ public class Main {
         pod.addEpisode(episode);
         video.insertLast(episode);
         System.out.println(EPISODE_CREATED);
+    }
+    //Get data from podccast by title
+    private static void getPodcast(Scanner sc, Array<Podcasts> pod){
+        String title = sc.nextLine().trim();
+        if(!titleAlreadyExist(title, pod)){
+            System.out.println(PODCAST_DOES_NOT_EXIST);
+            return;
+        }
+        Podcasts podcast = getPodcastByTitle(title,pod);
+        System.out.println("Podcast: " + title + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
+        if(podcast.getEpisode().size() > 0)
+        System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
+
+    }
+    private static void episodesList(Scanner sc, Array<Podcasts> podcast, Array<Episode> episode ){
+        String title = sc.nextLine().trim();
+
+        if(!titleAlreadyExist(title, podcast)){
+            System.out.println(PODCAST_DOES_NOT_EXIST);
+            return;
+        }
+        Podcasts pod = getPodcastByTitle(title,podcast);
+        if(pod.getEpisode().size() <= 0){
+            System.out.println(HAS_NO_EPISODE);
+            return;
+        }
+
+        System.out.println("Episodes for podcast " + title);
+        Iterator<Episode> it = episode.iterator();
+        while(it.hasNext()){
+            Episode ep = it.next();
+            System.out.println("Episode " + ep.getId() + ep.getDuration() + " min " + "Date: " + ep.getReleaseDate());
+            System.out.println("URL: " + ep.getUrl());
+        }
+
     }
 
     private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
@@ -337,6 +379,39 @@ public class Main {
             position++;
         }
         System.out.println(SHOW_DOES_NOT_EXIST);
+    }
+
+    private static void removeVideo(Scanner sc, Array<VideoStructure> videos, Array<Shows> showStructure){
+        String videoId = sc.next();
+        VideoStructure video = getVideoById(videoId,videos);
+        if(video == null) {
+            System.out.printf(VIDEO_DOES_NOT_EXIST);
+            return;
+        }
+        if(video instanceof Episode){
+            System.out.println(CANNOT_REMOVE_EPISODE_VIDEO);
+            return;
+        }
+        Iterator<Shows> it = showStructure.iterator();
+        while(it.hasNext()){
+            Shows show = it.next();
+            if(show.getvideo().getId().equalsIgnoreCase(videoId)) {
+                System.out.println(CANNOT_REMOVE_SHOW_VIDEO);
+                return;
+            }
+        }
+        int position =-1;
+        for(int i = 0; i < videos.size();i++){
+            VideoStructure v = videos.get(i);
+            if(v.getId().equalsIgnoreCase(videoId)){
+                position = i;
+                break;
+            }
+        }
+        if(position!=-1){
+            videos.removeAt(position);
+            System.out.println(VIDEO_REMOVED);
+        }
     }
 
 
