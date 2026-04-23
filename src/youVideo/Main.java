@@ -47,6 +47,8 @@ public class Main {
     public static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
     public static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
     public static final String HAS_NO_EPISODE = "No episodes available for this podcast.";
+    public static final String NO_PODCAST_AUTHOR = "No podcasts found for this author.";
+    public static final String REMOVE_PODCAST = "Podcast removed successfully.";
     public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
     public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
     public static final String SHOW_CREATED = "Show created successfully.";
@@ -73,23 +75,23 @@ public class Main {
 
         while(!commands.equals(CMD_EXIT)){
             switch(commands){
-                case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, videos);
+               case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, videos);
                case CMD_CREATE_PREMIUM -> addPremium(sc, videos);
-                 case CMD_ADD_SUB -> addSub(sc, videos);
-                case CMD_GET_VIDEO -> getVideo(sc, videos);
-                case CMD_SUBTITLE -> subtitleList(sc,videos);
-                case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
-                case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
-                case CMD_GET_PODCAST -> getPodcast(sc,podcast);
+               case CMD_ADD_SUB -> addSub(sc, videos);
+               case CMD_GET_VIDEO -> getVideo(sc, videos);
+               case CMD_SUBTITLE -> subtitleList(sc,videos);
+               case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
+               case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
+               case CMD_GET_PODCAST -> getPodcast(sc,podcast);
                case CMD_EPISODES -> episodesList(sc,podcast);
-               /* case CMD_AUTHOR_PODCAST ->
-                case CMD_REMOVE_PODCAST ->*/
-                case CMD_CREATE_SHOW -> createshow(sc,videos,show);
-                case CMD_GET_SHOW -> getShow(sc,show);
-                case CMD_REMOVE_SHOW -> removeShow(sc,show);
-                case CMD_REMOVE_VIDEO -> removeVideo(sc,videos,show);
-                case CMD_HELP -> help();
-                default -> System.out.println(UNKNOWN_COMMAND);
+               case CMD_AUTHOR_PODCAST -> podcastList(sc,podcast);
+               case CMD_REMOVE_PODCAST -> removePodcast(sc,videos,podcast);
+               case CMD_CREATE_SHOW -> createshow(sc,videos,show);
+               case CMD_GET_SHOW -> getShow(sc,show);
+               case CMD_REMOVE_SHOW -> removeShow(sc,show);
+               case CMD_REMOVE_VIDEO -> removeVideo(sc,videos,show);
+               case CMD_HELP -> help();
+               default -> System.out.println(UNKNOWN_COMMAND);
             }
             commands = sc.next().toLowerCase();
 
@@ -325,7 +327,45 @@ public class Main {
         }
 
     }
+//List all podcasts by a author
+    private static void podcastList(Scanner sc, Array<Podcasts> podcast){
+        String author = sc.nextLine().trim();
+        Array<Podcasts> authorPod = getPodcastByAuthor(author, podcast);
+        if(authorPod.size() == 0){
+            System.out.println(NO_PODCAST_AUTHOR);
+            return;
+        }
+        System.out.println("Podcasts by author " + author + ":");
+        Iterator<Podcasts> it = authorPod.iterator();
+        while(it.hasNext()){
+            Podcasts p = it.next();
+            System.out.println("Podcast: " + p.getTitle() + " Author: " + p.getAuthor() + " Language: " + p.getLanguage().getLanguage().toUpperCase());
+        }
 
+    }
+    //remove the podcast by title
+    private static void removePodcast(Scanner sc,Array<VideoStructure> video ,Array<Podcasts> podcast){
+        String title = sc.nextLine().trim();
+        Podcasts pod = getPodcastByTitle(title, podcast);
+        if(pod == null){
+            System.out.println(PODCAST_DOES_NOT_EXIST);
+            return;
+        }
+        //remove all the episodes from the podcast
+        Iterator<Episode> it = pod.getEpisode().iterator();
+        //Remove from global data the episodes
+        while(it.hasNext()){
+            Episode ep = it.next();
+            int pos = video.searchIndexOf(ep);
+            if(pos != -1)
+            video.removeAt(pos);
+        }
+        //Remove the podcast
+        int podPosition = podcast.searchIndexOf(pod);
+        podcast.removeAt(podPosition);
+        System.out.println(REMOVE_PODCAST);
+
+    }
     private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
         String author = sc.nextLine();
         String videoId = sc.next();
@@ -493,12 +533,19 @@ public class Main {
         }
         return null;
     }
+// Give the podcast using the author
+    private static Array<Podcasts> getPodcastByAuthor(String author, Array<Podcasts> pod){
+        Array<Podcasts> result = new ArrayClass<>();
+        Iterator<Podcasts> it = pod.iterator();
+        while(it.hasNext()){
+            Podcasts p = it.next();
+            if(p.getAuthor().equalsIgnoreCase(author)){
+                result.insertLast(p);
+            }
+
+        }
+        return result;
+
+    }
 }
 
-/*
-Classes and Interface
-Podcasts - A class which implements a title, author and language. This class has a array of episodes
-Shows -A class which takes publishable videos and give a transmission time(data) and one author
-
-
- */
