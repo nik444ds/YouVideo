@@ -30,6 +30,7 @@ public class Main {
     public static final String CMD_EXIT = "exit";
     public static final String UNKNOWN_COMMAND = "Unknown command. Type help to see available commands.";
 
+
     //Error message
     public static final String INVALID_LANGUAGE = "Invalid language type.";
     public static final String INVALID_DURATION = "Invalid value.";

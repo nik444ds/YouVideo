@@ -3,7 +3,7 @@ import java.util.Locale;
 /*
 This class contains the subtitles of videos that can be used by PremiumVideos.
  */
-public class Subtitles {
+public class Subtitles extends PremiumVideos {
     private Locale language;
     private String url;
 
