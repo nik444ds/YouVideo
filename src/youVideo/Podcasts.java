@@ -14,7 +14,7 @@ private final Array<Episode> episode;
     public Podcasts( String title, String author, String language){
         this.title = title;
         this.author = author;
-        this.language = new Locale (language);
+        this.language =  Locale.of(language);
         this.episode = new ArrayClass<>();
     }
     @Override

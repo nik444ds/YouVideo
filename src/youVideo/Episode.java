@@ -4,7 +4,7 @@ package youVideo;
 
  */
 public class Episode extends VideoStructure {
-    private String releaseDate;
+    private final String releaseDate;
 
     public Episode(String id, int duration, String url, String releaseDate){
         super(id, duration, url);
@@ -13,5 +13,10 @@ public class Episode extends VideoStructure {
 
     public String getReleaseDate(){
         return releaseDate;
+    }
+    @Override
+    public void display() {
+        System.out.println("Episode " + getId() + ": " + getDuration() + " min Date: " + getReleaseDate());
+        System.out.println("URL: " + getUrl());
     }
 }

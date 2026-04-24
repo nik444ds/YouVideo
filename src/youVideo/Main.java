@@ -1,5 +1,5 @@
 /*
-** Nicolas Nº74517 and Mahir Nº
+** Nicolas Nº74517 and Mahir Nº70217
 
 
  */
@@ -39,7 +39,8 @@ public class Main {
     public static final String VIDEO_DOES_NOT_EXIST = "Video does not exist.";
     public static final String NOT_A_PREMIUM_VIDEO = "This operation requires a Premium video.";
     public static final String CREATED_SUB = "Subtitle added successfully.";
-    public static final String INVALID_PUBLISHABLE_VIDEO = "Publishable Video videoId does not exist.";
+    public static final String INVALID_PUBLISHABLE_VIDEO_1 = "Publishable Video ";
+    public static final String INVALID_PUBLISHABLE_VIDEO_2 = " does not exist.";
     public static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
     public static final String TITLE_ALREADY_USED = "Podcast with this title already exists.";
     public static final String PODCAST_CREATED = "Podcast created successfully.";
@@ -58,12 +59,16 @@ public class Main {
     public static final String CANNOT_REMOVE_EPISODE_VIDEO = "Cannot remove: video is an episode of a podcast.";
     public static final String CANNOT_REMOVE_SHOW_VIDEO = "Cannot remove: video is used in a show.";
     public static final String VIDEO_REMOVED = "Video removed successfully.";
+    public static final String SUBTITLE_LIST_HEADER = "Subtitles for video ";
+    public static final String VIDEO_CREATED_SUCCESS = " created successfully.";
+    public static final String END_PROGRAM = "Bye!";
 
 
 
 
 
     public static void main(String[] args){
+        Locale.setDefault(Locale.of("en", "GB"));
         Scanner sc = new Scanner(System.in);
         Array<VideoStructure> videos = new ArrayClass<>();
         Array<Podcasts> podcast = new ArrayClass<>();
@@ -97,7 +102,7 @@ public class Main {
             commands = sc.next().toLowerCase();
 
         }
-        System.out.println("Bye!");
+        System.out.println(END_PROGRAM);
         sc.close();
     }
 
@@ -132,7 +137,7 @@ public class Main {
         video.insertLast(pubVideos);
 
 
-        System.out.println("Video " + id + " created successfully.");
+        System.out.println("Video " + id + VIDEO_CREATED_SUCCESS);
     }
     /*
     Implements the commandpremium
@@ -166,7 +171,7 @@ public class Main {
         PremiumVideos premiumVideos = new PremiumVideos(id,duration,url,publisher,title,languageCode,initLanguageCode,initSubUrl);
         video.insertLast(premiumVideos);
 
-        System.out.println("PREMIUM Video " + id + " created successfully.");
+        System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
 
     }
     /*
@@ -202,21 +207,15 @@ public class Main {
 
     private static void getVideo(Scanner sc, Array<VideoStructure> videos){
         String id = sc.next();
+        sc.nextLine();
         VideoStructure videoStructure = getVideoById(id,videos);
         //Increment a statement if the id is from podcasts episode
         if(videoStructure == null || videoStructure instanceof Episode){
-            System.out.println(INVALID_PUBLISHABLE_VIDEO);
+            System.out.println(INVALID_PUBLISHABLE_VIDEO_1 + id + INVALID_PUBLISHABLE_VIDEO_2);
             return;
         }
-        if(videoStructure instanceof PremiumVideos premiumVideos){
-            System.out.println("PREMIUM Video " + premiumVideos.getId() + " " +  premiumVideos.getDuration() + " Title: " + premiumVideos.getTitle());
-            System.out.println("File: " + premiumVideos.getUrl() + " Publisher: " + premiumVideos.getPublisher() + " Language: " + premiumVideos.getLanguage().getDisplayLanguage().toUpperCase());
-            return;
-        }
-        if(videoStructure instanceof PublishableVideos pubVideos){
-            System.out.println("Video " + pubVideos.getId() + " " + pubVideos.getDuration() + " Title: " + pubVideos.getTitle());
-            System.out.println("File: " + pubVideos.getUrl() + " Publisher: " + pubVideos.getPublisher() + " Language: " + pubVideos.getLanguage().getDisplayLanguage().toUpperCase());
-        }
+        //execute by polymorphism
+       videoStructure.display();
 
 
     }
@@ -230,7 +229,7 @@ public class Main {
             return;
         }
 
-        System.out.println("Subtitles for video " + premiumVideos.getTitle() + ":");
+        System.out.println(SUBTITLE_LIST_HEADER + premiumVideos.getTitle() + ":");
 
         Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
         while(it.hasNext()){
@@ -256,7 +255,13 @@ public class Main {
         podcast.insertLast(pod);
         System.out.println(PODCAST_CREATED);
     }
-    // add a new episode to podcast what already exist
+    /**
+     * Add a new episode for a podcast which exist
+     * @param sc Scanner for read data.
+     * @param video Array of video for global registration.
+     * @param podcast Array of podcasts for search a target .
+     * @pre duration > 0 && titleAlreadyExist(title, podcast) && !idAlreadyExists(id, video)
+     */
     private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
         String id = sc.next();
@@ -425,7 +430,7 @@ public class Main {
         String videoId = sc.next();
         VideoStructure video = getVideoById(videoId,videos);
         if(video == null) {
-            System.out.printf(VIDEO_DOES_NOT_EXIST);
+            System.out.println(VIDEO_DOES_NOT_EXIST);
             return;
         }
         if(video instanceof Episode){
@@ -493,8 +498,8 @@ public class Main {
     private static boolean isLanguageValid(String code) {
         String[] languages = Locale.getISOLanguages();
 
-        for (int i = 0; i < Locale.getISOLanguages().length; i++) {
-            if (languages[i].equalsIgnoreCase(code)) {
+        for (String lang : languages) {
+            if (lang.equalsIgnoreCase(code)) {
                 return true;
             }
         }

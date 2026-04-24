@@ -23,4 +23,7 @@ public abstract class VideoStructure {
          return url;
     }
 
+    //Do all subclasses say what they wanna show
+    public abstract void display();
+
 }

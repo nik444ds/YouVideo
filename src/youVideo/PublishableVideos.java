@@ -16,7 +16,7 @@ public class PublishableVideos extends VideoStructure implements Titled,Language
         super(id, duration, url);
         this.publisher = publisher;
         this.title = title;
-        this.language = new Locale(language);
+        this.language = Locale.of(language);
     }
 
     public String getPublisher() {
@@ -33,5 +33,9 @@ public class PublishableVideos extends VideoStructure implements Titled,Language
     }
 
 
-
+    @Override
+    public void display() {
+        System.out.println("Video " + getId() + " " + getDuration() + " Title: " + getTitle());
+        System.out.println("File: " + getUrl() + " Publisher: " + getPublisher() + " Language: " + getLanguage().getDisplayLanguage().toUpperCase());
+    }
 }

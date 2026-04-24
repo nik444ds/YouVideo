@@ -26,6 +26,12 @@ public class PremiumVideos extends PublishableVideos {
         subtitles.insertLast(new Subtitles(language, url));
     }
 
+    @Override
+    public void display() {
+        System.out.println("PREMIUM Video " + getId() + " " + getDuration() + " Title: " + getTitle());
+        System.out.println("File: " + getUrl() + " Publisher: " + getPublisher() +
+                " Language: " + getLanguage().getDisplayLanguage().toUpperCase());
+    }
 
 
 }
