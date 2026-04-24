@@ -4,8 +4,8 @@
 
  */
 
-package youVideo;
 import dataStructures.*;
+import youVideo.*;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -475,6 +475,7 @@ public class Main {
         System.out.println("removepodcast - removes a podcast");
         System.out.println("createshow - creates show using an existing publishable video");
         System.out.println("getshow - presents show data from its title");
+        System.out.println("removeshow - removes a show");
         System.out.println("removevideo - removes a publishable video");
         System.out.println("help - shows the available commands");
         System.out.println("exit - terminates the execution of the program");
