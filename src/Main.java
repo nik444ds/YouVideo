@@ -1,5 +1,6 @@
 /*
 ** Nicolas Nº74517 and Mahir Nº70217
+* FCT LEI OOP 2026
 
 
  */
@@ -76,6 +77,17 @@ public class Main {
         commandInterpreter(sc,videos, podcast, show);
 
     }
+
+    /**
+     * Main command loop that interprets and dispatches user instructions.
+     * It remains active until the exit command is received, routing each
+     * input to its respective handler method.
+     * @param sc the scanner to read user commands
+     * @param videos the global list of videos
+     * @param podcast the global list of podcasts
+     * @param show the global list of shows
+     * @pre sc != null && videos != null && podcast != null && show != null
+     */
     private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show){
         String commands = sc.next().toLowerCase();
 
@@ -106,11 +118,17 @@ public class Main {
         sc.close();
     }
 
-    // Commands methods =================
+    /* =================================================================
+                             COMMANDS METHODS
+       =================================================================
+    */
 
-
-    /*
-    Implement conditions for the command createpublishable
+    /**
+     * Executes the command to create and add a new publishable video.
+     * Validates ID uniqueness, duration, and language code existence.
+     * @param sc the scanner to read video details (ID, duration, URL, publisher, title, language)
+     * @param video the global list of videos to store the new record
+     * @pre sc != null && videos != null
      */
     private static void addPublishable(Scanner sc, Array<VideoStructure> video){
         String id = sc.next();
@@ -139,8 +157,12 @@ public class Main {
 
         System.out.println("Video " + id + VIDEO_CREATED_SUCCESS);
     }
-    /*
-    Implements the commandpremium
+    /**
+     * Executes the command to create and add a new premium video.
+     * Validates ID uniqueness, duration, primary language code, and initial subtitle language.
+     * @param sc the scanner to read premium video details (ID, duration, URL,etc.)
+     * @param video the global list of videos to store the new premium record
+     * @pre sc != null && video != null
      */
     private static void addPremium(Scanner sc, Array<VideoStructure> video){
         String id = sc.next();
@@ -174,8 +196,12 @@ public class Main {
         System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
 
     }
-    /*
-    Create the addsubtitle command
+    /**
+     * Executes the command to add a new subtitle to an existing premium video.
+     * Verifies if the language code is valid, if the video exists, and if it is a premium type.
+     * @param sc the scanner to read subtitle details (video ID, subtitle URL, and language code)
+     * @param videos the global list of videos to search for the target video
+     * @pre sc != null && videos != null
      */
 
     private static void addSub(Scanner sc,Array<VideoStructure> videos){
@@ -202,9 +228,13 @@ public class Main {
         System.out.println(CREATED_SUB);
     }
 
-
-    //GetVideo command
-
+    /**
+     * Executes the command to display detailed information about a specific video.
+     * Verifies if the video exists in the system before presentation.
+     * @param sc the scanner to read the target video ID
+     * @param videos the global list of videos to search in
+     * @pre sc != null && videos != null
+     */
     private static void getVideo(Scanner sc, Array<VideoStructure> videos){
         String id = sc.next();
         sc.nextLine();
@@ -214,12 +244,18 @@ public class Main {
             System.out.println(INVALID_PUBLISHABLE_VIDEO_1 + id + INVALID_PUBLISHABLE_VIDEO_2);
             return;
         }
-        //execute by polymorphism
+        //executed by polymorphism
        videoStructure.display();
 
 
     }
-        //Subtitle Command
+    /**
+     * Executes the command to list all subtitles of a specific premium video.
+     * Verifies if the video exists and if it is of premium type before iterating through subtitles.
+     * @param sc the scanner to read the video ID
+     * @param videos the global list of videos to search in
+     * @pre sc != null && videos != null
+     */
     private static void subtitleList(Scanner sc, Array<VideoStructure> videos){
         String id = sc.next();
         VideoStructure video = getVideoById(id, videos);
@@ -237,7 +273,13 @@ public class Main {
             System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");        }
     }
 
-    // create a podcast
+    /**
+     * Executes the command to register a new podcast in the system.
+     * Validates that the podcast title is unique before creation.
+     * @param sc the scanner to read podcast details (title, author, language)
+     * @param podcast the global list of podcasts to store the new record
+     * @pre sc != null && podcast != null
+     */
     private static void addPodcast(Scanner sc, Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
         String author = getExistingAuthorName(sc.nextLine(), podcast);
@@ -256,11 +298,12 @@ public class Main {
         System.out.println(PODCAST_CREATED);
     }
     /**
-     * Add a new episode for a podcast which exist
-     * @param sc Scanner for read data.
-     * @param video Array of video for global registration.
-     * @param podcast Array of podcasts for search a target .
-     * @pre duration > 0 && titleAlreadyExist(title, podcast) && !idAlreadyExists(id, video)
+     * Executes the command to add a new episode to an existing podcast.
+     * Validates duration, podcast existence, ID uniqueness, and chronological order.
+     * * @param sc the scanner to read episode details (title, ID, duration, URL, date)
+     * @param video the global list of videos to ensure ID uniqueness
+     * @param podcast the list of podcasts to find the target podcast
+     * @pre sc != null && video != null && podcast != null
      */
     private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
@@ -298,7 +341,13 @@ public class Main {
         video.insertLast(episode);
         System.out.println(EPISODE_CREATED);
     }
-    //Get data from podccast by title
+    /**
+     * Executes the command to display general information about a podcast.
+     * Shows title, author, language, and the release date of the latest episode if available.
+     * @param sc the scanner to read the podcast title
+     * @param pod the list of podcasts to search in
+     * @pre sc != null && pod != null
+     */
     private static void getPodcast(Scanner sc, Array<Podcasts> pod){
         String title = sc.nextLine().trim();
         if(!titleAlreadyExist(title, pod)){
@@ -311,6 +360,13 @@ public class Main {
         System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
 
     }
+    /**
+     * Executes the command to list all episodes associated with a specific podcast.
+     * Validates the existence of the podcast and checks if it contains any episodes.
+     * @param sc the scanner to read the podcast title
+     * @param podcast the list of podcasts to search in
+     * @pre sc != null && podcast != null
+     */
     private static void episodesList(Scanner sc, Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
 
@@ -333,7 +389,13 @@ public class Main {
         }
 
     }
-//List all podcasts by a author
+    /**
+     * Executes the command to list all podcasts created by a specific author.
+     * Filters the global podcast list and displays details for each match found.
+     * @param sc the scanner to read the author's name
+     * @param podcast the global list of podcasts to filter
+     * @pre sc != null && podcast != null
+     */
     private static void podcastList(Scanner sc, Array<Podcasts> podcast){
         String author = sc.nextLine().trim();
         Array<Podcasts> authorPod = getPodcastByAuthor(author, podcast);
@@ -349,7 +411,14 @@ public class Main {
         }
 
     }
-    //remove the podcast by title
+    /**
+     * Executes the command to remove a podcast and all its associated episodes from the system.
+     * Ensures that episodes are removed from the global video registry as well as the podcast list.
+     * @param sc the scanner to read the podcast title
+    * @param video the global list of videos (to remove associated episodes)
+    * @param podcast the global list of podcasts to remove the podcast from
+    * @pre sc != null && video != null && podcast != null
+            */
     private static void removePodcast(Scanner sc,Array<VideoStructure> video ,Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
         Podcasts pod = getPodcastByTitle(title, podcast);
@@ -372,6 +441,14 @@ public class Main {
         System.out.println(REMOVE_PODCAST);
 
     }
+    /**
+     * Executes the command to create a show from an existing publishable video.
+     * Validates show title uniqueness and ensures the base video exists.
+     * @param sc the scanner to read show details (author, video ID, transmission date)
+     * @param videos the global list of videos to find the base video
+     * @param showStructure the global list of shows to store the new record
+     * @pre sc != null && videos != null && showStructure != null
+     */
     private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
         String author = sc.nextLine();
         String videoId = sc.next();
@@ -396,7 +473,13 @@ public class Main {
         showStructure.insertLast(newShow);
         System.out.println(SHOW_CREATED);
     }
-
+    /**
+     * Executes the command to display detailed information about a specific show.
+     * Searches for the show by title and presents its transmission date and author.
+     * @param sc the scanner to read the show title
+     * @param showStructure the list of shows to search in
+     * @pre sc != null && showStructure != null
+     */
     private static void getShow(Scanner sc, Array<Shows> showStructure){
         String title = sc.nextLine().trim();
         Iterator<Shows> it = showStructure.iterator();
@@ -410,6 +493,14 @@ public class Main {
         }
         System.out.println(SHOW_DOES_NOT_EXIST);
     }
+
+    /**
+     * Executes the command to remove a show from the system.
+     * Iterates through the list to find the show by title and removes it from its specific position.
+     * @param sc the scanner to read the show title to be removed
+     * @param showStructure the list of shows to modify
+     * @pre sc != null && showStructure != null
+     */
     private static void removeShow(Scanner sc, Array<Shows> showStructure){
         String title = sc.nextLine().trim();
         Iterator<Shows> it = showStructure.iterator();
@@ -426,6 +517,12 @@ public class Main {
         System.out.println(SHOW_DOES_NOT_EXIST);
     }
 
+    /**
+     * Executes the command to remove a video from the system if it's not in use
+     * @param sc the scanner to read the video ID
+     * @param videos the global list of videos
+     * @param showStructure the list of shows to check for video usage
+     */
     private static void removeVideo(Scanner sc, Array<VideoStructure> videos, Array<Shows> showStructure){
         String videoId = sc.next();
         VideoStructure video = getVideoById(videoId,videos);
@@ -460,7 +557,9 @@ public class Main {
     }
 
 
-//Implement the command help
+    /**
+     * Displays the list of all available commands and their descriptions
+     */
     private static void help(){
         System.out.println("createpublishable - creates a new publishable video");
         System.out.println("createpremium - creates a new publishable Premium video");
@@ -481,10 +580,19 @@ public class Main {
         System.out.println("exit - terminates the execution of the program");
     }
 
-    // Auxiliary Methods
-/*
-    Verify if the id from VideoStructure exist
- */
+    /*
+         ----------------------------------------------------------------------------
+                                      AUXILIARY METHODS
+         ----------------------------------------------------------------------------
+    */
+
+    /**
+     * Checks if a video ID is already in use within the global list
+     * @param id the unique identifier to verify
+     * @param videos the global list of videos
+     * @return {@code true} if the ID exists (case-insensitive), {@code false} otherwise
+     * @pre id != null && videos != null
+     */
     private static boolean idAlreadyExists(String id, Array<VideoStructure> videos) {
         Iterator<VideoStructure> it = videos.iterator();
         while (it.hasNext()) {
@@ -495,7 +603,14 @@ public class Main {
         }
         return false;
     }
-// Verify in String languages if the language inserted exist in the library ISOLanguages
+
+
+    /**
+     * Verifies if the provided language code exists in the ISO 639 standard library
+     * @param code the language code to validate
+     * @return true if the language exists, false otherwise
+     * @pre code != null
+     */
     private static boolean isLanguageValid(String code) {
         String[] languages = Locale.getISOLanguages();
 
@@ -507,7 +622,13 @@ public class Main {
         return false;
     }
 
-    // Can get the video from id
+    /**
+     * Retrieves a video from the list based on its unique identifier
+     * @param id the unique ID of the video to search for
+     * @param video the global list of videos
+     * @return the video object if found, or  null if the ID does not exist
+     * @pre id != null && video != null
+     */
     private static VideoStructure getVideoById(String id,Array<VideoStructure> video){
         Iterator<VideoStructure> it = video.iterator();
         while(it.hasNext()){
@@ -518,7 +639,14 @@ public class Main {
         return null;
 
     }
-    // Search in podcast array if the title used already exist
+
+    /**
+     * Checks if a podcast title is already in use within the system
+     * @param title the title to verify
+     * @param podcast the global list of podcasts
+     * @return true if the title already exists (case-insensitive), false otherwise
+     * @pre title != null && podcast != null
+     */
     private static boolean titleAlreadyExist(String title, Array<Podcasts> podcast){
         Iterator<Podcasts> it = podcast.iterator();
         while(it.hasNext()){
@@ -529,7 +657,14 @@ public class Main {
         }
         return false;
     }
-    // Search on loop for the title
+
+    /**
+     * Searches for a podcast by its title
+     * @param title the title of the podcast to search for (case-insensitive)
+     * @param pod the global list of podcasts to search in
+     * @return the podcast object if found, or null if no podcast exists with that title
+     * @pre title != null && pod != null
+     */
     private static Podcasts getPodcastByTitle(String title,Array<Podcasts> pod){
         Iterator<Podcasts> it = pod.iterator();
         while(it.hasNext()){
@@ -540,7 +675,15 @@ public class Main {
         }
         return null;
     }
-// Give the podcast using the author
+
+    /**
+     * Search for all podcasts associated with a specific author.
+     * @param author  name of author to search (case-sensitive)
+     * @param pod The global list of podcasts where the research will be carried out
+     * @return An array containing all podcasts found by the author;
+     * return an empty array if no array is found.
+     * @pre author != null && pod != null
+     */
     private static Array<Podcasts> getPodcastByAuthor(String author, Array<Podcasts> pod){
         Array<Podcasts> result = new ArrayClass<>();
         Iterator<Podcasts> it = pod.iterator();
@@ -554,6 +697,14 @@ public class Main {
         return result;
 
     }
+
+    /**
+     * Search for the first author name added in the system for data integrity
+     * @param name is a name for the author to validate
+     * @param podcasts List of podcasts to search for an author name
+     * @return the first name (if exist) added of the author
+     * @pre name != null && podcast != null
+     */
     private static String getExistingAuthorName(String name, Array<Podcasts> podcasts) {
         Iterator<Podcasts> it = podcasts.iterator();
         while(it.hasNext()){
