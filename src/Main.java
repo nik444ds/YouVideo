@@ -45,7 +45,7 @@ public class Main {
     public static final String TITLE_ALREADY_USED = "Podcast with this title already exists.";
     public static final String PODCAST_CREATED = "Podcast created successfully.";
     public static final String EPISODE_CREATED = "Episode added successfully.";
-    public static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist";
+    public static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist.";
     public static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
     public static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
     public static final String HAS_NO_EPISODE = "No episodes available for this podcast.";
@@ -240,7 +240,7 @@ public class Main {
     // create a podcast
     private static void addPodcast(Scanner sc, Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
-        String author = sc.nextLine();
+        String author = getExistingAuthorName(sc.nextLine(), podcast);
         String language = sc.next();
         sc.nextLine();
         if(!isLanguageValid(language)){
@@ -306,7 +306,7 @@ public class Main {
             return;
         }
         Podcasts podcast = getPodcastByTitle(title,pod);
-        System.out.println("Podcast: " + title + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
+        System.out.println("Podcast: " + podcast.getTitle() + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
         if(podcast.getEpisode().size() > 0)
         System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
 
@@ -403,7 +403,7 @@ public class Main {
         while(it.hasNext()){
             Shows show = it.next();
             if(show.getTitle().equalsIgnoreCase(title)){
-                System.out.println("Show Date: " + show.getTransmissionDate() + " Author: " + show.getAuthor());
+                System.out.println("Show Date: " + show.getTransmissionDate() + " Author: " + show.getAuthor().trim());
                 System.out.println("Video: " + show.getTitle());
                 return;
             }
@@ -553,6 +553,15 @@ public class Main {
         }
         return result;
 
+    }
+    private static String getExistingAuthorName(String name, Array<Podcasts> podcasts) {
+        Iterator<Podcasts> it = podcasts.iterator();
+        while(it.hasNext()){
+            Podcasts p = it.next();
+            if(p.getAuthor().equalsIgnoreCase(name))
+                return p.getAuthor();
+        }
+        return name;
     }
 }
 
