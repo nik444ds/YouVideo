@@ -450,7 +450,7 @@ public class Main {
      * @pre sc != null && videos != null && showStructure != null
      */
     private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
-        String author = sc.nextLine();
+        String author = getExistingAuthorName(sc.nextLine(), showStructure);
         String videoId = sc.next();
         String transmissionDate = sc.next();
         sc.nextLine();
@@ -699,20 +699,23 @@ public class Main {
     }
 
     /**
-     * Search for the first author name added in the system for data integrity
-     * @param name is a name for the author to validate
-     * @param podcasts List of podcasts to search for an author name
-     * @return the first name (if exist) added of the author
-     * @pre name != null && podcast != null
+     * Searches for the original author name in the collection to maintain data consistency.
+     * @param name the author name to validate
+     * @param collection List of Authored objects to search
+     * @return the name as it was first stored, or the input name if not found
      */
-    private static String getExistingAuthorName(String name, Array<Podcasts> podcasts) {
-        Iterator<Podcasts> it = podcasts.iterator();
+    private static <T extends Authored> String getExistingAuthorName(String name, Array<T> collection) {
+        Iterator<T> it = collection.iterator();
         while(it.hasNext()){
-            Podcasts p = it.next();
-            if(p.getAuthor().equalsIgnoreCase(name))
-                return p.getAuthor();
+            T item = it.next();
+            if(item.getAuthor().equalsIgnoreCase(name)) {
+                return item.getAuthor();
+            }
         }
         return name;
     }
+
+
+
 }
 
