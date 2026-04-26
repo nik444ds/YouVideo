@@ -104,7 +104,7 @@ public class Main {
                case CMD_EPISODES -> episodesList(sc,podcast);
                case CMD_AUTHOR_PODCAST -> podcastList(sc,podcast);
                case CMD_REMOVE_PODCAST -> removePodcast(sc,videos,podcast);
-               case CMD_CREATE_SHOW -> createshow(sc,videos,show);
+               case CMD_CREATE_SHOW -> createshow(sc,videos,show,podcast);
                case CMD_GET_SHOW -> getShow(sc,show);
                case CMD_REMOVE_SHOW -> removeShow(sc,show);
                case CMD_REMOVE_VIDEO -> removeVideo(sc,videos,show);
@@ -449,8 +449,10 @@ public class Main {
      * @param showStructure the global list of shows to store the new record
      * @pre sc != null && videos != null && showStructure != null
      */
-    private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure) {
-        String author = getExistingAuthorName(sc.nextLine(), showStructure);
+    private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure, Array<Podcasts> podcast) {
+        String author = sc.nextLine().trim();
+        author = getExistingAuthorName(author, podcast);
+        author = getExistingAuthorName(author, showStructure);
         String videoId = sc.next();
         String transmissionDate = sc.next();
         sc.nextLine();
