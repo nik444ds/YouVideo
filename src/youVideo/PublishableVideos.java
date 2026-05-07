@@ -6,7 +6,7 @@ import java.util.Locale;
  * Represents a video that can be published with metadata such as title and publisher.
  * Extends VideoStructure and implements Titled and Languaged interfaces.
  */
-public class PublishableVideos extends VideoStructure implements Titled, Languaged {
+public class PublishableVideos extends AbstractVideoStructureClass implements Titled, Languaged {
     private final String publisher;
     private final String title;
     private final Locale language;

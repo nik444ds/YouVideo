@@ -4,7 +4,7 @@ package youVideo;
  * Represents a specific episode of a podcast.
  * Extends the basic VideoStructure by adding podcast-specific metadata like release date.
  */
-public class Episode extends VideoStructure {
+public class Episode extends AbstractVideoStructureClass {
     private final String releaseDate;
 
     /**

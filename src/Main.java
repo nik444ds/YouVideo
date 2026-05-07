@@ -219,7 +219,7 @@ public class Main {
             return;
         }
 
-        if(!(videoStructure instanceof PremiumVideos premiumVideos)){
+        if(!(abstractVideoStructureClass instanceof PremiumVideos premiumVideos)){
             System.out.println(NOT_A_PREMIUM_VIDEO);
             return;
         }
@@ -238,14 +238,14 @@ public class Main {
     private static void getVideo(Scanner sc, Array<VideoStructure> videos){
         String id = sc.next();
         sc.nextLine();
-        VideoStructure videoStructure = getVideoById(id,videos);
+        VideoStructure VideoStructure = getVideoById(id,videos);
         //Increment a statement if the id is from podcasts episode
-        if(videoStructure == null || videoStructure instanceof Episode){
+        if(VideoStructure == null || VideoStructure instanceof Episode){
             System.out.println(INVALID_PUBLISHABLE_VIDEO_1 + id + INVALID_PUBLISHABLE_VIDEO_2);
             return;
         }
         //executed by polymorphism
-       videoStructure.display();
+       VideoStructure.display();
 
 
     }
@@ -419,7 +419,7 @@ public class Main {
     * @param podcast the global list of podcasts to remove the podcast from
     * @pre sc != null && video != null && podcast != null
             */
-    private static void removePodcast(Scanner sc,Array<VideoStructure> video ,Array<Podcasts> podcast){
+    private static void removePodcast(Scanner sc, Array<VideoStructure> video , Array<Podcasts> podcast){
         String title = sc.nextLine().trim();
         Podcasts pod = getPodcastByTitle(title, podcast);
         if(pod == null){
@@ -631,7 +631,7 @@ public class Main {
      * @return the video object if found, or  null if the ID does not exist
      * @pre id != null && video != null
      */
-    private static VideoStructure getVideoById(String id,Array<VideoStructure> video){
+    private static VideoStructure getVideoById(String id, Array<VideoStructure> video){
         Iterator<VideoStructure> it = video.iterator();
         while(it.hasNext()){
             VideoStructure v = it.next();
