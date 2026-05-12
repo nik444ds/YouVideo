@@ -1,5 +1,5 @@
 package youVideo;
-
+import java.util.Map;
 /**
  * Base abstract class representing the core structure of any video in the system.
  * Defines shared attributes like ID, duration, and URL that all video types must possess.

@@ -1,7 +1,7 @@
 package youVideo;
 
-import dataStructures.Array;
-import dataStructures.ArrayClass;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -13,7 +13,7 @@ public class Podcasts implements Titled, Authored, Languaged {
     private final String title;
     private final String author;
     private final Locale language;
-    private final Array<Episode> episode;
+    private final List<Episode> episode;
 
     /**
      * Constructs a new Podcast and initializes its episode collection.
@@ -25,7 +25,9 @@ public class Podcasts implements Titled, Authored, Languaged {
         this.title = title;
         this.author = author;
         this.language = Locale.of(language);
-        this.episode = new ArrayClass<>();
+        this.episode = new LinkedList<>();
+
+
     }
 
     @Override
@@ -45,9 +47,9 @@ public class Podcasts implements Titled, Authored, Languaged {
 
     /**
      * Returns the list of episodes associated with this podcast.
-     * @return an Array of Episode objects
+     * @return a List of Episode objects
      */
-    public Array<Episode> getEpisode() {
+    public List<Episode> getEpisode() {
         return episode;
     }
 
@@ -58,6 +60,6 @@ public class Podcasts implements Titled, Authored, Languaged {
      * @param episode the episode to be added
      */
     public void addEpisode(Episode episode) {
-        this.episode.insertAt(episode, 0);
+        this.episode.addFirst(episode);
     }
 }

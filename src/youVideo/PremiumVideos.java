@@ -1,6 +1,8 @@
 package youVideo;
+import dataStructures.Array;
 
-import dataStructures.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a premium version of a publishable video that includes subtitles.
@@ -8,7 +10,7 @@ import dataStructures.*;
  */
 public class PremiumVideos extends PublishableVideos {
 
-    private final Array<Subtitles> subtitles = new ArrayClass<>();
+    private final List<Subtitles> subtitles = new ArrayList<>();
 
     /**
      * Constructs a new PremiumVideo with an initial mandatory subtitle.
@@ -24,14 +26,14 @@ public class PremiumVideos extends PublishableVideos {
     public PremiumVideos(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl) {
         super(id, duration, url, publisher, title, language);
         Subtitles subtitle = new Subtitles(subLanguage, subUrl);
-        subtitles.insertLast(subtitle);
+        subtitles.add(subtitle);
     }
 
     /**
      * Returns the collection of subtitles available for this premium video.
      * @return an Array of Subtitles
      */
-    public Array<Subtitles> getSubtitles() {
+    public List<Subtitles> getSubtitles() {
         return subtitles;
     }
 
@@ -41,7 +43,7 @@ public class PremiumVideos extends PublishableVideos {
      * @param url the URL where the subtitle file is located
      */
     public void addSubtitle(String language, String url) {
-        subtitles.insertLast(new Subtitles(language, url));
+        subtitles.add(new Subtitles(language, url));
     }
 
     /**

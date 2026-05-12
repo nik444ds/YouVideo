@@ -219,7 +219,7 @@ public class Main {
             return;
         }
 
-        if(!(abstractVideoStructureClass instanceof PremiumVideos premiumVideos)){
+        if(!(videoStructure instanceof PremiumVideos premiumVideos)){
             System.out.println(NOT_A_PREMIUM_VIDEO);
             return;
         }
