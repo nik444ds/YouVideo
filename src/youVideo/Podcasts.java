@@ -27,7 +27,6 @@ public class Podcasts implements Titled, Authored, Languaged {
         this.language = Locale.of(language);
         this.episode = new LinkedList<>();
 
-
     }
 
     @Override
