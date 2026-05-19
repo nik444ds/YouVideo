@@ -32,7 +32,7 @@ public interface VideoNetwork {
      * @param language
      * @param url
      */
-    public void createSubtitle(String language, String url);
+    public void createSubtitle(String id,String language, String url);
 
     /**
      *

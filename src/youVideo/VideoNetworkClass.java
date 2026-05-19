@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class VideoNetworkClass implements VideoNetwork{
-    private Map<String, VideoStructure> videos;
-    private List<Podcasts> podcasts;
+    private  Map<String, VideoStructure> videos;
+    private  List<Podcasts> podcasts;
     private List<Shows> shows;
 
     public VideoNetworkClass(){
@@ -20,16 +20,32 @@ public class VideoNetworkClass implements VideoNetwork{
 
     @Override
     public void createPublishable(String id, int duration, String url, String publisher, String title, String language) {
+        //verify if the id already exists
+    if(videos.containsKey(id)){
+        return;
+    }
+    VideoStructure newVideo = new PublishableVideos(id, duration,url,publisher,title,language);
 
+    videos.put(id, newVideo);
     }
 
     @Override
     public void createPremium(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl) {
+        //verify if the id already exists
+        if(videos.containsKey(id))
+            return;
+        VideoStructure newVideo = new PremiumVideos(id,duration,url,publisher,title,language,subLanguage,subUrl);
 
+        videos.put(id, newVideo);
     }
 
     @Override
-    public void createSubtitle(String language, String url) {
+    public void createSubtitle(String id,String language, String url) {
+        VideoStructure video = videos.get(id);
+
+        if(video instanceof PremiumVideos premiumVideos){
+            premiumVideos.addSubtitle(language, url);
+        }
 
     }
 
