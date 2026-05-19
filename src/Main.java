@@ -5,9 +5,7 @@
 
  */
 import youVideo.*;
-import youVideo.Exceptions.IdAlreadyExistsException;
-import youVideo.Exceptions.InvalidDurationException;
-import youVideo.Exceptions.InvalidLanguageException;
+import youVideo.Exceptions.*;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -90,10 +88,10 @@ public class Main {
 
         while(!commands.equals(CMD_EXIT)){
             switch(commands){
-               case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, videos);
-               case CMD_CREATE_PREMIUM -> addPremium(sc, videos);
-               case CMD_ADD_SUB -> addSub(sc, videos);
-               case CMD_GET_VIDEO -> getVideo(sc, videos);
+               case CMD_CREATE_PUBLISHABLE -> addPublishable(sc, video);
+               case CMD_CREATE_PREMIUM -> addPremium(sc, video);
+               case CMD_ADD_SUB -> addSub(sc, video);
+               case CMD_GET_VIDEO -> getVideo(sc, video);
                case CMD_SUBTITLE -> subtitleList(sc,videos);
                case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
                case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
@@ -152,7 +150,7 @@ public class Main {
      * @param video the global list of videos to store the new premium record
      * @pre sc != null && video != null
      */
-    private static void addPremium(Scanner sc, Array<VideoStructure> video){
+    private static void addPremium(Scanner sc, VideoNetwork video){
         String id = sc.next();
         int duration = sc.nextInt();
         String url  = sc.next();
@@ -162,78 +160,54 @@ public class Main {
         String languageCode = sc.nextLine();
         String initSubUrl = sc.nextLine();
         String initLanguageCode = sc.nextLine().trim();
-        /*if(!isLanguageValid(languageCode)){
-            System.out.println(INVALID_LANGUAGE);
-            return;
-        }
-        if(!isLanguageValid(initLanguageCode)){
-            System.out.println(INVALID_LANGUAGE_SUBTITLE);
-            return;
-        }
-        if(duration <= 0) {
-            System.out.println(INVALID_DURATION);
-            return;
-        }
-        if(idAlreadyExists(id, video)){
-            System.out.println(ID_ALREADY_EXISTS);
-            return;
-        }
-        PremiumVideos premiumVideos = new PremiumVideos(id,duration,url,publisher,title,languageCode,initLanguageCode,initSubUrl);
-        video.insertLast(premiumVideos);*/
 
-        System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
-
+        try{
+            video.createPremium(id, duration,url,publisher,title, languageCode,initSubUrl,initLanguageCode);
+            System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
+        }
+          catch (InvalidLanguageException e) {System.out.println(INVALID_LANGUAGE);}
+          catch (InvalidLanguageSubtitleException e) {System.out.println(INVALID_LANGUAGE_SUBTITLE);}
+          catch (InvalidDurationException e) {System.out.println(INVALID_DURATION);}
+          catch (IdAlreadyExistsException e){System.out.println(ID_ALREADY_EXISTS);}
     }
     /**
      * Executes the command to add a new subtitle to an existing premium video.
      * Verifies if the language code is valid, if the video exists, and if it is a premium type.
      * @param sc the scanner to read subtitle details (video ID, subtitle URL, and language code)
-     * @param videos the global list of videos to search for the target video
+     * @param video the global list of videos to search for the target video
      * @pre sc != null && videos != null
      */
 
-    private static void addSub(Scanner sc,Array<VideoStructure> videos){
+    private static void addSub(Scanner sc, VideoNetwork video){
         String id = sc.next();
         String  languageUrl = sc.next();
         String languageCode = sc.next();
         sc.nextLine();
-        VideoStructure videoStructure = getVideoById(id,videos);
-        if(!isLanguageValid(languageCode)){
-            System.out.println(INVALID_LANGUAGE_SUBTITLE);
-            return;
-        }
-        if(videoStructure == null){
-            System.out.println(VIDEO_DOES_NOT_EXIST);
-            return;
-        }
 
-        if(!(videoStructure instanceof PremiumVideos premiumVideos)){
-            System.out.println(NOT_A_PREMIUM_VIDEO);
-            return;
+        try{
+            video.createSubtitle(id,languageUrl,languageCode);
+            System.out.println(CREATED_SUB);
         }
-        premiumVideos.addSubtitle(languageCode, languageUrl);
-
-        System.out.println(CREATED_SUB);
+           catch(InvalidLanguageSubtitleException e) { System.out.println(INVALID_LANGUAGE_SUBTITLE);}
+           catch(VideoDoesNotExistException e){System.out.println(VIDEO_DOES_NOT_EXIST);}
+           catch(NotAPremiumVideoException e){System.out.println(NOT_A_PREMIUM_VIDEO);}
     }
 
     /**
      * Executes the command to display detailed information about a specific video.
      * Verifies if the video exists in the system before presentation.
      * @param sc the scanner to read the target video ID
-     * @param videos the global list of videos to search in
+     * @param video the global list of videos to search in
      * @pre sc != null && videos != null
      */
-    private static void getVideo(Scanner sc, Array<VideoStructure> videos){
+    private static void getVideo(Scanner sc, VideoNetwork video){
         String id = sc.next();
         sc.nextLine();
-        VideoStructure VideoStructure = getVideoById(id,videos);
-        //Increment a statement if the id is from podcasts episode
-        if(VideoStructure == null || VideoStructure instanceof Episode){
-            System.out.println(INVALID_PUBLISHABLE_VIDEO_1 + id + INVALID_PUBLISHABLE_VIDEO_2);
-            return;
+
+        try{
+            video.getVideo(id);
         }
-        //executed by polymorphism
-       VideoStructure.display();
+        catch(InvalidPublishableVideoException e) {System.out.println(INVALID_PUBLISHABLE_VIDEO_1 + id + INVALID_PUBLISHABLE_VIDEO_2);}
 
 
     }
