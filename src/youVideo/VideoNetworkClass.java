@@ -3,6 +3,7 @@ package youVideo;
 import youVideo.Exceptions.IdAlreadyExistsException;
 import youVideo.Exceptions.InvalidDurationException;
 import youVideo.Exceptions.InvalidLanguageException;
+import youVideo.Exceptions.PodcastAlreadyExistsException;
 
 import java.util.*;
 
@@ -72,12 +73,32 @@ public class VideoNetworkClass implements VideoNetwork{
 
     @Override
     public void subList(String id) {
-
+        VideoStructure video = videos.get(id);
+        if (video == null || !(video instanceof PremiumVideos)) {
+            throw new IllegalArgumentException("No Premium Video with ID.");
+        }
+        PremiumVideos premiumVideo = (PremiumVideos) video;
+        System.out.println("Subtitles for video " + premiumVideo.getTitle() + ":");
+        List<Subtitles> subtitles = premiumVideo.getSubtitles();
+        for (Subtitles sub : subtitles) {
+            System.out.println("- " + sub.getUrl() + "(" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
+        }
     }
 
     @Override
-    public void createPodcast(String title, String author, String language) {
+    public void createPodcast(String title, String author, String language)throws
+            InvalidLanguageException, PodcastAlreadyExistsException {
+        if (!isLanguageValid(language)){
+            throw new InvalidLanguageException();
+    }
+    for (Podcasts p : podcasts){
+        if(p.getTitle().equalsIgnoreCase(title){
+            throw new PodcastAlreadyExistsException();
+        }
+    }
 
+    Podcasts newPodcast = new Podcasts(title,author,language);
+    podcasts.add(newPodcast);
     }
 
     @Override
