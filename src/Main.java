@@ -5,6 +5,9 @@
 
  */
 import youVideo.*;
+import youVideo.Exceptions.IdAlreadyExistsException;
+import youVideo.Exceptions.InvalidDurationException;
+import youVideo.Exceptions.InvalidLanguageException;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -132,23 +135,15 @@ public class Main {
         String publisher = sc.nextLine();
         String title = sc.nextLine();
         String languageCode = sc.nextLine();
-        if(!isLanguageValid(languageCode)){
-            System.out.println(INVALID_LANGUAGE);
-            return;
-        }
-        if(duration <= 0) {
-            System.out.println(INVALID_DURATION);
-            return;
-        }
-        if(idAlreadyExists(id, video)){
-            System.out.println(ID_ALREADY_EXISTS);
-            return;
-        }
-
-        video.createPublishable(id,duration,url,publisher,title,languageCode);
+      try{
+          video.createPublishable(id,duration,url,publisher,title,languageCode);
+          System.out.println("Video " + id + VIDEO_CREATED_SUCCESS);
+      }
+      catch (InvalidLanguageException e) { System.out.println(INVALID_LANGUAGE); }
+      catch (InvalidDurationException e) { System.out.println(INVALID_DURATION); }
+      catch (IdAlreadyExistsException e) { System.out.println(ID_ALREADY_EXISTS); }
 
 
-        System.out.println("Video " + id + VIDEO_CREATED_SUCCESS);
     }
     /**
      * Executes the command to create and add a new premium video.
@@ -167,7 +162,7 @@ public class Main {
         String languageCode = sc.nextLine();
         String initSubUrl = sc.nextLine();
         String initLanguageCode = sc.nextLine().trim();
-        if(!isLanguageValid(languageCode)){
+        /*if(!isLanguageValid(languageCode)){
             System.out.println(INVALID_LANGUAGE);
             return;
         }
@@ -184,7 +179,7 @@ public class Main {
             return;
         }
         PremiumVideos premiumVideos = new PremiumVideos(id,duration,url,publisher,title,languageCode,initLanguageCode,initSubUrl);
-        video.insertLast(premiumVideos);
+        video.insertLast(premiumVideos);*/
 
         System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
 

@@ -1,9 +1,10 @@
 package youVideo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import youVideo.Exceptions.IdAlreadyExistsException;
+import youVideo.Exceptions.InvalidDurationException;
+import youVideo.Exceptions.InvalidLanguageException;
+
+import java.util.*;
 
 public class VideoNetworkClass implements VideoNetwork{
     private  Map<String, VideoStructure> videos;
@@ -19,11 +20,19 @@ public class VideoNetworkClass implements VideoNetwork{
 
 
     @Override
-    public void createPublishable(String id, int duration, String url, String publisher, String title, String language) {
-        //verify if the id already exists
-    if(videos.containsKey(id)){
-        return;
-    }
+    public void createPublishable(String id, int duration, String url, String publisher, String title, String language)
+    throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException {
+        // 1.  Language
+        if (!isLanguageValid(language))
+            throw new InvalidLanguageException();
+
+        // 2. Duration
+        if (duration <= 0)
+            throw new InvalidDurationException();
+
+        // 3.  ID (using map)
+        if (videos.containsKey(id))
+            throw new IdAlreadyExistsException();
     VideoStructure newVideo = new PublishableVideos(id, duration,url,publisher,title,language);
 
     videos.put(id, newVideo);
@@ -139,5 +148,16 @@ public class VideoNetworkClass implements VideoNetwork{
     @Override
     public void tagged() {
 
+    }
+    @Override
+    public boolean isLanguageValid(String code) {
+        String[] languages = Locale.getISOLanguages();
+
+        for (String lang : languages) {
+            if (lang.equalsIgnoreCase(code)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

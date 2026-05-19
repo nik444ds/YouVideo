@@ -140,4 +140,12 @@ public interface VideoNetwork {
      * New command
      */
     public void tagged();
+
+    /**
+     * Verifies if the provided language code exists in the ISO 639 standard library
+     * @param code the language code to validate
+     * @return true if the language exists, false otherwise
+     * @pre code != null
+     */
+    boolean isLanguageValid(String code);
 }
