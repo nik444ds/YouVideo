@@ -1,0 +1,109 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Video does not exist.
+Video does not exist.
+Video PuB001 created successfully.
+Video pUb002 created successfully.
+PREMIUM Video PrE001 created successfully.
+PREMIUM Video pRe002 created successfully.
+Video PuB001 360 Title: Java Programming Fundamentals
+File: https://cdn.education.com/java/basics/2024/java-fundamentals.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+Video pUb002 480 Title: Python Advanced Concepts
+File: https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4 Publisher: Tech School Solutions Language: SPANISH
+PREMIUM Video PrE001 540 Title: Full Stack Web Development
+File: https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4 Publisher: Web Masters LLC Language: PORTUGUESE
+PREMIUM Video pRe002 420 Title: Data Science with Python
+File: https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4 Publisher: Data Science Hub Language: FRENCH
+Video removed successfully.
+Publishable Video pub001 does not exist.
+Video removed successfully.
+Publishable Video pub002 does not exist.
+Video removed successfully.
+Publishable Video pre001 does not exist.
+Video removed successfully.
+Publishable Video pre002 does not exist.
+Podcast created successfully.
+Podcast created successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episodes for podcast TECH TALK PODCAST:
+Episode Ep002: 52 min Date: 2025-03-22
+URL: http://example.com/tech-ep2.mp3
+Episode Ep001: 45 min Date: 2025-03-15
+URL: http://example.com/tech-ep1.mp3
+Episodes for podcast code stories podcast:
+Episode Ep102: 62 min Date: 2025-03-27
+URL: http://example.com/code-ep2.mp3
+Episode Ep101: 55 min Date: 2025-03-20
+URL: http://example.com/code-ep1.mp3
+Cannot remove: video is an episode of a podcast.
+Cannot remove: video is an episode of a podcast.
+Cannot remove: video is an episode of a podcast.
+Cannot remove: video is an episode of a podcast.
+Publishable Video Ep001 does not exist.
+Publishable Video Ep002 does not exist.
+Publishable Video Ep101 does not exist.
+Publishable Video Ep102 does not exist.
+Video PuB003 created successfully.
+PREMIUM Video PrE003 created successfully.
+Show created successfully.
+Show created successfully.
+Show does not exist.
+Show Date: 2025-04-15 Author: JOHN DOE
+Video: REACT COMPLETE GUIDE
+Show Date: 2025-04-16 Author: jane smith
+Video: DEVOPS ENGINEERING
+Cannot remove: video is used in a show.
+Cannot remove: video is used in a show.
+Video PuB003 600 Title: REACT COMPLETE GUIDE
+File: https://example.com/react-complete.mp4 Publisher: React Masters LLC Language: ENGLISH
+PREMIUM Video PrE003 900 Title: DEVOPS ENGINEERING
+File: https://example.com/devops-full.mp4 Publisher: DevOps Academy Language: ENGLISH
+Show Date: 2025-04-15 Author: JOHN DOE
+Video: REACT COMPLETE GUIDE
+Show does not exist.
+Show Date: 2025-04-16 Author: jane smith
+Video: DEVOPS ENGINEERING
+Show removed successfully.
+Show removed successfully.
+Video removed successfully.
+Video removed successfully.
+Publishable Video pub003 does not exist.
+Publishable Video pre003 does not exist.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!

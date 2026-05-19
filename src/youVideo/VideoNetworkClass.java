@@ -51,7 +51,14 @@ public class VideoNetworkClass implements VideoNetwork{
 
     @Override
     public void getVideo(String id) {
-
+        VideoStructure video = videos.get(id);
+        if(video == null){
+            throw new IllegalArgumentException("Publishable video " + id + " does not exist.");
+        }
+        if(video instanceof Episode ){
+            throw new IllegalArgumentException("Publishable video " + id + " does not exist.");
+        }
+        video.display();
     }
 
     @Override

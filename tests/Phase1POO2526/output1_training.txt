@@ -1,0 +1,160 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Video does not exist.
+Publishable Video PUB999 does not exist.
+Video PUB001 created successfully.
+Video does not exist.
+Publishable Video pub999 does not exist.
+Publishable Video bas001 does not exist.
+Video PUB001 360 Title: Java Programming Fundamentals
+File: https://example.com/java-basics.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+Video removed successfully.
+Video pub001 created successfully.
+Video pub002 created successfully.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Video pub003 created successfully.
+Video pub004 created successfully.
+Video pub001 360 Title: Java Programming Fundamentals
+File: https://example.com/java-basics.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+Video pub002 480 Title: Conceitos avancados de Python
+File: https://example.com/python-advanced.mp4 Publisher: Ca nos e que sabemos Language: PORTUGUESE
+Video pub003 300 Title: JavaScript Essentials
+File: https://example.com/javascript-essentials.mp4 Publisher: JS Master Seul Institute Language: KOREAN
+Video pub004 540 Title: Spring Boot Masterclass
+File: https://example.com/spring-boot.mp4 Publisher: Spring Framework Academy Language: URDU
+Video pUb005 created successfully.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Video pub006 created successfully.
+Video pub007 created successfully.
+Video pub008 created successfully.
+Video pUb005 720 Title: React Complete Guide
+File: https://example.com/react-complete.mp4 Publisher: React Masters LLC Language: ENGLISH
+Video pub006 420 Title: Django Framework Web
+File: https://example.com/django-framework.mp4 Publisher: Django Fundacao Language: PORTUGUESE
+Video pub007 600 Title: Vue.js Essentials
+File: https://example.com/vue-essentials.mp4 Publisher: Vue.js Korean Core Team Language: KOREAN
+Video pub008 900 Title: TypeScript Complete Guide
+File: https://example.com/typescript-guide.mp4 Publisher: TypeScript Development Group Language: URDU
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Publishable Video Pub002 does not exist.
+Publishable Video Pub004 does not exist.
+Publishable Video Pub006 does not exist.
+Publishable Video Pub008 does not exist.
+Invalid value.
+Invalid language type.
+Publishable Video pUb009 does not exist.
+Publishable Video pUb010 does not exist.
+Publishable Video pUb999 does not exist.
+Video removed successfully.
+Publishable Video pub001 does not exist.
+Video pub003 300 Title: JavaScript Essentials
+File: https://example.com/javascript-essentials.mp4 Publisher: JS Master Seul Institute Language: KOREAN
+Video pUb005 720 Title: React Complete Guide
+File: https://example.com/react-complete.mp4 Publisher: React Masters LLC Language: ENGLISH
+Video pub007 600 Title: Vue.js Essentials
+File: https://example.com/vue-essentials.mp4 Publisher: Vue.js Korean Core Team Language: KOREAN
+Publishable Video pub0022 does not exist.
+Invalid value.
+Publishable Video pub009 does not exist.
+Video does not exist.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!

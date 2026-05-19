@@ -1,0 +1,97 @@
+help
+unknowncommand
+createbasic bas001 360 https://example.com/java-basics.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+REMOVEvideo pub999
+getvideo PUB999
+CREATEpublishable PUB001 360 https://example.com/java-basics.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+removevideo pub999
+GETvideo pub999
+getvideo bas001
+getvideo pub001
+removevideo puB001
+createpublishable pub001 360 https://example.com/java-basics.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+createpublishable pub002 480 https://example.com/python-advanced.mp4
+Ca nos e que sabemos
+Conceitos avancados de Python
+Pt
+hELP
+unknowncommand
+createpublishable pub003 300 https://example.com/javascript-essentials.mp4
+JS Master Seul Institute
+JavaScript Essentials
+kO
+createpublishable pub004 540 https://example.com/spring-boot.mp4
+Spring Framework Academy
+Spring Boot Masterclass
+UR
+getvideo pub001
+getvideo Pub002
+getvideo pUb003
+getvideo puB004
+createpublishable pUb005 720 https://example.com/react-complete.mp4
+React Masters LLC
+React Complete Guide
+en
+HELP
+unknowncommand
+createpublishable pub006 420 https://example.com/django-framework.mp4
+Django Fundacao
+Django Framework Web
+PT
+createpublishable pub007 600 https://example.com/vue-essentials.mp4
+Vue.js Korean Core Team
+Vue.js Essentials
+KO
+createpublishable pub008 900 https://example.com/typescript-guide.mp4
+TypeScript Development Group
+TypeScript Complete Guide
+UR
+getvideo pub005
+getvideo PUB006
+getvideo pub007
+getvideo puB008
+removevideo pub002
+removevideo pub004
+removevideo pub006
+removevideo Pub008
+help
+unknowncommand
+getvideo Pub002
+getvideo Pub004
+getvideo Pub006
+getvideo Pub008
+createpublishable PUB009 0 https://example.com/invalid-duration.mp4
+Invalid Publisher Name
+Invalid Duration
+EN
+createpublishable pub010 600 https://example.com/invalid-language.mp4
+Invalid Publisher Corp.
+Invalid Language
+XX
+getvideo pUb009
+getvideo pUb010
+getvideo pUb999
+REMOVEVIDEO pub001
+getVIDEO pub001
+getVideo pub003
+getVideo pub005
+getVideo pub007
+getVideo pub0022
+Createpublishable pub009 -245 https://example.com/invalid-duration.mp4
+Invalid Publisher Name
+Invalid Duration
+EN
+geTvideo pub009
+removeVideo pub009
+HELP
+unknowncommand
+eXIT

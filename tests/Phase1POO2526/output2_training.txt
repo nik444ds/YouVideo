@@ -1,0 +1,143 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Video does not exist.
+Publishable Video pub999 does not exist.
+Video does not exist.
+Publishable Video pre999 does not exist.
+Video does not exist.
+Publishable Video pub001 does not exist.
+Video does not exist.
+Publishable Video pre001 does not exist.
+Video pub001 created successfully.
+PREMIUM Video pre001 created successfully.
+Video pub001 360 Title: Java Programming Fundamentals
+File: https://example.com/java-basics.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+PREMIUM Video pre001 540 Title: Full Stack Web Development
+File: https://example.com/web-dev-full.mp4 Publisher: Web Masters LLC Language: ENGLISH
+Video does not exist.
+Publishable Video pub002 does not exist.
+Video does not exist.
+Publishable Video pre002 does not exist.
+Video pub002 created successfully.
+PREMIUM Video pre002 created successfully.
+Video pub002 480 Title: Conceitos Avancados de Python
+File: https://example.com/python-advanced.mp4 Publisher: Tech School Solutions Language: PORTUGUESE
+PREMIUM Video pre002 420 Title: Data Science em Python
+File: https://example.com/data-science.mp4 Publisher: Data Science HUBU Language: PORTUGUESE
+Video pub003 created successfully.
+PREMIUM Video pre003 created successfully.
+Video pub004 created successfully.
+PREMIUM Video pre004 created successfully.
+Video pub005 created successfully.
+PREMIUM Video pre005 created successfully.
+Video pub006 created successfully.
+PREMIUM Video pre006 created successfully.
+Video pub007 created successfully.
+PREMIUM Video pre007 created successfully.
+Video pub003 300 Title: JavaScript Essenciales
+File: https://example.com/javascript-essentials.mp4 Publisher: JS Master Institute Language: SPANISH
+PREMIUM Video pre003 600 Title: Vue.js Essenciales
+File: https://example.com/vue-essentials.mp4 Publisher: Vue.js Core Team Language: SPANISH
+Video pub004 540 Title: Spring Boot Tres Bon
+File: https://example.com/spring-boot.mp4 Publisher: Spring Framework Academy Language: FRENCH
+PREMIUM Video pre004 720 Title: React Complete Guide - Fantastique
+File: https://example.com/react-complete.mp4 Publisher: React Masters LLC Language: FRENCH
+Video pub005 420 Title: Django Web Framework for Koreans
+File: https://example.com/django-framework.mp4 Publisher: Django Software Foundation Language: KOREAN
+PREMIUM Video pre005 900 Title: DevOps Engineering For KOREANS
+File: https://example.com/devops-full.mp4 Publisher: DevOps Seul Academy Language: KOREAN
+Video pub006 480 Title: TypeScript Complete Guide
+File: https://example.com/typescript-guide.mp4 Publisher: TypeScript Japan Development Group Language: JAPANESE
+PREMIUM Video pre006 660 Title: AI and Machine Learning Foundations
+File: https://example.com/ai-ml-foundations.mp4 Publisher: Japan AI Research Lab Language: JAPANESE
+Video pub007 540 Title: Cloud Computing Essentials
+File: https://example.com/cloud-computing.mp4 Publisher: Cloud Masters Language: HINDI
+PREMIUM Video pre007 780 Title: Cybersecurity Fundamentals
+File: https://example.com/cybersecurity.mp4 Publisher: Indian Security Academy Language: HINDI
+Invalid language type.
+Video with this ID already exists.
+Video with this ID already exists.
+Invalid value.
+Invalid value.
+Invalid language type.
+Invalid value.
+Invalid value.
+Invalid language type in subtitle.
+Publishable Video pub008 does not exist.
+Publishable Video pub009 does not exist.
+Publishable Video pub010 does not exist.
+Publishable Video pre008 does not exist.
+Publishable Video pre009 does not exist.
+Publishable Video pre010 does not exist.
+Publishable Video pre011 does not exist.
+Publishable Video pub999 does not exist.
+Publishable Video pre999 does not exist.
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+Video does not exist.
+Video does not exist.
+Video does not exist.
+Publishable Video pub002 does not exist.
+Publishable Video pre002 does not exist.
+Publishable Video pub004 does not exist.
+Publishable Video pre004 does not exist.
+Publishable Video pub006 does not exist.
+Publishable Video pre006 does not exist.
+Video does not exist.
+Video does not exist.
+Video pub001 360 Title: Java Programming Fundamentals
+File: https://example.com/java-basics.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+PREMIUM Video pre001 540 Title: Full Stack Web Development
+File: https://example.com/web-dev-full.mp4 Publisher: Web Masters LLC Language: ENGLISH
+Video pub003 300 Title: JavaScript Essenciales
+File: https://example.com/javascript-essentials.mp4 Publisher: JS Master Institute Language: SPANISH
+PREMIUM Video pre003 600 Title: Vue.js Essenciales
+File: https://example.com/vue-essentials.mp4 Publisher: Vue.js Core Team Language: SPANISH
+Video pub005 420 Title: Django Web Framework for Koreans
+File: https://example.com/django-framework.mp4 Publisher: Django Software Foundation Language: KOREAN
+PREMIUM Video pre005 900 Title: DevOps Engineering For KOREANS
+File: https://example.com/devops-full.mp4 Publisher: DevOps Seul Academy Language: KOREAN
+Video pub007 540 Title: Cloud Computing Essentials
+File: https://example.com/cloud-computing.mp4 Publisher: Cloud Masters Language: HINDI
+PREMIUM Video pre007 780 Title: Cybersecurity Fundamentals
+File: https://example.com/cybersecurity.mp4 Publisher: Indian Security Academy Language: HINDI
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Bye!

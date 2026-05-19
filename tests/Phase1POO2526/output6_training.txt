@@ -1,0 +1,180 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Podcast does not exist.
+Podcast does not exist.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+No episodes available for this podcast.
+Video vid001 created successfully.
+PREMIUM Video vid002 created successfully.
+Video VID003 created successfully.
+PREMIUM Video VID004 created successfully.
+Video VID005 created successfully.
+Video vid001 360 Title: JAVA PROGRAMMING FUNDAMENTALS
+File: https://cdn.education.com/java/basics/2024/java-fundamentals.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+PREMIUM Video vid002 540 Title: full stack web development
+File: https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4 Publisher: Web Masters LLC Language: ENGLISH
+Video VID003 480 Title: Python Advanced Concepts
+File: https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4 Publisher: Tech School Solutions Language: SPANISH
+PREMIUM Video VID004 420 Title: DATA SCIENCE WITH PYTHON
+File: https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4 Publisher: Data Science Hub Language: FRENCH
+Video VID005 300 Title: Cinema History
+File: https://example.com/cinema-history.mp4 Publisher: Cinema Academy Language: ITALIAN
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Episode ID already exists in the system.
+Episode ID already exists in the system.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Invalid value.
+Invalid value.
+Episode ID already exists in the system.
+Episode ID already exists in the system.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Invalid value.
+Invalid value.
+Episode ID already exists in the system.
+Episode added successfully.
+Episode date must be >= than latest episode date.
+Episode added successfully.
+Episode added successfully.
+Invalid value.
+Invalid value.
+Episodes for podcast TECH TALK DAILY PODCAST:
+Episode newep003: 40 min Date: 2025-03-22
+URL: http://example.com/tech-same-date-2.mp3
+Episode newep002: 35 min Date: 2025-03-22
+URL: http://example.com/tech-same-date-1.mp3
+Episode newep001: 30 min Date: 2025-03-10
+URL: http://example.com/tech-old-date.mp3
+Episodes for podcast code stories for developers:
+Episode newep006: 45 min Date: 2025-03-27
+URL: http://example.com/code-same-date-2.mp3
+Episode newep005: 40 min Date: 2025-03-27
+URL: http://example.com/code-same-date-1.mp3
+Episode newep004: 35 min Date: 2025-03-15
+URL: http://example.com/code-old-date.mp3
+Episodes for podcast MOVIE CHAT PODCAST:
+Episode newep010: 45 min Date: 2025-04-05
+URL: http://example.com/movie-same-date-2.mp3
+Episode newep009: 40 min Date: 2025-04-05
+URL: http://example.com/movie-same-date-1.mp3
+Episode newep007: 55 min Date: 2025-04-05
+URL: http://example.com/movie-ep2.mp3
+Video newvid001 created successfully.
+PREMIUM Video newvid002 created successfully.
+Show created successfully.
+Show created successfully.
+Show does not exist.
+Show does not exist.
+Episode ID already exists in the system.
+Episode ID already exists in the system.
+Episode ID already exists in the system.
+Episodes for podcast TECH TALK DAILY PODCAST:
+Episode newep003: 40 min Date: 2025-03-22
+URL: http://example.com/tech-same-date-2.mp3
+Episode newep002: 35 min Date: 2025-03-22
+URL: http://example.com/tech-same-date-1.mp3
+Episode newep001: 30 min Date: 2025-03-10
+URL: http://example.com/tech-old-date.mp3
+Episodes for podcast code stories for developers:
+Episode newep006: 45 min Date: 2025-03-27
+URL: http://example.com/code-same-date-2.mp3
+Episode newep005: 40 min Date: 2025-03-27
+URL: http://example.com/code-same-date-1.mp3
+Episode newep004: 35 min Date: 2025-03-15
+URL: http://example.com/code-old-date.mp3
+Episodes for podcast MOVIE CHAT PODCAST:
+Episode newep010: 45 min Date: 2025-04-05
+URL: http://example.com/movie-same-date-2.mp3
+Episode newep009: 40 min Date: 2025-04-05
+URL: http://example.com/movie-same-date-1.mp3
+Episode newep007: 55 min Date: 2025-04-05
+URL: http://example.com/movie-ep2.mp3
+Show does not exist.
+Show does not exist.
+Episode ID already exists in the system.
+Episode ID already exists in the system.
+Episode ID already exists in the system.
+Episodes for podcast tech talk daily podcast:
+Episode newep003: 40 min Date: 2025-03-22
+URL: http://example.com/tech-same-date-2.mp3
+Episode newep002: 35 min Date: 2025-03-22
+URL: http://example.com/tech-same-date-1.mp3
+Episode newep001: 30 min Date: 2025-03-10
+URL: http://example.com/tech-old-date.mp3
+Episodes for podcast CODE STORIES FOR DEVELOPERS:
+Episode newep006: 45 min Date: 2025-03-27
+URL: http://example.com/code-same-date-2.mp3
+Episode newep005: 40 min Date: 2025-03-27
+URL: http://example.com/code-same-date-1.mp3
+Episode newep004: 35 min Date: 2025-03-15
+URL: http://example.com/code-old-date.mp3
+Episodes for podcast movie chat podcast:
+Episode newep010: 45 min Date: 2025-04-05
+URL: http://example.com/movie-same-date-2.mp3
+Episode newep009: 40 min Date: 2025-04-05
+URL: http://example.com/movie-same-date-1.mp3
+Episode newep007: 55 min Date: 2025-04-05
+URL: http://example.com/movie-ep2.mp3
+Podcast removed successfully.
+Podcast removed successfully.
+Podcast removed successfully.
+Podcast removed successfully.
+Podcast does not exist.
+Podcast does not exist.
+Podcast does not exist.
+Podcast does not exist.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!

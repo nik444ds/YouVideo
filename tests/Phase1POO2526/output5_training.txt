@@ -1,0 +1,107 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Podcast does not exist.
+Podcast does not exist.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast: the rewatchables movie podcast Author: Bill Simmons Language: EN
+Podcast does not exist.
+Podcast: The Cine-Files Movie Podcast Author: Keith Phipps Language: EN
+Podcast: blank check with griffin and david Author: Griffin Newman Language: EN
+Podcast: THE WATCH TV AND POP CULTURE Author: Chris Ryan Language: EN
+Podcast: Unspooled The AFI Podcast Author: Paul Scheer Language: EN
+Podcast: how did this get made bad movies Author: Paul Scheer Language: EN
+Podcast: LE COIN DU CINEMA French Podcast Author: Jean-Marc Lalanne Language: FR
+Podcast: 2 heures de perdues french movie podcast Author: Antoine Daniel Language: FR
+Podcast: PODCAST DE CINEFILIA Portuguese Show Author: Marcus Vinicius Language: PT
+Podcast: cinemacao brazilian movie podcast Author: Roberto Sadovski Language: PT
+Podcast: THE BIG PICTURE with Bill Simmons Author: Bill Simmons Language: EN
+Podcast: The Ringer Verse Pop Culture Podcast Author: Bill Simmons Language: EN
+Podcast: SCREEN DRAFTS MOVIE DRAFT PODCAST Author: Griffin Newman Language: EN
+Podcast: scene by scene cinema analysis Author: Emily Carter Language: EN
+Podcast: THE DIRECTOR'S CUT Extended Editions Author: Emily Carter Language: EN
+Podcast: Cinematic Parallels Visual Motifs Author: Emily Carter Language: EN
+Podcast: the screenplay archives script study Author: Emily Carter Language: EN
+Podcast: DELETED SCENES CUT CONTENT Author: Emily Carter Language: EN
+Podcast does not exist.
+Podcast removed successfully.
+Podcast does not exist.
+Podcast does not exist.
+Podcast created successfully.
+Podcast: THE WATCH TV AND POP CULTURE Author: Chris Ryan Language: EN
+Podcast removed successfully.
+Podcast removed successfully.
+Podcast does not exist.
+Podcast does not exist.
+Podcast removed successfully.
+Podcast removed successfully.
+Podcast does not exist.
+Podcast does not exist.
+Podcast removed successfully.
+Podcast does not exist.
+Podcast: the rewatchables movie podcast Author: Bill Simmons Language: EN
+Podcast: The Cine-Files Movie Podcast Author: Keith Phipps Language: EN
+Podcast: how did this get made bad movies Author: Paul Scheer Language: EN
+Podcast: 2 heures de perdues french movie podcast Author: Antoine Daniel Language: FR
+Podcast: PODCAST DE CINEFILIA Portuguese Show Author: Marcus Vinicius Language: PT
+Podcast: THE BIG PICTURE with Bill Simmons Author: Bill Simmons Language: EN
+Podcast: SCREEN DRAFTS MOVIE DRAFT PODCAST Author: Griffin Newman Language: EN
+Podcast: scene by scene cinema analysis Author: Emily Carter Language: EN
+Podcast: THE DIRECTOR'S CUT Extended Editions Author: Emily Carter Language: EN
+Podcast: Cinematic Parallels Visual Motifs Author: Emily Carter Language: EN
+Podcast: the screenplay archives script study Author: Emily Carter Language: EN
+Podcast: DELETED SCENES CUT CONTENT Author: Emily Carter Language: EN
+Podcast: THE WATCH TV AND POP CULTURE Author: Chris Ryan Language: EN
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!
