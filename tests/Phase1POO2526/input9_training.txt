@@ -1,0 +1,926 @@
+HELP
+unknownCOMMAND
+CREATEpublishable vid_aa 360 https://example.com/video.mp4
+Publisher
+Video Title
+AA
+CREATEpublishable vid_ab 360 https://example.com/video.mp4
+Publisher
+Video Title
+AB
+CREATEpublishable vid_ae 360 https://example.com/video.mp4
+Publisher
+Video Title
+AE
+CREATEpublishable vid_af 360 https://example.com/video.mp4
+Publisher
+Video Title
+AF
+CREATEpublishable vid_ak 360 https://example.com/video.mp4
+Publisher
+Video Title
+AK
+CREATEpublishable vid_am 360 https://example.com/video.mp4
+Publisher
+Video Title
+AM
+CREATEpublishable vid_an 360 https://example.com/video.mp4
+Publisher
+Video Title
+AN
+CREATEpublishable vid_ar 360 https://example.com/video.mp4
+Publisher
+Video Title
+AR
+CREATEpublishable vid_as 360 https://example.com/video.mp4
+Publisher
+Video Title
+AS
+CREATEpublishable vid_av 360 https://example.com/video.mp4
+Publisher
+Video Title
+AV
+CREATEpublishable vid_ay 360 https://example.com/video.mp4
+Publisher
+Video Title
+AY
+CREATEpublishable vid_az 360 https://example.com/video.mp4
+Publisher
+Video Title
+AZ
+CREATEpublishable vid_ba 360 https://example.com/video.mp4
+Publisher
+Video Title
+BA
+CREATEpublishable vid_be 360 https://example.com/video.mp4
+Publisher
+Video Title
+BE
+CREATEpublishable vid_bg 360 https://example.com/video.mp4
+Publisher
+Video Title
+BG
+CREATEpublishable vid_bh 360 https://example.com/video.mp4
+Publisher
+Video Title
+BH
+CREATEpublishable vid_bi 360 https://example.com/video.mp4
+Publisher
+Video Title
+BI
+CREATEpublishable vid_bm 360 https://example.com/video.mp4
+Publisher
+Video Title
+BM
+CREATEpublishable vid_bn 360 https://example.com/video.mp4
+Publisher
+Video Title
+BN
+CREATEpublishable vid_bo 360 https://example.com/video.mp4
+Publisher
+Video Title
+BO
+CREATEpublishable vid_br 360 https://example.com/video.mp4
+Publisher
+Video Title
+BR
+CREATEpublishable vid_bs 360 https://example.com/video.mp4
+Publisher
+Video Title
+BS
+CREATEpublishable vid_ca 360 https://example.com/video.mp4
+Publisher
+Video Title
+CA
+CREATEpublishable vid_ce 360 https://example.com/video.mp4
+Publisher
+Video Title
+CE
+CREATEpublishable vid_ch 360 https://example.com/video.mp4
+Publisher
+Video Title
+CH
+CREATEpublishable vid_co 360 https://example.com/video.mp4
+Publisher
+Video Title
+CO
+CREATEpublishable vid_cr 360 https://example.com/video.mp4
+Publisher
+Video Title
+CR
+CREATEpublishable vid_cs 360 https://example.com/video.mp4
+Publisher
+Video Title
+CS
+CREATEpublishable vid_cu 360 https://example.com/video.mp4
+Publisher
+Video Title
+CU
+CREATEpublishable vid_cv 360 https://example.com/video.mp4
+Publisher
+Video Title
+CV
+CREATEpublishable vid_cy 360 https://example.com/video.mp4
+Publisher
+Video Title
+CY
+CREATEpublishable vid_da 360 https://example.com/video.mp4
+Publisher
+Video Title
+DA
+CREATEpublishable vid_de 360 https://example.com/video.mp4
+Publisher
+Video Title
+DE
+CREATEpublishable vid_dv 360 https://example.com/video.mp4
+Publisher
+Video Title
+DV
+CREATEpublishable vid_dz 360 https://example.com/video.mp4
+Publisher
+Video Title
+DZ
+CREATEpublishable vid_ee 360 https://example.com/video.mp4
+Publisher
+Video Title
+EE
+CREATEpublishable vid_el 360 https://example.com/video.mp4
+Publisher
+Video Title
+EL
+CREATEpublishable vid_en 360 https://example.com/video.mp4
+Publisher
+Video Title
+EN
+CREATEpublishable vid_eo 360 https://example.com/video.mp4
+Publisher
+Video Title
+EO
+CREATEpublishable vid_es 360 https://example.com/video.mp4
+Publisher
+Video Title
+ES
+CREATEpublishable vid_et 360 https://example.com/video.mp4
+Publisher
+Video Title
+ET
+CREATEpublishable vid_eu 360 https://example.com/video.mp4
+Publisher
+Video Title
+EU
+CREATEpublishable vid_fa 360 https://example.com/video.mp4
+Publisher
+Video Title
+FA
+CREATEpublishable vid_ff 360 https://example.com/video.mp4
+Publisher
+Video Title
+FF
+CREATEpublishable vid_fi 360 https://example.com/video.mp4
+Publisher
+Video Title
+FI
+CREATEpublishable vid_fj 360 https://example.com/video.mp4
+Publisher
+Video Title
+FJ
+CREATEpublishable vid_fo 360 https://example.com/video.mp4
+Publisher
+Video Title
+FO
+CREATEpublishable vid_fr 360 https://example.com/video.mp4
+Publisher
+Video Title
+FR
+CREATEpublishable vid_fy 360 https://example.com/video.mp4
+Publisher
+Video Title
+FY
+CREATEpublishable vid_ga 360 https://example.com/video.mp4
+Publisher
+Video Title
+GA
+CREATEpublishable vid_gd 360 https://example.com/video.mp4
+Publisher
+Video Title
+GD
+CREATEpublishable vid_gl 360 https://example.com/video.mp4
+Publisher
+Video Title
+GL
+CREATEpublishable vid_gn 360 https://example.com/video.mp4
+Publisher
+Video Title
+GN
+CREATEpublishable vid_gu 360 https://example.com/video.mp4
+Publisher
+Video Title
+GU
+CREATEpublishable vid_gv 360 https://example.com/video.mp4
+Publisher
+Video Title
+GV
+CREATEpublishable vid_ha 360 https://example.com/video.mp4
+Publisher
+Video Title
+HA
+CREATEpublishable vid_he 360 https://example.com/video.mp4
+Publisher
+Video Title
+HE
+CREATEpublishable vid_hi 360 https://example.com/video.mp4
+Publisher
+Video Title
+HI
+CREATEpublishable vid_ho 360 https://example.com/video.mp4
+Publisher
+Video Title
+HO
+CREATEpublishable vid_hr 360 https://example.com/video.mp4
+Publisher
+Video Title
+HR
+CREATEpublishable vid_ht 360 https://example.com/video.mp4
+Publisher
+Video Title
+HT
+CREATEpublishable vid_hu 360 https://example.com/video.mp4
+Publisher
+Video Title
+HU
+CREATEpublishable vid_hy 360 https://example.com/video.mp4
+Publisher
+Video Title
+HY
+CREATEpublishable vid_hz 360 https://example.com/video.mp4
+Publisher
+Video Title
+HZ
+CREATEpublishable vid_ia 360 https://example.com/video.mp4
+Publisher
+Video Title
+IA
+CREATEpublishable vid_id 360 https://example.com/video.mp4
+Publisher
+Video Title
+ID
+CREATEpublishable vid_ie 360 https://example.com/video.mp4
+Publisher
+Video Title
+IE
+CREATEpublishable vid_ig 360 https://example.com/video.mp4
+Publisher
+Video Title
+IG
+CREATEpublishable vid_ii 360 https://example.com/video.mp4
+Publisher
+Video Title
+II
+CREATEpublishable vid_ik 360 https://example.com/video.mp4
+Publisher
+Video Title
+IK
+CREATEpublishable vid_io 360 https://example.com/video.mp4
+Publisher
+Video Title
+IO
+CREATEpublishable vid_is 360 https://example.com/video.mp4
+Publisher
+Video Title
+IS
+CREATEpublishable vid_it 360 https://example.com/video.mp4
+Publisher
+Video Title
+IT
+CREATEpublishable vid_iu 360 https://example.com/video.mp4
+Publisher
+Video Title
+IU
+CREATEpublishable vid_ja 360 https://example.com/video.mp4
+Publisher
+Video Title
+JA
+CREATEpublishable vid_jv 360 https://example.com/video.mp4
+Publisher
+Video Title
+JV
+CREATEpublishable vid_ka 360 https://example.com/video.mp4
+Publisher
+Video Title
+KA
+CREATEpublishable vid_kg 360 https://example.com/video.mp4
+Publisher
+Video Title
+KG
+CREATEpublishable vid_ki 360 https://example.com/video.mp4
+Publisher
+Video Title
+KI
+CREATEpublishable vid_kj 360 https://example.com/video.mp4
+Publisher
+Video Title
+KJ
+CREATEpublishable vid_kk 360 https://example.com/video.mp4
+Publisher
+Video Title
+KK
+CREATEpublishable vid_kl 360 https://example.com/video.mp4
+Publisher
+Video Title
+KL
+CREATEpublishable vid_km 360 https://example.com/video.mp4
+Publisher
+Video Title
+KM
+CREATEpublishable vid_kn 360 https://example.com/video.mp4
+Publisher
+Video Title
+KN
+CREATEpublishable vid_ko 360 https://example.com/video.mp4
+Publisher
+Video Title
+KO
+CREATEpublishable vid_kr 360 https://example.com/video.mp4
+Publisher
+Video Title
+KR
+CREATEpublishable vid_ks 360 https://example.com/video.mp4
+Publisher
+Video Title
+KS
+CREATEpublishable vid_ku 360 https://example.com/video.mp4
+Publisher
+Video Title
+KU
+CREATEpublishable vid_kv 360 https://example.com/video.mp4
+Publisher
+Video Title
+KV
+CREATEpublishable vid_kw 360 https://example.com/video.mp4
+Publisher
+Video Title
+KW
+CREATEpublishable vid_ky 360 https://example.com/video.mp4
+Publisher
+Video Title
+KY
+CREATEpublishable vid_la 360 https://example.com/video.mp4
+Publisher
+Video Title
+LA
+CREATEpublishable vid_lb 360 https://example.com/video.mp4
+Publisher
+Video Title
+LB
+CREATEpublishable vid_lg 360 https://example.com/video.mp4
+Publisher
+Video Title
+LG
+CREATEpublishable vid_li 360 https://example.com/video.mp4
+Publisher
+Video Title
+LI
+CREATEpublishable vid_ln 360 https://example.com/video.mp4
+Publisher
+Video Title
+LN
+CREATEpublishable vid_lo 360 https://example.com/video.mp4
+Publisher
+Video Title
+LO
+CREATEpublishable vid_lt 360 https://example.com/video.mp4
+Publisher
+Video Title
+LT
+CREATEpublishable vid_lu 360 https://example.com/video.mp4
+Publisher
+Video Title
+LU
+CREATEpublishable vid_lv 360 https://example.com/video.mp4
+Publisher
+Video Title
+LV
+CREATEpublishable vid_mg 360 https://example.com/video.mp4
+Publisher
+Video Title
+MG
+CREATEpublishable vid_mh 360 https://example.com/video.mp4
+Publisher
+Video Title
+MH
+CREATEpublishable vid_mi 360 https://example.com/video.mp4
+Publisher
+Video Title
+MI
+CREATEpublishable vid_mk 360 https://example.com/video.mp4
+Publisher
+Video Title
+MK
+CREATEpublishable vid_ml 360 https://example.com/video.mp4
+Publisher
+Video Title
+ML
+CREATEpublishable vid_mn 360 https://example.com/video.mp4
+Publisher
+Video Title
+MN
+CREATEpublishable vid_mr 360 https://example.com/video.mp4
+Publisher
+Video Title
+MR
+CREATEpublishable vid_ms 360 https://example.com/video.mp4
+Publisher
+Video Title
+MS
+CREATEpublishable vid_mt 360 https://example.com/video.mp4
+Publisher
+Video Title
+MT
+CREATEpublishable vid_my 360 https://example.com/video.mp4
+Publisher
+Video Title
+MY
+CREATEpublishable vid_na 360 https://example.com/video.mp4
+Publisher
+Video Title
+NA
+CREATEpublishable vid_nb 360 https://example.com/video.mp4
+Publisher
+Video Title
+NB
+CREATEpublishable vid_nd 360 https://example.com/video.mp4
+Publisher
+Video Title
+ND
+CREATEpublishable vid_ne 360 https://example.com/video.mp4
+Publisher
+Video Title
+NE
+CREATEpublishable vid_ng 360 https://example.com/video.mp4
+Publisher
+Video Title
+NG
+CREATEpublishable vid_nl 360 https://example.com/video.mp4
+Publisher
+Video Title
+NL
+CREATEpublishable vid_nn 360 https://example.com/video.mp4
+Publisher
+Video Title
+NN
+CREATEpublishable vid_no 360 https://example.com/video.mp4
+Publisher
+Video Title
+NO
+CREATEpublishable vid_nr 360 https://example.com/video.mp4
+Publisher
+Video Title
+NR
+CREATEpublishable vid_nv 360 https://example.com/video.mp4
+Publisher
+Video Title
+NV
+CREATEpublishable vid_ny 360 https://example.com/video.mp4
+Publisher
+Video Title
+NY
+CREATEpublishable vid_oc 360 https://example.com/video.mp4
+Publisher
+Video Title
+OC
+CREATEpublishable vid_oj 360 https://example.com/video.mp4
+Publisher
+Video Title
+OJ
+CREATEpublishable vid_om 360 https://example.com/video.mp4
+Publisher
+Video Title
+OM
+CREATEpublishable vid_or 360 https://example.com/video.mp4
+Publisher
+Video Title
+OR
+CREATEpublishable vid_os 360 https://example.com/video.mp4
+Publisher
+Video Title
+OS
+CREATEpublishable vid_pa 360 https://example.com/video.mp4
+Publisher
+Video Title
+PA
+CREATEpublishable vid_pi 360 https://example.com/video.mp4
+Publisher
+Video Title
+PI
+CREATEpublishable vid_pl 360 https://example.com/video.mp4
+Publisher
+Video Title
+PL
+CREATEpublishable vid_ps 360 https://example.com/video.mp4
+Publisher
+Video Title
+PS
+CREATEpublishable vid_pt 360 https://example.com/video.mp4
+Publisher
+Video Title
+PT
+CREATEpublishable vid_qu 360 https://example.com/video.mp4
+Publisher
+Video Title
+QU
+CREATEpublishable vid_rm 360 https://example.com/video.mp4
+Publisher
+Video Title
+RM
+CREATEpublishable vid_rn 360 https://example.com/video.mp4
+Publisher
+Video Title
+RN
+CREATEpublishable vid_ro 360 https://example.com/video.mp4
+Publisher
+Video Title
+RO
+CREATEpublishable vid_ru 360 https://example.com/video.mp4
+Publisher
+Video Title
+RU
+CREATEpublishable vid_rw 360 https://example.com/video.mp4
+Publisher
+Video Title
+RW
+CREATEpublishable vid_sa 360 https://example.com/video.mp4
+Publisher
+Video Title
+SA
+CREATEpublishable vid_sc 360 https://example.com/video.mp4
+Publisher
+Video Title
+SC
+CREATEpublishable vid_sd 360 https://example.com/video.mp4
+Publisher
+Video Title
+SD
+CREATEpublishable vid_se 360 https://example.com/video.mp4
+Publisher
+Video Title
+SE
+CREATEpublishable vid_sg 360 https://example.com/video.mp4
+Publisher
+Video Title
+SG
+CREATEpublishable vid_si 360 https://example.com/video.mp4
+Publisher
+Video Title
+SI
+CREATEpublishable vid_sk 360 https://example.com/video.mp4
+Publisher
+Video Title
+SK
+CREATEpublishable vid_sl 360 https://example.com/video.mp4
+Publisher
+Video Title
+SL
+CREATEpublishable vid_sm 360 https://example.com/video.mp4
+Publisher
+Video Title
+SM
+CREATEpublishable vid_sn 360 https://example.com/video.mp4
+Publisher
+Video Title
+SN
+CREATEpublishable vid_so 360 https://example.com/video.mp4
+Publisher
+Video Title
+SO
+CREATEpublishable vid_sq 360 https://example.com/video.mp4
+Publisher
+Video Title
+SQ
+CREATEpublishable vid_sr 360 https://example.com/video.mp4
+Publisher
+Video Title
+SR
+CREATEpublishable vid_ss 360 https://example.com/video.mp4
+Publisher
+Video Title
+SS
+CREATEpublishable vid_st 360 https://example.com/video.mp4
+Publisher
+Video Title
+ST
+CREATEpublishable vid_su 360 https://example.com/video.mp4
+Publisher
+Video Title
+SU
+CREATEpublishable vid_sv 360 https://example.com/video.mp4
+Publisher
+Video Title
+SV
+CREATEpublishable vid_sw 360 https://example.com/video.mp4
+Publisher
+Video Title
+SW
+CREATEpublishable vid_ta 360 https://example.com/video.mp4
+Publisher
+Video Title
+TA
+CREATEpublishable vid_te 360 https://example.com/video.mp4
+Publisher
+Video Title
+TE
+CREATEpublishable vid_tg 360 https://example.com/video.mp4
+Publisher
+Video Title
+TG
+CREATEpublishable vid_th 360 https://example.com/video.mp4
+Publisher
+Video Title
+TH
+CREATEpublishable vid_ti 360 https://example.com/video.mp4
+Publisher
+Video Title
+TI
+CREATEpublishable vid_tk 360 https://example.com/video.mp4
+Publisher
+Video Title
+TK
+CREATEpublishable vid_tl 360 https://example.com/video.mp4
+Publisher
+Video Title
+TL
+CREATEpublishable vid_tn 360 https://example.com/video.mp4
+Publisher
+Video Title
+TN
+CREATEpublishable vid_to 360 https://example.com/video.mp4
+Publisher
+Video Title
+TO
+CREATEpublishable vid_tr 360 https://example.com/video.mp4
+Publisher
+Video Title
+TR
+CREATEpublishable vid_ts 360 https://example.com/video.mp4
+Publisher
+Video Title
+TS
+CREATEpublishable vid_tt 360 https://example.com/video.mp4
+Publisher
+Video Title
+TT
+CREATEpublishable vid_tw 360 https://example.com/video.mp4
+Publisher
+Video Title
+TW
+CREATEpublishable vid_ty 360 https://example.com/video.mp4
+Publisher
+Video Title
+TY
+CREATEpublishable vid_ug 360 https://example.com/video.mp4
+Publisher
+Video Title
+UG
+CREATEpublishable vid_uk 360 https://example.com/video.mp4
+Publisher
+Video Title
+UK
+CREATEpublishable vid_ur 360 https://example.com/video.mp4
+Publisher
+Video Title
+UR
+CREATEpublishable vid_uz 360 https://example.com/video.mp4
+Publisher
+Video Title
+UZ
+CREATEpublishable vid_ve 360 https://example.com/video.mp4
+Publisher
+Video Title
+VE
+CREATEpublishable vid_vi 360 https://example.com/video.mp4
+Publisher
+Video Title
+VI
+CREATEpublishable vid_vo 360 https://example.com/video.mp4
+Publisher
+Video Title
+VO
+CREATEpublishable vid_wa 360 https://example.com/video.mp4
+Publisher
+Video Title
+WA
+CREATEpublishable vid_wo 360 https://example.com/video.mp4
+Publisher
+Video Title
+WO
+CREATEpublishable vid_xh 360 https://example.com/video.mp4
+Publisher
+Video Title
+XH
+CREATEpublishable vid_yi 360 https://example.com/video.mp4
+Publisher
+Video Title
+YI
+CREATEpublishable vid_yo 360 https://example.com/video.mp4
+Publisher
+Video Title
+YO
+CREATEpublishable vid_za 360 https://example.com/video.mp4
+Publisher
+Video Title
+ZA
+CREATEpublishable vid_zh 360 https://example.com/video.mp4
+Publisher
+Video Title
+ZH
+CREATEpublishable vid_zu 360 https://example.com/video.mp4
+Publisher
+Video Title
+ZU
+GETVIDEO vid_aa
+GETVIDEO vid_ab
+GETVIDEO vid_ae
+GETVIDEO vid_af
+GETVIDEO vid_ak
+GETVIDEO vid_am
+GETVIDEO vid_an
+GETVIDEO vid_ar
+GETVIDEO vid_as
+GETVIDEO vid_av
+GETVIDEO vid_ay
+GETVIDEO vid_az
+GETVIDEO vid_ba
+GETVIDEO vid_be
+GETVIDEO vid_bg
+GETVIDEO vid_bh
+GETVIDEO vid_bi
+GETVIDEO vid_bm
+GETVIDEO vid_bn
+GETVIDEO vid_bo
+GETVIDEO vid_br
+GETVIDEO vid_bs
+GETVIDEO vid_ca
+GETVIDEO vid_ce
+GETVIDEO vid_ch
+GETVIDEO vid_co
+GETVIDEO vid_cr
+GETVIDEO vid_cs
+GETVIDEO vid_cu
+GETVIDEO vid_cv
+GETVIDEO vid_cy
+GETVIDEO vid_da
+GETVIDEO vid_de
+GETVIDEO vid_dv
+GETVIDEO vid_dz
+GETVIDEO vid_ee
+GETVIDEO vid_el
+GETVIDEO vid_en
+GETVIDEO vid_eo
+GETVIDEO vid_es
+GETVIDEO vid_et
+GETVIDEO vid_eu
+GETVIDEO vid_fa
+GETVIDEO vid_ff
+GETVIDEO vid_fi
+GETVIDEO vid_fj
+GETVIDEO vid_fo
+GETVIDEO vid_fr
+GETVIDEO vid_fy
+GETVIDEO vid_ga
+GETVIDEO vid_gd
+GETVIDEO vid_gl
+GETVIDEO vid_gn
+GETVIDEO vid_gu
+GETVIDEO vid_gv
+GETVIDEO vid_ha
+GETVIDEO vid_he
+GETVIDEO vid_hi
+GETVIDEO vid_ho
+GETVIDEO vid_hr
+GETVIDEO vid_ht
+GETVIDEO vid_hu
+GETVIDEO vid_hy
+GETVIDEO vid_hz
+GETVIDEO vid_ia
+GETVIDEO vid_id
+GETVIDEO vid_ie
+GETVIDEO vid_ig
+GETVIDEO vid_ii
+GETVIDEO vid_ik
+GETVIDEO vid_io
+GETVIDEO vid_is
+GETVIDEO vid_it
+GETVIDEO vid_iu
+GETVIDEO vid_ja
+GETVIDEO vid_jv
+GETVIDEO vid_ka
+GETVIDEO vid_kg
+GETVIDEO vid_ki
+GETVIDEO vid_kj
+GETVIDEO vid_kk
+GETVIDEO vid_kl
+GETVIDEO vid_km
+GETVIDEO vid_kn
+GETVIDEO vid_ko
+GETVIDEO vid_kr
+GETVIDEO vid_ks
+GETVIDEO vid_ku
+GETVIDEO vid_kv
+GETVIDEO vid_kw
+GETVIDEO vid_ky
+GETVIDEO vid_la
+GETVIDEO vid_lb
+GETVIDEO vid_lg
+GETVIDEO vid_li
+GETVIDEO vid_ln
+GETVIDEO vid_lo
+GETVIDEO vid_lt
+GETVIDEO vid_lu
+GETVIDEO vid_lv
+GETVIDEO vid_mg
+GETVIDEO vid_mh
+GETVIDEO vid_mk
+GETVIDEO vid_ml
+GETVIDEO vid_mn
+GETVIDEO vid_mr
+GETVIDEO vid_ms
+GETVIDEO vid_mt
+GETVIDEO vid_my
+GETVIDEO vid_na
+GETVIDEO vid_nd
+GETVIDEO vid_ne
+GETVIDEO vid_ng
+GETVIDEO vid_nl
+GETVIDEO vid_nn
+GETVIDEO vid_no
+GETVIDEO vid_nr
+GETVIDEO vid_nv
+GETVIDEO vid_ny
+GETVIDEO vid_oc
+GETVIDEO vid_oj
+GETVIDEO vid_om
+GETVIDEO vid_or
+GETVIDEO vid_os
+GETVIDEO vid_pa
+GETVIDEO vid_pi
+GETVIDEO vid_pl
+GETVIDEO vid_ps
+GETVIDEO vid_pt
+GETVIDEO vid_qu
+GETVIDEO vid_rm
+GETVIDEO vid_rn
+GETVIDEO vid_ro
+GETVIDEO vid_ru
+GETVIDEO vid_rw
+GETVIDEO vid_sa
+GETVIDEO vid_sc
+GETVIDEO vid_sd
+GETVIDEO vid_se
+GETVIDEO vid_sg
+GETVIDEO vid_si
+GETVIDEO vid_sk
+GETVIDEO vid_sl
+GETVIDEO vid_sm
+GETVIDEO vid_sn
+GETVIDEO vid_so
+GETVIDEO vid_sq
+GETVIDEO vid_sr
+GETVIDEO vid_ss
+GETVIDEO vid_st
+GETVIDEO vid_su
+GETVIDEO vid_sv
+GETVIDEO vid_sw
+GETVIDEO vid_ta
+GETVIDEO vid_te
+GETVIDEO vid_tg
+GETVIDEO vid_th
+GETVIDEO vid_ti
+GETVIDEO vid_tk
+GETVIDEO vid_tl
+GETVIDEO vid_tn
+GETVIDEO vid_to
+GETVIDEO vid_tr
+GETVIDEO vid_ts
+GETVIDEO vid_tt
+GETVIDEO vid_tw
+GETVIDEO vid_ty
+GETVIDEO vid_ug
+GETVIDEO vid_uk
+GETVIDEO vid_ur
+GETVIDEO vid_uz
+GETVIDEO vid_ve
+GETVIDEO vid_vi
+GETVIDEO vid_wa
+GETVIDEO vid_wo
+GETVIDEO vid_xh
+GETVIDEO vid_yi
+GETVIDEO vid_yo
+GETVIDEO vid_za
+GETVIDEO vid_zh
+GETVIDEO vid_zu
+CREATEpublishable vid_invalid 360 https://example.com/video.mp4
+Publisher
+Video Title
+XX
+HELP
+UNKNOWNcommand
+EXIT

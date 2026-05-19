@@ -1,0 +1,182 @@
+help
+unknowncommand
+removevideo pub999
+getvideo pub999
+removevideo pre999
+getvideo pre999
+removevideo pub001
+getvideo pub001
+removevideo pre001
+getvideo pre001
+createpublishable pub001 360 https://example.com/java-basics.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+createpremium pre001 540 https://example.com/web-dev-full.mp4
+Web Masters LLC
+Full Stack Web Development
+EN
+https://example.com/subtitles-en.vtt
+EN
+getvideo pub001
+getvideo pre001
+removevideo pub002
+getvideo pub002
+removevideo pre002
+getvideo pre002
+createpublishable pub002 480 https://example.com/python-advanced.mp4
+Tech School Solutions
+Conceitos Avancados de Python
+PT
+createpremium pre002 420 https://example.com/data-science.mp4
+Data Science HUBU
+Data Science em Python
+pt
+https://example.com/subtitles-EN.vtt
+EN
+getvideo pub002
+getvideo pre002
+createpublishable pub003 300 https://example.com/javascript-essentials.mp4
+JS Master Institute
+JavaScript Essenciales
+ES
+createpremium pre003 600 https://example.com/vue-essentials.mp4
+Vue.js Core Team
+Vue.js Essenciales
+ES
+https://example.com/subtitles-JA.vtt
+JA
+createpublishable pub004 540 https://example.com/spring-boot.mp4
+Spring Framework Academy
+Spring Boot Tres Bon
+FR
+createpremium pre004 720 https://example.com/react-complete.mp4
+React Masters LLC
+React Complete Guide - Fantastique
+FR
+https://example.com/subtitles-ES.vtt
+ES
+createpublishable pub005 420 https://example.com/django-framework.mp4
+Django Software Foundation
+Django Web Framework for Koreans
+KO
+createpremium pre005 900 https://example.com/devops-full.mp4
+DevOps Seul Academy
+DevOps Engineering For KOREANS
+KO
+https://example.com/subtitles-UR.vtt
+UR
+createpublishable pub006 480 https://example.com/typescript-guide.mp4
+TypeScript Japan Development Group
+TypeScript Complete Guide
+JA
+createpremium pre006 660 https://example.com/ai-ml-foundations.mp4
+Japan AI Research Lab
+AI and Machine Learning Foundations
+JA
+https://example.com/subtitles-HI.vtt
+hi
+createpublishable pub007 540 https://example.com/cloud-computing.mp4
+Cloud Masters
+Cloud Computing Essentials
+HI
+createpRemium pre007 780 https://example.com/cybersecurity.mp4
+Indian Security Academy
+Cybersecurity Fundamentals
+HI
+https://example.com/subtitles-EN.vtt
+EN
+GETVIDEO pub003
+getvideo pre003
+getvideo pub004
+getvideo pre004
+getvideo PUB005
+getVIDEO pre005
+getvideo pub006
+getvideo pre006
+getvideo pub007
+getvideo pRE007
+createPREMIUM PRE010 600 https://example.com/invalid-primary-language.mp4
+Invalid Corp.
+Invalid Primary Language
+XX
+https://example.com/subtitles-en.vtt
+EN
+createpublishable pub001 360 https://example.com/duplicate-basic.mp4
+Duplicate Inc.
+Duplicate Basic Video
+EN
+createpremium pre001 540 https://example.com/duplicate-premium.mp4
+Duplicate Inc.
+Duplicate Premium Video
+EN
+https://example.com/subtitles-en.vtt
+EN
+createpublishable pub008 0 https://example.com/zero-duration.mp4
+Invalid Corp.
+Zero Duration Video
+EN
+createpublishable pub009 -100 https://example.com/negative-duration.mp4
+Invalid Corp.
+Negative Duration Video
+EN
+createPUBLISHABLE pub010 600 https://example.com/invalid-language.mp4
+Invalid Corp.
+Invalid Language Video
+XX
+createpremium PRe008 0 https://example.com/zero-duration-premium.mp4
+Invalid Corp.
+Zero Duration Premium
+EN
+https://example.com/subtitles-en.vtt
+EN
+createpremium pre009 -20 https://example.com/negative-duration-premium.mp4
+Invalid Corp.
+Negative Duration Premium
+EN
+https://example.com/subtitles-en.vtt
+EN
+createpremium pre011 600 https://example.com/invalid-subtitle-language.mp4
+Invalid Corp.
+Invalid Subtitle Language
+EN
+https://example.com/subtitles-xx.vtt
+XX
+getvideo pub008
+getvideo pub009
+getvideo pub010
+getvideo pre008
+getvideo pre009
+getvideo pre010
+getvideo pre011
+getvideo pub999
+getvideo pre999
+removevideo pub002
+removevideo pre002
+removevideo pub004
+removevideo pre004
+removevideo Pub006
+Removevideo pre006
+reMovevideo pre004
+removevideo pub006
+removevideo pre006
+getvideo pub002
+getvideo pre002
+getvideo pub004
+getvideo pre004
+GETVIDEO pub006
+getvideo pre006
+removevideo pub999
+removevideo pre999
+getvideo pub001
+getvideo pre001
+getvideo Pub003
+getvideo Pre003
+getvideo Pub005
+getvideo Pre005
+getvideo pub007
+getvideo pre007
+HELP
+QUALQUERCOISA PUB001
+eXIt
+

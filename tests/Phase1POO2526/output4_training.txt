@@ -1,0 +1,196 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Video does not exist.
+Publishable Video pub999 does not exist.
+Video does not exist.
+Publishable Video PRE999 does not exist.
+Video Pub001 created successfully.
+PREMIUM Video Pre001 created successfully.
+Video Pub002 created successfully.
+PREMIUM Video Pre002 created successfully.
+PREMIUM Video Pre003 created successfully.
+PREMIUM Video Pre004 created successfully.
+Video Pub001 360 Title: Java Programming Fundamentals
+File: https://cdn.education.com/java/basics/2024/java-fundamentals.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+PREMIUM Video Pre001 540 Title: Full Stack Web Development
+File: https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4 Publisher: Web Masters LLC Language: PORTUGUESE
+Video Pub002 480 Title: Python Advanced Concepts
+File: https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4 Publisher: Tech School Solutions Language: SPANISH
+PREMIUM Video Pre002 420 Title: Data Science with Python
+File: https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4 Publisher: Data Science Hub Language: UKRAINIAN
+PREMIUM Video Pre003 600 Title: AI and Machine Learning Foundations
+File: https://vod.ailab.com/courses/ai-ml/foundations-2025.mp4 Publisher: AI Research Lab Language: NORWEGIAN
+PREMIUM Video Pre004 480 Title: Learn Czech Language
+File: https://vod.czechacademy.com/courses/czech/language-course.mp4 Publisher: Czech Academy Language: CZECH
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitles for video Full Stack Web Development:
+- https://subtitles.webmasters.com/fullstack/pt.vtt (PORTUGUESE)
+- https://subtitles.webmasters.com/fullstack/uk.vtt (UKRAINIAN)
+- https://subtitles.webmasters.com/fullstack/no.vtt (NORWEGIAN)
+- https://subtitles.webmasters.com/fullstack/cs.vtt (CZECH)
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitles for video Data Science with Python:
+- https://subtitles.datasciencehub.com/python/uk.vtt (UKRAINIAN)
+- https://subtitles.datasciencehub.com/python/no.vtt (NORWEGIAN)
+- https://subtitles.datasciencehub.com/python/cs.vtt (CZECH)
+- https://subtitles.datasciencehub.com/python/uk-2.vtt (UKRAINIAN)
+This operation requires a Premium video.
+This operation requires a Premium video.
+No Premium Video with ID.
+No Premium Video with ID.
+No Premium Video with ID.
+Show created successfully.
+Show created successfully.
+Show with this title already exists.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show with this title already exists.
+Show Date: 2025-04-15 Author: John Smith
+Video: Java Programming Fundamentals
+Show Date: 2025-04-16 Author: Mary Johnson
+Video: Full Stack Web Development
+Show Date: 2025-04-17 Author: Robert Brown
+Video: Python Advanced Concepts
+Show Date: 2025-04-18 Author: Lisa Davis
+Video: Data Science with Python
+Show Date: 2025-04-19 Author: David Wilson
+Video: AI and Machine Learning Foundations
+Show Date: 2025-04-20 Author: Sarah Miller
+Video: Learn Czech Language
+Show does not exist.
+Subtitles for video Full Stack Web Development:
+- https://subtitles.webmasters.com/fullstack/pt.vtt (PORTUGUESE)
+- https://subtitles.webmasters.com/fullstack/uk.vtt (UKRAINIAN)
+- https://subtitles.webmasters.com/fullstack/no.vtt (NORWEGIAN)
+- https://subtitles.webmasters.com/fullstack/cs.vtt (CZECH)
+Subtitles for video Data Science with Python:
+- https://subtitles.datasciencehub.com/python/uk.vtt (UKRAINIAN)
+- https://subtitles.datasciencehub.com/python/no.vtt (NORWEGIAN)
+- https://subtitles.datasciencehub.com/python/cs.vtt (CZECH)
+- https://subtitles.datasciencehub.com/python/uk-2.vtt (UKRAINIAN)
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/no.vtt (NORWEGIAN)
+Subtitles for video Learn Czech Language:
+- https://subtitles.czechacademy.com/czech/cs.vtt (CZECH)
+No Premium Video with ID.
+Show removed successfully.
+Show does not exist.
+Show does not exist.
+Video removed successfully.
+Publishable Video Pub002 does not exist.
+Video for show does not exist.
+Show Date: 2025-04-15 Author: John Smith
+Video: Java Programming Fundamentals
+Show Date: 2025-04-16 Author: Mary Johnson
+Video: Full Stack Web Development
+Show Date: 2025-04-18 Author: Lisa Davis
+Video: Data Science with Python
+Show Date: 2025-04-19 Author: David Wilson
+Video: AI and Machine Learning Foundations
+Show Date: 2025-04-20 Author: Sarah Miller
+Video: Learn Czech Language
+Subtitles for video Full Stack Web Development:
+- https://subtitles.webmasters.com/fullstack/pt.vtt (PORTUGUESE)
+- https://subtitles.webmasters.com/fullstack/uk.vtt (UKRAINIAN)
+- https://subtitles.webmasters.com/fullstack/no.vtt (NORWEGIAN)
+- https://subtitles.webmasters.com/fullstack/cs.vtt (CZECH)
+Subtitles for video Data Science with Python:
+- https://subtitles.datasciencehub.com/python/uk.vtt (UKRAINIAN)
+- https://subtitles.datasciencehub.com/python/no.vtt (NORWEGIAN)
+- https://subtitles.datasciencehub.com/python/cs.vtt (CZECH)
+- https://subtitles.datasciencehub.com/python/uk-2.vtt (UKRAINIAN)
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/no.vtt (NORWEGIAN)
+Subtitles for video Learn Czech Language:
+- https://subtitles.czechacademy.com/czech/cs.vtt (CZECH)
+Show removed successfully.
+Show removed successfully.
+Show removed successfully.
+Show does not exist.
+Show does not exist.
+Show does not exist.
+Subtitles for video Full Stack Web Development:
+- https://subtitles.webmasters.com/fullstack/pt.vtt (PORTUGUESE)
+- https://subtitles.webmasters.com/fullstack/uk.vtt (UKRAINIAN)
+- https://subtitles.webmasters.com/fullstack/no.vtt (NORWEGIAN)
+- https://subtitles.webmasters.com/fullstack/cs.vtt (CZECH)
+Subtitles for video Data Science with Python:
+- https://subtitles.datasciencehub.com/python/uk.vtt (UKRAINIAN)
+- https://subtitles.datasciencehub.com/python/no.vtt (NORWEGIAN)
+- https://subtitles.datasciencehub.com/python/cs.vtt (CZECH)
+- https://subtitles.datasciencehub.com/python/uk-2.vtt (UKRAINIAN)
+Video removed successfully.
+Video removed successfully.
+Video removed successfully.
+Publishable Video Pub001 does not exist.
+Publishable Video Pre001 does not exist.
+Publishable Video Pre002 does not exist.
+PREMIUM Video Pre003 600 Title: AI and Machine Learning Foundations
+File: https://vod.ailab.com/courses/ai-ml/foundations-2025.mp4 Publisher: AI Research Lab Language: NORWEGIAN
+PREMIUM Video Pre004 480 Title: Learn Czech Language
+File: https://vod.czechacademy.com/courses/czech/language-course.mp4 Publisher: Czech Academy Language: CZECH
+No Premium Video with ID.
+No Premium Video with ID.
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/no.vtt (NORWEGIAN)
+Subtitles for video Learn Czech Language:
+- https://subtitles.czechacademy.com/czech/cs.vtt (CZECH)
+Video for show does not exist.
+Show with this title already exists.
+Show Date: 2025-04-19 Author: David Wilson
+Video: AI and Machine Learning Foundations
+Show does not exist.
+Show does not exist.
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/no.vtt (NORWEGIAN)
+Subtitles for video Learn Czech Language:
+- https://subtitles.czechacademy.com/czech/cs.vtt (CZECH)
+Show removed successfully.
+Show removed successfully.
+Show does not exist.
+Show does not exist.
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/no.vtt (NORWEGIAN)
+Subtitles for video Learn Czech Language:
+- https://subtitles.czechacademy.com/czech/cs.vtt (CZECH)
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!

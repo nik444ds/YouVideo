@@ -1,0 +1,212 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Unknown command. Type help to see available commands.
+Video does not exist.
+Publishable Video pub999 does not exist.
+Video does not exist.
+Publishable Video PRE999 does not exist.
+Video does not exist.
+Publishable Video Pub001 does not exist.
+Video does not exist.
+Publishable Video Pre001 does not exist.
+Video Pub001 created successfully.
+PREMIUM Video Pre001 created successfully.
+Video pUb002 created successfully.
+PREMIUM Video pRe002 created successfully.
+Video Pub001 360 Title: Java Programming Fundamentals
+File: https://cdn.education.com/java/basics/2024/java-fundamentals.mp4 Publisher: Code Academy Inc. Language: ENGLISH
+PREMIUM Video Pre001 540 Title: Desenvolvimento WEB Full Stack
+File: https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4 Publisher: TUGA Masters LLC Language: PORTUGUESE
+Video pUb002 480 Title: Python AVANZANDO
+File: https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4 Publisher: Tech School Madrid Solutions Language: SPANISH
+PREMIUM Video pRe002 420 Title: Data Science AVEc Python
+File: https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4 Publisher: Paris Data Science Hub Language: FRENCH
+This operation requires a Premium video.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitles for video Desenvolvimento WEB Full Stack:
+- https://subtitles.webmasters.com/fullstack/EN.vtt (ENGLISH)
+- https://subtitles.webmasters.com/fullstack/en.vtt (ENGLISH)
+- https://subtitles.webmasters.com/fullstack/en.vtt (ENGLISH)
+- https://subtitles.webmasters.com/fullstack/es.vtt (SPANISH)
+- https://subtitles.webmasters.com/fullstack/es-2.vtt (SPANISH)
+- https://subtitles.webmasters.com/fullstack/fr.vtt (FRENCH)
+- https://subtitles.webmasters.com/fullstack/fr-2.vtt (FRENCH)
+- https://subtitles.webmasters.com/fullstack/de.vtt (GERMAN)
+- https://subtitles.webmasters.com/fullstack/de-2.vtt (GERMAN)
+- https://subtitles.webmasters.com/fullstack/ja.vtt (JAPANESE)
+- https://subtitles.webmasters.com/fullstack/ja-2.vtt (JAPANESE)
+- https://subtitles.webmasters.com/fullstack/ko.vtt (KOREAN)
+- https://subtitles.webmasters.com/fullstack/ko-2.vtt (KOREAN)
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitles for video Data Science AVEc Python:
+- https://subtitles.datasciencehub.com/python/pt.vtt (PORTUGUESE)
+- https://subtitles.datasciencehub.com/python/en.vtt (ENGLISH)
+- https://subtitles.datasciencehub.com/python/en-2.vtt (ENGLISH)
+- https://subtitles.datasciencehub.com/python/es.vtt (SPANISH)
+- https://subtitles.datasciencehub.com/python/es-2.vtt (SPANISH)
+- https://subtitles.datasciencehub.com/python/fr-2.vtt (FRENCH)
+- https://subtitles.datasciencehub.com/python/fr-3.vtt (FRENCH)
+- https://subtitles.datasciencehub.com/python/de.vtt (GERMAN)
+- https://subtitles.datasciencehub.com/python/de-2.vtt (GERMAN)
+This operation requires a Premium video.
+This operation requires a Premium video.
+Invalid language type in subtitle.
+Invalid language type in subtitle.
+No Premium Video with ID.
+PREMIUM Video Pre003 created successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/ko.vtt (KOREAN)
+- https://subtitles.ailab.com/ai-ml/ko-2.vtt (KOREAN)
+- https://subtitles.ailab.com/ai-ml/en.vtt (ENGLISH)
+- https://subtitles.ailab.com/ai-ml/en-2.vtt (ENGLISH)
+- https://subtitles.ailab.com/ai-ml/ja.vtt (JAPANESE)
+- https://subtitles.ailab.com/ai-ml/ja-2.vtt (JAPANESE)
+- https://subtitles.ailab.com/ai-ml/zh.vtt (CHINESE)
+- https://subtitles.ailab.com/ai-ml/zh-2.vtt (CHINESE)
+- https://subtitles.ailab.com/ai-ml/es.vtt (SPANISH)
+- https://subtitles.ailab.com/ai-ml/es-2.vtt (SPANISH)
+- https://subtitles.ailab.com/ai-ml/fr.vtt (FRENCH)
+- https://subtitles.ailab.com/ai-ml/fr-2.vtt (FRENCH)
+Invalid value.
+Invalid value.
+Invalid language type.
+Invalid value.
+Invalid value.
+Invalid language type.
+Invalid language type in subtitle.
+PREMIUM Video Pre012 created successfully.
+PREMIUM Video Pre013 created successfully.
+PREMIUM Video Pre014 created successfully.
+Video removed successfully.
+Publishable Video pre001 does not exist.
+PREMIUM Video pRe002 420 Title: Data Science AVEc Python
+File: https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4 Publisher: Paris Data Science Hub Language: FRENCH
+Video removed successfully.
+Publishable Video pub001 does not exist.
+Video removed successfully.
+Publishable Video pub002 does not exist.
+PREMIUM Video Pre003 600 Title: AI and Machine Learning Foundations
+File: https://vod.ailab.com/courses/ai-ml/foundations-2025.mp4 Publisher: AI Research Lab Language: KOREAN
+Subtitles for video AI and Machine Learning Foundations:
+- https://subtitles.ailab.com/ai-ml/ko.vtt (KOREAN)
+- https://subtitles.ailab.com/ai-ml/ko-2.vtt (KOREAN)
+- https://subtitles.ailab.com/ai-ml/en.vtt (ENGLISH)
+- https://subtitles.ailab.com/ai-ml/en-2.vtt (ENGLISH)
+- https://subtitles.ailab.com/ai-ml/ja.vtt (JAPANESE)
+- https://subtitles.ailab.com/ai-ml/ja-2.vtt (JAPANESE)
+- https://subtitles.ailab.com/ai-ml/zh.vtt (CHINESE)
+- https://subtitles.ailab.com/ai-ml/zh-2.vtt (CHINESE)
+- https://subtitles.ailab.com/ai-ml/es.vtt (SPANISH)
+- https://subtitles.ailab.com/ai-ml/es-2.vtt (SPANISH)
+- https://subtitles.ailab.com/ai-ml/fr.vtt (FRENCH)
+- https://subtitles.ailab.com/ai-ml/fr-2.vtt (FRENCH)
+PREMIUM Video Pre004 created successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitles for video Cybersecurity Fundamentals:
+- https://subtitles.securityacademy.com/cybersecurity/en.vtt (ENGLISH)
+- https://subtitles.securityacademy.com/cybersecurity/en-2.vtt (ENGLISH)
+- https://subtitles.securityacademy.com/cybersecurity/es.vtt (SPANISH)
+- https://subtitles.securityacademy.com/cybersecurity/es-2.vtt (SPANISH)
+- https://subtitles.securityacademy.com/cybersecurity/fr.vtt (FRENCH)
+- https://subtitles.securityacademy.com/cybersecurity/fr-2.vtt (FRENCH)
+- https://subtitles.securityacademy.com/cybersecurity/de.vtt (GERMAN)
+- https://subtitles.securityacademy.com/cybersecurity/de-2.vtt (GERMAN)
+PREMIUM Video Pre004 720 Title: Cybersecurity Fundamentals
+File: https://vod.securityacademy.com/courses/cybersecurity/fundamentals.mp4 Publisher: Security Academy Language: ENGLISH
+Subtitles for video No Subtitles Video:
+- https://subtitles.emptychannel.com/empty/ja.vtt (JAPANESE)
+Subtitles for video Learn Hindi Language:
+- https://subtitles.hindiacademy.com/hindi/hi.vtt (HINDI)
+Subtitles for video Korean for Beginners:
+- https://subtitles.koreanplus.com/korean/ko.vtt (KOREAN)
+Video removed successfully.
+Publishable Video PRE003 does not exist.
+Video removed successfully.
+Publishable Video Pre004 does not exist.
+Video Pre004 created successfully.
+No Premium Video with ID.
+Subtitles for video Data Science AVEc Python:
+- https://subtitles.datasciencehub.com/python/pt.vtt (PORTUGUESE)
+- https://subtitles.datasciencehub.com/python/en.vtt (ENGLISH)
+- https://subtitles.datasciencehub.com/python/en-2.vtt (ENGLISH)
+- https://subtitles.datasciencehub.com/python/es.vtt (SPANISH)
+- https://subtitles.datasciencehub.com/python/es-2.vtt (SPANISH)
+- https://subtitles.datasciencehub.com/python/fr-2.vtt (FRENCH)
+- https://subtitles.datasciencehub.com/python/fr-3.vtt (FRENCH)
+- https://subtitles.datasciencehub.com/python/de.vtt (GERMAN)
+- https://subtitles.datasciencehub.com/python/de-2.vtt (GERMAN)
+This operation requires a Premium video.
+No Premium Video with ID.
+Video removed successfully.
+Video removed successfully.
+No Premium Video with ID.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!

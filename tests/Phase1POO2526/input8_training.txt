@@ -1,0 +1,202 @@
+HeLp
+UnKnOwNcOmMaNd
+aUtHoRpOdCaStS NonExistentAuthor
+CrEaTePoDcAsT JAVA PROGRAMMING PODCAST
+JOHN SMITH
+EN
+CrEaTePoDcAsT JAVA PROGRAMMING PODCAST
+JOHN SMITH
+EN
+cReAtEpOdCaSt python advanced podcast
+john smith
+EN
+CrEaTePoDcAsT Web Development Podcast
+mary johnson
+EN
+cReAtEpOdCaSt DATA SCIENCE PODCAST
+MARY JOHNSON
+EN
+CrEaTePoDcAsT ai and ml podcast
+David WILSON
+EN
+cReAtEpOdCaSt DEVOPS ENGINEERING PODCAST
+DAVID wilson
+EN
+cReAtEpOdCaSt DEVOPS ENGINEERING PODCAST
+david wilson
+EN
+CrEaTePoDcAsT CINEMA HISTORY PODCAST
+SARAH MILLER
+EN
+cReAtEpOdCaSt EMPTY PODCAST ONE
+EMPTY AUTHOR
+EN
+CrEaTePoDcAsT empty podcast two
+empty author
+EN
+AuThOrPoDcAsTs john smith
+AuThOrPoDcAsTs MARY JOHNSON
+AuThOrPoDcAsTs david wilson
+AuThOrPoDcAsTs SARAH MILLER
+AuThOrPoDcAsTs empty author
+CrEaTePuBlIsHaBlE PuB001 360 https://cdn.education.com/java/basics/2024/java-fundamentals.mp4
+Code Academy Inc.
+JAVA PROGRAMMING FUNDAMENTALS
+EN
+AuThOrPoDcAsTs JAVA PROGRAMMING FUNDAMENTALS
+AuThOrPoDcAsTs Code Academy Inc.
+cReAtEpReMiUm PrE001 540 https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4
+Web Masters LLC
+FULL STACK WEB DEVELOPMENT
+PT
+https://subtitles.webmasters.com/fullstack/pt.vtt
+PT
+cReAtEpReMiUm PrE002 54 https://vod.webmasters.com/courses/fullstack/web-dev-fullII-2025.mp4
+Web Masters LLC II
+FULL STACK WEB DEVELOPMENT
+PT
+https://subtitles.webmasters.com/fullstack/pt.vtt
+PT
+AuThOrPoDcAsTs FULL STACK WEB DEVELOPMENT
+AuThOrPoDcAsTs Web Masters LLC II
+CrEaTePuBlIsHaBlE pUb002 480 https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4
+Tech School Solutions
+PYTHON ADVANCED CONCEPTS
+ES
+cReAtEpReMiUm pRe002 420 https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4
+Data Science Hub
+DATA SCIENCE WITH PYTHON
+FR
+https://subtitles.datasciencehub.com/python/fr.vtt
+FR
+CrEaTePuBlIsHaBlE PuB003 600 https://example.com/react-complete.mp4
+React Masters LLC
+REACT COMPLETE GUIDE
+EN
+cReAtEpReMiUm PrE003 900 https://example.com/devops-full.mp4
+DevOps Academy
+DEVOPS ENGINEERING
+EN
+https://example.com/subtitles-en.vtt
+EN
+cReAtEsHoW JOHN SMITH
+PuB001 2025-04-15
+cReAtEsHoW mary johnson
+PrE001 2025-04-16
+cReAtEsHoW DAVID WILSON
+pUb002 2025-04-17
+cReAtEsHoW sarah miller
+pRe002 2025-04-18
+gEtShOw JAVA PROGRAMMING FUNDAMENTALS
+gEtShOw full stack web development
+gEtShOw PYTHON ADVANCED CONCEPTS
+gEtShOw data science with python
+aDdEpIsOdE JAVA PROGRAMMING PODCAST
+Ep001 45 http://example.com/java-ep1.mp3
+2025-03-15
+aDdEpIsOdE java programming podcast
+Ep002 52 http://example.com/java-ep2.mp3
+2025-03-22
+aDdEpIsOdE PYTHON ADVANCED PODCAST
+Ep101 55 http://example.com/python-ep1.mp3
+2025-03-20
+aDdEpIsOdE python advanced podcast
+Ep102 62 http://example.com/python-ep2.mp3
+2025-03-27
+aDdEpIsOdE WEB DEVELOPMENT PODCAST
+Ep201 50 http://example.com/web-ep1.mp3
+2025-04-01
+aDdEpIsOdE DATA SCIENCE PODCAST
+Ep301 60 http://example.com/ds-ep1.mp3
+2025-04-05
+aDdEpIsOdE AI AND ML PODCAST
+Ep401 70 http://example.com/ai-ep1.mp3
+2025-04-10
+ePiSoDeS JAVA PROGRAMMING PODCAST
+ePiSoDeS python advanced podcast
+ePiSoDeS WEB DEVELOPMENT PODCAST
+ePiSoDeS data science podcast
+ePiSoDeS AI AND ML PODCAST
+AuThOrPoDcAsTs AI AND ML PODCAST
+AuThOrPoDcAsTs Ep401
+AuThOrPoDcAsTs john smith
+CREATEPODCAST Mixed Case Podcast
+JoHn SmItH
+EN
+AUTHORPODCASTS jOhN sMiTh
+AUTHORPODCASTS JOHN SMITH
+AUTHORPODCASTS john smith
+REMOVEPODCAST Mixed Case Podcast
+AuThOrPoDcAsTs MARY JOHNSON
+AuThOrPoDcAsTs david wilson
+AuThOrPoDcAsTs SARAH MILLER
+AuThOrPoDcAsTs empty author
+ReMoVePoDcAsT PYTHON ADVANCED PODCAST
+ReMoVePoDcAsT data science podcast
+AuThOrPoDcAsTs JOHN SMITH
+AuThOrPoDcAsTs mary johnson
+AuThOrPoDcAsTs DAVID WILSON
+AuThOrPoDcAsTs sarah miller
+ReMoVePoDcAsT JAVA PROGRAMMING PODCAST
+ReMoVePoDcAsT ai and ml podcast
+AuThOrPoDcAsTs john smith
+AuThOrPoDcAsTs DAVID WILSON
+AuThOrPoDcAsTs sarah miller
+ReMoVePoDcAsT WEB DEVELOPMENT PODCAST
+ReMoVePoDcAsT devops engineering podcast
+AuThOrPoDcAsTs MARY JOHNSON
+AuThOrPoDcAsTs david wilson
+ReMoVePoDcAsT CINEMA HISTORY PODCAST
+AuThOrPoDcAsTs SARAH MILLER
+ReMoVePoDcAsT EMPTY PODCAST ONE
+ReMoVePoDcAsT empty podcast two
+AuThOrPoDcAsTs EMPTY AUTHOR
+AuThOrPoDcAsTs nonexistent author
+CREATEPUBLISHABLE vid_pub 360 https://example.com/publisher-test.mp4
+Publisher Name
+Publisher Test Video
+EN
+CREATEPODCAST Publisher Name Podcast
+Publisher Name
+EN
+AUTHORPODCASTS Publisher Name
+GETVIDEO vid_pub
+REMOVEPODCAST Publisher Name Podcast
+REMOVEVIDEO vid_pub
+CREATEPUBLISHABLE vid_show 360 https://example.com/show-test.mp4
+Show Test Publisher
+Show Test Video
+EN
+CREATESHOW John Smith Show Author
+vid_show 2025-04-25
+CREATEPODCAST John Smith Show Author Podcast
+John Smith Show Author
+EN
+AUTHORPODCASTS John Smith Show Author
+GETSHOW Show Test Video
+REMOVEPODCAST John Smith Show Author Podcast
+REMOVESHOW Show Test Video
+REMOVEVIDEO vid_show
+CREATEPODCAST Recreate Podcast One
+Recreate Author
+EN
+CREATEPODCAST Recreate Podcast Two
+Recreate Author
+EN
+AUTHORPODCASTS Recreate Author
+REMOVEPODCAST Recreate Podcast One
+REMOVEPODCAST Recreate Podcast Two
+AUTHORPODCASTS Recreate Author
+CREATEPODCAST Recreate Podcast Three
+Recreate Author
+EN
+CREATEPODCAST Recreate Podcast Four
+Recreate Author
+EN
+AUTHORPODCASTS Recreate Author
+REMOVEPODCAST Recreate Podcast Three
+REMOVEPODCAST Recreate Podcast Four
+AUTHORPODCASTS Recreate Author
+HeLp
+UnKnOwNcOmMaNd
+eXiT

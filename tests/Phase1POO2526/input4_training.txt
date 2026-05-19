@@ -1,0 +1,147 @@
+HELP
+unknownCOMMAND
+REMOVEVIDEO pub999
+GETVIDEO pub999
+removevideo PRE999
+getvideo PRE999
+CREATEpublishable Pub001 360 https://cdn.education.com/java/basics/2024/java-fundamentals.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+CREATEpremium Pre001 540 https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4
+Web Masters LLC
+Full Stack Web Development
+PT
+https://subtitles.webmasters.com/fullstack/pt.vtt
+PT
+CREATEpublishable Pub002 480 https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4
+Tech School Solutions
+Python Advanced Concepts
+ES
+CREATEpremium Pre002 420 https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4
+Data Science Hub
+Data Science with Python
+UK
+https://subtitles.datasciencehub.com/python/uk.vtt
+UK
+CREATEpremium Pre003 600 https://vod.ailab.com/courses/ai-ml/foundations-2025.mp4
+AI Research Lab
+AI and Machine Learning Foundations
+NO
+https://subtitles.ailab.com/ai-ml/no.vtt
+NO
+CREATEpremium Pre004 480 https://vod.czechacademy.com/courses/czech/language-course.mp4
+Czech Academy
+Learn Czech Language
+CS
+https://subtitles.czechacademy.com/czech/cs.vtt
+CS
+GETVIDEO Pub001
+GETVIDEO Pre001
+GETVIDEO Pub002
+GETVIDEO Pre002
+GETVIDEO Pre003
+GETVIDEO Pre004
+ADDSUBTITLE Pre001 https://subtitles.webmasters.com/fullstack/uk.vtt
+UK
+addsubtitle PRE001 https://subtitles.webmasters.com/fullstack/no.vtt
+NO
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/cs.vtt
+CS
+SUBTITLES Pre001
+ADDSUBTITLE Pre002 https://subtitles.datasciencehub.com/python/no.vtt
+NO
+addsubtitle PRE002 https://subtitles.datasciencehub.com/python/cs.vtt
+CS
+addsubtitle Pre002 https://subtitles.datasciencehub.com/python/uk-2.vtt
+UK
+SUBTITLES Pre002
+ADDSUBTITLE Pub001 https://subtitles.education.com/java/uk.vtt
+UK
+addsubtitle Pub002 https://subtitles.techschool.pt/python/no.vtt
+NO
+subtitles pub002
+subtitles pub000
+subtitles pub001
+CREATESHOW John Smith
+Pub001 2025-04-15
+CREATESHOW Mary Johnson
+Pre001 2025-04-16
+CREATESHOW Mary Johnson
+Pre001 2025-04-16
+CREATESHOW Robert Brown
+Pub002 2025-04-17
+CREATESHOW Lisa Davis
+Pre002 2025-04-18
+CREATESHOW David Wilson
+Pre003 2025-04-19
+CREATESHOW Sarah Miller
+Pre004 2025-04-20
+CREATESHOW Duplicate Author
+Pub001 2025-04-21
+GETSHOW Java Programming Fundamentals
+GETSHOW Full Stack Web Development
+GETSHOW Python Advanced Concepts
+GETSHOW Data Science with Python
+GETSHOW AI and Machine Learning Foundations
+GETSHOW Learn Czech Language
+GETSHOW NonExistent Show
+SUBTITLES Pre001
+SUBTITLES Pre002
+SUBTITLES Pre003
+SUBTITLES Pre004
+SUBTITLES Pub001
+REMOVESHOW Python Advanced Concepts
+REMOVESHOW NonExistent Show
+GETSHOW Python Advanced Concepts
+REMOVEVIDEO Pub002
+GETVIDEO Pub002
+CREATESHOW New Python Author
+Pub002 2025-04-22
+GETSHOW Java Programming Fundamentals
+GETSHOW Full Stack Web Development
+GETSHOW Data Science with Python
+GETSHOW AI and Machine Learning Foundations
+GETSHOW Learn Czech Language
+SUBTITLES Pre001
+SUBTITLES Pre002
+SUBTITLES Pre003
+SUBTITLES Pre004
+REMOVESHOW Java Programming Fundamentals
+REMOVESHOW Full Stack Web Development
+REMOVESHOW Data Science with Python
+GETSHOW Java Programming Fundamentals
+GETSHOW Full Stack Web Development
+GETSHOW Data Science with Python
+SUBTITLES Pre001
+SUBTITLES Pre002
+REMOVEVIDEO Pub001
+REMOVEVIDEO Pre001
+REMOVEVIDEO Pre002
+GETVIDEO Pub001
+GETVIDEO Pre001
+GETVIDEO Pre002
+GETVIDEO Pre003
+GETVIDEO Pre004
+SUBTITLES Pre001
+SUBTITLES Pre002
+SUBTITLES Pre003
+SUBTITLES Pre004
+CREATESHOW Removed Video Author
+Pre001 2025-04-23
+CREATESHOW Existing Video Author
+Pre003 2025-04-24
+GETSHOW AI and Machine Learning Foundations
+GETSHOW David Wilson
+GETSHOW Sarah Miller
+SUBTITLES Pre003
+SUBTITLES Pre004
+REMOVESHOW AI and Machine Learning Foundations
+REMOVESHOW Learn Czech Language
+GETSHOW AI and Machine Learning Foundations
+GETSHOW Learn Czech Language
+SUBTITLES Pre003
+SUBTITLES Pre004
+HELP
+UNKNOWNcommand
+EXIT

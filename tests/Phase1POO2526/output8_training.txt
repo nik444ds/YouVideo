@@ -1,0 +1,203 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+No podcasts found for this author.
+Podcast created successfully.
+Podcast with this title already exists.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast with this title already exists.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcasts by author john smith:
+Podcast: JAVA PROGRAMMING PODCAST Author: JOHN SMITH Language: EN
+Podcast: python advanced podcast Author: JOHN SMITH Language: EN
+Podcasts by author MARY JOHNSON:
+Podcast: Web Development Podcast Author: mary johnson Language: EN
+Podcast: DATA SCIENCE PODCAST Author: mary johnson Language: EN
+Podcasts by author david wilson:
+Podcast: ai and ml podcast Author: David WILSON Language: EN
+Podcast: DEVOPS ENGINEERING PODCAST Author: David WILSON Language: EN
+Podcasts by author SARAH MILLER:
+Podcast: CINEMA HISTORY PODCAST Author: SARAH MILLER Language: EN
+Podcasts by author empty author:
+Podcast: EMPTY PODCAST ONE Author: EMPTY AUTHOR Language: EN
+Podcast: empty podcast two Author: EMPTY AUTHOR Language: EN
+Video PuB001 created successfully.
+No podcasts found for this author.
+No podcasts found for this author.
+PREMIUM Video PrE001 created successfully.
+PREMIUM Video PrE002 created successfully.
+No podcasts found for this author.
+No podcasts found for this author.
+Video pUb002 created successfully.
+Video with this ID already exists.
+Video PuB003 created successfully.
+PREMIUM Video PrE003 created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show with this title already exists.
+Show Date: 2025-04-15 Author: JOHN SMITH
+Video: JAVA PROGRAMMING FUNDAMENTALS
+Show Date: 2025-04-16 Author: mary johnson
+Video: FULL STACK WEB DEVELOPMENT
+Show Date: 2025-04-17 Author: David WILSON
+Video: PYTHON ADVANCED CONCEPTS
+Show does not exist.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Episodes for podcast JAVA PROGRAMMING PODCAST:
+Episode Ep002: 52 min Date: 2025-03-22
+URL: http://example.com/java-ep2.mp3
+Episode Ep001: 45 min Date: 2025-03-15
+URL: http://example.com/java-ep1.mp3
+Episodes for podcast python advanced podcast:
+Episode Ep102: 62 min Date: 2025-03-27
+URL: http://example.com/python-ep2.mp3
+Episode Ep101: 55 min Date: 2025-03-20
+URL: http://example.com/python-ep1.mp3
+Episodes for podcast WEB DEVELOPMENT PODCAST:
+Episode Ep201: 50 min Date: 2025-04-01
+URL: http://example.com/web-ep1.mp3
+Episodes for podcast data science podcast:
+Episode Ep301: 60 min Date: 2025-04-05
+URL: http://example.com/ds-ep1.mp3
+Episodes for podcast AI AND ML PODCAST:
+Episode Ep401: 70 min Date: 2025-04-10
+URL: http://example.com/ai-ep1.mp3
+No podcasts found for this author.
+No podcasts found for this author.
+Podcasts by author john smith:
+Podcast: JAVA PROGRAMMING PODCAST Author: JOHN SMITH Language: EN
+Podcast: python advanced podcast Author: JOHN SMITH Language: EN
+Podcast created successfully.
+Podcasts by author jOhN sMiTh:
+Podcast: JAVA PROGRAMMING PODCAST Author: JOHN SMITH Language: EN
+Podcast: python advanced podcast Author: JOHN SMITH Language: EN
+Podcast: Mixed Case Podcast Author: JOHN SMITH Language: EN
+Podcasts by author JOHN SMITH:
+Podcast: JAVA PROGRAMMING PODCAST Author: JOHN SMITH Language: EN
+Podcast: python advanced podcast Author: JOHN SMITH Language: EN
+Podcast: Mixed Case Podcast Author: JOHN SMITH Language: EN
+Podcasts by author john smith:
+Podcast: JAVA PROGRAMMING PODCAST Author: JOHN SMITH Language: EN
+Podcast: python advanced podcast Author: JOHN SMITH Language: EN
+Podcast: Mixed Case Podcast Author: JOHN SMITH Language: EN
+Podcast removed successfully.
+Podcasts by author MARY JOHNSON:
+Podcast: Web Development Podcast Author: mary johnson Language: EN
+Podcast: DATA SCIENCE PODCAST Author: mary johnson Language: EN
+Podcasts by author david wilson:
+Podcast: ai and ml podcast Author: David WILSON Language: EN
+Podcast: DEVOPS ENGINEERING PODCAST Author: David WILSON Language: EN
+Podcasts by author SARAH MILLER:
+Podcast: CINEMA HISTORY PODCAST Author: SARAH MILLER Language: EN
+Podcasts by author empty author:
+Podcast: EMPTY PODCAST ONE Author: EMPTY AUTHOR Language: EN
+Podcast: empty podcast two Author: EMPTY AUTHOR Language: EN
+Podcast removed successfully.
+Podcast removed successfully.
+Podcasts by author JOHN SMITH:
+Podcast: JAVA PROGRAMMING PODCAST Author: JOHN SMITH Language: EN
+Podcasts by author mary johnson:
+Podcast: Web Development Podcast Author: mary johnson Language: EN
+Podcasts by author DAVID WILSON:
+Podcast: ai and ml podcast Author: David WILSON Language: EN
+Podcast: DEVOPS ENGINEERING PODCAST Author: David WILSON Language: EN
+Podcasts by author sarah miller:
+Podcast: CINEMA HISTORY PODCAST Author: SARAH MILLER Language: EN
+Podcast removed successfully.
+Podcast removed successfully.
+No podcasts found for this author.
+Podcasts by author DAVID WILSON:
+Podcast: DEVOPS ENGINEERING PODCAST Author: David WILSON Language: EN
+Podcasts by author sarah miller:
+Podcast: CINEMA HISTORY PODCAST Author: SARAH MILLER Language: EN
+Podcast removed successfully.
+Podcast removed successfully.
+No podcasts found for this author.
+No podcasts found for this author.
+Podcast removed successfully.
+No podcasts found for this author.
+Podcast removed successfully.
+Podcast removed successfully.
+No podcasts found for this author.
+No podcasts found for this author.
+Video vid_pub created successfully.
+Podcast created successfully.
+Podcasts by author Publisher Name:
+Podcast: Publisher Name Podcast Author: Publisher Name Language: EN
+Video vid_pub 360 Title: Publisher Test Video
+File: https://example.com/publisher-test.mp4 Publisher: Publisher Name Language: ENGLISH
+Podcast removed successfully.
+Video removed successfully.
+Video vid_show created successfully.
+Show created successfully.
+Podcast created successfully.
+Podcasts by author John Smith Show Author:
+Podcast: John Smith Show Author Podcast Author: John Smith Show Author Language: EN
+Show Date: 2025-04-25 Author: John Smith Show Author
+Video: Show Test Video
+Podcast removed successfully.
+Show removed successfully.
+Video removed successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcasts by author Recreate Author:
+Podcast: Recreate Podcast One Author: Recreate Author Language: EN
+Podcast: Recreate Podcast Two Author: Recreate Author Language: EN
+Podcast removed successfully.
+Podcast removed successfully.
+No podcasts found for this author.
+Podcast created successfully.
+Podcast created successfully.
+Podcasts by author Recreate Author:
+Podcast: Recreate Podcast Three Author: Recreate Author Language: EN
+Podcast: Recreate Podcast Four Author: Recreate Author Language: EN
+Podcast removed successfully.
+Podcast removed successfully.
+No podcasts found for this author.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!

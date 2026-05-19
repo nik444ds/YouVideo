@@ -1,0 +1,185 @@
+HeLp
+UnKnOwNcOmMaNd
+ReMoVePoDcAsT nonexistent podcast
+gEtPoDcAsT nonexistent podcast
+CrEaTePoDcAsT tech talk daily podcast
+John Smith
+EN
+cReAtEpOdCaSt CODE STORIES FOR DEVELOPERS
+Jane Doe
+EN
+CrEaTePoDcAsT movie chat podcast
+Mike Johnson
+EN
+CrEaTePoDcAsT empty podcast test
+Nobody
+EN
+ePiSoDeS empty podcast test
+CrEaTePuBlIsHaBlE vid001 360 https://cdn.education.com/java/basics/2024/java-fundamentals.mp4
+Code Academy Inc.
+JAVA PROGRAMMING FUNDAMENTALS
+EN
+cReAtEpReMiUm vid002 540 https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4
+Web Masters LLC
+full stack web development
+EN
+https://subtitles.webmasters.com/fullstack/en.vtt
+EN
+CrEaTePuBlIsHaBlE VID003 480 https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4
+Tech School Solutions
+Python Advanced Concepts
+ES
+cReAtEpReMiUm VID004 420 https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4
+Data Science Hub
+DATA SCIENCE WITH PYTHON
+FR
+https://subtitles.datasciencehub.com/python/fr.vtt
+FR
+CrEaTePuBlIsHaBlE VID005 300 https://example.com/cinema-history.mp4
+Cinema Academy
+Cinema History
+IT
+GeTvIdEo VID001
+GeTvIdEo vid002
+gEtViDeO Vid003
+gEtViDeO vid004
+gEtViDeO VID005
+cReAtEsHoW John Doe
+vid001 2025-04-15
+cReAtEsHoW Jane Smith
+vid002 2025-04-16
+cReAtEsHoW Bob Johnson
+VID003 2025-04-17
+cReAtEsHoW Alice Brown
+VID004 2025-04-18
+cReAtEsHoW Charlie Wilson
+VID005 2025-04-19
+gEtShOw John Doe
+gEtShOw Jane Smith
+gEtShOw Bob Johnson
+gEtShOw Alice Brown
+gEtShOw Charlie Wilson
+REMOVESHOW John Doe
+REMOVESHOW Jane Smith
+REMOVESHOW Bob Johnson
+REMOVESHOW Alice Brown
+REMOVESHOW Charlie Wilson
+aDdEpIsOdE TECH TALK DAILY PODCAST
+vid001 45 http://example.com/tech-ep1.mp3
+2025-03-15
+aDdEpIsOdE tech talk daily podcast
+vid002 52 http://example.com/tech-ep2.mp3
+2025-03-22
+aDdEpIsOdE TECH TALK DAILY PODCAST
+newep001 30 http://example.com/tech-old-date.mp3
+2025-03-10
+aDdEpIsOdE tech talk daily podcast
+newep002 35 http://example.com/tech-same-date-1.mp3
+2025-03-22
+aDdEpIsOdE TECH TALK DAILY PODCAST
+newep003 40 http://example.com/tech-same-date-2.mp3
+2025-03-22
+aDdEpIsOdE tech talk daily podcast
+newep011 -10 http://example.com/tech-negative-duration.mp3
+2025-03-25
+aDdEpIsOdE TECH TALK DAILY PODCAST
+newep012 0 http://example.com/tech-zero-duration.mp3
+2025-03-26
+aDdEpIsOdE CODE STORIES FOR DEVELOPERS
+VID003 55 http://example.com/code-ep1.mp3
+2025-03-20
+aDdEpIsOdE code stories for developers
+VID004 62 http://example.com/code-ep2.mp3
+2025-03-27
+aDdEpIsOdE CODE STORIES FOR DEVELOPERS
+newep004 35 http://example.com/code-old-date.mp3
+2025-03-15
+aDdEpIsOdE code stories for developers
+newep005 40 http://example.com/code-same-date-1.mp3
+2025-03-27
+aDdEpIsOdE CODE STORIES FOR DEVELOPERS
+newep006 45 http://example.com/code-same-date-2.mp3
+2025-03-27
+aDdEpIsOdE code stories for developers
+newep013 -5 http://example.com/code-negative-duration.mp3
+2025-03-28
+aDdEpIsOdE CODE STORIES FOR DEVELOPERS
+newep014 0 http://example.com/code-zero-duration.mp3
+2025-03-29
+aDdEpIsOdE movie chat podcast
+VID005 50 http://example.com/movie-ep1.mp3
+2025-04-01
+aDdEpIsOdE MOVIE CHAT PODCAST
+newep007 55 http://example.com/movie-ep2.mp3
+2025-04-05
+aDdEpIsOdE movie chat podcast
+newep008 35 http://example.com/movie-old-date.mp3
+2025-03-20
+aDdEpIsOdE MOVIE CHAT PODCAST
+newep009 40 http://example.com/movie-same-date-1.mp3
+2025-04-05
+aDdEpIsOdE movie chat podcast
+newep010 45 http://example.com/movie-same-date-2.mp3
+2025-04-05
+aDdEpIsOdE MOVIE CHAT PODCAST
+newep015 -8 http://example.com/movie-negative-duration.mp3
+2025-04-06
+aDdEpIsOdE movie chat podcast
+newep016 0 http://example.com/movie-zero-duration.mp3
+2025-04-07
+ePiSoDeS TECH TALK DAILY PODCAST
+ePiSoDeS code stories for developers
+ePiSoDeS MOVIE CHAT PODCAST
+cReAtEpUbLiShAbLe newvid001 600 https://example.com/new-video.mp4
+New Publisher
+brand new video title
+DE
+cReAtEpReMiUm newvid002 720 https://example.com/new-premium.mp4
+New Premium Publisher
+PREMIUM NEW VIDEO TITLE
+DE
+https://example.com/subtitles-de.vtt
+DE
+cReAtEsHoW Sarah Davis
+newvid001 2025-05-01
+cReAtEsHoW Michael Brown
+newvid002 2025-05-02
+gEtShOw Sarah Davis
+gEtShOw Michael Brown
+aDdEpIsOdE tech talk daily podcast
+NEWVID001 48 http://example.com/tech-new-ep1.mp3
+2025-04-20
+aDdEpIsOdE CODE STORIES FOR DEVELOPERS
+newvid002 58 http://example.com/code-new-ep2.mp3
+2025-04-25
+aDdEpIsOdE MOVIE CHAT PODCAST
+newvid001 45 http://example.com/movie-new-ep1.mp3
+2025-04-20
+ePiSoDeS TECH TALK DAILY PODCAST
+ePiSoDeS code stories for developers
+ePiSoDeS MOVIE CHAT PODCAST
+ReMoVeShOw Sarah Davis
+ReMoVeShOw Michael Brown
+aDdEpIsOdE tech talk daily podcast
+newvid001 48 http://example.com/tech-new-ep1-v2.mp3
+2025-05-05
+aDdEpIsOdE CODE STORIES FOR DEVELOPERS
+NEWVID002 58 http://example.com/code-new-ep2-v2.mp3
+2025-05-10
+aDdEpIsOdE MOVIE CHAT PODCAST
+newvid002 55 http://example.com/movie-new-ep2.mp3
+2025-05-10
+ePiSoDeS tech talk daily podcast
+ePiSoDeS CODE STORIES FOR DEVELOPERS
+ePiSoDeS movie chat podcast
+ReMoVePoDcAsT TECH TALK DAILY PODCAST
+ReMoVePoDcAsT code stories for developers
+ReMoVePoDcAsT movie chat podcast
+ReMoVePoDcAsT empty podcast test
+gEtPoDcAsT tech talk daily podcast
+gEtPoDcAsT CODE STORIES FOR DEVELOPERS
+gEtPoDcAsT movie chat podcast
+gEtPoDcAsT empty podcast test
+HeLp
+UnKnOwNcOmMaNd
+eXiT

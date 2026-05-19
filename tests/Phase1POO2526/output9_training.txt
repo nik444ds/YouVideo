@@ -1,0 +1,584 @@
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Video vid_aa created successfully.
+Video vid_ab created successfully.
+Video vid_ae created successfully.
+Video vid_af created successfully.
+Video vid_ak created successfully.
+Video vid_am created successfully.
+Video vid_an created successfully.
+Video vid_ar created successfully.
+Video vid_as created successfully.
+Video vid_av created successfully.
+Video vid_ay created successfully.
+Video vid_az created successfully.
+Video vid_ba created successfully.
+Video vid_be created successfully.
+Video vid_bg created successfully.
+Video vid_bh created successfully.
+Video vid_bi created successfully.
+Video vid_bm created successfully.
+Video vid_bn created successfully.
+Video vid_bo created successfully.
+Video vid_br created successfully.
+Video vid_bs created successfully.
+Video vid_ca created successfully.
+Video vid_ce created successfully.
+Video vid_ch created successfully.
+Video vid_co created successfully.
+Video vid_cr created successfully.
+Video vid_cs created successfully.
+Video vid_cu created successfully.
+Video vid_cv created successfully.
+Video vid_cy created successfully.
+Video vid_da created successfully.
+Video vid_de created successfully.
+Video vid_dv created successfully.
+Video vid_dz created successfully.
+Video vid_ee created successfully.
+Video vid_el created successfully.
+Video vid_en created successfully.
+Video vid_eo created successfully.
+Video vid_es created successfully.
+Video vid_et created successfully.
+Video vid_eu created successfully.
+Video vid_fa created successfully.
+Video vid_ff created successfully.
+Video vid_fi created successfully.
+Video vid_fj created successfully.
+Video vid_fo created successfully.
+Video vid_fr created successfully.
+Video vid_fy created successfully.
+Video vid_ga created successfully.
+Video vid_gd created successfully.
+Video vid_gl created successfully.
+Video vid_gn created successfully.
+Video vid_gu created successfully.
+Video vid_gv created successfully.
+Video vid_ha created successfully.
+Video vid_he created successfully.
+Video vid_hi created successfully.
+Video vid_ho created successfully.
+Video vid_hr created successfully.
+Video vid_ht created successfully.
+Video vid_hu created successfully.
+Video vid_hy created successfully.
+Video vid_hz created successfully.
+Video vid_ia created successfully.
+Video vid_id created successfully.
+Video vid_ie created successfully.
+Video vid_ig created successfully.
+Video vid_ii created successfully.
+Video vid_ik created successfully.
+Video vid_io created successfully.
+Video vid_is created successfully.
+Video vid_it created successfully.
+Video vid_iu created successfully.
+Video vid_ja created successfully.
+Video vid_jv created successfully.
+Video vid_ka created successfully.
+Video vid_kg created successfully.
+Video vid_ki created successfully.
+Video vid_kj created successfully.
+Video vid_kk created successfully.
+Video vid_kl created successfully.
+Video vid_km created successfully.
+Video vid_kn created successfully.
+Video vid_ko created successfully.
+Video vid_kr created successfully.
+Video vid_ks created successfully.
+Video vid_ku created successfully.
+Video vid_kv created successfully.
+Video vid_kw created successfully.
+Video vid_ky created successfully.
+Video vid_la created successfully.
+Video vid_lb created successfully.
+Video vid_lg created successfully.
+Video vid_li created successfully.
+Video vid_ln created successfully.
+Video vid_lo created successfully.
+Video vid_lt created successfully.
+Video vid_lu created successfully.
+Video vid_lv created successfully.
+Video vid_mg created successfully.
+Video vid_mh created successfully.
+Video vid_mi created successfully.
+Video vid_mk created successfully.
+Video vid_ml created successfully.
+Video vid_mn created successfully.
+Video vid_mr created successfully.
+Video vid_ms created successfully.
+Video vid_mt created successfully.
+Video vid_my created successfully.
+Video vid_na created successfully.
+Video vid_nb created successfully.
+Video vid_nd created successfully.
+Video vid_ne created successfully.
+Video vid_ng created successfully.
+Video vid_nl created successfully.
+Video vid_nn created successfully.
+Video vid_no created successfully.
+Video vid_nr created successfully.
+Video vid_nv created successfully.
+Video vid_ny created successfully.
+Video vid_oc created successfully.
+Video vid_oj created successfully.
+Video vid_om created successfully.
+Video vid_or created successfully.
+Video vid_os created successfully.
+Video vid_pa created successfully.
+Video vid_pi created successfully.
+Video vid_pl created successfully.
+Video vid_ps created successfully.
+Video vid_pt created successfully.
+Video vid_qu created successfully.
+Video vid_rm created successfully.
+Video vid_rn created successfully.
+Video vid_ro created successfully.
+Video vid_ru created successfully.
+Video vid_rw created successfully.
+Video vid_sa created successfully.
+Video vid_sc created successfully.
+Video vid_sd created successfully.
+Video vid_se created successfully.
+Video vid_sg created successfully.
+Video vid_si created successfully.
+Video vid_sk created successfully.
+Video vid_sl created successfully.
+Video vid_sm created successfully.
+Video vid_sn created successfully.
+Video vid_so created successfully.
+Video vid_sq created successfully.
+Video vid_sr created successfully.
+Video vid_ss created successfully.
+Video vid_st created successfully.
+Video vid_su created successfully.
+Video vid_sv created successfully.
+Video vid_sw created successfully.
+Video vid_ta created successfully.
+Video vid_te created successfully.
+Video vid_tg created successfully.
+Video vid_th created successfully.
+Video vid_ti created successfully.
+Video vid_tk created successfully.
+Video vid_tl created successfully.
+Video vid_tn created successfully.
+Video vid_to created successfully.
+Video vid_tr created successfully.
+Video vid_ts created successfully.
+Video vid_tt created successfully.
+Video vid_tw created successfully.
+Video vid_ty created successfully.
+Video vid_ug created successfully.
+Video vid_uk created successfully.
+Video vid_ur created successfully.
+Video vid_uz created successfully.
+Video vid_ve created successfully.
+Video vid_vi created successfully.
+Video vid_vo created successfully.
+Video vid_wa created successfully.
+Video vid_wo created successfully.
+Video vid_xh created successfully.
+Video vid_yi created successfully.
+Video vid_yo created successfully.
+Video vid_za created successfully.
+Video vid_zh created successfully.
+Video vid_zu created successfully.
+Video vid_aa 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AFAR
+Video vid_ab 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ABKHAZIAN
+Video vid_ae 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AVESTAN
+Video vid_af 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AFRIKAANS
+Video vid_ak 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AKAN
+Video vid_am 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AMHARIC
+Video vid_an 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ARAGONESE
+Video vid_ar 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ARABIC
+Video vid_as 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ASSAMESE
+Video vid_av 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AVARIC
+Video vid_ay 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AYMARA
+Video vid_az 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: AZERBAIJANI
+Video vid_ba 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BASHKIR
+Video vid_be 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BELARUSIAN
+Video vid_bg 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BULGARIAN
+Video vid_bh 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BIHARI
+Video vid_bi 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BISLAMA
+Video vid_bm 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BAMBARA
+Video vid_bn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BANGLA
+Video vid_bo 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TIBETAN
+Video vid_br 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BRETON
+Video vid_bs 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BOSNIAN
+Video vid_ca 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CATALAN
+Video vid_ce 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CHECHEN
+Video vid_ch 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CHAMORRO
+Video vid_co 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CORSICAN
+Video vid_cr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CREE
+Video vid_cs 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CZECH
+Video vid_cu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CHURCH SLAVIC
+Video vid_cv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CHUVASH
+Video vid_cy 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: WELSH
+Video vid_da 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: DANISH
+Video vid_de 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GERMAN
+Video vid_dv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: DIVEHI
+Video vid_dz 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: DZONGKHA
+Video vid_ee 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: EWE
+Video vid_el 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GREEK
+Video vid_en 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ENGLISH
+Video vid_eo 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ESPERANTO
+Video vid_es 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SPANISH
+Video vid_et 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ESTONIAN
+Video vid_eu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BASQUE
+Video vid_fa 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: PERSIAN
+Video vid_ff 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: FULAH
+Video vid_fi 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: FINNISH
+Video vid_fj 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: FIJIAN
+Video vid_fo 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: FAROESE
+Video vid_fr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: FRENCH
+Video vid_fy 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: WESTERN FRISIAN
+Video vid_ga 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: IRISH
+Video vid_gd 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SCOTTISH GAELIC
+Video vid_gl 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GALICIAN
+Video vid_gn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GUARANI
+Video vid_gu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GUJARATI
+Video vid_gv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MANX
+Video vid_ha 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HAUSA
+Video vid_he 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HEBREW
+Video vid_hi 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HINDI
+Video vid_ho 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HIRI MOTU
+Video vid_hr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CROATIAN
+Video vid_ht 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HAITIAN CREOLE
+Video vid_hu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HUNGARIAN
+Video vid_hy 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ARMENIAN
+Video vid_hz 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: HERERO
+Video vid_ia 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: INTERLINGUA
+Video vid_id 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: INDONESIAN
+Video vid_ie 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: INTERLINGUE
+Video vid_ig 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: IGBO
+Video vid_ii 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SICHUAN YI
+Video vid_ik 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: INUPIAQ
+Video vid_io 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: IDO
+Video vid_is 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ICELANDIC
+Video vid_it 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ITALIAN
+Video vid_iu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: INUKTITUT
+Video vid_ja 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: JAPANESE
+Video vid_jv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: JAVANESE
+Video vid_ka 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GEORGIAN
+Video vid_kg 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KONGO
+Video vid_ki 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KIKUYU
+Video vid_kj 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KUANYAMA
+Video vid_kk 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KAZAKH
+Video vid_kl 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KALAALLISUT
+Video vid_km 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KHMER
+Video vid_kn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KANNADA
+Video vid_ko 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KOREAN
+Video vid_kr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KANURI
+Video vid_ks 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KASHMIRI
+Video vid_ku 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KURDISH
+Video vid_kv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KOMI
+Video vid_kw 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CORNISH
+Video vid_ky 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KYRGYZ
+Video vid_la 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LATIN
+Video vid_lb 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LUXEMBOURGISH
+Video vid_lg 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: GANDA
+Video vid_li 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LIMBURGISH
+Video vid_ln 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LINGALA
+Video vid_lo 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LAO
+Video vid_lt 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LITHUANIAN
+Video vid_lu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LUBA-KATANGA
+Video vid_lv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: LATVIAN
+Video vid_mg 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MALAGASY
+Video vid_mh 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MARSHALLESE
+Video vid_mk 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MACEDONIAN
+Video vid_ml 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MALAYALAM
+Video vid_mn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MONGOLIAN
+Video vid_mr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MARATHI
+Video vid_ms 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MALAY
+Video vid_mt 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: MALTESE
+Video vid_my 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: BURMESE
+Video vid_na 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NAURU
+Video vid_nd 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NORTH NDEBELE
+Video vid_ne 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NEPALI
+Video vid_ng 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NDONGA
+Video vid_nl 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: DUTCH
+Video vid_nn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NORWEGIAN NYNORSK
+Video vid_no 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NORWEGIAN
+Video vid_nr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SOUTH NDEBELE
+Video vid_nv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NAVAJO
+Video vid_ny 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NYANJA
+Video vid_oc 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: OCCITAN
+Video vid_oj 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: OJIBWA
+Video vid_om 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: OROMO
+Video vid_or 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ODIA
+Video vid_os 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: OSSETIC
+Video vid_pa 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: PUNJABI
+Video vid_pi 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: PALI
+Video vid_pl 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: POLISH
+Video vid_ps 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: PASHTO
+Video vid_pt 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: PORTUGUESE
+Video vid_qu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: QUECHUA
+Video vid_rm 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ROMANSH
+Video vid_rn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: RUNDI
+Video vid_ro 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ROMANIAN
+Video vid_ru 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: RUSSIAN
+Video vid_rw 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: KINYARWANDA
+Video vid_sa 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SANSKRIT
+Video vid_sc 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SARDINIAN
+Video vid_sd 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SINDHI
+Video vid_se 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: NORTHERN SAMI
+Video vid_sg 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SANGO
+Video vid_si 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SINHALA
+Video vid_sk 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SLOVAK
+Video vid_sl 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SLOVENIAN
+Video vid_sm 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SAMOAN
+Video vid_sn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SHONA
+Video vid_so 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SOMALI
+Video vid_sq 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ALBANIAN
+Video vid_sr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SERBIAN
+Video vid_ss 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SWATI
+Video vid_st 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SOUTHERN SOTHO
+Video vid_su 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SUNDANESE
+Video vid_sv 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SWEDISH
+Video vid_sw 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: SWAHILI
+Video vid_ta 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TAMIL
+Video vid_te 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TELUGU
+Video vid_tg 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TAJIK
+Video vid_th 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: THAI
+Video vid_ti 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TIGRINYA
+Video vid_tk 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TURKMEN
+Video vid_tl 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TAGALOG
+Video vid_tn 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TSWANA
+Video vid_to 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TONGAN
+Video vid_tr 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TURKISH
+Video vid_ts 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TSONGA
+Video vid_tt 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TATAR
+Video vid_tw 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TWI
+Video vid_ty 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: TAHITIAN
+Video vid_ug 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: UYGHUR
+Video vid_uk 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: UKRAINIAN
+Video vid_ur 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: URDU
+Video vid_uz 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: UZBEK
+Video vid_ve 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: VENDA
+Video vid_vi 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: VIETNAMESE
+Video vid_wa 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: WALLOON
+Video vid_wo 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: WOLOF
+Video vid_xh 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: XHOSA
+Video vid_yi 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: YIDDISH
+Video vid_yo 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: YORUBA
+Video vid_za 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ZHUANG
+Video vid_zh 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: CHINESE
+Video vid_zu 360 Title: Video Title
+File: https://example.com/video.mp4 Publisher: Publisher Language: ZULU
+Invalid language type.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+removeshow - removes a show
+removevideo - removes a publishable video
+help - shows the available commands
+exit - terminates the execution of the program
+Unknown command. Type help to see available commands.
+Bye!
