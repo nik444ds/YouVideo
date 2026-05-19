@@ -4,8 +4,6 @@
 
 
  */
-
-import dataStructures.*;
 import youVideo.*;
 
 import java.util.Locale;
@@ -71,10 +69,8 @@ public class Main {
     public static void main(String[] args){
         Locale.setDefault(Locale.of("en", "GB"));
         Scanner sc = new Scanner(System.in);
-        Array<VideoStructure> videos = new ArrayClass<>();
-        Array<Podcasts> podcast = new ArrayClass<>();
-        Array<Shows> show = new ArrayClass<>();
-        commandInterpreter(sc,videos, podcast, show);
+       VideoNetwork video = new VideoNetworkClass();
+        commandInterpreter(sc,video);
 
     }
 
@@ -83,12 +79,10 @@ public class Main {
      * It remains active until the exit command is received, routing each
      * input to its respective handler method.
      * @param sc the scanner to read user commands
-     * @param videos the global list of videos
-     * @param podcast the global list of podcasts
-     * @param show the global list of shows
+     * @param video the global list of commands
      * @pre sc != null && videos != null && podcast != null && show != null
      */
-    private static void commandInterpreter(Scanner sc, Array<VideoStructure> videos, Array<Podcasts> podcast, Array<Shows> show){
+    private static void commandInterpreter(Scanner sc, VideoNetwork video){
         String commands = sc.next().toLowerCase();
 
         while(!commands.equals(CMD_EXIT)){
@@ -130,7 +124,7 @@ public class Main {
      * @param video the global list of videos to store the new record
      * @pre sc != null && videos != null
      */
-    private static void addPublishable(Scanner sc, Array<VideoStructure> video){
+    private static void addPublishable(Scanner sc, VideoNetwork video){
         String id = sc.next();
         int duration = sc.nextInt();
         String url = sc.next();
@@ -151,8 +145,7 @@ public class Main {
             return;
         }
 
-        PublishableVideos pubVideos = new PublishableVideos(id,duration,url,publisher,title,languageCode);
-        video.insertLast(pubVideos);
+        video.createPublishable(id,duration,url,publisher,title,languageCode);
 
 
         System.out.println("Video " + id + VIDEO_CREATED_SUCCESS);
@@ -580,141 +573,6 @@ public class Main {
         System.out.println("removevideo - removes a publishable video");
         System.out.println("help - shows the available commands");
         System.out.println("exit - terminates the execution of the program");
-    }
-
-    /*
-         ----------------------------------------------------------------------------
-                                      AUXILIARY METHODS
-         ----------------------------------------------------------------------------
-    */
-
-    /**
-     * Checks if a video ID is already in use within the global list
-     * @param id the unique identifier to verify
-     * @param videos the global list of videos
-     * @return {@code true} if the ID exists (case-insensitive), {@code false} otherwise
-     * @pre id != null && videos != null
-     */
-    private static boolean idAlreadyExists(String id, Array<VideoStructure> videos) {
-        Iterator<VideoStructure> it = videos.iterator();
-        while (it.hasNext()) {
-            VideoStructure v = it.next();
-            if (v.getId().equalsIgnoreCase(id)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    /**
-     * Verifies if the provided language code exists in the ISO 639 standard library
-     * @param code the language code to validate
-     * @return true if the language exists, false otherwise
-     * @pre code != null
-     */
-    private static boolean isLanguageValid(String code) {
-        String[] languages = Locale.getISOLanguages();
-
-        for (String lang : languages) {
-            if (lang.equalsIgnoreCase(code)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Retrieves a video from the list based on its unique identifier
-     * @param id the unique ID of the video to search for
-     * @param video the global list of videos
-     * @return the video object if found, or  null if the ID does not exist
-     * @pre id != null && video != null
-     */
-    private static VideoStructure getVideoById(String id, Array<VideoStructure> video){
-        Iterator<VideoStructure> it = video.iterator();
-        while(it.hasNext()){
-            VideoStructure v = it.next();
-            if(v.getId().equalsIgnoreCase(id))
-                return v;
-        }
-        return null;
-
-    }
-
-    /**
-     * Checks if a podcast title is already in use within the system
-     * @param title the title to verify
-     * @param podcast the global list of podcasts
-     * @return true if the title already exists (case-insensitive), false otherwise
-     * @pre title != null && podcast != null
-     */
-    private static boolean titleAlreadyExist(String title, Array<Podcasts> podcast){
-        Iterator<Podcasts> it = podcast.iterator();
-        while(it.hasNext()){
-            Podcasts pod = it.next();
-            if(pod.getTitle().equalsIgnoreCase(title))
-                return true;
-
-        }
-        return false;
-    }
-
-    /**
-     * Searches for a podcast by its title
-     * @param title the title of the podcast to search for (case-insensitive)
-     * @param pod the global list of podcasts to search in
-     * @return the podcast object if found, or null if no podcast exists with that title
-     * @pre title != null && pod != null
-     */
-    private static Podcasts getPodcastByTitle(String title,Array<Podcasts> pod){
-        Iterator<Podcasts> it = pod.iterator();
-        while(it.hasNext()){
-            Podcasts p = it.next();
-            if(p.getTitle().equalsIgnoreCase(title)){
-                return p;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Search for all podcasts associated with a specific author.
-     * @param author  name of author to search (case-sensitive)
-     * @param pod The global list of podcasts where the research will be carried out
-     * @return An array containing all podcasts found by the author;
-     * return an empty array if no array is found.
-     * @pre author != null && pod != null
-     */
-    private static Array<Podcasts> getPodcastByAuthor(String author, Array<Podcasts> pod){
-        Array<Podcasts> result = new ArrayClass<>();
-        Iterator<Podcasts> it = pod.iterator();
-        while(it.hasNext()){
-            Podcasts p = it.next();
-            if(p.getAuthor().equalsIgnoreCase(author)){
-                result.insertLast(p);
-            }
-
-        }
-        return result;
-
-    }
-
-    /**
-     * Searches for the original author name in the collection to maintain data consistency.
-     * @param name the author name to validate
-     * @param collection List of Authored objects to search
-     * @return the name as it was first stored, or the input name if not found
-     */
-    private static <T extends Authored> String getExistingAuthorName(String name, Array<T> collection) {
-        Iterator<T> it = collection.iterator();
-        while(it.hasNext()){
-            T item = it.next();
-            if(item.getAuthor().equalsIgnoreCase(name)) {
-                return item.getAuthor();
-            }
-        }
-        return name;
     }
 
 
