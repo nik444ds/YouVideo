@@ -44,10 +44,10 @@ public interface VideoNetwork {
     public void getVideo(String id);
 
     /**
-     *
+     *Method t
      * @param id
      */
-    public PremiumVideos getPremiumVideo(String id);
+    public PremiumVideosClass getPremiumVideo(String id);
 
     /**
      *
@@ -97,7 +97,7 @@ public interface VideoNetwork {
      * @param video
      * @param date
      */
-    public void createShow(String author, PublishableVideos video, String date);;
+    public void createShow(String author, PublishableVideosClass video, String date);;
 
     /**
      *
@@ -152,4 +152,11 @@ public interface VideoNetwork {
      * @pre code != null
      */
     boolean isLanguageValid(String code);
+
+    /**
+     * Search for a name in a map, if the name exist, return, else return the name created
+     * @param authorInput
+     * @return
+     */
+    String getNameAuthor(String authorInput);
 }

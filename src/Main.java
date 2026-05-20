@@ -6,7 +6,9 @@
  */
 import youVideo.*;
 import youVideo.Exceptions.*;
+import youVideo.iterators.SubtitleListIterator;
 
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Scanner;
 public class Main {
@@ -92,7 +94,7 @@ public class Main {
                case CMD_CREATE_PREMIUM -> addPremium(sc, video);
                case CMD_ADD_SUB -> addSub(sc, video);
                case CMD_GET_VIDEO -> getVideo(sc, video);
-               case CMD_SUBTITLE -> subtitleList(sc,videos);
+               case CMD_SUBTITLE -> subtitleList(sc,video);
                case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
                case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
                case CMD_GET_PODCAST -> getPodcast(sc,podcast);
@@ -222,13 +224,13 @@ public class Main {
         String id = sc.next();
 
         try{
-            PremiumVideos premiumVideo = video.getPremiumVideo(id);
+            PremiumVideosClass premiumVideo = video.getPremiumVideo(id);
             System.out.println(SUBTITLE_LIST_HEADER + premiumVideo.getTitle() + ":");
-            /*Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
+            Iterator<Subtitles> it = new SubtitleListIterator(premiumVideo.getSubtitles());
             while(it.hasNext()){
                 Subtitles sub = it.next();
                 System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
-           */
+        }
         }
         catch(NotAPremiumVideoException e){System.out.println(NO_PREMIUM_VIDEO);}
     }
@@ -237,10 +239,10 @@ public class Main {
      * Executes the command to register a new podcast in the system.
      * Validates that the podcast title is unique before creation.
      * @param sc the scanner to read podcast details (title, author, language)
-     * @param podcast the global list of podcasts to store the new record
+     * @param video the global list of podcasts to store the new record
      * @pre sc != null && podcast != null
      */
-    private static void addPodcast(Scanner sc, Array<Podcasts> podcast){
+    private static void addPodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         String author = getExistingAuthorName(sc.nextLine(), podcast);
         String language = sc.next();
@@ -253,8 +255,7 @@ public class Main {
             System.out.println(TITLE_ALREADY_USED);
             return;
         }
-        Podcasts pod = new Podcasts(title, author, language);
-        podcast.insertLast(pod);
+        PodcastClass pod = new PodcastClass(title, author, language);
         System.out.println(PODCAST_CREATED);
     }
     /**
@@ -265,7 +266,7 @@ public class Main {
      * @param podcast the list of podcasts to find the target podcast
      * @pre sc != null && video != null && podcast != null
      */
-    private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<Podcasts> podcast){
+    private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<PodcastClass> podcast){
         String title = sc.nextLine().trim();
         String id = sc.next();
         int duration = sc.nextInt();
@@ -285,7 +286,7 @@ public class Main {
             return;
         }
 
-        Podcasts pod = getPodcastByTitle(title,podcast);
+        PodcastClass pod = getPodcastByTitle(title,podcast);
 
         //The recent episode are in position 0
         if(pod.getEpisode().size() > 0){
@@ -296,7 +297,7 @@ public class Main {
             }
 
         }
-        Episode episode = new Episode(id,duration,url,date);
+        EpisodeClass episode = new EpisodeClass(id,duration,url,date);
         pod.addEpisode(episode);
         video.insertLast(episode);
         System.out.println(EPISODE_CREATED);
@@ -308,13 +309,13 @@ public class Main {
      * @param pod the list of podcasts to search in
      * @pre sc != null && pod != null
      */
-    private static void getPodcast(Scanner sc, Array<Podcasts> pod){
+    private static void getPodcast(Scanner sc, Array<PodcastClass> pod){
         String title = sc.nextLine().trim();
         if(!titleAlreadyExist(title, pod)){
             System.out.println(PODCAST_DOES_NOT_EXIST);
             return;
         }
-        Podcasts podcast = getPodcastByTitle(title,pod);
+        PodcastClass podcast = getPodcastByTitle(title,pod);
         System.out.println("Podcast: " + podcast.getTitle() + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
         if(podcast.getEpisode().size() > 0)
         System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
@@ -327,23 +328,23 @@ public class Main {
      * @param podcast the list of podcasts to search in
      * @pre sc != null && podcast != null
      */
-    private static void episodesList(Scanner sc, Array<Podcasts> podcast){
+    private static void episodesList(Scanner sc, Array<PodcastClass> podcast){
         String title = sc.nextLine().trim();
 
         if(!titleAlreadyExist(title, podcast)){
             System.out.println(PODCAST_DOES_NOT_EXIST);
             return;
         }
-        Podcasts pod = getPodcastByTitle(title,podcast);
+        PodcastClass pod = getPodcastByTitle(title,podcast);
         if(pod.getEpisode().size() <= 0){
             System.out.println(HAS_NO_EPISODE);
             return;
         }
 
         System.out.println("Episodes for podcast " + title + ":");
-        Iterator<Episode> it = pod.getEpisode().iterator();
+        Iterator<EpisodeClass> it = pod.getEpisode().iterator();
         while(it.hasNext()){
-            Episode ep = it.next();
+            EpisodeClass ep = it.next();
             System.out.println("Episode " + ep.getId() + ": " + ep.getDuration() + " min Date: " + ep.getReleaseDate());
             System.out.println("URL: " + ep.getUrl());
         }
@@ -356,17 +357,17 @@ public class Main {
      * @param podcast the global list of podcasts to filter
      * @pre sc != null && podcast != null
      */
-    private static void podcastList(Scanner sc, Array<Podcasts> podcast){
+    private static void podcastList(Scanner sc, Array<PodcastClass> podcast){
         String author = sc.nextLine().trim();
-        Array<Podcasts> authorPod = getPodcastByAuthor(author, podcast);
+        Array<PodcastClass> authorPod = getPodcastByAuthor(author, podcast);
         if(authorPod.size() == 0){
             System.out.println(NO_PODCAST_AUTHOR);
             return;
         }
         System.out.println("Podcasts by author " + author + ":");
-        Iterator<Podcasts> it = authorPod.iterator();
+        Iterator<PodcastClass> it = authorPod.iterator();
         while(it.hasNext()){
-            Podcasts p = it.next();
+            PodcastClass p = it.next();
             System.out.println("Podcast: " + p.getTitle() + " Author: " + p.getAuthor() + " Language: " + p.getLanguage().getLanguage().toUpperCase());
         }
 
@@ -379,18 +380,18 @@ public class Main {
     * @param podcast the global list of podcasts to remove the podcast from
     * @pre sc != null && video != null && podcast != null
             */
-    private static void removePodcast(Scanner sc, Array<VideoStructure> video , Array<Podcasts> podcast){
+    private static void removePodcast(Scanner sc, Array<VideoStructure> video , Array<PodcastClass> podcast){
         String title = sc.nextLine().trim();
-        Podcasts pod = getPodcastByTitle(title, podcast);
+        PodcastClass pod = getPodcastByTitle(title, podcast);
         if(pod == null){
             System.out.println(PODCAST_DOES_NOT_EXIST);
             return;
         }
         //remove all the episodes from the podcast
-        Iterator<Episode> it = pod.getEpisode().iterator();
+        Iterator<EpisodeClass> it = pod.getEpisode().iterator();
         //Remove from global data the episodes
         while(it.hasNext()){
-            Episode ep = it.next();
+            EpisodeClass ep = it.next();
             int pos = video.searchIndexOf(ep);
             if(pos != -1)
             video.removeAt(pos);
@@ -409,7 +410,7 @@ public class Main {
      * @param showStructure the global list of shows to store the new record
      * @pre sc != null && videos != null && showStructure != null
      */
-    private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<Shows> showStructure, Array<Podcasts> podcast) {
+    private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<ShowClass> showStructure, Array<PodcastClass> podcast) {
         String author = sc.nextLine().trim();
         author = getExistingAuthorName(author, podcast);
         author = getExistingAuthorName(author, showStructure);
@@ -417,21 +418,21 @@ public class Main {
         String transmissionDate = sc.next();
         sc.nextLine();
         VideoStructure videoStructure = getVideoById(videoId, videos);
-        if (videoStructure == null || videoStructure instanceof Episode) {
+        if (videoStructure == null || videoStructure instanceof EpisodeClass) {
             System.out.println(SHOW_VIDEO_DOES_NOT_EXIST);
             return;
         }
-        PublishableVideos pubVideo = (PublishableVideos) videoStructure;
+        PublishableVideosClass pubVideo = (PublishableVideosClass) videoStructure;
         String showTitle = pubVideo.getTitle();
-        Iterator<Shows> it = showStructure.iterator();
+        Iterator<ShowClass> it = showStructure.iterator();
         while(it.hasNext()){
-            Shows show = it.next();
+            ShowClass show = it.next();
             if(show.getTitle().equalsIgnoreCase(showTitle)){
                 System.out.println(SHOW_ALREADY_EXISTS);
                 return;
             }
         }
-        Shows newShow = new Shows(author, pubVideo, transmissionDate);
+        ShowClass newShow = new ShowClass(author, pubVideo, transmissionDate);
         showStructure.insertLast(newShow);
         System.out.println(SHOW_CREATED);
     }
@@ -442,11 +443,11 @@ public class Main {
      * @param showStructure the list of shows to search in
      * @pre sc != null && showStructure != null
      */
-    private static void getShow(Scanner sc, Array<Shows> showStructure){
+    private static void getShow(Scanner sc, Array<ShowClass> showStructure){
         String title = sc.nextLine().trim();
-        Iterator<Shows> it = showStructure.iterator();
+        Iterator<ShowClass> it = showStructure.iterator();
         while(it.hasNext()){
-            Shows show = it.next();
+            ShowClass show = it.next();
             if(show.getTitle().equalsIgnoreCase(title)){
                 System.out.println("Show Date: " + show.getTransmissionDate() + " Author: " + show.getAuthor().trim());
                 System.out.println("Video: " + show.getTitle());
@@ -463,12 +464,12 @@ public class Main {
      * @param showStructure the list of shows to modify
      * @pre sc != null && showStructure != null
      */
-    private static void removeShow(Scanner sc, Array<Shows> showStructure){
+    private static void removeShow(Scanner sc, Array<ShowClass> showStructure){
         String title = sc.nextLine().trim();
-        Iterator<Shows> it = showStructure.iterator();
+        Iterator<ShowClass> it = showStructure.iterator();
         int position = 0;
         while(it.hasNext()){
-            Shows currentShow = it.next();
+            ShowClass currentShow = it.next();
             if(currentShow.getTitle().equalsIgnoreCase(title)){
                 showStructure.removeAt(position);
                 System.out.println(SHOW_REMOVED);
@@ -485,20 +486,20 @@ public class Main {
      * @param videos the global list of videos
      * @param showStructure the list of shows to check for video usage
      */
-    private static void removeVideo(Scanner sc, Array<VideoStructure> videos, Array<Shows> showStructure){
+    private static void removeVideo(Scanner sc, Array<VideoStructure> videos, Array<ShowClass> showStructure){
         String videoId = sc.next();
         VideoStructure video = getVideoById(videoId,videos);
         if(video == null) {
             System.out.println(VIDEO_DOES_NOT_EXIST);
             return;
         }
-        if(video instanceof Episode){
+        if(video instanceof EpisodeClass){
             System.out.println(CANNOT_REMOVE_EPISODE_VIDEO);
             return;
         }
-        Iterator<Shows> it = showStructure.iterator();
+        Iterator<ShowClass> it = showStructure.iterator();
         while(it.hasNext()){
-            Shows show = it.next();
+            ShowClass show = it.next();
             if(show.getvideo().getId().equalsIgnoreCase(videoId)) {
                 System.out.println(CANNOT_REMOVE_SHOW_VIDEO);
                 return;

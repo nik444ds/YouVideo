@@ -34,10 +34,7 @@ public abstract class AbstractVideoStructureClass implements VideoStructure{
         return url;
     }
 
-    /**
-     * Abstract method to be implemented by subclasses to define their specific
-     * data presentation format.
-     */
+
     public abstract void display();
 
 }
