@@ -91,17 +91,13 @@ public class VideoNetworkClass implements VideoNetwork{
     }
 
     @Override
-    public void subList(String id) {
+    public PremiumVideos getPremiumVideo(String id) throws NotAPremiumVideoException {
         VideoStructure video = videos.get(id);
-        if (video == null || !(video instanceof PremiumVideos)) {
-            throw new IllegalArgumentException("No Premium Video with ID.");
+
+        if (!(video instanceof PremiumVideos premiumVideo)) {
+            throw new NotAPremiumVideoException();
         }
-        PremiumVideos premiumVideo = (PremiumVideos) video;
-        System.out.println("Subtitles for video " + premiumVideo.getTitle() + ":");
-        List<Subtitles> subtitles = premiumVideo.getSubtitles();
-        for (Subtitles sub : subtitles) {
-            System.out.println("- " + sub.getUrl() + "(" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
-        }
+        return premiumVideo;
     }
 
     @Override

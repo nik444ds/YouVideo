@@ -47,7 +47,7 @@ public interface VideoNetwork {
      *
      * @param id
      */
-    public void subList(String id);
+    public PremiumVideos getPremiumVideo(String id);
 
     /**
      *

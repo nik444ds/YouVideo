@@ -215,24 +215,22 @@ public class Main {
      * Executes the command to list all subtitles of a specific premium video.
      * Verifies if the video exists and if it is of premium type before iterating through subtitles.
      * @param sc the scanner to read the video ID
-     * @param videos the global list of videos to search in
+     * @param video the global list of videos to search in
      * @pre sc != null && videos != null
      */
-    private static void subtitleList(Scanner sc, Array<VideoStructure> videos){
+    private static void subtitleList(Scanner sc, VideoNetwork video){
         String id = sc.next();
-        VideoStructure video = getVideoById(id, videos);
 
-        if(!(video instanceof PremiumVideos premiumVideos)){
-            System.out.println(NO_PREMIUM_VIDEO);
-            return;
-        }
+        try{
+            PremiumVideos premiumVideo = video.getPremiumVideo(id);
+            System.out.println(SUBTITLE_LIST_HEADER + premiumVideo.getTitle() + ":");
+            Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
+            while(it.hasNext()){
+                Subtitles sub = it.next();
+                System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
 
-        System.out.println(SUBTITLE_LIST_HEADER + premiumVideos.getTitle() + ":");
-
-        Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
-        while(it.hasNext()){
-            Subtitles sub = it.next();
-            System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");        }
+            }
+        catch(NotAPremiumVideoException e){System.out.println(NO_PREMIUM_VIDEO);}
     }
 
     /**
