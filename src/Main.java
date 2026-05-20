@@ -224,12 +224,12 @@ public class Main {
         try{
             PremiumVideos premiumVideo = video.getPremiumVideo(id);
             System.out.println(SUBTITLE_LIST_HEADER + premiumVideo.getTitle() + ":");
-            Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
+            /*Iterator<Subtitles> it = premiumVideos.getSubtitles().iterator();
             while(it.hasNext()){
                 Subtitles sub = it.next();
                 System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
-
-            }
+           */
+        }
         catch(NotAPremiumVideoException e){System.out.println(NO_PREMIUM_VIDEO);}
     }
 
