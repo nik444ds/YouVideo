@@ -226,9 +226,9 @@ public class Main {
         try{
             PremiumVideosClass premiumVideo = video.getPremiumVideo(id);
             System.out.println(SUBTITLE_LIST_HEADER + premiumVideo.getTitle() + ":");
-            Iterator<Subtitles> it = new SubtitleListIterator(premiumVideo.getSubtitles());
+            Iterator<SubtitlesClass> it = new SubtitleListIterator(premiumVideo.getSubtitles());
             while(it.hasNext()){
-                Subtitles sub = it.next();
+                SubtitlesClass sub = it.next();
                 System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
         }
         }

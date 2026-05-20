@@ -1,12 +1,12 @@
 package youVideo.iterators;
-import youVideo.Subtitles;
+import youVideo.SubtitlesClass;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class SubtitleListIterator implements Iterator<Subtitles> {
-    private final Iterator<Subtitles> it;
-    public SubtitleListIterator (List<Subtitles> subtitles){
+public class SubtitleListIterator implements Iterator<SubtitlesClass> {
+    private final Iterator<SubtitlesClass> it;
+    public SubtitleListIterator (List<SubtitlesClass> subtitles){
         this.it = subtitles.iterator();
     }
 
@@ -16,7 +16,7 @@ public class SubtitleListIterator implements Iterator<Subtitles> {
     }
 
     @Override
-    public Subtitles next() {
+    public SubtitlesClass next() {
         return it.next();
     }
 

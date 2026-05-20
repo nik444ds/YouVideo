@@ -159,4 +159,6 @@ public interface VideoNetwork {
      * @return
      */
     String getNameAuthor(String authorInput);
+
+    boolean titleAlreadyExist(String title);
 }

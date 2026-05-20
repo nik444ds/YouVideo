@@ -1,67 +1,57 @@
 package youVideo;
 
 import youVideo.Exceptions.*;
-
 import java.util.*;
 
-public class VideoNetworkClass implements VideoNetwork{
+public class VideoNetworkClass implements VideoNetwork {
     private final Map<String, VideoStructure> videos;
-    private final List<PodcastClass> podcasts;
-    private final List<ShowClass> shows;
-    private final IdentityRegistry authorRegistry = new IdentityRegistry();
-    private final IdentityRegistry titleRegistry = new IdentityRegistry();
+    private final List<Podcast> podcasts;
+    private final List<Show> shows;
+    private final IdentityRegistry authorRegistry;
+    private final IdentityRegistry titleRegistry;
 
-    public VideoNetworkClass(){
+    public VideoNetworkClass() {
         this.videos = new HashMap<>();
         this.podcasts = new ArrayList<>();
         this.shows = new ArrayList<>();
-        this.authorRegistry = new IdentityRegistry();
-        this.titleRegistry = new IdentityRegistry();
-
+        this.authorRegistry = new IdentityRegistryClass();
+        this.titleRegistry = new IdentityRegistryClass();
     }
 
 
     @Override
     public void createPublishable(String id, int duration, String url, String publisher, String title, String language)
-    throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException {
-        // 1.  Language
+            throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException {
+
         if (!isLanguageValid(language))
             throw new InvalidLanguageException();
 
-        // 2. Duration
         if (duration <= 0)
             throw new InvalidDurationException();
 
-        // 3.  ID (using map)
         if (videos.containsKey(id))
             throw new IdAlreadyExistsException();
-    VideoStructure newVideo = new PublishableVideosClass(id, duration,url,publisher,title,language);
-
-    videos.put(id, newVideo);
+        titleRegistry.register(title);
+        VideoStructure newVideo = new PublishableVideosClass(id, duration, url, publisher, title, language);
+        videos.put(id, newVideo);
     }
 
     @Override
     public void createPremium(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl)
-    throws InvalidLanguageException, InvalidLanguageSubtitleException, InvalidDurationException, IdAlreadyExistsException{
-        // 1.  Language
-        if (!isLanguageValid(language))
+            throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException {
+
+        if (!isLanguageValid(language) || !isLanguageValid(subLanguage))
             throw new InvalidLanguageException();
 
-        //2. Init language
-        if(!isLanguageValid(subLanguage)){
-            throw new InvalidLanguageSubtitleException();
-        }
-        // 3. Duration
         if (duration <= 0)
             throw new InvalidDurationException();
 
-        // 4.  ID (using map)
         if (videos.containsKey(id))
             throw new IdAlreadyExistsException();
-
-        VideoStructure newVideo = new PremiumVideosClass(id,duration,url,publisher,title,language,subLanguage,subUrl);
-
-        videos.put(id, newVideo);
+        //register the title
+        titleRegistry.register(title);
+        VideoStructure newPremium = new PremiumVideosClass(id, duration, url, publisher, title, language, subLanguage, subUrl);
+        videos.put(id, newPremium);
     }
 
     @Override
@@ -106,20 +96,20 @@ public class VideoNetworkClass implements VideoNetwork{
 
     @Override
     public void createPodcast(String title, String author, String language)throws
-            InvalidLanguageException, TitleAlreadyExist {
+            InvalidLanguageException, TitleAlreadyExistException {
         if (!isLanguageValid(language)){
             throw new InvalidLanguageException();
         }
-        if(){
-            throw new TitleAlreadyExist();
+        if (titleAlreadyExist(title)) {
+            throw new TitleAlreadyExistException();
         }
-        String canonicalName = getNameAuthor(author);
-        if(authorMap.containsKey(author.toLowerCase())){
-            authorMap.put(author.toLowerCase(),author);
+        String canonicalAuthor = authorRegistry.getCanonical(author);
+        if (!authorRegistry.exists(author)) {
+            authorRegistry.register(author);
         }
-
-    PodcastClass newPodcast = new PodcastClass(title,canonicalName,language);
-    podcasts.add(newPodcast);
+        titleRegistry.register(title);
+        Podcast newPodcast = new PodcastClass(title, author, language);
+        podcasts.add(newPodcast);
     }
 
     @Override
@@ -198,7 +188,6 @@ public class VideoNetworkClass implements VideoNetwork{
     @Override
     public boolean isLanguageValid(String code) {
         String[] languages = Locale.getISOLanguages();
-
         for (String lang : languages) {
             if (lang.equalsIgnoreCase(code)) {
                 return true;
@@ -207,20 +196,11 @@ public class VideoNetworkClass implements VideoNetwork{
         return false;
     }
     @Override
-    public String getNameAuthor(String authorInput){
-        return authorMap.getOrDefault(authorInput.toLowerCase(),authorInput);
+    public String getNameAuthor(String authorInput) {
+        return authorRegistry.getCanonical(authorInput);
     }
-    /**
-     * Checks if a podcast title is already in use within the system
-     * @param title the title to verify
-     * @param podcast the global list of podcasts
-     * @return true if the title already exists (case-insensitive), false otherwise
-     * @pre title != null && podcast != null
-     */
-    private  boolean titleAlreadyExist(String title){
-       for(PodcastClass p:podcasts){
-
-       }
-        return false;
+    @Override
+    public  boolean titleAlreadyExist(String title) {
+        return titleRegistry.exists(title);
     }
 }
