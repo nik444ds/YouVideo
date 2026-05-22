@@ -222,13 +222,12 @@ public class Main {
      */
     private static void subtitleList(Scanner sc, VideoNetwork video){
         String id = sc.next();
-
         try{
-            PremiumVideosClass premiumVideo = video.getPremiumVideo(id);
+            PremiumVideos premiumVideo = video.getPremiumVideo(id);
             System.out.println(SUBTITLE_LIST_HEADER + premiumVideo.getTitle() + ":");
-            Iterator<SubtitlesClass> it = new SubtitleListIterator(premiumVideo.getSubtitles());
+            Iterator<Subtitles> it = premiumVideo.getSubtitlesIterator();
             while(it.hasNext()){
-                SubtitlesClass sub = it.next();
+                Subtitles sub = it.next();
                 System.out.println("- " + sub.getUrl() + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
         }
         }
@@ -270,43 +269,23 @@ public class Main {
         String url = sc.next();
         String date = sc.next().trim();
         sc.nextLine();
-        if(duration <= 0){
-            System.out.println(INVALID_DURATION);
-            return;
+        try{
+            video.addEpisode(title,id,duration,url,date);
+            System.out.println(EPISODE_CREATED);
         }
-        if(!titleAlreadyExist(title,podcast)){
-            System.out.println(PODCAST_DOES_NOT_EXIST);
-            return;
-        }
-        if(idAlreadyExists(id,video)){
-            System.out.println(EPISODE_ID_EXIST);
-            return;
-        }
-
-        PodcastClass pod = getPodcastByTitle(title,podcast);
-
-        //The recent episode are in position 0
-        if(pod.getEpisode().size() > 0){
-            String lastestDate = pod.getEpisode().get(0).getReleaseDate();
-            if(date.compareTo(lastestDate) < 0){
-                System.out.println(WRONG_DATE_EPISODE);
-                return;
-            }
-
-        }
-        EpisodeClass episode = new EpisodeClass(id,duration,url,date);
-        pod.addEpisode(episode);
-        video.insertLast(episode);
-        System.out.println(EPISODE_CREATED);
+        catch(InvalidDurationException e) {System.out.println(INVALID_DURATION);}
+        catch(TitleDoesNotExistsException e) {System.out.println(PODCAST_DOES_NOT_EXIST);}
+       catch(IdAlreadyExistsException e) { System.out.println(EPISODE_ID_EXIST);}
+       catch(InvalidDateException e) {System.out.println(WRONG_DATE_EPISODE);}
     }
     /**
      * Executes the command to display general information about a podcast.
      * Shows title, author, language, and the release date of the latest episode if available.
      * @param sc the scanner to read the podcast title
-     * @param pod the list of podcasts to search in
+     * @param video the list of podcasts to search in
      * @pre sc != null && pod != null
      */
-    private static void getPodcast(Scanner sc, Array<PodcastClass> pod){
+    private static void getPodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         if(!titleAlreadyExist(title, pod)){
             System.out.println(PODCAST_DOES_NOT_EXIST);

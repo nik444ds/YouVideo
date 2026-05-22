@@ -12,7 +12,7 @@ public class PodcastClass implements Podcast {
     private final String title;
     private final String author;
     private final Locale language;
-    private final List<Episode> episode; // Modificado para usar a Interface (Critério 1.a)
+    private final List<Episode> episode;
 
     public PodcastClass(String title, String author, String language) {
         this.title = title;

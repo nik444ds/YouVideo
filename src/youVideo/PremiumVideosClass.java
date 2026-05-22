@@ -13,7 +13,7 @@ public class PremiumVideosClass extends PublishableVideosClass implements Premiu
 
     public PremiumVideosClass(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl) {
         super(id, duration, url, publisher, title, language);
-        SubtitlesClass subtitle = new SubtitlesClass(subLanguage, subUrl);
+        Subtitles subtitle = new SubtitlesClass(subLanguage, subUrl);
         subtitles.add(new SubtitlesClass(subLanguage,subUrl));
     }
 
@@ -28,7 +28,7 @@ public class PremiumVideosClass extends PublishableVideosClass implements Premiu
     }
 
     @Override
-    public Iterator<SubtitlesClass> iterator() {
+    public Iterator<Subtitles> iterator() {
         return getSubtitlesIterator();
     }
 

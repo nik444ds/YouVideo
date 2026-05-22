@@ -56,12 +56,13 @@ public interface VideoNetwork {
 
     /**
      *
+     * @param title
      * @param id
      * @param duration
      * @param url
      * @param releaseDate
      */
-    public void addEpisode(String id, int duration, String url, String releaseDate);
+    public void addEpisode(String title,String id, int duration, String url, String releaseDate);
 
     /**
      *

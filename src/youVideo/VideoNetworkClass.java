@@ -7,6 +7,7 @@ public class VideoNetworkClass implements VideoNetwork {
     private final Map<String, VideoStructure> videos;
     private final List<Podcast> podcasts;
     private final List<Show> shows;
+    private final Map<String, SortedSet<String>> tagsByTitle;
     private final IdentityRegistry authorRegistry;
     private final IdentityRegistry titleRegistry;
 
@@ -14,6 +15,7 @@ public class VideoNetworkClass implements VideoNetwork {
         this.videos = new HashMap<>();
         this.podcasts = new ArrayList<>();
         this.shows = new ArrayList<>();
+        this.tagsByTitle = new HashMap<>();
         this.authorRegistry = new IdentityRegistryClass();
         this.titleRegistry = new IdentityRegistryClass();
     }
@@ -114,19 +116,32 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void addEpisode(String id, int duration, String url, String releaseDate)
-    throws InvalidDurationException{
-
-    }
-
-    @Override
-        public Podcast getPodcast(String title) {
-        for(Podcast p: podcasts){
-           if(p.getTitle().equalsIgnoreCase(title));
-           return p;
+    public void addEpisode(String title,String id, int duration, String url, String releaseDate)
+    throws InvalidDurationException,TitleDoesNotExistsException,IdAlreadyExistsException, InvalidDateException{
+        Podcast pod = getPodcast(title);
+        if(pod == null){
+            throw new TitleDoesNotExistsException();
         }
-        return null;
+        if(duration <= 0){
+            throw new InvalidDurationException();
+        }
+        //The id is global, for videos and Episodes
+        if(videos.containsKey(id)){
+            throw new IdAlreadyExistsException();
+        }
+        Iterator<Episode> it = pod.getEpisodesIterator();
+        if(it.hasNext()){
+            Episode latestEpisode = it.next();
+            if(releaseDate.compareTo(latestEpisode.getReleaseDate()) < 0){
+                throw new InvalidDateException();
+            }
+        }
+
+        Episode ep = new EpisodeClass(id,duration,url,releaseDate);
+        pod.addEpisode(ep);
     }
+
+
 
     @Override
     public void listEpisodes(String title) {
@@ -175,7 +190,7 @@ public class VideoNetworkClass implements VideoNetwork {
 
     @Override
     public void addTag(String title) {
-
+        
     }
 
     @Override
@@ -208,5 +223,13 @@ public class VideoNetworkClass implements VideoNetwork {
     @Override
     public  boolean titleAlreadyExist(String title) {
         return titleRegistry.exists(title);
+    }
+    @Override
+    public Podcast getPodcast(String title) {
+        for(Podcast p: podcasts){
+            if(p.getTitle().equalsIgnoreCase(title));
+            return p;
+        }
+        return null;
     }
 }
