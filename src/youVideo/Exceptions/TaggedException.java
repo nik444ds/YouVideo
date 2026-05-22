@@ -1,6 +1,6 @@
 package youVideo.Exceptions;
 
-public class TaggedException extends RuntimeException {
+public class TaggedException extends Exception {
     public TaggedException() {
         super();
     }

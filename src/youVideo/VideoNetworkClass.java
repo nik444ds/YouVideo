@@ -140,6 +140,13 @@ public class VideoNetworkClass implements VideoNetwork {
         Episode ep = new EpisodeClass(id,duration,url,releaseDate);
         pod.addEpisode(ep);
     }
+    @Override
+    public void podcastData(String title){
+        if(!titleRegistry.exists(title)){
+            throw new TitleDoesNotExistsException();
+        }
+
+    }
 
 
 

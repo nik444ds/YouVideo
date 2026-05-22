@@ -1,6 +1,6 @@
 package youVideo.Exceptions;
 
-public class VideoDoesNotExistException extends RuntimeException {
+public class VideoDoesNotExistException extends Exception {
     public VideoDoesNotExistException() {
         super();
     }

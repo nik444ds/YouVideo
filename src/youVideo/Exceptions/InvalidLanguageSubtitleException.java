@@ -1,6 +1,6 @@
 package youVideo.Exceptions;
 
-public class InvalidLanguageSubtitleException extends RuntimeException {
+public class InvalidLanguageSubtitleException extends Exception {
     public InvalidLanguageSubtitleException() {
         super();
     }

@@ -1,6 +1,6 @@
 package youVideo.Exceptions;
 
-public class NotAPremiumVideoException extends RuntimeException {
+public class NotAPremiumVideoException extends Exception {
     public NotAPremiumVideoException() {
         super();
     }

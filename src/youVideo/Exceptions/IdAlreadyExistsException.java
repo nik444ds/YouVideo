@@ -1,6 +1,6 @@
 package youVideo.Exceptions;
 
-public class IdAlreadyExistsException extends RuntimeException {
+public class IdAlreadyExistsException extends Exception {
     public IdAlreadyExistsException() {
         super();
     }

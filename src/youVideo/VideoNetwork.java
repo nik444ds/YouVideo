@@ -74,6 +74,12 @@ public interface VideoNetwork {
      *
      * @param title
      */
+    void podcastData(String title);
+
+    /**
+     *
+     * @param title
+     */
     public void listEpisodes(String title);
 
     /**
@@ -157,5 +163,10 @@ public interface VideoNetwork {
      */
     String getNameAuthor(String authorInput);
 
+    /**
+     *
+     * @param title
+     * @return
+     */
     boolean titleAlreadyExist(String title);
 }

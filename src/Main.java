@@ -32,6 +32,7 @@ public class Main {
     private static final String CMD_REMOVE_TAG = "removetag";
     private static final String CMD_TAGGED = "tagged";
     private static final String CMD_AUTHOR_PRODUCTIVITY = "authorsproductivity";
+    private static final String CMD_AUTHOR_SHOWS = "authorshows";
     private static final String CMD_HELP = "help";
     private static final String CMD_EXIT = "exit";
     private static final String UNKNOWN_COMMAND = "Unknown command. Type help to see available commands.";
@@ -74,6 +75,30 @@ public class Main {
     private static final String TITLE_NOT_TAGGED = "Title is not tagged with ";
     private static final String END_PROGRAM = "Bye!";
 
+    private static final String HELP_MENU_MESSAGE = """
+            createpublishable - creates a new publishable video
+            createpremium - creates a new publishable Premium video
+            addsubtitle - adds subtitle to Premium video
+            getvideo - presents publishable video data from its id
+            subtitles - Lists Premium video subtitles
+            createpodcast - creates a new podcast with no episodes
+            addepisode - adds an episode to a podcast
+            getpodcast - presents podcast data from its title
+            episodes - List podcast episodes
+            authorpodcasts - List all podcasts of an author
+            removepodcast - removes a podcast
+            createshow - creates show using an existing publishable video
+            getshow - presents show data from its title
+            authorshows - List all shows of an author
+            removeshow - removes a show
+            removevideo - removes a publishable video
+            authorsproductivity - List authors by their productivity
+            addtag - adds a tag to a show or podcast
+            removetag - removes a tag from a show or podcast
+            tagged - List content tagged with a given tag
+            help - shows the available commands
+            exit - terminates the execution of the program""";
+
 
 
 
@@ -113,6 +138,7 @@ public class Main {
                case CMD_CREATE_SHOW -> createshow(sc,video);
                case CMD_GET_SHOW -> getShow(sc,video);
                case CMD_REMOVE_SHOW -> removeShow(sc,video);
+                case CMD_AUTHOR_SHOWS -> authorShows(sc,video);
                case CMD_REMOVE_VIDEO -> removeVideo(sc,video);
                 case CMD_AUTHOR_PRODUCTIVITY -> authorProductivity(sc,video);
                case CMD_ADD_TAG -> createTag(sc,video);
@@ -300,14 +326,13 @@ public class Main {
      */
     private static void getPodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
-        if(!titleAlreadyExist(title, pod)){
-            System.out.println(PODCAST_DOES_NOT_EXIST);
-            return;
+        try{
+            video.podcastData(title);
+            System.out.println("Podcast: " + podcast.getTitle() + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
+            if(podcast.getEpisode().size() > 0)
+                System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
         }
-        PodcastClass podcast = getPodcastByTitle(title,pod);
-        System.out.println("Podcast: " + podcast.getTitle() + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
-        if(podcast.getEpisode().size() > 0)
-        System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
+        catch (TitleDoesNotExistsException e){System.out.println(PODCAST_DOES_NOT_EXIST);}
 
     }
     /**
@@ -317,7 +342,7 @@ public class Main {
      * @param podcast the list of podcasts to search in
      * @pre sc != null && podcast != null
      */
-    private static void episodesList(Scanner sc, Array<PodcastClass> podcast){
+    private static void episodesList(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
 
         if(!titleAlreadyExist(title, podcast)){
@@ -343,10 +368,10 @@ public class Main {
      * Executes the command to list all podcasts created by a specific author.
      * Filters the global podcast list and displays details for each match found.
      * @param sc the scanner to read the author's name
-     * @param podcast the global list of podcasts to filter
+     * @param video the global list of podcasts to filter
      * @pre sc != null && podcast != null
      */
-    private static void podcastList(Scanner sc, Array<PodcastClass> podcast){
+    private static void podcastList(Scanner sc, VideoNetwork video){
         String author = sc.nextLine().trim();
         Array<PodcastClass> authorPod = getPodcastByAuthor(author, podcast);
         if(authorPod.size() == 0){
@@ -369,7 +394,7 @@ public class Main {
     * @param podcast the global list of podcasts to remove the podcast from
     * @pre sc != null && video != null && podcast != null
             */
-    private static void removePodcast(Scanner sc, Array<VideoStructure> video , Array<PodcastClass> podcast){
+    private static void removePodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         PodcastClass pod = getPodcastByTitle(title, podcast);
         if(pod == null){
@@ -395,11 +420,10 @@ public class Main {
      * Executes the command to create a show from an existing publishable video.
      * Validates show title uniqueness and ensures the base video exists.
      * @param sc the scanner to read show details (author, video ID, transmission date)
-     * @param videos the global list of videos to find the base video
-     * @param showStructure the global list of shows to store the new record
+     * @param video the global list of videos to find the base video
      * @pre sc != null && videos != null && showStructure != null
      */
-    private static void createshow(Scanner sc , Array <VideoStructure> videos, Array<ShowClass> showStructure, Array<PodcastClass> podcast) {
+    private static void createshow(Scanner sc , VideoNetwork video) {
         String author = sc.nextLine().trim();
         author = getExistingAuthorName(author, podcast);
         author = getExistingAuthorName(author, showStructure);
@@ -429,10 +453,10 @@ public class Main {
      * Executes the command to display detailed information about a specific show.
      * Searches for the show by title and presents its transmission date and author.
      * @param sc the scanner to read the show title
-     * @param showStructure the list of shows to search in
+     * @param video the list of shows to search in
      * @pre sc != null && showStructure != null
      */
-    private static void getShow(Scanner sc, Array<ShowClass> showStructure){
+    private static void getShow(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         Iterator<ShowClass> it = showStructure.iterator();
         while(it.hasNext()){
@@ -450,10 +474,10 @@ public class Main {
      * Executes the command to remove a show from the system.
      * Iterates through the list to find the show by title and removes it from its specific position.
      * @param sc the scanner to read the show title to be removed
-     * @param showStructure the list of shows to modify
+     * @param video the list of shows to modify
      * @pre sc != null && showStructure != null
      */
-    private static void removeShow(Scanner sc, Array<ShowClass> showStructure){
+    private static void removeShow(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         Iterator<ShowClass> it = showStructure.iterator();
         int position = 0;
@@ -469,13 +493,15 @@ public class Main {
         System.out.println(SHOW_DOES_NOT_EXIST);
     }
 
+    private static void authorShows(Scanner sc, VideoNetwork video){
+
+    }
     /**
      * Executes the command to remove a video from the system if it's not in use
      * @param sc the scanner to read the video ID
-     * @param videos the global list of videos
-     * @param showStructure the list of shows to check for video usage
+     * @param video the global list of videos
      */
-    private static void removeVideo(Scanner sc, Array<VideoStructure> videos, Array<ShowClass> showStructure){
+    private static void removeVideo(Scanner sc, VideoNetwork video){
         String videoId = sc.next();
         VideoStructure video = getVideoById(videoId,videos);
         if(video == null) {
@@ -540,23 +566,7 @@ public class Main {
      * Displays the list of all available commands and their descriptions
      */
     private static void help(){
-        System.out.println("createpublishable - creates a new publishable video");
-        System.out.println("createpremium - creates a new publishable Premium video");
-        System.out.println("addsubtitle - adds subtitle to Premium video");
-        System.out.println("getvideo - presents publishable video data from its id");
-        System.out.println("subtitles - Lists Premium video subtitles");
-        System.out.println("createpodcast - creates a new podcast with no episodes");
-        System.out.println("addepisode - adds an episode to a podcast");
-        System.out.println("getpodcast - presents podcast data from its title");
-        System.out.println("episodes - List podcast episodes");
-        System.out.println("authorpodcasts - List all podcasts of an author");
-        System.out.println("removepodcast - removes a podcast");
-        System.out.println("createshow - creates show using an existing publishable video");
-        System.out.println("getshow - presents show data from its title");
-        System.out.println("removeshow - removes a show");
-        System.out.println("removevideo - removes a publishable video");
-        System.out.println("help - shows the available commands");
-        System.out.println("exit - terminates the execution of the program");
+        System.out.println(HELP_MENU_MESSAGE);
     }
 
 
