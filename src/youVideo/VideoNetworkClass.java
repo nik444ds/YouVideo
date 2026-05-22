@@ -143,11 +143,13 @@ public class VideoNetworkClass implements VideoNetwork {
         pod.addEpisode(ep);
     }
     @Override
-    public void podcastData(String title) throws TitleDoesNotExistsException{
-        if(!titleRegistry.exists(title)){
-            throw new TitleDoesNotExistsException();
+    public Podcast getPodcast(String title)throws TitleDoesNotExistsException {
+        for(Podcast p: podcasts){
+            if(p.getTitle().equalsIgnoreCase(title)) {
+                return p;
+            }
         }
-
+        throw new TitleDoesNotExistsException();
     }
 
 
@@ -216,7 +218,6 @@ public class VideoNetworkClass implements VideoNetwork {
         }
         tags.add(tag);
 
-
     }
 
     @Override
@@ -260,15 +261,8 @@ public class VideoNetworkClass implements VideoNetwork {
         return authorRegistry.getCanonical(authorInput);
     }
     @Override
-    public  boolean titleAlreadyExist(String title) {
+    public  boolean titleAlreadyExist(String title)  {
         return titleRegistry.exists(title);
     }
-    @Override
-    public Podcast getPodcast(String title) {
-        for(Podcast p: podcasts){
-            if(p.getTitle().equalsIgnoreCase(title));
-            return p;
-        }
-        return null;
-    }
+
 }

@@ -74,17 +74,13 @@ public interface VideoNetwork {
      void addEpisode(String title,String id, int duration, String url, String releaseDate)
             throws InvalidDurationException,TitleDoesNotExistsException,IdAlreadyExistsException, InvalidDateException;
 
-    /**
-     *
-     * @param title
-     */
-     Podcast getPodcast(String title);
+
 
     /**
      *
      * @param title
      */
-    void podcastData(String title)
+    Podcast getPodcast(String title)
             throws TitleDoesNotExistsException;
 
     /**
@@ -182,4 +178,7 @@ public interface VideoNetwork {
      * @return
      */
     boolean titleAlreadyExist(String title);
+
+
+
 }

@@ -204,7 +204,7 @@ public class Main {
 
         try{
             video.createPremium(id, duration,url,publisher,title, languageCode,initSubUrl,initLanguageCode);
-            System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
+            System.out.println("PREMIUM  Video " + id + VIDEO_CREATED_SUCCESS);
         }
           catch (InvalidLanguageException e) {System.out.println(INVALID_LANGUAGE);}
           catch (InvalidLanguageSubtitleException e) {System.out.println(INVALID_LANGUAGE_SUBTITLE);}
@@ -327,7 +327,7 @@ public class Main {
     private static void getPodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         try{
-            video.podcastData(title);
+            video.getPodcast(title);
             System.out.println("Podcast: " + podcast.getTitle() + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
             if(podcast.getEpisode().size() > 0)
                 System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
