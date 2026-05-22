@@ -129,13 +129,13 @@ public interface VideoNetwork {
      * New command and need the tag parameter
      * @param title
      */
-    public void addTag(String title);
+    public void addTag(String title,String tag);
 
     /**
      * New command and need the tag parameter
      * @param title
      */
-    public void removeTag(String title);
+    public void removeTag(String title, String tag);
 
     /**
      * New command

@@ -189,13 +189,43 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void addTag(String title) {
-        
+    public void addTag(String title, String tag) throws TitleDoesNotExistsException,TaggedException {
+        if(!titleRegistry.exists(title)){
+            throw new TitleDoesNotExistsException();
+        }
+        String keyMap = title.toLowerCase();
+        SortedSet<String> tags = tagsByTitle.get(keyMap);
+
+        if(tags == null)
+        {
+            tags = new TreeSet<>();
+            tagsByTitle.put(keyMap,tags);
+
+        }
+        if(!tags.contains(tag)){
+            throw new TaggedException();
+        }
+        tags.add(tag);
+
+
     }
 
     @Override
-    public void removeTag(String title) {
-
+    public void removeTag(String title,String tag) {
+        if(!titleRegistry.exists(title)){
+            throw new TitleDoesNotExistsException();
+        }
+        String keyMap = title.toLowerCase();
+        SortedSet<String> tags = tagsByTitle.get(keyMap);
+// If 'tags' is null, the title has no tags at all.
+        if(tags == null || !tags.contains(tag)){
+            throw new TaggedException();
+        }
+        tags.remove(tag);
+        //Clean up empty sets from the map
+        if(tags.isEmpty()){
+            tagsByTitle.remove(keyMap);
+        }
     }
 
     @Override

@@ -13,57 +13,66 @@ import java.util.Locale;
 import java.util.Scanner;
 public class Main {
     //Commands
-    public static final String CMD_CREATE_PUBLISHABLE = "createpublishable";
-    public static final String CMD_CREATE_PREMIUM = "createpremium";
-    public static final String CMD_ADD_SUB = "addsubtitle";
-    public static final String CMD_GET_VIDEO = "getvideo";
-    public static final String CMD_SUBTITLE = "subtitles";
-    public static final String CMD_CREATE_PODCAST = "createpodcast";
-    public static final String CMD_ADD_EPISODE = "addepisode";
-    public static final String CMD_GET_PODCAST = "getpodcast";
-    public static final String CMD_EPISODES = "episodes";
-    public static final String CMD_AUTHOR_PODCAST = "authorpodcasts";
-    public static final String CMD_REMOVE_PODCAST = "removepodcast";
-    public static final String CMD_CREATE_SHOW = "createshow";
-    public static final String CMD_GET_SHOW = "getshow";
-    public static final String CMD_REMOVE_SHOW = "removeshow";
-    public static final String CMD_REMOVE_VIDEO = "removevideo";
-    public static final String CMD_HELP = "help";
-    public static final String CMD_EXIT = "exit";
-    public static final String UNKNOWN_COMMAND = "Unknown command. Type help to see available commands.";
+    private static final String CMD_CREATE_PUBLISHABLE = "createpublishable";
+    private static final String CMD_CREATE_PREMIUM = "createpremium";
+    private static final String CMD_ADD_SUB = "addsubtitle";
+    private static final String CMD_GET_VIDEO = "getvideo";
+    private static final String CMD_SUBTITLE = "subtitles";
+    private static final String CMD_CREATE_PODCAST = "createpodcast";
+    private static final String CMD_ADD_EPISODE = "addepisode";
+    private static final String CMD_GET_PODCAST = "getpodcast";
+    private static final String CMD_EPISODES = "episodes";
+    private static final String CMD_AUTHOR_PODCAST = "authorpodcasts";
+    private static final String CMD_REMOVE_PODCAST = "removepodcast";
+    private static final String CMD_CREATE_SHOW = "createshow";
+    private static final String CMD_GET_SHOW = "getshow";
+    private static final String CMD_REMOVE_SHOW = "removeshow";
+    private static final String CMD_REMOVE_VIDEO = "removevideo";
+    private static final String CMD_ADD_TAG = "addtag";
+    private static final String CMD_REMOVE_TAG = "removetag";
+    private static final String CMD_TAGGED = "tagged";
+    private static final String CMD_AUTHOR_PRODUCTIVITY = "authorsproductivity";
+    private static final String CMD_HELP = "help";
+    private static final String CMD_EXIT = "exit";
+    private static final String UNKNOWN_COMMAND = "Unknown command. Type help to see available commands.";
 
 
     //Error message
-    public static final String INVALID_LANGUAGE = "Invalid language type.";
-    public static final String INVALID_DURATION = "Invalid value.";
-    public static final String ID_ALREADY_EXISTS = "Video with this ID already exists.";
-    public static final String INVALID_LANGUAGE_SUBTITLE = "Invalid language type in subtitle.";
-    public static final String VIDEO_DOES_NOT_EXIST = "Video does not exist.";
-    public static final String NOT_A_PREMIUM_VIDEO = "This operation requires a Premium video.";
-    public static final String CREATED_SUB = "Subtitle added successfully.";
-    public static final String INVALID_PUBLISHABLE_VIDEO_1 = "Publishable Video ";
-    public static final String INVALID_PUBLISHABLE_VIDEO_2 = " does not exist.";
-    public static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
-    public static final String TITLE_ALREADY_USED = "Podcast with this title already exists.";
-    public static final String PODCAST_CREATED = "Podcast created successfully.";
-    public static final String EPISODE_CREATED = "Episode added successfully.";
-    public static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist.";
-    public static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
-    public static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
-    public static final String HAS_NO_EPISODE = "No episodes available for this podcast.";
-    public static final String NO_PODCAST_AUTHOR = "No podcasts found for this author.";
-    public static final String REMOVE_PODCAST = "Podcast removed successfully.";
-    public static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
-    public static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
-    public static final String SHOW_CREATED = "Show created successfully.";
-    public static final String SHOW_DOES_NOT_EXIST = "Show does not exist.";
-    public static final String SHOW_REMOVED = "Show removed successfully.";
-    public static final String CANNOT_REMOVE_EPISODE_VIDEO = "Cannot remove: video is an episode of a podcast.";
-    public static final String CANNOT_REMOVE_SHOW_VIDEO = "Cannot remove: video is used in a show.";
-    public static final String VIDEO_REMOVED = "Video removed successfully.";
+    private static final String INVALID_LANGUAGE = "Invalid language type.";
+    private static final String INVALID_DURATION = "Invalid value.";
+    private static final String ID_ALREADY_EXISTS = "Video with this ID already exists.";
+    private static final String INVALID_LANGUAGE_SUBTITLE = "Invalid language type in subtitle.";
+    private static final String VIDEO_DOES_NOT_EXIST = "Video does not exist.";
+    private static final String NOT_A_PREMIUM_VIDEO = "This operation requires a Premium video.";
+    private static final String CREATED_SUB = "Subtitle added successfully.";
+    private static final String INVALID_PUBLISHABLE_VIDEO_1 = "Publishable Video ";
+    private static final String INVALID_PUBLISHABLE_VIDEO_2 = " does not exist.";
+    private static final String NO_PREMIUM_VIDEO = "No Premium Video with ID.";
+    private static final String TITLE_ALREADY_USED = "Podcast with this title already exists.";
+    private static final String PODCAST_CREATED = "Podcast created successfully.";
+    private static final String EPISODE_CREATED = "Episode added successfully.";
+    private static final String PODCAST_DOES_NOT_EXIST = "Podcast does not exist.";
+    private static final String EPISODE_ID_EXIST = "Episode ID already exists in the system.";
+    private static final String WRONG_DATE_EPISODE = "Episode date must be >= than latest episode date.";
+    private static final String HAS_NO_EPISODE = "No episodes available for this podcast.";
+    private static final String NO_PODCAST_AUTHOR = "No podcasts found for this author.";
+    private static final String REMOVE_PODCAST = "Podcast removed successfully.";
+    private static final String SHOW_VIDEO_DOES_NOT_EXIST = "Video for show does not exist.";
+    private static final String SHOW_ALREADY_EXISTS = "Show with this title already exists.";
+    private static final String SHOW_CREATED = "Show created successfully.";
+    private static final String SHOW_DOES_NOT_EXIST = "Show does not exist.";
+    private static final String SHOW_REMOVED = "Show removed successfully.";
+    private static final String CANNOT_REMOVE_EPISODE_VIDEO = "Cannot remove: video is an episode of a podcast.";
+    private static final String CANNOT_REMOVE_SHOW_VIDEO = "Cannot remove: video is used in a show.";
+    private static final String VIDEO_REMOVED = "Video removed successfully.";
     public static final String SUBTITLE_LIST_HEADER = "Subtitles for video ";
-    public static final String VIDEO_CREATED_SUCCESS = " created successfully.";
-    public static final String END_PROGRAM = "Bye!";
+    private static final String VIDEO_CREATED_SUCCESS = " created successfully.";
+    private static final String TAGGED = "Tag added successfully.";
+    private static final String TITLE_DOES_NOT_EXIST = "Title does not exist.";
+    private static final String TITLE_ALREADY_TAGGED = "Title is already tagged with ";
+    private static final String TAG_REMOVED = "Tag removed successfully.";
+    private static final String TITLE_NOT_TAGGED = "Title is not tagged with ";
+    private static final String END_PROGRAM = "Bye!";
 
 
 
@@ -105,6 +114,10 @@ public class Main {
                case CMD_GET_SHOW -> getShow(sc,video);
                case CMD_REMOVE_SHOW -> removeShow(sc,video);
                case CMD_REMOVE_VIDEO -> removeVideo(sc,video);
+                case CMD_AUTHOR_PRODUCTIVITY -> authorProductivity(sc,video);
+               case CMD_ADD_TAG -> createTag(sc,video);
+               case CMD_REMOVE_TAG -> removeTag(sc,video);
+                case CMD_TAGGED -> tagged(sc,video);
                case CMD_HELP -> help();
                default -> System.out.println(UNKNOWN_COMMAND);
             }
@@ -494,7 +507,34 @@ public class Main {
             System.out.println(VIDEO_REMOVED);
         }
     }
+    private static void authorProductivity(Scanner sc, VideoNetwork video){
 
+    }
+
+    private static void createTag(Scanner sc, VideoNetwork video){
+        String title = sc.nextLine();
+        String tag = sc.nextLine();
+        try{
+            video.addTag(title,tag);
+            System.out.println(TAGGED);
+        }
+        catch(TitleDoesNotExistsException e){System.out.println(TITLE_DOES_NOT_EXIST);}
+        catch(TaggedException e) {System.out.println(TITLE_ALREADY_TAGGED + tag);}
+
+    }
+    private static void removeTag(Scanner sc, VideoNetwork video){
+        String title = sc.nextLine();
+        String tag = sc.nextLine();;
+        try{
+            video.removeTag(title,tag);
+            System.out.println(TAG_REMOVED);
+        }
+        catch(TitleDoesNotExistsException  e){System.out.println(TITLE_DOES_NOT_EXIST);}
+        catch(TaggedException e){System.out.println(TITLE_NOT_TAGGED + tag);}
+    }
+    private static void tagged(Scanner sc, VideoNetwork video){
+
+    }
 
     /**
      * Displays the list of all available commands and their descriptions
