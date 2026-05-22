@@ -40,11 +40,13 @@ public class VideoNetworkClass implements VideoNetwork {
 
     @Override
     public void createPremium(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl)
-            throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException {
+            throws InvalidLanguageException,InvalidLanguageSubtitleException, InvalidDurationException, IdAlreadyExistsException {
 
-        if (!isLanguageValid(language) || !isLanguageValid(subLanguage))
+        if (!isLanguageValid(language))
             throw new InvalidLanguageException();
-
+        if(!isLanguageValid(subLanguage)){
+            throw new InvalidLanguageSubtitleException();
+        }
         if (duration <= 0)
             throw new InvalidDurationException();
 
@@ -97,8 +99,8 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void createPodcast(String title, String author, String language)throws
-            InvalidLanguageException, TitleAlreadyExistException {
+    public void createPodcast(String title, String author, String language)
+            throws InvalidLanguageException, TitleAlreadyExistException {
         if (!isLanguageValid(language)){
             throw new InvalidLanguageException();
         }
@@ -141,7 +143,7 @@ public class VideoNetworkClass implements VideoNetwork {
         pod.addEpisode(ep);
     }
     @Override
-    public void podcastData(String title){
+    public void podcastData(String title) throws TitleDoesNotExistsException{
         if(!titleRegistry.exists(title)){
             throw new TitleDoesNotExistsException();
         }
@@ -218,7 +220,7 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void removeTag(String title,String tag) {
+    public void removeTag(String title,String tag) throws TitleDoesNotExistsException,TaggedException{
         if(!titleRegistry.exists(title)){
             throw new TitleDoesNotExistsException();
         }

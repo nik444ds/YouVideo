@@ -1,5 +1,7 @@
 package youVideo;
 
+import youVideo.Exceptions.*;
+
 public interface VideoNetwork {
 
 
@@ -12,7 +14,9 @@ public interface VideoNetwork {
      * @param title
      * @param language
      */
-    public void createPublishable(String id, int duration, String url, String publisher, String title, String language);
+     void createPublishable(String id, int duration, String url, String publisher, String title, String language)
+            throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException;
+
 
     /**
      *
@@ -25,26 +29,30 @@ public interface VideoNetwork {
      * @param subLanguage
      * @param subUrl
      */
-    public void createPremium(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl);
+     void createPremium(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl)
+            throws InvalidLanguageException,InvalidLanguageSubtitleException, InvalidDurationException, IdAlreadyExistsException;
 
     /**
      *
      * @param language
      * @param url
      */
-    public void createSubtitle(String id,String language, String url);
+     void createSubtitle(String id,String language, String url)
+             throws InvalidLanguageSubtitleException, VideoDoesNotExistException, NotAPremiumVideoException;
 
     /**
      *
      * @param id
      */
-    public void getVideo(String id);
+     void getVideo(String id)
+            throws InvalidPublishableVideoException;
 
     /**
      *Method t
      * @param id
      */
-    public PremiumVideosClass getPremiumVideo(String id);
+     PremiumVideosClass getPremiumVideo(String id)
+             throws NotAPremiumVideoException ;
 
     /**
      *
@@ -52,7 +60,8 @@ public interface VideoNetwork {
      * @param author
      * @param language
      */
-    public void createPodcast(String title, String author, String language);
+     void createPodcast(String title, String author, String language)
+             throws InvalidLanguageException, TitleAlreadyExistException;
 
     /**
      *
@@ -62,37 +71,39 @@ public interface VideoNetwork {
      * @param url
      * @param releaseDate
      */
-    public void addEpisode(String title,String id, int duration, String url, String releaseDate);
+     void addEpisode(String title,String id, int duration, String url, String releaseDate)
+            throws InvalidDurationException,TitleDoesNotExistsException,IdAlreadyExistsException, InvalidDateException;
 
     /**
      *
      * @param title
      */
-    public Podcast getPodcast(String title);
+     Podcast getPodcast(String title);
 
     /**
      *
      * @param title
      */
-    void podcastData(String title);
+    void podcastData(String title)
+            throws TitleDoesNotExistsException;
 
     /**
      *
      * @param title
      */
-    public void listEpisodes(String title);
+     void listEpisodes(String title);
 
     /**
      *
      * @param authorName
      */
-    public void authorPodcasts(String authorName);
+     void authorPodcasts(String authorName);
 
     /**
      *
      * @param title
      */
-    public void removePodcast(String title);
+     void removePodcast(String title);
 
     /**
      *
@@ -100,53 +111,55 @@ public interface VideoNetwork {
      * @param video
      * @param date
      */
-    public void createShow(String author, PublishableVideosClass video, String date);;
+     void createShow(String author, PublishableVideosClass video, String date);;
 
     /**
      *
      * @param title
      */
-    public void getShow(String title);
+     void getShow(String title);
 
     /**
      *
      * @param authorShows
      */
-    public void authorShows(String authorShows);
+     void authorShows(String authorShows);
 
     /**
      *
      * @param title
      */
-    public void removeShow(String title);
+     void removeShow(String title);
 
     /**
      *
      * @param id
      */
-    public void removeVideo(String id);
+     void removeVideo(String id);
 
     /**
      * New Command to implement
      */
-    public void authorsProductivity();
+     void authorsProductivity();
 
     /**
      * New command and need the tag parameter
      * @param title
      */
-    public void addTag(String title,String tag);
+     void addTag(String title,String tag)
+             throws TitleDoesNotExistsException,TaggedException;
 
     /**
      * New command and need the tag parameter
      * @param title
      */
-    public void removeTag(String title, String tag);
+     void removeTag(String title, String tag)
+             throws TitleDoesNotExistsException,TaggedException;
 
     /**
      * New command
      */
-    public void tagged();
+     void tagged();
 
     /**
      * Verifies if the provided language code exists in the ISO 639 standard library
