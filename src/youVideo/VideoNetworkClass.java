@@ -106,20 +106,26 @@ public class VideoNetworkClass implements VideoNetwork {
         String canonicalAuthor = authorRegistry.getCanonical(author);
         if (!authorRegistry.exists(author)) {
             authorRegistry.register(author);
+
         }
         titleRegistry.register(title);
-        Podcast newPodcast = new PodcastClass(title, author, language);
+        Podcast newPodcast = new PodcastClass(title, canonicalAuthor, language);
         podcasts.add(newPodcast);
     }
 
     @Override
-    public void addEpisode(String id, int duration, String url, String releaseDate) {
+    public void addEpisode(String id, int duration, String url, String releaseDate)
+    throws InvalidDurationException{
 
     }
 
     @Override
-    public void getPodcast(String title) {
-
+        public Podcast getPodcast(String title) {
+        for(Podcast p: podcasts){
+           if(p.getTitle().equalsIgnoreCase(title));
+           return p;
+        }
+        return null;
     }
 
     @Override

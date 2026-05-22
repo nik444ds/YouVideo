@@ -95,16 +95,16 @@ public class Main {
                case CMD_ADD_SUB -> addSub(sc, video);
                case CMD_GET_VIDEO -> getVideo(sc, video);
                case CMD_SUBTITLE -> subtitleList(sc,video);
-               case CMD_CREATE_PODCAST -> addPodcast(sc, podcast);
-               case CMD_ADD_EPISODE -> addEpisode(sc, videos, podcast);
-               case CMD_GET_PODCAST -> getPodcast(sc,podcast);
-               case CMD_EPISODES -> episodesList(sc,podcast);
-               case CMD_AUTHOR_PODCAST -> podcastList(sc,podcast);
-               case CMD_REMOVE_PODCAST -> removePodcast(sc,videos,podcast);
-               case CMD_CREATE_SHOW -> createshow(sc,videos,show,podcast);
-               case CMD_GET_SHOW -> getShow(sc,show);
-               case CMD_REMOVE_SHOW -> removeShow(sc,show);
-               case CMD_REMOVE_VIDEO -> removeVideo(sc,videos,show);
+               case CMD_CREATE_PODCAST -> addPodcast(sc, video);
+               case CMD_ADD_EPISODE -> addEpisode(sc, video);
+               case CMD_GET_PODCAST -> getPodcast(sc,video);
+               case CMD_EPISODES -> episodesList(sc,video);
+               case CMD_AUTHOR_PODCAST -> podcastList(sc,video);
+               case CMD_REMOVE_PODCAST -> removePodcast(sc,video);
+               case CMD_CREATE_SHOW -> createshow(sc,video);
+               case CMD_GET_SHOW -> getShow(sc,video);
+               case CMD_REMOVE_SHOW -> removeShow(sc,video);
+               case CMD_REMOVE_VIDEO -> removeVideo(sc,video);
                case CMD_HELP -> help();
                default -> System.out.println(UNKNOWN_COMMAND);
             }
@@ -244,29 +244,26 @@ public class Main {
      */
     private static void addPodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
-        String author = getExistingAuthorName(sc.nextLine(), podcast);
+        String author = sc.nextLine();
         String language = sc.next();
         sc.nextLine();
-        if(!isLanguageValid(language)){
-            System.out.println(INVALID_LANGUAGE);
-            return;
+        try{
+            video.createPodcast(title,author,language);
+            System.out.println(PODCAST_CREATED);
         }
-        if(titleAlreadyExist(title, podcast)){
-            System.out.println(TITLE_ALREADY_USED);
-            return;
-        }
-        PodcastClass pod = new PodcastClass(title, author, language);
-        System.out.println(PODCAST_CREATED);
+        catch(InvalidLanguageException e){System.out.println(INVALID_LANGUAGE);}
+        catch(TitleAlreadyExistException e){System.out.println(TITLE_ALREADY_USED);}
+
+
     }
     /**
      * Executes the command to add a new episode to an existing podcast.
      * Validates duration, podcast existence, ID uniqueness, and chronological order.
-     * * @param sc the scanner to read episode details (title, ID, duration, URL, date)
+     * @param sc the scanner to read episode details (title, ID, duration, URL, date)
      * @param video the global list of videos to ensure ID uniqueness
-     * @param podcast the list of podcasts to find the target podcast
      * @pre sc != null && video != null && podcast != null
      */
-    private static void addEpisode(Scanner sc, Array<VideoStructure> video, Array<PodcastClass> podcast){
+    private static void addEpisode(Scanner sc,VideoNetwork video){
         String title = sc.nextLine().trim();
         String id = sc.next();
         int duration = sc.nextInt();

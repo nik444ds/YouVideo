@@ -25,4 +25,5 @@ public interface IdentityRegistry {
      * @return the original registered String, or the input string if not found
      */
     String getCanonical(String identity);
+
 }

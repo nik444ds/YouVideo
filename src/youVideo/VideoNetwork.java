@@ -1,8 +1,5 @@
 package youVideo;
 
-import youVideo.Exceptions.InvalidLanguageException;
-import youVideo.Exceptions.PodcastAlreadyExistsException;
-
 public interface VideoNetwork {
 
 
@@ -55,8 +52,7 @@ public interface VideoNetwork {
      * @param author
      * @param language
      */
-    public void createPodcast(String title, String author, String language)
-    throws PodcastAlreadyExistsException, InvalidLanguageException;
+    public void createPodcast(String title, String author, String language);
 
     /**
      *
@@ -71,7 +67,7 @@ public interface VideoNetwork {
      *
      * @param title
      */
-    public void getPodcast(String title);
+    public Podcast getPodcast(String title);
 
     /**
      *

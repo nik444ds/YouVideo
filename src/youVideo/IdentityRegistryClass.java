@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Concrete implementation of the IdentityRegistry using a HashMap.
+ * This interface defines the contract for any identity registration system (whether for authors, titles, or tags).
  */
 public class IdentityRegistryClass implements IdentityRegistry {
-    // Mapeia a versão lowercase para a versão com a capitalização original
+    // Map the version on lowerCase to Original Version
     private final Map<String, String> registry;
 
     public IdentityRegistryClass() {
@@ -34,7 +34,7 @@ public class IdentityRegistryClass implements IdentityRegistry {
         if (identity == null) {
             return null;
         }
-        // Se existir, devolve o formato original guardado; caso contrário, devolve o input
+        // If exists, return the original stored; otherwise, return the input
         return registry.getOrDefault(identity.toLowerCase(), identity);
     }
 }
