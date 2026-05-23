@@ -384,14 +384,14 @@ public class VideoNetworkClass implements VideoNetwork {
         // Check case-insensitively if the tag is already present
         for (String existing : tags) {
             if (existing.equalsIgnoreCase(tag))
-                throw new TaggedException(tag);
+                throw new TaggedException();
         }
         tags.add(tag);
     }
 
     @Override
     public void removeTag(String title, String tag)
-            throws TitleDoesNotExistsException, TagNotPresentException {
+            throws TitleDoesNotExistsException, TaggedException {
         boolean hasPodcast = podcasts.containsKey(title.toLowerCase());
         boolean hasShow = shows.containsKey(title.toLowerCase());
 
@@ -411,7 +411,7 @@ public class VideoNetworkClass implements VideoNetwork {
             }
         }
         if (toRemove == null)
-            throw new TagNotPresentException(tag);
+            throw new TaggedException();
 
         tags.remove(toRemove);
         if (tags.isEmpty())
@@ -420,7 +420,7 @@ public class VideoNetworkClass implements VideoNetwork {
 
     @Override
     public void tagged(String tag, String content, String order)
-            throws InvalidTagParametersException, NoContentTaggedException {
+            throws TaggedException, NoContentTaggedException {
         boolean validContent = content.equalsIgnoreCase("SHOW")
                 || content.equalsIgnoreCase("PODCAST")
                 || content.equalsIgnoreCase("ALL");
@@ -428,7 +428,7 @@ public class VideoNetworkClass implements VideoNetwork {
                 || order.equalsIgnoreCase("DES");
 
         if (!validContent || !validOrder)
-            throw new InvalidTagParametersException();
+            throw new TaggedException();
 
         List<TaggedContent> result = new ArrayList<>();
 

@@ -174,14 +174,7 @@ public interface VideoNetwork {
      * @param authorInput
      * @return
      */
-    String getNameAuthor(String authorInput);
-
-    /**
-     *
-     * @param title
-     * @return
-     */
-    boolean titleAlreadyExist(String title);
+    String getCanonicalAuthor(String authorInput);
 
 
 
