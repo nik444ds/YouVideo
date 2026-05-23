@@ -18,4 +18,8 @@ public interface Podcast extends Titled, Authored, Languaged, Iterable<Episode> 
      * @return an Iterator of Episode objects
      */
     Iterator<Episode> getEpisodesIterator();
+
+    void displayEpisodes();
+
+    void display();
 }

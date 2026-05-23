@@ -155,24 +155,59 @@ public class VideoNetworkClass implements VideoNetwork {
 
 
     @Override
-    public void listEpisodes(String title) {
+    public void listEpisodes(String title) throws TitleDoesNotExistsException {
+        Podcast pod = getPodcast(title);
+        if (pod == null) {
+            throw new TitleDoesNotExistsException();
+        }
 
+        pod.displayEpisodes();
+    }
+
+
+    @Override
+    public List<Podcast> authorPodcasts(String authorName) {
+        List<Podcast> result = new ArrayList<>();
+        for(Podcast p: podcasts){
+            if(p.getAuthor().equalsIgnoreCase(authorName)){
+                result.add(p);
+            }
+        }
+        return result;
     }
 
     @Override
-    public void authorPodcasts(String authorName) {
-
+    public void removePodcast(String title) throws TitleDoesNotExistsException {
+        Podcast pod = getPodcast(title);
+        if(pod == null){
+            throw new TitleDoesNotExistsException();
+        }
+        Iterator <Episode> it = pod.getEpisodesIterator();
+        while(it.hasNext()){
+            Episode ep = it.next();
+            videos.remove(ep.getId());
+        }
+        podcasts.remove(pod);
     }
 
     @Override
-    public void removePodcast(String title) {
-
+    public void createShow(String author, PublishableVideosClass video, String date)
+          throws VideoForShowDoesNotExistException ,  ShowAlreadyExistsException {
+        VideoStructure videoStructure = videos.get(video.getId());
+        if (videoStructure == null || videoStructure instanceof EpisodeClass) {
+            throw new VideoForShowDoesNotExistException();
+        }
+        PublishableVideos publishableVideos = (PublishableVideos) video;
+        String showTitle = publishableVideos.getTitle();
+        for (Show show : shows) {
+            if (show.getTitle().equalsIgnoreCase(showTitle)) {
+                throw new ShowAlreadyExistsException();
+            }
+        }
+        ShowClass newShow = new ShowClass(author, publishableVideos, date);
+        shows.add(newShow);
     }
 
-    @Override
-    public void createShow(String author, PublishableVideosClass video, String date) {
-
-    }
 
     @Override
     public void getShow(String title) {

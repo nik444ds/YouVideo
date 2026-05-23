@@ -1,5 +1,5 @@
 package youVideo;
-
+import java.util.List;
 import youVideo.Exceptions.*;
 
 public interface VideoNetwork {
@@ -87,19 +87,21 @@ public interface VideoNetwork {
      *
      * @param title
      */
-     void listEpisodes(String title);
+     void listEpisodes(String title)
+            throws TitleDoesNotExistsException;
 
     /**
      *
      * @param authorName
      */
-     void authorPodcasts(String authorName);
+      List<Podcast> authorPodcasts (String authorName);
 
     /**
      *
      * @param title
      */
-     void removePodcast(String title);
+     void removePodcast(String title)
+            throws TitleDoesNotExistsException;
 
     /**
      *
@@ -107,7 +109,8 @@ public interface VideoNetwork {
      * @param video
      * @param date
      */
-     void createShow(String author, PublishableVideosClass video, String date);;
+     void createShow(String author, PublishableVideosClass video, String date)
+            throws VideoForShowDoesNotExistException, ShowAlreadyExistsException;
 
     /**
      *
