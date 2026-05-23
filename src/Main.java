@@ -7,6 +7,7 @@ import youVideo.Exceptions.*;
 
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -81,6 +82,9 @@ public class Main {
     private static final String TITLE_NOT_TAGGED          = "Title is not tagged with ";
     private static final String NOTHING_TAGGED            = "No content tagged with ";
     private static final String INVALID_TAG_PARAMETERS    = "Invalid tagged parameters.";
+    private static final String NO_PRODUCTIVE_AUTHORS     = "No productive authors.";
+    private static final String AUTHORS_PRODUCTIVITY_HDR  = "Authors productivity:";
+    private static final String CONTRIBUTIONS             = " contributions.";
     private static final String END_PROGRAM               = "Bye!";
 
     /** Full help text shown by the help command. */
@@ -186,22 +190,21 @@ public class Main {
         int    duration = sc.nextInt();
         String url      = sc.next();
         sc.nextLine();
-        String publisher     = sc.nextLine();
-        String title         = sc.nextLine();
-        String languageCode  = sc.nextLine().trim();
+        String publisher    = sc.nextLine();
+        String title        = sc.nextLine();
+        String languageCode = sc.nextLine().trim();
         try {
             platform.createPublishable(id, duration, url, publisher, title, languageCode);
             System.out.println("Video " + id + VIDEO_CREATED_SUCCESS);
-        } catch (InvalidLanguageException  e) { System.out.println(INVALID_LANGUAGE);   }
-        catch  (InvalidDurationException   e) { System.out.println(INVALID_DURATION);   }
-        catch  (IdAlreadyExistsException   e) { System.out.println(ID_ALREADY_EXISTS);  }
+        } catch (InvalidLanguageException e) { System.out.println(INVALID_LANGUAGE);  }
+        catch  (InvalidDurationException  e) { System.out.println(INVALID_DURATION);  }
+        catch  (IdAlreadyExistsException  e) { System.out.println(ID_ALREADY_EXISTS); }
     }
 
     /**
      * Handles the createpremium command.
      * Reads id, duration, url (same line), then publisher, title, language,
      * subtitle URL, and subtitle language (each on a separate line).
-     * Note: the createpremium success message uses "PREMIUM Video" (one space).
      *
      * @param sc       input scanner
      * @param platform video network
@@ -213,19 +216,17 @@ public class Main {
         sc.nextLine();
         String publisher        = sc.nextLine();
         String title            = sc.nextLine();
-        String languageCode     = sc.nextLine();
-        // FIXED: subtitle URL and language are on separate lines per the assignment spec
-        String initSubUrl       = sc.nextLine();
+        String languageCode     = sc.nextLine().trim();
+        String initSubUrl       = sc.nextLine().trim();
         String initLanguageCode = sc.nextLine().trim();
         try {
             platform.createPremium(id, duration, url, publisher, title,
                     languageCode, initLanguageCode, initSubUrl);
-            // FIXED: removed extra space between "PREMIUM" and "Video"
             System.out.println("PREMIUM Video " + id + VIDEO_CREATED_SUCCESS);
-        } catch (InvalidLanguageException         e) { System.out.println(INVALID_LANGUAGE);           }
-        catch  (InvalidLanguageSubtitleException  e) { System.out.println(INVALID_LANGUAGE_SUBTITLE);  }
-        catch  (InvalidDurationException          e) { System.out.println(INVALID_DURATION);           }
-        catch  (IdAlreadyExistsException          e) { System.out.println(ID_ALREADY_EXISTS);          }
+        } catch (InvalidLanguageException        e) { System.out.println(INVALID_LANGUAGE);           }
+        catch  (InvalidLanguageSubtitleException e) { System.out.println(INVALID_LANGUAGE_SUBTITLE);  }
+        catch  (InvalidDurationException         e) { System.out.println(INVALID_DURATION);           }
+        catch  (IdAlreadyExistsException         e) { System.out.println(ID_ALREADY_EXISTS);          }
     }
 
     /**
@@ -236,8 +237,8 @@ public class Main {
      * @param platform video network
      */
     private static void addSub(Scanner sc, VideoNetwork platform) {
-        String id          = sc.next();
-        String subtitleUrl = sc.next();
+        String id           = sc.next();
+        String subtitleUrl  = sc.next();
         String languageCode = sc.next();
         sc.nextLine();
         try {
@@ -250,7 +251,7 @@ public class Main {
 
     /**
      * Handles the getvideo command.
-     * Reads the video id and delegates display to the domain layer.
+     * Retrieves the video from the domain and prints all its fields here.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -259,7 +260,14 @@ public class Main {
         String id = sc.next();
         sc.nextLine();
         try {
-            platform.getVideo(id);
+            PublishableVideos video = platform.getVideo(id);
+            // Print "PREMIUM Video" prefix for premium videos, "Video" for standard
+            String prefix = (video instanceof PremiumVideos) ? "PREMIUM Video " : "Video ";
+            System.out.println(prefix + video.getId() + " " + video.getDuration()
+                    + " Title: " + video.getTitle());
+            System.out.println("File: " + video.getUrl()
+                    + " Publisher: " + video.getPublisher()
+                    + " Language: " + video.getLanguage().getDisplayLanguage().toUpperCase());
         } catch (InvalidPublishableVideoException e) {
             System.out.println("Publishable Video " + id + " does not exist.");
         }
@@ -267,8 +275,7 @@ public class Main {
 
     /**
      * Handles the subtitles command.
-     * Retrieves a premium video via the domain interface and iterates its subtitles here
-     * because printing is the responsibility of Main.
+     * Retrieves a premium video and iterates its subtitles here.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -283,7 +290,7 @@ public class Main {
             while (it.hasNext()) {
                 Subtitles sub = it.next();
                 System.out.println("- " + sub.getUrl()
-                        + " (" + sub.getLanguage().getDisplayLanguage(Locale.ENGLISH).toUpperCase() + ")");
+                        + " (" + sub.getLanguage().getDisplayLanguage().toUpperCase() + ")");
             }
         } catch (NotAPremiumVideoException e) { System.out.println(NO_PREMIUM_VIDEO); }
     }
@@ -303,8 +310,8 @@ public class Main {
         try {
             platform.createPodcast(title, author, language);
             System.out.println(PODCAST_CREATED);
-        } catch (InvalidLanguageException    e) { System.out.println(INVALID_LANGUAGE);    }
-        catch  (TitleAlreadyExistException   e) { System.out.println(TITLE_ALREADY_USED);  }
+        } catch (InvalidLanguageException   e) { System.out.println(INVALID_LANGUAGE);   }
+        catch  (TitleAlreadyExistException  e) { System.out.println(TITLE_ALREADY_USED); }
     }
 
     /**
@@ -324,10 +331,10 @@ public class Main {
         try {
             platform.addEpisode(title, id, duration, url, date);
             System.out.println(EPISODE_CREATED);
-        } catch (InvalidDurationException     e) { System.out.println(INVALID_DURATION);     }
-        catch  (TitleDoesNotExistsException   e) { System.out.println(PODCAST_DOES_NOT_EXIST);}
-        catch  (IdAlreadyExistsException      e) { System.out.println(EPISODE_ID_EXIST);      }
-        catch  (InvalidDateException          e) { System.out.println(WRONG_DATE_EPISODE);    }
+        } catch (InvalidDurationException   e) { System.out.println(INVALID_DURATION);      }
+        catch  (TitleDoesNotExistsException e) { System.out.println(PODCAST_DOES_NOT_EXIST); }
+        catch  (IdAlreadyExistsException    e) { System.out.println(EPISODE_ID_EXIST);       }
+        catch  (InvalidDateException        e) { System.out.println(WRONG_DATE_EPISODE);     }
     }
 
     /**
@@ -349,7 +356,6 @@ public class Main {
             if (epIt.hasNext())
                 System.out.println("Latest episode date: " + epIt.next().getReleaseDate());
 
-            // Print tags in alphabetical order if any exist (new in phase 2)
             Iterator<String> tagIt = platform.getTagsForTitle(title);
             if (tagIt.hasNext()) {
                 System.out.println("Tags:");
@@ -388,20 +394,18 @@ public class Main {
     /**
      * Handles the authorpodcasts command.
      * Lists all podcasts by the given author in insertion order.
-     * Always succeeds — prints a message if no podcasts are found.
+     * Always succeeds.
      *
      * @param sc       input scanner
      * @param platform video network
      */
     private static void podcastList(Scanner sc, VideoNetwork platform) {
         String author = sc.nextLine().trim();
-        // FIXED: now uses Iterator returned by the domain layer instead of old Array logic
         Iterator<Podcast> it = platform.authorPodcasts(author);
         if (!it.hasNext()) {
             System.out.println(NO_PODCAST_AUTHOR);
             return;
         }
-        // Print header using the input name (as specified: "Podcasts by author <name>")
         System.out.println("Podcasts by author " + author + ":");
         while (it.hasNext()) {
             Podcast p = it.next();
@@ -413,7 +417,6 @@ public class Main {
 
     /**
      * Handles the removepodcast command.
-     * Removes a podcast and all its episodes from the system.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -434,7 +437,7 @@ public class Main {
      * @param platform video network
      */
     private static void createShow(Scanner sc, VideoNetwork platform) {
-        String author = sc.nextLine().trim();
+        String author  = sc.nextLine().trim();
         String videoId = sc.next();
         String date    = sc.next();
         sc.nextLine();
@@ -447,7 +450,7 @@ public class Main {
 
     /**
      * Handles the getshow command.
-     * Prints show metadata and optional tags. Display logic is in the domain layer.
+     * Retrieves the show from the domain and prints all its fields here.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -455,7 +458,17 @@ public class Main {
     private static void getShow(Scanner sc, VideoNetwork platform) {
         String title = sc.nextLine().trim();
         try {
-            platform.getShow(title);
+            Show show = platform.getShow(title);
+            System.out.println("Show Date: " + show.getTransmissionDate()
+                    + " Author: " + show.getAuthor());
+            System.out.println("Video: " + show.getTitle());
+
+            Iterator<String> tagIt = platform.getTagsForTitle(title);
+            if (tagIt.hasNext()) {
+                System.out.println("Tags:");
+                while (tagIt.hasNext())
+                    System.out.println(tagIt.next());
+            }
         } catch (ShowDoesNotExistException e) { System.out.println(SHOW_DOES_NOT_EXIST); }
     }
 
@@ -469,12 +482,23 @@ public class Main {
      */
     private static void authorShows(Scanner sc, VideoNetwork platform) {
         String author = sc.nextLine().trim();
-        platform.authorShows(author);
+        Iterator<Show> it = platform.authorShows(author);
+        if (!it.hasNext()) {
+            System.out.println(NO_SHOWS_AUTHOR);
+            return;
+        }
+        System.out.println("Shows by author " + author + ":");
+        while (it.hasNext()) {
+            Show show = it.next();
+            System.out.println("Date: " + show.getTransmissionDate()
+                    + " Show: " + show.getTitle()
+                    + " Duration: " + show.getVideo().getDuration()
+                    + " Language: " + show.getVideo().getLanguage().getLanguage().toUpperCase());
+        }
     }
 
     /**
      * Handles the removeshow command.
-     * Removes the show but leaves the underlying video intact.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -489,7 +513,6 @@ public class Main {
 
     /**
      * Handles the removevideo command.
-     * Episodes and videos used in shows cannot be removed.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -500,20 +523,31 @@ public class Main {
         try {
             platform.removeVideo(id);
             System.out.println(VIDEO_REMOVED);
-        } catch (VideoDoesNotExistException    e) { System.out.println(VIDEO_DOES_NOT_EXIST);    }
-        catch  (CannotRemoveEpisodeException   e) { System.out.println(CANNOT_REMOVE_EPISODE);   }
-        catch  (CannotRemoveShowVideoException e) { System.out.println(CANNOT_REMOVE_SHOW_VIDEO);}
+        } catch (VideoDoesNotExistException    e) { System.out.println(VIDEO_DOES_NOT_EXIST);     }
+        catch  (CannotRemoveEpisodeException   e) { System.out.println(CANNOT_REMOVE_EPISODE);    }
+        catch  (CannotRemoveShowVideoException e) { System.out.println(CANNOT_REMOVE_SHOW_VIDEO); }
     }
 
     /**
      * Handles the authorsproductivity command.
-     * Delegates entirely to the domain layer which computes and prints the ranking.
+     * Retrieves the sorted productivity data from the domain and prints it here.
      * Always succeeds.
      *
      * @param platform video network
      */
     private static void authorProductivity(VideoNetwork platform) {
-        platform.authorsProductivity();
+        Iterator<Map.Entry<String, Integer>> it = platform.authorsProductivity();
+        if (!it.hasNext()) {
+            System.out.println(NO_PRODUCTIVE_AUTHORS);
+            return;
+        }
+        System.out.println(AUTHORS_PRODUCTIVITY_HDR);
+        while (it.hasNext()) {
+            Map.Entry<String, Integer> entry = it.next();
+            // getCanonicalAuthor resolves the lowercase key back to the display name
+            String canonicalName = platform.getCanonicalAuthor(entry.getKey());
+            System.out.println(canonicalName + " with " + entry.getValue() + CONTRIBUTIONS);
+        }
     }
 
     /**
@@ -529,8 +563,8 @@ public class Main {
         try {
             platform.addTag(title, tag);
             System.out.println(TAGGED_SUCCESS);
-        } catch (TitleDoesNotExistsException e) { System.out.println(TITLE_DOES_NOT_EXIST);        }
-        catch  (TaggedException              e) { System.out.println(TITLE_ALREADY_TAGGED + tag);  }
+        } catch (TitleDoesNotExistsException e) { System.out.println(TITLE_DOES_NOT_EXIST);       }
+        catch  (TaggedException              e) { System.out.println(TITLE_ALREADY_TAGGED + tag); }
     }
 
     /**
@@ -546,13 +580,14 @@ public class Main {
         try {
             platform.removeTag(title, tag);
             System.out.println(TAG_REMOVED);
-        } catch (TitleDoesNotExistsException e) { System.out.println(TITLE_DOES_NOT_EXIST);     }
-        catch  (TagNotPresentException       e) { System.out.println(TITLE_NOT_TAGGED + tag);   }
+        } catch (TitleDoesNotExistsException e) { System.out.println(TITLE_DOES_NOT_EXIST);    }
+        catch  (TagNotPresentException       e) { System.out.println(TITLE_NOT_TAGGED + tag);  }
     }
 
     /**
      * Handles the tagged command.
      * Reads tag, content filter (SHOW/PODCAST/ALL), and order (ASC/DES) on the same line.
+     * Retrieves sorted content from the domain and prints it here.
      *
      * @param sc       input scanner
      * @param platform video network
@@ -563,8 +598,19 @@ public class Main {
         String order   = sc.next();
         sc.nextLine();
         try {
-            platform.tagged(tag, content, order);
-        } catch (InvalidTagParametersException e) { System.out.println(INVALID_TAG_PARAMETERS);     }
+            Iterator<TaggedContent> it = platform.tagged(tag, content, order);
+            String orderLabel = order.equalsIgnoreCase("ASC") ? "Ascending" : "Descending";
+            System.out.println("Content tagged with " + tag + " in " + orderLabel + " order:");
+            while (it.hasNext()) {
+                TaggedContent c = it.next();
+                if (c instanceof Show show)
+                    System.out.println("Show Title: " + show.getTitle()
+                            + " Author: " + show.getAuthor());
+                else if (c instanceof Podcast pod)
+                    System.out.println("Podcast Title: " + pod.getTitle()
+                            + " Author: " + pod.getAuthor());
+            }
+        } catch (InvalidTagParametersException e) { System.out.println(INVALID_TAG_PARAMETERS);      }
         catch  (NoContentTaggedException       e) { System.out.println(NOTHING_TAGGED + tag + "."); }
     }
 
