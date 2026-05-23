@@ -101,7 +101,7 @@ public interface VideoNetwork {
      * @param title
      */
      void removePodcast(String title)
-            throws TitleDoesNotExistsException;
+            throws PodcastDoesNotExistsException;
 
     /**
      *

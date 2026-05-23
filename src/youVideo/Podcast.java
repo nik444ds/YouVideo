@@ -6,7 +6,7 @@ import java.util.Iterator;
  * Interface representing a Podcast entity that aggregates multiple episodes.
  * Extends Titled, Authored, Languaged, and Iterable.
  */
-public interface Podcast extends Titled, Authored, Languaged, Iterable<Episode> {
+public interface Podcast extends TaggedContent, Languaged, Iterable<Episode> {
     /**
      * Adds a new episode to the podcast.
      * @param episode the episode to be added

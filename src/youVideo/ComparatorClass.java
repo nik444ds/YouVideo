@@ -1,6 +1,6 @@
 package youVideo;
 import java.util.Comparator;
-public class ComparatorClass implements Comparator {
+public class ComparatorClass implements Comparator<TaggedContent> {
     private final boolean isAscending;
 
 
@@ -32,8 +32,8 @@ public class ComparatorClass implements Comparator {
             return 1;  // c2 (Show) sobe na lista
         }
 
-        // 3º Critério: São os dois Shows ou os dois Podcasts com o mesmo nome
-        return 0;
+        // 3º: São os dois Shows ou os dois Podcasts com o mesmo nome
+        return 0;}
     }
-}
+
 }

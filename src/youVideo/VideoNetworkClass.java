@@ -1,158 +1,200 @@
 package youVideo;
 
 import youVideo.Exceptions.*;
+
 import java.util.*;
 
+/**
+ * Manages all videos, podcasts, shows, tags, and authors in the platform.
+ * Uses efficient Java collections as required by phase 2 data size requirements.
+ */
 public class VideoNetworkClass implements VideoNetwork {
-    private final Map<String, VideoStructure> videos;
-    private final List<Podcast> podcasts;
-    private final List<Show> shows;
-    private final Map<String, SortedSet<String>> tagsByTitle;
-    private final IdentityRegistry authorRegistry;
-    private final IdentityRegistry titleRegistry;
 
+    /** Maps video ID (case-insensitive key) to its VideoStructure object. O(1) search/insert/delete. */
+    private final Map<String, VideoStructure> videos;
+
+    /** Maps podcast title (lowercase) to its Podcast object. O(1) search/insert/delete. */
+    private final Map<String, Podcast> podcasts;
+
+    /** Maps show title (lowercase) to its Show object. O(1) search/insert/delete. */
+    private final Map<String, Show> shows;
+
+    /**
+     * Maps author canonical name (lowercase key) to an ordered list of their podcasts.
+     * List preserves insertion order as required by the authorpodcasts command.
+     */
+    private final Map<String, List<Podcast>> podcastsByAuthor;
+
+    /**
+     * Maps author canonical name (lowercase key) to a SortedSet of their shows.
+     * SortedSet uses a comparator to keep shows ordered by date then title,
+     * as required by the authorshows command which is called frequently.
+     */
+    private final Map<String, SortedSet<Show>> showsByAuthor;
+
+    /**
+     * Maps title (lowercase) to a SortedSet of tags (alphabetical order).
+     * Tags qualify both shows and podcasts by their title.
+     * TreeSet ensures alphabetical order for tag listing.
+     */
+    private final Map<String, SortedSet<String>> tagsByTitle;
+
+    /**
+     * Registry that maps lowercase author names to their canonical (first-registered) form.
+     * Ensures author name consistency across podcasts and shows.
+     */
+    private final IdentityRegistry authorRegistry;
+
+    /**
+     * Constructs a new VideoNetworkClass with empty collections.
+     * All maps use HashMap for O(1) average-case performance on lookup, insert, and delete.
+     */
     public VideoNetworkClass() {
         this.videos = new HashMap<>();
-        this.podcasts = new ArrayList<>();
-        this.shows = new ArrayList<>();
+        this.podcasts = new HashMap<>();
+        this.shows = new HashMap<>();
+        this.podcastsByAuthor = new HashMap<>();
+        this.showsByAuthor = new HashMap<>();
         this.tagsByTitle = new HashMap<>();
         this.authorRegistry = new IdentityRegistryClass();
-        this.titleRegistry = new IdentityRegistryClass();
     }
 
-
     @Override
-    public void createPublishable(String id, int duration, String url, String publisher, String title, String language)
+    public void createPublishable(String id, int duration, String url, String publisher,
+                                  String title, String language)
             throws InvalidLanguageException, InvalidDurationException, IdAlreadyExistsException {
-
         if (!isLanguageValid(language))
             throw new InvalidLanguageException();
-
         if (duration <= 0)
             throw new InvalidDurationException();
-
-        if (videos.containsKey(id))
+        // ID must be unique across all videos (publishable + episodes)
+        if (videos.containsKey(id.toLowerCase()))
             throw new IdAlreadyExistsException();
-        titleRegistry.register(title);
+
         VideoStructure newVideo = new PublishableVideosClass(id, duration, url, publisher, title, language);
-        videos.put(id, newVideo);
+        videos.put(id.toLowerCase(), newVideo);
     }
 
     @Override
-    public void createPremium(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl)
-            throws InvalidLanguageException,InvalidLanguageSubtitleException, InvalidDurationException, IdAlreadyExistsException {
-
+    public void createPremium(String id, int duration, String url, String publisher,
+                              String title, String language, String subLanguage, String subUrl)
+            throws InvalidLanguageException, InvalidLanguageSubtitleException,
+            InvalidDurationException, IdAlreadyExistsException {
         if (!isLanguageValid(language))
             throw new InvalidLanguageException();
-        if(!isLanguageValid(subLanguage)){
+        if (!isLanguageValid(subLanguage))
             throw new InvalidLanguageSubtitleException();
-        }
         if (duration <= 0)
             throw new InvalidDurationException();
-
-        if (videos.containsKey(id))
+        if (videos.containsKey(id.toLowerCase()))
             throw new IdAlreadyExistsException();
-        //register the title
-        titleRegistry.register(title);
-        VideoStructure newPremium = new PremiumVideosClass(id, duration, url, publisher, title, language, subLanguage, subUrl);
-        videos.put(id, newPremium);
+
+        VideoStructure newPremium = new PremiumVideosClass(id, duration, url, publisher,
+                title, language, subLanguage, subUrl);
+        videos.put(id.toLowerCase(), newPremium);
     }
 
     @Override
-    public void createSubtitle(String id,String url , String language)
-            throws InvalidLanguageSubtitleException, VideoDoesNotExistException, NotAPremiumVideoException{
-
-        if(!isLanguageValid(language)){
+    public void createSubtitle(String id, String url, String language)
+            throws InvalidLanguageSubtitleException, VideoDoesNotExistException,
+            NotAPremiumVideoException {
+        if (!isLanguageValid(language))
             throw new InvalidLanguageSubtitleException();
-        }
 
-        VideoStructure video = videos.get(id);
-
-        if(video == null){
+        VideoStructure video = videos.get(id.toLowerCase());
+        if (video == null)
             throw new VideoDoesNotExistException();
-
-        }
-
-        if(!(video instanceof PremiumVideosClass premium)){
+        if (!(video instanceof PremiumVideosClass premium))
             throw new NotAPremiumVideoException();
-        }
-        premium.addSubtitle(language,url);
+
+        premium.addSubtitle(language, url);
     }
 
     @Override
-    public void getVideo(String id) throws InvalidPublishableVideoException{
-        VideoStructure video = videos.get(id);
-        if(video == null || video instanceof EpisodeClass) {
+    public void getVideo(String id) throws InvalidPublishableVideoException {
+        VideoStructure video = videos.get(id.toLowerCase());
+        // Episodes are not publishable videos — both null and episode cases throw
+        if (video == null || video instanceof EpisodeClass)
             throw new InvalidPublishableVideoException();
-        }
         video.display();
     }
 
     @Override
-    public PremiumVideosClass getPremiumVideo(String id) throws NotAPremiumVideoException {
-        VideoStructure video = videos.get(id);
-
-        if (!(video instanceof PremiumVideosClass premiumVideo)) {
+    public PremiumVideos getPremiumVideo(String id) throws NotAPremiumVideoException {
+        VideoStructure video = videos.get(id.toLowerCase());
+        if (!(video instanceof PremiumVideos premiumVideo))
             throw new NotAPremiumVideoException();
-        }
         return premiumVideo;
     }
 
     @Override
     public void createPodcast(String title, String author, String language)
             throws InvalidLanguageException, TitleAlreadyExistException {
-        if (!isLanguageValid(language)){
+        if (!isLanguageValid(language))
             throw new InvalidLanguageException();
-        }
-        if (titleAlreadyExist(title)) {
+        // Podcast titles are unique across all podcasts (case-insensitive)
+        if (podcasts.containsKey(title.toLowerCase()))
             throw new TitleAlreadyExistException();
-        }
+
+        // Resolve canonical author name (first-registered casing wins)
         String canonicalAuthor = authorRegistry.getCanonical(author);
-        if (!authorRegistry.exists(author)) {
+        if (!authorRegistry.exists(author))
             authorRegistry.register(author);
 
-        }
-        titleRegistry.register(title);
         Podcast newPodcast = new PodcastClass(title, canonicalAuthor, language);
-        podcasts.add(newPodcast);
+        podcasts.put(title.toLowerCase(), newPodcast);
+
+        // Register podcast under its author for efficient authorpodcasts lookup
+        podcastsByAuthor
+                .computeIfAbsent(canonicalAuthor.toLowerCase(), k -> new ArrayList<>())
+                .add(newPodcast);
     }
 
     @Override
-    public void addEpisode(String title,String id, int duration, String url, String releaseDate)
-    throws InvalidDurationException,TitleDoesNotExistsException,IdAlreadyExistsException, InvalidDateException{
-        Podcast pod = getPodcast(title);
-        if(pod == null){
-            throw new TitleDoesNotExistsException();
-        }
-        if(duration <= 0){
+    public void addEpisode(String title, String id, int duration, String url, String releaseDate)
+            throws InvalidDurationException, TitleDoesNotExistsException,
+            IdAlreadyExistsException, InvalidDateException {
+        // Validations must follow the order specified in the assignment
+        if (duration <= 0)
             throw new InvalidDurationException();
-        }
-        //The id is global, for videos and Episodes
-        if(videos.containsKey(id)){
+
+        Podcast pod = podcasts.get(title.toLowerCase());
+        if (pod == null)
+            throw new TitleDoesNotExistsException();
+
+        // Episode IDs share the global video ID space
+        if (videos.containsKey(id.toLowerCase()))
             throw new IdAlreadyExistsException();
-        }
+
+        // New episodes must not be earlier than the latest existing episode
         Iterator<Episode> it = pod.getEpisodesIterator();
-        if(it.hasNext()){
+        if (it.hasNext()) {
             Episode latestEpisode = it.next();
-            if(releaseDate.compareTo(latestEpisode.getReleaseDate()) < 0){
+            if (releaseDate.compareTo(latestEpisode.getReleaseDate()) < 0)
                 throw new InvalidDateException();
-            }
         }
 
-        Episode ep = new EpisodeClass(id,duration,url,releaseDate);
+        Episode ep = new EpisodeClass(id, duration, url, releaseDate);
         pod.addEpisode(ep);
+        // Episodes must also be registered in the global video map for ID uniqueness checks
+        videos.put(id.toLowerCase(), ep);
     }
+
     @Override
-    public Podcast getPodcast(String title)throws TitleDoesNotExistsException {
-        for(Podcast p: podcasts){
-            if(p.getTitle().equalsIgnoreCase(title)) {
-                return p;
-            }
-        }
-        throw new TitleDoesNotExistsException();
+    public Podcast getPodcast(String title) throws TitleDoesNotExistsException {
+        Podcast pod = podcasts.get(title.toLowerCase());
+        if (pod == null)
+            throw new TitleDoesNotExistsException();
+        return pod;
     }
 
-
+    @Override
+    public Iterator<String> getTagsForTitle(String title) {
+        SortedSet<String> tags = tagsByTitle.get(title.toLowerCase());
+        if (tags == null || tags.isEmpty())
+            return Collections.emptyIterator();
+        return tags.iterator();
+    }
 
     @Override
     public void listEpisodes(String title) throws TitleDoesNotExistsException {
@@ -160,166 +202,302 @@ public class VideoNetworkClass implements VideoNetwork {
         pod.displayEpisodes();
     }
 
-
     @Override
-    public List<Podcast> authorPodcasts(String authorName) {
-        List<Podcast> result = new ArrayList<>();
-
-        // Normalize the input name to the canonical version stored in the registry
+    public Iterator<Podcast> authorPodcasts(String authorName) {
         String canonicalName = authorRegistry.getCanonical(authorName);
-
-        for (Podcast p : podcasts) {
-            // Compare against the canonical name
-            if (p.getAuthor().equalsIgnoreCase(canonicalName)) {
-                result.add(p);
-            }
-        }
-        return result;
+        List<Podcast> authorList = podcastsByAuthor.get(canonicalName.toLowerCase());
+        if (authorList == null)
+            return Collections.emptyIterator();
+        return authorList.iterator();
     }
 
     @Override
-    public void removePodcast(String title) throws TitleDoesNotExistsException {
-        Podcast pod = getPodcast(title); // This will throw exception if not found
+    public void removePodcast(String title) throws PodcastDoesNotExistsException {
+        Podcast pod = podcasts.remove(title.toLowerCase());
+        if (pod == null)
+            throw new PodcastDoesNotExistsException();
 
-        // Remove episodes from global map
+        // Cascading removal: remove all episodes from the global video map
         Iterator<Episode> it = pod.getEpisodesIterator();
-        while(it.hasNext()){
-            videos.remove(it.next().getId());
-        }
+        while (it.hasNext())
+            videos.remove(it.next().getId().toLowerCase());
 
-        // Crucial: remove from collections and registry
-        podcasts.remove(pod);
-        titleRegistry.remove(title);
+        // Remove from author index
+        List<Podcast> authorList = podcastsByAuthor.get(pod.getAuthor().toLowerCase());
+        if (authorList != null)
+            authorList.remove(pod);
+
+        // Remove tags only if no show shares this title
+        if (!shows.containsKey(title.toLowerCase()))
+            tagsByTitle.remove(title.toLowerCase());
     }
 
     @Override
     public void createShow(String author, String videoId, String date)
             throws VideoForShowDoesNotExistException, ShowAlreadyExistsException {
+        VideoStructure videoStructure = videos.get(videoId.toLowerCase());
 
-        // 1. Get video from map
-        VideoStructure videoStructure = videos.get(videoId);
-
-        // 2. Validate if it's a valid publishable video (not an episode)
-        if (!(videoStructure instanceof PublishableVideos publishable)) {
+        // Only publishable videos (not episodes) can be used in shows
+        if (!(videoStructure instanceof PublishableVideos publishable))
             throw new VideoForShowDoesNotExistException();
-        }
 
         String showTitle = publishable.getTitle();
 
-        // 3. Use the Registry instead of looping through all shows
-        if (titleRegistry.exists(showTitle)) {
+        // Show titles must be unique (case-insensitive)
+        if (shows.containsKey(showTitle.toLowerCase()))
             throw new ShowAlreadyExistsException();
+
+        // Resolve canonical author name
+        String canonicalAuthor = authorRegistry.getCanonical(author);
+        if (!authorRegistry.exists(author))
+            authorRegistry.register(author);
+
+        Show newShow = new ShowClass(canonicalAuthor, publishable, date);
+        shows.put(showTitle.toLowerCase(), newShow);
+
+        // Register show under its author for efficient authorshows lookup
+        // SortedSet with comparator keeps shows ordered by date then title
+        showsByAuthor
+                .computeIfAbsent(canonicalAuthor.toLowerCase(),
+                        k -> new TreeSet<>(new ShowByDateTitleComparator()))
+                .add(newShow);
+    }
+
+    @Override
+    public void getShow(String title) throws ShowDoesNotExistException {
+        Show show = shows.get(title.toLowerCase());
+        if (show == null)
+            throw new ShowDoesNotExistException();
+
+        System.out.println("Show Date: " + show.getTransmissionDate()
+                + " Author: " + show.getAuthor());
+        System.out.println("Video: " + show.getTitle());
+
+        // Print tags in alphabetical order if any exist
+        Iterator<String> tagIt = getTagsForTitle(title);
+        if (tagIt.hasNext()) {
+            System.out.println("Tags:");
+            while (tagIt.hasNext())
+                System.out.println(tagIt.next());
         }
-
-        // 4. Register and add
-        titleRegistry.register(showTitle);
-        Show newShow = new ShowClass(author, publishable, date);
-        shows.add(newShow);
-    }
-
-
-    @Override
-    public void getShow(String title) {
-
     }
 
     @Override
-    public void authorShows(String authorShows) {
+    public void authorShows(String authorName) {
+        String canonicalAuthor = authorRegistry.getCanonical(authorName);
+        SortedSet<Show> authorShowSet = showsByAuthor.get(canonicalAuthor.toLowerCase());
 
+        System.out.println("Shows by author " + authorName + ":");
+        if (authorShowSet == null || authorShowSet.isEmpty()) {
+            System.out.println("No shows found for this author.");
+            return;
+        }
+        // SortedSet already maintains date-then-title order
+        for (Show show : authorShowSet) {
+            System.out.println("Date: " + show.getTransmissionDate()
+                    + " Show: " + show.getTitle()
+                    + " Duration: " + show.getVideo().getDuration()
+                    + " Language: " + show.getVideo().getLanguage()
+                    .getLanguage().toUpperCase());
+        }
     }
 
     @Override
-    public void removeShow(String title) {
+    public void removeShow(String title) throws ShowDoesNotExistException {
+        Show show = shows.remove(title.toLowerCase());
+        if (show == null)
+            throw new ShowDoesNotExistException();
 
+        // Remove from author index
+        SortedSet<Show> authorShowSet = showsByAuthor.get(show.getAuthor().toLowerCase());
+        if (authorShowSet != null)
+            authorShowSet.remove(show);
+
+        // Remove tags only if no podcast shares this title
+        if (!podcasts.containsKey(title.toLowerCase()))
+            tagsByTitle.remove(title.toLowerCase());
     }
 
     @Override
-    public void removeVideo(String id) {
+    public void removeVideo(String id)
+            throws VideoDoesNotExistException, CannotRemoveEpisodeException,
+            CannotRemoveShowVideoException {
+        VideoStructure video = videos.get(id.toLowerCase());
+        if (video == null)
+            throw new VideoDoesNotExistException();
+        if (video instanceof EpisodeClass)
+            throw new CannotRemoveEpisodeException();
 
+        // Check if any show references this video
+        for (Show show : shows.values()) {
+            if (show.getVideo().getId().equalsIgnoreCase(id))
+                throw new CannotRemoveShowVideoException();
+        }
+        videos.remove(id.toLowerCase());
     }
 
     @Override
     public void authorsProductivity() {
+        // Build a list of all authors with their total contribution count
+        // This is computed on demand (once a month per spec), so no need to maintain live
+        Map<String, Integer> productivity = new HashMap<>();
 
+        for (Map.Entry<String, List<Podcast>> entry : podcastsByAuthor.entrySet())
+            productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
+
+        for (Map.Entry<String, SortedSet<Show>> entry : showsByAuthor.entrySet())
+            productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
+
+        if (productivity.isEmpty()) {
+            System.out.println("No productive authors.");
+            return;
+        }
+
+        // Sort by count descending, then alphabetically by canonical name
+        List<Map.Entry<String, Integer>> sorted = new ArrayList<>(productivity.entrySet());
+        sorted.sort((a, b) -> {
+            int cmp = Integer.compare(b.getValue(), a.getValue());
+            if (cmp != 0) return cmp;
+            return authorRegistry.getCanonical(a.getKey())
+                    .compareToIgnoreCase(authorRegistry.getCanonical(b.getKey()));
+        });
+
+        System.out.println("Authors productivity:");
+        for (Map.Entry<String, Integer> entry : sorted) {
+            String canonicalName = authorRegistry.getCanonical(entry.getKey());
+            System.out.println(canonicalName + " with " + entry.getValue() + " contributions.");
+        }
     }
 
     @Override
-    public void addTag(String title, String tag) throws TitleDoesNotExistsException,TaggedException {
-        if(!titleRegistry.exists(title)){
+    public void addTag(String title, String tag)
+            throws TitleDoesNotExistsException, TaggedException {
+        boolean hasPodcast = podcasts.containsKey(title.toLowerCase());
+        boolean hasShow = shows.containsKey(title.toLowerCase());
+
+        if (!hasPodcast && !hasShow)
             throw new TitleDoesNotExistsException();
-        }
+
         String keyMap = title.toLowerCase();
-        SortedSet<String> tags = tagsByTitle.get(keyMap);
+        SortedSet<String> tags = tagsByTitle.computeIfAbsent(keyMap, k -> new TreeSet<>());
 
-        if(tags == null)
-        {
-            tags = new TreeSet<>();
-            tagsByTitle.put(keyMap,tags);
-
-        }
-        if(!tags.contains(tag)){
-            throw new TaggedException();
+        // Check case-insensitively if the tag is already present
+        for (String existing : tags) {
+            if (existing.equalsIgnoreCase(tag))
+                throw new TaggedException(tag);
         }
         tags.add(tag);
-
     }
 
     @Override
-    public void removeTag(String title,String tag) throws TitleDoesNotExistsException,TaggedException{
-        if(!titleRegistry.exists(title)){
+    public void removeTag(String title, String tag)
+            throws TitleDoesNotExistsException, TagNotPresentException {
+        boolean hasPodcast = podcasts.containsKey(title.toLowerCase());
+        boolean hasShow = shows.containsKey(title.toLowerCase());
+
+        if (!hasPodcast && !hasShow)
             throw new TitleDoesNotExistsException();
+
+        SortedSet<String> tags = tagsByTitle.get(title.toLowerCase());
+
+        // Find and remove the tag case-insensitively
+        String toRemove = null;
+        if (tags != null) {
+            for (String existing : tags) {
+                if (existing.equalsIgnoreCase(tag)) {
+                    toRemove = existing;
+                    break;
+                }
+            }
         }
-        String keyMap = title.toLowerCase();
-        SortedSet<String> tags = tagsByTitle.get(keyMap);
-// If 'tags' is null, the title has no tags at all.
-        if(tags == null || !tags.contains(tag)){
-            throw new TaggedException();
-        }
-        tags.remove(tag);
-        //Clean up empty sets from the map
-        if(tags.isEmpty()){
-            tagsByTitle.remove(keyMap);
-        }
+        if (toRemove == null)
+            throw new TagNotPresentException(tag);
+
+        tags.remove(toRemove);
+        if (tags.isEmpty())
+            tagsByTitle.remove(title.toLowerCase());
     }
 
     @Override
-    public void tagged(String tag,String content, String order) throws NoContentTaggedException,TaggedException{
-        // 1. Validate the 'content' parameter (case-insensitive)
-        boolean validContent = content.equalsIgnoreCase("SHOW") ||
-                content.equalsIgnoreCase("PODCAST") ||
-                content.equalsIgnoreCase("ALL");
+    public void tagged(String tag, String content, String order)
+            throws InvalidTagParametersException, NoContentTaggedException {
+        boolean validContent = content.equalsIgnoreCase("SHOW")
+                || content.equalsIgnoreCase("PODCAST")
+                || content.equalsIgnoreCase("ALL");
+        boolean validOrder = order.equalsIgnoreCase("ASC")
+                || order.equalsIgnoreCase("DES");
 
-        // 2. Validate the 'order' parameter (case-insensitive)
-        boolean validOrder = order.equalsIgnoreCase("ASC") ||
-                order.equalsIgnoreCase("DES");
+        if (!validContent || !validOrder)
+            throw new InvalidTagParametersException();
 
-        // 3. If either parameter is wrong, throw the exception immediately
-        if (!validContent || !validOrder) {
-            throw new TaggedException();
+        List<TaggedContent> result = new ArrayList<>();
+
+        // Collect matching shows
+        if (content.equalsIgnoreCase("ALL") || content.equalsIgnoreCase("SHOW")) {
+            for (Show show : shows.values()) {
+                if (hasTag(show.getTitle(), tag))
+                    result.add(show);
+            }
+        }
+        // Collect matching podcasts
+        if (content.equalsIgnoreCase("ALL") || content.equalsIgnoreCase("PODCAST")) {
+            for (Podcast pod : podcasts.values()) {
+                if (hasTag(pod.getTitle(), tag))
+                    result.add(pod);
+            }
         }
 
+        if (result.isEmpty())
+            throw new NoContentTaggedException();
+
+        // Sort using the comparator: by title (ASC/DES), show before podcast on tie
+        result.sort(new ComparatorClass(order));
+
+        String orderLabel = order.equalsIgnoreCase("ASC") ? "Ascending" : "Descending";
+        System.out.println("Content tagged with " + tag + " in " + orderLabel + " order:");
+        for (TaggedContent c : result) {
+            if (c instanceof Show show)
+                System.out.println("Show Title: " + show.getTitle()
+                        + " Author: " + show.getAuthor());
+            else if (c instanceof Podcast pod)
+                System.out.println("Podcast Title: " + pod.getTitle()
+                        + " Author: " + pod.getAuthor());
+        }
     }
 
-    /*-------------------------------------
-                AUXILIARY METHODS
-    ----------------------------------------*/
+    /* -----------------------------------------------------------------------
+                               AUXILIARY METHODS
+       ----------------------------------------------------------------------- */
+
     @Override
     public boolean isLanguageValid(String code) {
         String[] languages = Locale.getISOLanguages();
         for (String lang : languages) {
-            if (lang.equalsIgnoreCase(code)) {
+            if (lang.equalsIgnoreCase(code))
                 return true;
-            }
         }
         return false;
     }
+
     @Override
-    public String getNameAuthor(String authorInput) {
+    public String getCanonicalAuthor(String authorInput) {
         return authorRegistry.getCanonical(authorInput);
     }
-    @Override
-    public  boolean titleAlreadyExist(String title)  {
-        return titleRegistry.exists(title);
-    }
 
+    /**
+     * Checks whether a given tag qualifies a title, case-insensitively.
+     *
+     * @param title     the title to check
+     * @param searchTag the tag to look for
+     * @return {@code true} if the tag is present for this title
+     */
+    private boolean hasTag(String title, String searchTag) {
+        SortedSet<String> tags = tagsByTitle.get(title.toLowerCase());
+        if (tags == null) return false;
+        for (String t : tags) {
+            if (t.equalsIgnoreCase(searchTag))
+                return true;
+        }
+        return false;
+    }
 }
