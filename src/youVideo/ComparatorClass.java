@@ -36,4 +36,3 @@ public class ComparatorClass implements Comparator<TaggedContent> {
         return 0;}
     }
 
-}

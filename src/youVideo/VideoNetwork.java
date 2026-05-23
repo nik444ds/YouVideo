@@ -51,7 +51,7 @@ public interface VideoNetwork {
      *Method t
      * @param id
      */
-     PremiumVideosClass getPremiumVideo(String id)
+     PremiumVideos getPremiumVideo(String id)
              throws NotAPremiumVideoException ;
 
     /**
