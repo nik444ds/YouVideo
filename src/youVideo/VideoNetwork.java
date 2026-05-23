@@ -158,7 +158,8 @@ public interface VideoNetwork {
     /**
      * New command
      */
-     void tagged();
+     void tagged(String tag,String content, String order)
+             throws NoContentTaggedException,TaggedException;
 
     /**
      * Verifies if the provided language code exists in the ISO 639 standard library

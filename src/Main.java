@@ -73,6 +73,8 @@ public class Main {
     private static final String TITLE_ALREADY_TAGGED = "Title is already tagged with ";
     private static final String TAG_REMOVED = "Tag removed successfully.";
     private static final String TITLE_NOT_TAGGED = "Title is not tagged with ";
+    private static final String NOTHING_TAGGED = "No content tagged with ";
+    private static final String INVALID_TAG_PARAMETERS = "Invalid tagged parameters.";
     private static final String END_PROGRAM = "Bye!";
 
     private static final String HELP_MENU_MESSAGE = """
@@ -143,7 +145,7 @@ public class Main {
                 case CMD_AUTHOR_PRODUCTIVITY -> authorProductivity(sc,video);
                case CMD_ADD_TAG -> createTag(sc,video);
                case CMD_REMOVE_TAG -> removeTag(sc,video);
-                case CMD_TAGGED -> tagged(sc,video);
+                case CMD_TAGGED -> ContentTagged(sc,video);
                case CMD_HELP -> help();
                default -> System.out.println(UNKNOWN_COMMAND);
             }
@@ -327,10 +329,17 @@ public class Main {
     private static void getPodcast(Scanner sc, VideoNetwork video){
         String title = sc.nextLine().trim();
         try{
+            Podcast pod = video.getPodcast(title);
             video.getPodcast(title);
-            System.out.println("Podcast: " + podcast.getTitle() + " Author: "+ podcast.getAuthor() + " Language: " + podcast.getLanguage().getLanguage().toUpperCase());
-            if(podcast.getEpisode().size() > 0)
-                System.out.println("Latest episode date: " + podcast.getEpisode().get(0).getReleaseDate());
+            System.out.println("Podcast: " + pod.getTitle()
+                            + " Author: "+ pod.getAuthor()
+                            + " Language: " + pod.getLanguage().getLanguage().toUpperCase());
+            Iterator<Episode> it = pod.getEpisodesIterator();
+            if(it.hasNext())
+                System.out.println("Latest episode date: " + it.next().getReleaseDate());
+
+            if(tagged)
+
         }
         catch (TitleDoesNotExistsException e){System.out.println(PODCAST_DOES_NOT_EXIST);}
 
@@ -466,6 +475,9 @@ public class Main {
                 System.out.println("Video: " + show.getTitle());
                 return;
             }
+            if(tagged){
+                System.out.println
+            }
         }
         System.out.println(SHOW_DOES_NOT_EXIST);
     }
@@ -558,8 +570,17 @@ public class Main {
         catch(TitleDoesNotExistsException  e){System.out.println(TITLE_DOES_NOT_EXIST);}
         catch(TaggedException e){System.out.println(TITLE_NOT_TAGGED + tag);}
     }
-    private static void tagged(Scanner sc, VideoNetwork video){
+    private static void ContentTagged(Scanner sc, VideoNetwork video){
+        String tag = sc.next();
+        String content = sc.next();
+        String order = sc.next();
+        sc.nextLine();
+        try{
+            video.tagged(tag,content,order);
 
+        }
+        catch(TaggedException e){System.out.println(NOTHING_TAGGED + tag + ".");}
+        catch(NoContentTaggedException e){System.out.println(INVALID_TAG_PARAMETERS);}
     }
 
     /**

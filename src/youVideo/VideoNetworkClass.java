@@ -200,11 +200,10 @@ public class VideoNetworkClass implements VideoNetwork {
         VideoStructure videoStructure = videos.get(videoId);
 
         // 2. Validate if it's a valid publishable video (not an episode)
-        if (!(videoStructure instanceof PublishableVideos)) {
+        if (!(videoStructure instanceof PublishableVideos publishable)) {
             throw new VideoForShowDoesNotExistException();
         }
 
-        PublishableVideos publishable = (PublishableVideos) videoStructure;
         String showTitle = publishable.getTitle();
 
         // 3. Use the Registry instead of looping through all shows
@@ -284,7 +283,20 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void tagged() {
+    public void tagged(String tag,String content, String order) throws NoContentTaggedException,TaggedException{
+        // 1. Validate the 'content' parameter (case-insensitive)
+        boolean validContent = content.equalsIgnoreCase("SHOW") ||
+                content.equalsIgnoreCase("PODCAST") ||
+                content.equalsIgnoreCase("ALL");
+
+        // 2. Validate the 'order' parameter (case-insensitive)
+        boolean validOrder = order.equalsIgnoreCase("ASC") ||
+                order.equalsIgnoreCase("DES");
+
+        // 3. If either parameter is wrong, throw the exception immediately
+        if (!validContent || !validOrder) {
+            throw new TaggedException();
+        }
 
     }
 

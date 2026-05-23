@@ -5,7 +5,7 @@ package youVideo;
  */
 public class ShowClass implements Show {
     private final String author;
-    private final PublishableVideos video; // Modificado de classe concreta para Interface (Critério 1.a)
+    private final PublishableVideos video;
     private final String transmissionDate;
 
     public ShowClass(String author, PublishableVideos video, String date) {
