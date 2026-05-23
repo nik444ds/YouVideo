@@ -10,13 +10,13 @@ import java.util.*;
  */
 public class VideoNetworkClass implements VideoNetwork {
 
-    /** Maps video ID (case-insensitive key) to its VideoStructure object. O(1) search/insert/delete. */
+    /** Maps video ID (lowercase key) to its VideoStructure object. O(1) search/insert/delete. */
     private final Map<String, VideoStructure> videos;
 
-    /** Maps podcast title (lowercase) to its Podcast object. O(1) search/insert/delete. */
+    /** Maps podcast title (lowercase key) to its Podcast object. O(1) search/insert/delete. */
     private final Map<String, Podcast> podcasts;
 
-    /** Maps show title (lowercase) to its Show object. O(1) search/insert/delete. */
+    /** Maps show title (lowercase key) to its Show object. O(1) search/insert/delete. */
     private final Map<String, Show> shows;
 
     /**
@@ -33,7 +33,7 @@ public class VideoNetworkClass implements VideoNetwork {
     private final Map<String, SortedSet<Show>> showsByAuthor;
 
     /**
-     * Maps title (lowercase) to a SortedSet of tags (alphabetical order).
+     * Maps title (lowercase key) to a SortedSet of tags (alphabetical order).
      * Tags qualify both shows and podcasts by their title.
      * TreeSet ensures alphabetical order for tag listing.
      */
@@ -50,14 +50,18 @@ public class VideoNetworkClass implements VideoNetwork {
      * All maps use HashMap for O(1) average-case performance on lookup, insert, and delete.
      */
     public VideoNetworkClass() {
-        this.videos = new HashMap<>();
-        this.podcasts = new HashMap<>();
-        this.shows = new HashMap<>();
+        this.videos          = new HashMap<>();
+        this.podcasts        = new HashMap<>();
+        this.shows           = new HashMap<>();
         this.podcastsByAuthor = new HashMap<>();
-        this.showsByAuthor = new HashMap<>();
-        this.tagsByTitle = new HashMap<>();
-        this.authorRegistry = new IdentityRegistryClass();
+        this.showsByAuthor   = new HashMap<>();
+        this.tagsByTitle     = new HashMap<>();
+        this.authorRegistry  = new IdentityRegistryClass();
     }
+
+    // -----------------------------------------------------------------------
+    //  Video commands
+    // -----------------------------------------------------------------------
 
     @Override
     public void createPublishable(String id, int duration, String url, String publisher,
@@ -67,7 +71,6 @@ public class VideoNetworkClass implements VideoNetwork {
             throw new InvalidLanguageException();
         if (duration <= 0)
             throw new InvalidDurationException();
-        // ID must be unique across all videos (publishable + episodes)
         if (videos.containsKey(id.toLowerCase()))
             throw new IdAlreadyExistsException();
 
@@ -104,47 +107,71 @@ public class VideoNetworkClass implements VideoNetwork {
         VideoStructure video = videos.get(id.toLowerCase());
         if (video == null)
             throw new VideoDoesNotExistException();
-        if (!(video instanceof PremiumVideosClass premium))
+
+        // FIX: use PremiumVideos interface, not PremiumVideosClass
+        if (!(video instanceof PremiumVideos premium))
             throw new NotAPremiumVideoException();
 
         premium.addSubtitle(language, url);
     }
 
     @Override
-    public void getVideo(String id) throws InvalidPublishableVideoException {
+    public PublishableVideos getVideo(String id) throws InvalidPublishableVideoException {
         VideoStructure video = videos.get(id.toLowerCase());
         // Episodes are not publishable videos — both null and episode cases throw
-        if (video == null || video instanceof EpisodeClass)
+        // FIX: use Episode interface, not EpisodeClass
+        if (video == null || video instanceof Episode)
             throw new InvalidPublishableVideoException();
-        video.display();
+        return (PublishableVideos) video;
     }
 
     @Override
     public PremiumVideos getPremiumVideo(String id) throws NotAPremiumVideoException {
         VideoStructure video = videos.get(id.toLowerCase());
+        // FIX: use PremiumVideos interface, not PremiumVideosClass
         if (!(video instanceof PremiumVideos premiumVideo))
             throw new NotAPremiumVideoException();
         return premiumVideo;
     }
 
     @Override
+    public void removeVideo(String id)
+            throws VideoDoesNotExistException, CannotRemoveEpisodeException,
+            CannotRemoveShowVideoException {
+        VideoStructure video = videos.get(id.toLowerCase());
+        if (video == null)
+            throw new VideoDoesNotExistException();
+        // FIX: use Episode interface, not EpisodeClass
+        if (video instanceof Episode)
+            throw new CannotRemoveEpisodeException();
+
+        for (Show show : shows.values()) {
+            if (show.getVideo().getId().equalsIgnoreCase(id))
+                throw new CannotRemoveShowVideoException();
+        }
+        videos.remove(id.toLowerCase());
+    }
+
+    // -----------------------------------------------------------------------
+    //  Podcast commands
+    // -----------------------------------------------------------------------
+
+    @Override
     public void createPodcast(String title, String author, String language)
             throws InvalidLanguageException, TitleAlreadyExistException {
         if (!isLanguageValid(language))
             throw new InvalidLanguageException();
-        // Podcast titles are unique across all podcasts (case-insensitive)
         if (podcasts.containsKey(title.toLowerCase()))
             throw new TitleAlreadyExistException();
 
-        // Resolve canonical author name (first-registered casing wins)
-        String canonicalAuthor = authorRegistry.getCanonical(author);
+        // FIX: register before getCanonical so first-seen casing is preserved
         if (!authorRegistry.exists(author))
             authorRegistry.register(author);
+        String canonicalAuthor = authorRegistry.getCanonical(author);
 
         Podcast newPodcast = new PodcastClass(title, canonicalAuthor, language);
         podcasts.put(title.toLowerCase(), newPodcast);
 
-        // Register podcast under its author for efficient authorpodcasts lookup
         podcastsByAuthor
                 .computeIfAbsent(canonicalAuthor.toLowerCase(), k -> new ArrayList<>())
                 .add(newPodcast);
@@ -154,7 +181,6 @@ public class VideoNetworkClass implements VideoNetwork {
     public void addEpisode(String title, String id, int duration, String url, String releaseDate)
             throws InvalidDurationException, TitleDoesNotExistsException,
             IdAlreadyExistsException, InvalidDateException {
-        // Validations must follow the order specified in the assignment
         if (duration <= 0)
             throw new InvalidDurationException();
 
@@ -162,11 +188,9 @@ public class VideoNetworkClass implements VideoNetwork {
         if (pod == null)
             throw new TitleDoesNotExistsException();
 
-        // Episode IDs share the global video ID space
         if (videos.containsKey(id.toLowerCase()))
             throw new IdAlreadyExistsException();
 
-        // New episodes must not be earlier than the latest existing episode
         Iterator<Episode> it = pod.getEpisodesIterator();
         if (it.hasNext()) {
             Episode latestEpisode = it.next();
@@ -176,7 +200,6 @@ public class VideoNetworkClass implements VideoNetwork {
 
         Episode ep = new EpisodeClass(id, duration, url, releaseDate);
         pod.addEpisode(ep);
-        // Episodes must also be registered in the global video map for ID uniqueness checks
         videos.put(id.toLowerCase(), ep);
     }
 
@@ -198,12 +221,14 @@ public class VideoNetworkClass implements VideoNetwork {
 
     @Override
     public void listEpisodes(String title) throws TitleDoesNotExistsException {
-        Podcast pod = getPodcast(title);
-        pod.displayEpisodes();
+        // Kept for interface compliance; episode listing is driven by Main via getPodcast
+        if (!podcasts.containsKey(title.toLowerCase()))
+            throw new TitleDoesNotExistsException();
     }
 
     @Override
     public Iterator<Podcast> authorPodcasts(String authorName) {
+        // Use getCanonical: if author unknown it returns the input, giving an empty list lookup
         String canonicalName = authorRegistry.getCanonical(authorName);
         List<Podcast> authorList = podcastsByAuthor.get(canonicalName.toLowerCase());
         if (authorList == null)
@@ -217,46 +242,43 @@ public class VideoNetworkClass implements VideoNetwork {
         if (pod == null)
             throw new PodcastDoesNotExistsException();
 
-        // Cascading removal: remove all episodes from the global video map
         Iterator<Episode> it = pod.getEpisodesIterator();
         while (it.hasNext())
             videos.remove(it.next().getId().toLowerCase());
 
-        // Remove from author index
         List<Podcast> authorList = podcastsByAuthor.get(pod.getAuthor().toLowerCase());
         if (authorList != null)
             authorList.remove(pod);
 
-        // Remove tags only if no show shares this title
         if (!shows.containsKey(title.toLowerCase()))
             tagsByTitle.remove(title.toLowerCase());
     }
+
+    // -----------------------------------------------------------------------
+    //  Show commands
+    // -----------------------------------------------------------------------
 
     @Override
     public void createShow(String author, String videoId, String date)
             throws VideoForShowDoesNotExistException, ShowAlreadyExistsException {
         VideoStructure videoStructure = videos.get(videoId.toLowerCase());
 
-        // Only publishable videos (not episodes) can be used in shows
         if (!(videoStructure instanceof PublishableVideos publishable))
             throw new VideoForShowDoesNotExistException();
 
         String showTitle = publishable.getTitle();
 
-        // Show titles must be unique (case-insensitive)
         if (shows.containsKey(showTitle.toLowerCase()))
             throw new ShowAlreadyExistsException();
 
-        // Resolve canonical author name
-        String canonicalAuthor = authorRegistry.getCanonical(author);
+        // FIX: register before getCanonical so first-seen casing is preserved
         if (!authorRegistry.exists(author))
             authorRegistry.register(author);
+        String canonicalAuthor = authorRegistry.getCanonical(author);
 
         Show newShow = new ShowClass(canonicalAuthor, publishable, date);
         shows.put(showTitle.toLowerCase(), newShow);
 
-        // Register show under its author for efficient authorshows lookup
-        // SortedSet with comparator keeps shows ordered by date then title
         showsByAuthor
                 .computeIfAbsent(canonicalAuthor.toLowerCase(),
                         k -> new TreeSet<>(new ShowByDateTitleComparator()))
@@ -264,42 +286,20 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void getShow(String title) throws ShowDoesNotExistException {
+    public Show getShow(String title) throws ShowDoesNotExistException {
         Show show = shows.get(title.toLowerCase());
         if (show == null)
             throw new ShowDoesNotExistException();
-
-        System.out.println("Show Date: " + show.getTransmissionDate()
-                + " Author: " + show.getAuthor());
-        System.out.println("Video: " + show.getTitle());
-
-        // Print tags in alphabetical order if any exist
-        Iterator<String> tagIt = getTagsForTitle(title);
-        if (tagIt.hasNext()) {
-            System.out.println("Tags:");
-            while (tagIt.hasNext())
-                System.out.println(tagIt.next());
-        }
+        return show;
     }
 
     @Override
-    public void authorShows(String authorName) {
+    public Iterator<Show> authorShows(String authorName) {
         String canonicalAuthor = authorRegistry.getCanonical(authorName);
         SortedSet<Show> authorShowSet = showsByAuthor.get(canonicalAuthor.toLowerCase());
-
-        System.out.println("Shows by author " + authorName + ":");
-        if (authorShowSet == null || authorShowSet.isEmpty()) {
-            System.out.println("No shows found for this author.");
-            return;
-        }
-        // SortedSet already maintains date-then-title order
-        for (Show show : authorShowSet) {
-            System.out.println("Date: " + show.getTransmissionDate()
-                    + " Show: " + show.getTitle()
-                    + " Duration: " + show.getVideo().getDuration()
-                    + " Language: " + show.getVideo().getLanguage()
-                    .getLanguage().toUpperCase());
-        }
+        if (authorShowSet == null || authorShowSet.isEmpty())
+            return Collections.emptyIterator();
+        return authorShowSet.iterator();
     }
 
     @Override
@@ -308,38 +308,20 @@ public class VideoNetworkClass implements VideoNetwork {
         if (show == null)
             throw new ShowDoesNotExistException();
 
-        // Remove from author index
         SortedSet<Show> authorShowSet = showsByAuthor.get(show.getAuthor().toLowerCase());
         if (authorShowSet != null)
             authorShowSet.remove(show);
 
-        // Remove tags only if no podcast shares this title
         if (!podcasts.containsKey(title.toLowerCase()))
             tagsByTitle.remove(title.toLowerCase());
     }
 
-    @Override
-    public void removeVideo(String id)
-            throws VideoDoesNotExistException, CannotRemoveEpisodeException,
-            CannotRemoveShowVideoException {
-        VideoStructure video = videos.get(id.toLowerCase());
-        if (video == null)
-            throw new VideoDoesNotExistException();
-        if (video instanceof EpisodeClass)
-            throw new CannotRemoveEpisodeException();
-
-        // Check if any show references this video
-        for (Show show : shows.values()) {
-            if (show.getVideo().getId().equalsIgnoreCase(id))
-                throw new CannotRemoveShowVideoException();
-        }
-        videos.remove(id.toLowerCase());
-    }
+    // -----------------------------------------------------------------------
+    //  Author productivity
+    // -----------------------------------------------------------------------
 
     @Override
-    public void authorsProductivity() {
-        // Build a list of all authors with their total contribution count
-        // This is computed on demand (once a month per spec), so no need to maintain live
+    public Iterator<Map.Entry<String, Integer>> authorsProductivity() {
         Map<String, Integer> productivity = new HashMap<>();
 
         for (Map.Entry<String, List<Podcast>> entry : podcastsByAuthor.entrySet())
@@ -348,12 +330,9 @@ public class VideoNetworkClass implements VideoNetwork {
         for (Map.Entry<String, SortedSet<Show>> entry : showsByAuthor.entrySet())
             productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
 
-        if (productivity.isEmpty()) {
-            System.out.println("No productive authors.");
-            return;
-        }
+        if (productivity.isEmpty())
+            return Collections.emptyIterator();
 
-        // Sort by count descending, then alphabetically by canonical name
         List<Map.Entry<String, Integer>> sorted = new ArrayList<>(productivity.entrySet());
         sorted.sort((a, b) -> {
             int cmp = Integer.compare(b.getValue(), a.getValue());
@@ -362,26 +341,25 @@ public class VideoNetworkClass implements VideoNetwork {
                     .compareToIgnoreCase(authorRegistry.getCanonical(b.getKey()));
         });
 
-        System.out.println("Authors productivity:");
-        for (Map.Entry<String, Integer> entry : sorted) {
-            String canonicalName = authorRegistry.getCanonical(entry.getKey());
-            System.out.println(canonicalName + " with " + entry.getValue() + " contributions.");
-        }
+        return sorted.iterator();
     }
+
+    // -----------------------------------------------------------------------
+    //  Tag commands
+    // -----------------------------------------------------------------------
 
     @Override
     public void addTag(String title, String tag)
             throws TitleDoesNotExistsException, TaggedException {
         boolean hasPodcast = podcasts.containsKey(title.toLowerCase());
-        boolean hasShow = shows.containsKey(title.toLowerCase());
+        boolean hasShow    = shows.containsKey(title.toLowerCase());
 
         if (!hasPodcast && !hasShow)
             throw new TitleDoesNotExistsException();
 
-        String keyMap = title.toLowerCase();
-        SortedSet<String> tags = tagsByTitle.computeIfAbsent(keyMap, k -> new TreeSet<>());
+        SortedSet<String> tags = tagsByTitle.computeIfAbsent(
+                title.toLowerCase(), k -> new TreeSet<>());
 
-        // Check case-insensitively if the tag is already present
         for (String existing : tags) {
             if (existing.equalsIgnoreCase(tag))
                 throw new TaggedException();
@@ -391,16 +369,15 @@ public class VideoNetworkClass implements VideoNetwork {
 
     @Override
     public void removeTag(String title, String tag)
-            throws TitleDoesNotExistsException, TaggedException {
+            throws TitleDoesNotExistsException, TagNotPresentException {
         boolean hasPodcast = podcasts.containsKey(title.toLowerCase());
-        boolean hasShow = shows.containsKey(title.toLowerCase());
+        boolean hasShow    = shows.containsKey(title.toLowerCase());
 
         if (!hasPodcast && !hasShow)
             throw new TitleDoesNotExistsException();
 
         SortedSet<String> tags = tagsByTitle.get(title.toLowerCase());
 
-        // Find and remove the tag case-insensitively
         String toRemove = null;
         if (tags != null) {
             for (String existing : tags) {
@@ -411,7 +388,7 @@ public class VideoNetworkClass implements VideoNetwork {
             }
         }
         if (toRemove == null)
-            throw new TaggedException();
+            throw new TagNotPresentException();
 
         tags.remove(toRemove);
         if (tags.isEmpty())
@@ -419,8 +396,8 @@ public class VideoNetworkClass implements VideoNetwork {
     }
 
     @Override
-    public void tagged(String tag, String content, String order)
-            throws TaggedException, NoContentTaggedException {
+    public Iterator<TaggedContent> tagged(String tag, String content, String order)
+            throws InvalidTagParametersException, NoContentTaggedException {
         boolean validContent = content.equalsIgnoreCase("SHOW")
                 || content.equalsIgnoreCase("PODCAST")
                 || content.equalsIgnoreCase("ALL");
@@ -428,18 +405,16 @@ public class VideoNetworkClass implements VideoNetwork {
                 || order.equalsIgnoreCase("DES");
 
         if (!validContent || !validOrder)
-            throw new TaggedException();
+            throw new InvalidTagParametersException();
 
         List<TaggedContent> result = new ArrayList<>();
 
-        // Collect matching shows
         if (content.equalsIgnoreCase("ALL") || content.equalsIgnoreCase("SHOW")) {
             for (Show show : shows.values()) {
                 if (hasTag(show.getTitle(), tag))
                     result.add(show);
             }
         }
-        // Collect matching podcasts
         if (content.equalsIgnoreCase("ALL") || content.equalsIgnoreCase("PODCAST")) {
             for (Podcast pod : podcasts.values()) {
                 if (hasTag(pod.getTitle(), tag))
@@ -450,24 +425,13 @@ public class VideoNetworkClass implements VideoNetwork {
         if (result.isEmpty())
             throw new NoContentTaggedException();
 
-        // Sort using the comparator: by title (ASC/DES), show before podcast on tie
         result.sort(new ComparatorClass(order));
-
-        String orderLabel = order.equalsIgnoreCase("ASC") ? "Ascending" : "Descending";
-        System.out.println("Content tagged with " + tag + " in " + orderLabel + " order:");
-        for (TaggedContent c : result) {
-            if (c instanceof Show show)
-                System.out.println("Show Title: " + show.getTitle()
-                        + " Author: " + show.getAuthor());
-            else if (c instanceof Podcast pod)
-                System.out.println("Podcast Title: " + pod.getTitle()
-                        + " Author: " + pod.getAuthor());
-        }
+        return result.iterator();
     }
 
-    /* -----------------------------------------------------------------------
-                               AUXILIARY METHODS
-       ----------------------------------------------------------------------- */
+    // -----------------------------------------------------------------------
+    //  Auxiliary / helper methods
+    // -----------------------------------------------------------------------
 
     @Override
     public boolean isLanguageValid(String code) {

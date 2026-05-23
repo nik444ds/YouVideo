@@ -33,6 +33,6 @@ public class ComparatorClass implements Comparator<TaggedContent> {
         }
 
         // 3º: São os dois Shows ou os dois Podcasts com o mesmo nome
-        return 0;}
+        return 0;
     }
 
