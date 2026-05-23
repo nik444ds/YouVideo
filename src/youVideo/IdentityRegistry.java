@@ -26,4 +26,5 @@ public interface IdentityRegistry {
      */
     String getCanonical(String identity);
 
+    void remove(String identity);
 }

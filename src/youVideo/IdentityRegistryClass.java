@@ -37,4 +37,11 @@ public class IdentityRegistryClass implements IdentityRegistry {
         // If exists, return the original stored; otherwise, return the input
         return registry.getOrDefault(identity.toLowerCase(), identity);
     }
+
+    @Override
+    public void remove(String identity) {
+        if (identity != null) {
+            registry.remove(identity.toLowerCase());
+        }
+    }
 }

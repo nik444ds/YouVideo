@@ -157,10 +157,6 @@ public class VideoNetworkClass implements VideoNetwork {
     @Override
     public void listEpisodes(String title) throws TitleDoesNotExistsException {
         Podcast pod = getPodcast(title);
-        if (pod == null) {
-            throw new TitleDoesNotExistsException();
-        }
-
         pod.displayEpisodes();
     }
 
@@ -168,8 +164,13 @@ public class VideoNetworkClass implements VideoNetwork {
     @Override
     public List<Podcast> authorPodcasts(String authorName) {
         List<Podcast> result = new ArrayList<>();
-        for(Podcast p: podcasts){
-            if(p.getAuthor().equalsIgnoreCase(authorName)){
+
+        // Normalize the input name to the canonical version stored in the registry
+        String canonicalName = authorRegistry.getCanonical(authorName);
+
+        for (Podcast p : podcasts) {
+            // Compare against the canonical name
+            if (p.getAuthor().equalsIgnoreCase(canonicalName)) {
                 result.add(p);
             }
         }
@@ -178,33 +179,42 @@ public class VideoNetworkClass implements VideoNetwork {
 
     @Override
     public void removePodcast(String title) throws TitleDoesNotExistsException {
-        Podcast pod = getPodcast(title);
-        if(pod == null){
-            throw new TitleDoesNotExistsException();
-        }
-        Iterator <Episode> it = pod.getEpisodesIterator();
+        Podcast pod = getPodcast(title); // This will throw exception if not found
+
+        // Remove episodes from global map
+        Iterator<Episode> it = pod.getEpisodesIterator();
         while(it.hasNext()){
-            Episode ep = it.next();
-            videos.remove(ep.getId());
+            videos.remove(it.next().getId());
         }
+
+        // Crucial: remove from collections and registry
         podcasts.remove(pod);
+        titleRegistry.remove(title);
     }
 
     @Override
-    public void createShow(String author, PublishableVideosClass video, String date)
-          throws VideoForShowDoesNotExistException ,  ShowAlreadyExistsException {
-        VideoStructure videoStructure = videos.get(video.getId());
-        if (videoStructure == null || videoStructure instanceof EpisodeClass) {
+    public void createShow(String author, String videoId, String date)
+            throws VideoForShowDoesNotExistException, ShowAlreadyExistsException {
+
+        // 1. Get video from map
+        VideoStructure videoStructure = videos.get(videoId);
+
+        // 2. Validate if it's a valid publishable video (not an episode)
+        if (!(videoStructure instanceof PublishableVideos)) {
             throw new VideoForShowDoesNotExistException();
         }
-        PublishableVideos publishableVideos = (PublishableVideos) video;
-        String showTitle = publishableVideos.getTitle();
-        for (Show show : shows) {
-            if (show.getTitle().equalsIgnoreCase(showTitle)) {
-                throw new ShowAlreadyExistsException();
-            }
+
+        PublishableVideos publishable = (PublishableVideos) videoStructure;
+        String showTitle = publishable.getTitle();
+
+        // 3. Use the Registry instead of looping through all shows
+        if (titleRegistry.exists(showTitle)) {
+            throw new ShowAlreadyExistsException();
         }
-        ShowClass newShow = new ShowClass(author, publishableVideos, date);
+
+        // 4. Register and add
+        titleRegistry.register(showTitle);
+        Show newShow = new ShowClass(author, publishable, date);
         shows.add(newShow);
     }
 

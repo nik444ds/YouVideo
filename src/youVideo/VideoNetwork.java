@@ -106,10 +106,10 @@ public interface VideoNetwork {
     /**
      *
      * @param author
-     * @param video
+     * @param videoId
      * @param date
      */
-     void createShow(String author, PublishableVideosClass video, String date)
+     void createShow(String author, String videoId, String date)
             throws VideoForShowDoesNotExistException, ShowAlreadyExistsException;
 
     /**
