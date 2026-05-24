@@ -118,7 +118,7 @@ public class Main {
 
     /**
      * Application entry point.
-     * Sets the default locale to British English to ensure consistent language display names,
+     * Sets the default locale to  English to ensure consistent language display names,
      * then starts the command interpreter.
      *
      * @param args command-line arguments (unused)
@@ -381,7 +381,8 @@ public class Main {
                 System.out.println(HAS_NO_EPISODE);
                 return;
             }
-            System.out.println("Episodes for podcast " + pod.getTitle() + ":");
+            // FIXED: use the input title (as typed by user), not pod.getTitle()
+            System.out.println("Episodes for podcast " + title + ":");
             while (it.hasNext()) {
                 Episode ep = it.next();
                 System.out.println("Episode " + ep.getId() + ": "
@@ -538,15 +539,14 @@ public class Main {
     private static void authorProductivity(VideoNetwork platform) {
         Iterator<Map.Entry<String, Integer>> it = platform.authorsProductivity();
         if (!it.hasNext()) {
-            System.out.println(NO_PRODUCTIVE_AUTHORS);
+            System.out.println("No productive authors.");
             return;
         }
-        System.out.println(AUTHORS_PRODUCTIVITY_HDR);
+        System.out.println("Authors productivity:");
         while (it.hasNext()) {
             Map.Entry<String, Integer> entry = it.next();
-            // getCanonicalAuthor resolves the lowercase key back to the display name
             String canonicalName = platform.getCanonicalAuthor(entry.getKey());
-            System.out.println(canonicalName + " with " + entry.getValue() + CONTRIBUTIONS);
+            System.out.println(canonicalName + " with " + entry.getValue() + " contributions.");
         }
     }
 
@@ -564,7 +564,7 @@ public class Main {
             platform.addTag(title, tag);
             System.out.println(TAGGED_SUCCESS);
         } catch (TitleDoesNotExistsException e) { System.out.println(TITLE_DOES_NOT_EXIST);       }
-        catch  (TaggedException              e) { System.out.println(TITLE_ALREADY_TAGGED + tag); }
+        catch  (TaggedException              e) { System.out.println(TITLE_ALREADY_TAGGED + tag + "."); }
     }
 
     /**
@@ -581,7 +581,7 @@ public class Main {
             platform.removeTag(title, tag);
             System.out.println(TAG_REMOVED);
         } catch (TitleDoesNotExistsException e) { System.out.println(TITLE_DOES_NOT_EXIST);    }
-        catch  (TagNotPresentException       e) { System.out.println(TITLE_NOT_TAGGED + tag);  }
+        catch  (TagNotPresentException       e) { System.out.println(TITLE_NOT_TAGGED + tag + ".");  }
     }
 
     /**

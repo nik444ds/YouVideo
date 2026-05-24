@@ -324,19 +324,26 @@ public class VideoNetworkClass implements VideoNetwork {
     public Iterator<Map.Entry<String, Integer>> authorsProductivity() {
         Map<String, Integer> productivity = new HashMap<>();
 
+        // Count podcasts per author — only if they have at least one
         for (Map.Entry<String, List<Podcast>> entry : podcastsByAuthor.entrySet())
-            productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
+            if (!entry.getValue().isEmpty())
+                productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
 
+        // Count shows per author — only if they have at least one
         for (Map.Entry<String, SortedSet<Show>> entry : showsByAuthor.entrySet())
-            productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
+            if (!entry.getValue().isEmpty())
+                productivity.merge(entry.getKey(), entry.getValue().size(), Integer::sum);
 
+        // No authors with content — return empty iterator
         if (productivity.isEmpty())
             return Collections.emptyIterator();
 
         List<Map.Entry<String, Integer>> sorted = new ArrayList<>(productivity.entrySet());
         sorted.sort((a, b) -> {
+            // Primary: descending by contribution count
             int cmp = Integer.compare(b.getValue(), a.getValue());
             if (cmp != 0) return cmp;
+            // Secondary: alphabetical by canonical author name
             return authorRegistry.getCanonical(a.getKey())
                     .compareToIgnoreCase(authorRegistry.getCanonical(b.getKey()));
         });
