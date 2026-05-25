@@ -365,7 +365,7 @@ public class VideoNetworkClass implements VideoNetwork {
             throw new TitleDoesNotExistsException();
 
         SortedSet<String> tags = tagsByTitle.computeIfAbsent(
-                title.toLowerCase(), k -> new TreeSet<>());
+                title.toLowerCase(), k -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER));
 
         for (String existing : tags) {
             if (existing.equalsIgnoreCase(tag))
