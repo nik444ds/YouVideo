@@ -1,0 +1,224 @@
+HELP
+elp
+unknownCOMMAND
+REMOVEVIDEO pub999
+GETVIDEO pub999
+removevideo PRE999
+getvideo PRE999
+removevideo Pub001
+getvideo Pub001
+removevideo Pre001
+getvideo Pre001
+CREATEpublishable Pub001 360 https://cdn.education.com/java/basics/2024/java-fundamentals.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+CREATEpremium Pre001 540 https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4
+TUGA Masters LLC
+Desenvolvimento WEB Full Stack
+PT
+https://subtitles.webmasters.com/fullstack/EN.vtt
+en
+createPUBLISHABLE pUb002 480 https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4
+Tech School Madrid Solutions
+Python AVANZANDO
+ES
+createPREMIUM pRe002 420 https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4
+Paris Data Science Hub
+Data Science AVEc Python
+FR
+https://subtitles.datasciencehub.com/python/pt.vtt
+PT
+GETvideo Pub001
+GETvideo Pre001
+getVIDEO pUb002
+getVIDEO pRe002
+ADDsubtitle pub001 https://cdn.education.com/java/basics/2024/java-fundamental/en.srt
+en
+ADDsubtitle Pre001 https://subtitles.webmasters.com/fullstack/en.vtt
+en
+addSUBTITLE Pre001 https://subtitles.webmasters.com/fullstack/en.vtt
+EN
+addsubtitle PRE001 https://subtitles.webmasters.com/fullstack/es.vtt
+ES
+ADDSUBTITLE pre001 https://subtitles.webmasters.com/fullstack/es-2.vtt
+ES
+AddSubtitle Pre001 https://subtitles.webmasters.com/fullstack/fr.vtt
+FR
+addsubtitle PRE001 https://subtitles.webmasters.com/fullstack/fr-2.vtt
+FR
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/de.vtt
+DE
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/de-2.vtt
+DE
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/ja.vtt
+JA
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/ja-2.vtt
+JA
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/ko.vtt
+KO
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/ko-2.vtt
+KO
+SUBTITLES Pre001
+addsubtitle pRe002 https://subtitles.datasciencehub.com/python/en.vtt
+EN
+addsubtitle PRE002 https://subtitles.datasciencehub.com/python/en-2.vtt
+EN
+addsubtitle pre002 https://subtitles.datasciencehub.com/python/es.vtt
+es
+addsubtitle PRe002 https://subtitles.datasciencehub.com/python/es-2.vtt
+ES
+addsubtitle PRE002 https://subtitles.datasciencehub.com/python/fr-2.vtt
+FR
+addsubtitle pre002 https://subtitles.datasciencehub.com/python/fr-3.vtt
+FR
+addsubtitle pRe002 https://subtitles.datasciencehub.com/python/de.vtt
+DE
+addsubtitle pRe002 https://subtitles.datasciencehub.com/python/de-2.vtt
+DE
+SUBTITLES pRe002
+ADDSUBTITLE Pub001 https://subtitles.education.com/java/es.vtt
+ES
+addsubtitle pUb002 https://subtitles.techschool.pt/python/fr.vtt
+FR
+addsubtitle Pre999 https://subtitles.webmasters.com/unknown/xx.vtt
+XX
+addsubtitle Pre001 https://subtitles.webmasters.com/fullstack/invalid.vtt
+XX
+subtitles Pre999
+CREATEpremium Pre003 600 https://vod.ailab.com/courses/ai-ml/foundations-2025.mp4
+AI Research Lab
+AI and Machine Learning Foundations
+KO
+https://subtitles.ailab.com/ai-ml/ko.vtt
+KO
+ADDSUBTITLE Pre003 https://subtitles.ailab.com/ai-ml/ko-2.vtt
+KO
+addsubtitle PRE003 https://subtitles.ailab.com/ai-ml/en.vtt
+EN
+addsubtitle pre003 https://subtitles.ailab.com/ai-ml/en-2.vtt
+EN
+addsubtitle Pre003 https://subtitles.ailab.com/ai-ml/ja.vtt
+JA
+addsubtitle PRE003 https://subtitles.ailab.com/ai-ml/ja-2.vtt
+JA
+addsubtitle pre003 https://subtitles.ailab.com/ai-ml/zh.vtt
+zh
+addsubtitle Pre003 https://subtitles.ailab.com/ai-ml/zh-2.vtt
+ZH
+addsubtitle Pre003 https://subtitles.ailab.com/ai-ml/es.vtt
+Es
+addsubtitle Pre003 https://subtitles.ailab.com/ai-ml/es-2.vtt
+ES
+addsubtitle Pre003 https://subtitles.ailab.com/ai-ml/fr.vtt
+FR
+addsubtitle Pre003 https://subtitles.ailab.com/ai-ml/fr-2.vtt
+FR
+SUBTITLES Pre003
+CREATEpublishable Pub008 -10 https://cdn.education.com/invalid/negative-duration.mp4
+Invalid Corp.
+Negative Duration Video
+EN
+CREATEpublishable Pub009 0 https://cdn.education.com/invalid/zero-duration.mp4
+Invalid Corp.
+Zero Duration Video
+EN
+CREATEpublishable Pub010 600 https://cdn.education.com/invalid/invalid-language.mp4
+Invalid Corp.
+Invalid Language Video
+XX
+CREATEpremium Pre008 -20 https://vod.security.com/invalid/negative-duration.mp4
+Invalid Corp.
+Negative Duration Premium
+EN
+https://subtitles.security.com/invalid/en.vtt
+EN
+CREATEpremium Pre009 0 https://vod.security.com/invalid/zero-duration.mp4
+Invalid Corp.
+Zero Duration Premium
+EN
+https://subtitles.security.com/invalid/en.vtt
+EN
+CREATEpremium Pre010 600 https://vod.security.com/invalid/invalid-primary-language.mp4
+Invalid Corp.
+Invalid Primary Language
+XX
+https://subtitles.security.com/invalid/en.vtt
+EN
+CREATEpremium Pre011 600 https://vod.security.com/invalid/invalid-subtitle-language.mp4
+Invalid Corp.
+Invalid Subtitle Language
+EN
+https://subtitles.security.com/invalid/xx.vtt
+XX
+CREATEpremium Pre012 300 https://vod.emptychannel.com/courses/empty/no-subtitles.mp4
+Empty Corp.
+No Subtitles Video
+JA
+https://subtitles.emptychannel.com/empty/ja.vtt
+JA
+CREATEpremium Pre013 480 https://vod.hindiacademy.com/courses/hindi/learn-hindi.mp4
+Hindi Academy
+Learn Hindi Language
+HI
+https://subtitles.hindiacademy.com/hindi/hi.vtt
+HI
+CREATEpremium Pre014 360 https://vod.koreanplus.com/courses/korean/beginners.mp4
+Korean Plus
+Korean for Beginners
+KO
+https://subtitles.koreanplus.com/korean/ko.vtt
+KO
+REMOVEVIDEO Pre001
+GETVIDEO pre001
+getvideo pre002
+REMOVEvideo Pub001
+getVIDEO pub001
+removevideo PUb002
+getvideo pub002
+GETVIDEO Pre003
+SUBTITLES pre003
+CREATEpremium Pre004 720 https://vod.securityacademy.com/courses/cybersecurity/fundamentals.mp4
+Security Academy
+Cybersecurity Fundamentals
+EN
+https://subtitles.securityacademy.com/cybersecurity/en.vtt
+EN
+addsubtitle PRE004 https://subtitles.securityacademy.com/cybersecurity/en-2.vtt
+EN
+addsubtitle pre004 https://subtitles.securityacademy.com/cybersecurity/es.vtt
+Es
+addsubtitle Pre004 https://subtitles.securityacademy.com/cybersecurity/es-2.vtt
+ES
+addsubtitle PRE004 https://subtitles.securityacademy.com/cybersecurity/fr.vtt
+FR
+addsubtitle pre004 https://subtitles.securityacademy.com/cybersecurity/fr-2.vtt
+FR
+addsubtitle Pre004 https://subtitles.securityacademy.com/cybersecurity/de.vtt
+de
+addsubtitle Pre004 https://subtitles.securityacademy.com/cybersecurity/de-2.vtt
+DE
+SUBTITLES PRE004
+GETVIDEO pre004
+subtitles Pre012
+subtitles Pre013
+subtitles Pre014
+REMOVEvideo Pre003
+getvideo PRE003
+removeVIDEO pre004
+getvideo Pre004
+CREATEpublishable Pre004 200 https://vod.securityacademy.com/courses/cybersecurity/fundamentals.mp4
+Security Academy
+Cybersecurity Fundamentals
+EN
+SUBTITLES PRE004
+subtitles PRE002
+addsubtitle Pre004 https://subtitles.securityacademy.com/cybersecurity/de-2.vtt
+DE
+SUBTITLES PRE004
+removeVIDEO Pre013
+removeVIDEO Pre014
+subtitles Pre999
+HELP
+UNKNOWNcommand
+EXIT

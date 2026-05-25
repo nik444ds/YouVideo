@@ -1,0 +1,150 @@
+tagged SciFi ALL ASC
+tagged SciFi ALL DES
+tagged KoreanCinema SHOW ASC
+tagged KoreanCinema PODCAST DES
+tagged KoreanCinema POD DES
+tagged KoreanCinema SHOWS ASC
+tagged SciFi SSS XXX
+createpublishable par001 132 https://films.com/parasite.mp4
+CJ Entertainment
+PARASITE
+ko
+createpublishable mem001 128 https://films.com/memories.mp4
+CJ Entertainment
+Memories OF Murder
+ko
+createpublishable mick001 139 https://films.com/mickey17.mp4
+Warner BROS
+MicKEy 17
+en
+createpublishable snow001 126 https://films.com/snowpiercer.mp4
+CJ Entertainment
+SnoWPiercer
+FR
+createpremium inc001 148 https://films.com/inception.mp4
+WARner Bros
+Inception
+EN
+https://subs.com/inception_pt.srt
+pt
+createpremium inter001 169 https://films.com/interstellar.mp4
+Warner Bros
+interstellar
+en
+https://subs.com/interstellar_fr.srt
+fr
+createpublishable mul001 113 https://films.com/mulholland.mp4
+Universal Pictures
+Mulholland DRIVE
+fr
+createpublishable elep001 124 https://films.com/elephant.mp4
+Universal Pictures
+ELEPHANT
+en
+createshow Bong Joon-Ho
+par001 2025-04-22
+createshow bong joon-ho
+mem001 2025-06-12
+createshow BONG JOON-HO
+mick001 2025-06-12
+createshow Bong Joon-Ho
+snow001 2025-03-10
+createshow Christopher Nolan
+inc001 2025-05-15
+createshow christopher nolan
+inter001 2025-05-15
+createshow David Lynch
+mul001 2025-06-12
+createshow DAVID LYNCH
+elep001 2025-06-12
+CrEaTePoDcAsT PARASITE
+Bong Joon-Ho
+KO
+CrEaTePoDcAsT Inception
+Christopher Nolan
+EN
+CrEaTePoDcAsT MicKEy 17
+Bong Joon-Ho
+EN
+CrEaTePoDcAsT SurReaLiSm
+David Lynch
+FR
+CrEaTePoDcAsT ZebraDoc
+David Lynch
+EN
+addtag NonExistentTitle
+thriller
+addtag PARASITE
+KoreanCinema
+getshow parasite
+getpodcast Parasite
+addtag parasite
+KoreanCinema
+addtag PARASITE
+thriller
+getshow parasite
+getpodcast parasite
+addtag MicKEy 17
+SciFi
+addtag mickey 17
+SCIFI
+addtag mickey 17
+action
+addtag Inception
+SciFi
+addtag inception
+thriller
+GETSHOW iNception
+getPODCAST INCEPTION
+addtag interstellar
+SciFi
+getShow interstellaR
+getPODCAST interstelLaR
+addtag SnoWPiercer
+SciFi
+addtag snowpiercer
+thriller
+getpodcast ZebraDoc
+addtag Memories OF Murder
+thriller
+addtag memories of murder
+KoreanCinema
+addtag ELEPHANT
+surrealism
+addtag Mulholland DRIVE
+surrealism
+getshow Mulholland DRIVE
+addtag SurReaLiSm
+surrealism
+getpodcast SURREALISM
+addtag ZebraDoc
+podcastonly
+tagged SciFi SHOW ASC
+tagged scifi SHOW DES
+tagged SCIFI PODCAST ASC
+tagged SCIFI PODCAST DES
+tagged podcastonly SHOW ASC
+tagged podcastonly PODCAST ASC
+tagged podcastonly PODCAST DES
+tagged SciFi ALL ASC
+tagged SciFi ALL DES
+tagged thriller ALL ASC
+tagged KoreanCinema ALL DES
+tagged surrealism ALL ASC
+tagged action ALL ASC
+tagged nonexistenttag ALL ASC
+removetag PARASITE
+KoreanCinema
+removetag parasite
+KoreanCinema
+removetag PARASITE
+nonexistenttag
+removetag NoSuchTitle
+thriller
+tagged KoreanCinema ALL ASC
+removetag MicKEy 17
+SciFi
+tagged SciFi ALL ASC
+tagged SciFi ALL DES
+help
+exit

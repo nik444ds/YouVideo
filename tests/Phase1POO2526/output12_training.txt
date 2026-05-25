@@ -1,0 +1,207 @@
+Title does not exist.
+Title does not exist.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+authorshows - List all shows of an author
+removeshow - removes a show
+removevideo - removes a publishable video
+authorsproductivity - List authors by their productivity
+addtag - adds a tag to a show or podcast
+removetag - removes a tag from a show or podcast
+tagged - List content tagged with a given tag
+help - shows the available commands
+exit - terminates the execution of the program
+Podcast created successfully.
+Episode added successfully.
+Episode added successfully.
+Episode added successfully.
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Latest episode date: 2025-03-10
+Podcast does not exist.
+Episodes for podcast PARASITE:
+Episode eppa003: 29 min Date: 2025-03-10
+URL: http://example.com/eppa003.mp3
+Episode eppa002: 21 min Date: 2025-03-10
+URL: http://example.com/eppa002.mp3
+Episode eppa001: 30 min Date: 2025-03-10
+URL: http://example.com/eppa001.mp3
+Podcast created successfully.
+Episode added successfully.
+Episode date must be >= than latest episode date.
+Episode added successfully.
+Podcast: Inception Author: Christopher Nolan Language: EN
+Latest episode date: 2026-08-09
+Episodes for podcast inception:
+Episode epinc002: 100 min Date: 2026-08-09
+URL: http://example.com/epinc002.mp3
+Episode epinc001: 10 min Date: 2026-05-10
+URL: http://example.com/epinc001.mp3
+Episodes for podcast PARASITE:
+Episode eppa003: 29 min Date: 2025-03-10
+URL: http://example.com/eppa003.mp3
+Episode eppa002: 21 min Date: 2025-03-10
+URL: http://example.com/eppa002.mp3
+Episode eppa001: 30 min Date: 2025-03-10
+URL: http://example.com/eppa001.mp3
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Video par001 created successfully.
+Video mem001 created successfully.
+Video mick001 created successfully.
+Video snow001 created successfully.
+PREMIUM Video inc001 created successfully.
+PREMIUM Video inter001 created successfully.
+Video mul001 created successfully.
+Video elep001 created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Title does not exist.
+Tag added successfully.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+KoreanCinema
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Latest episode date: 2025-03-10
+Tags:
+KoreanCinema
+Title is already tagged with KoreanCinema.
+Tag added successfully.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+KoreanCinema
+thriller
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Latest episode date: 2025-03-10
+Tags:
+KoreanCinema
+thriller
+Tag added successfully.
+Title is already tagged with SCIFI.
+Tag added successfully.
+Podcast: MicKEy 17 Author: Bong Joon-Ho Language: EN
+Tags:
+SciFi
+STRANGE
+Show Date: 2025-06-12 Author: Bong Joon-Ho
+Video: MicKEy 17
+Tags:
+SciFi
+STRANGE
+Tag added successfully.
+Tag added successfully.
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: Inception
+Tags:
+SciFi
+thriller
+Podcast: Inception Author: Christopher Nolan Language: EN
+Latest episode date: 2026-08-09
+Tags:
+SciFi
+thriller
+Tag added successfully.
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: interstellar
+Tags:
+SciFi
+Podcast does not exist.
+Tag added successfully.
+Tag added successfully.
+Podcast: ZebraDoc Author: David Lynch Language: EN
+Tag added successfully.
+Tag added successfully.
+Tag added successfully.
+Tag added successfully.
+Show Date: 2025-06-12 Author: David Lynch
+Video: Mulholland DRIVE
+Tags:
+surrealism
+Tag added successfully.
+Podcast: SurReaLiSm Author: David Lynch Language: FR
+Tags:
+surrealism
+Tag added successfully.
+Tag removed successfully.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+thriller
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Latest episode date: 2025-03-10
+Tags:
+thriller
+Title is not tagged with KoreanCinema.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+thriller
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Latest episode date: 2025-03-10
+Tags:
+thriller
+Title is not tagged with nonexistenttag.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+thriller
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Latest episode date: 2025-03-10
+Tags:
+thriller
+Title does not exist.
+Tag removed successfully.
+Show Date: 2025-06-12 Author: Bong Joon-Ho
+Video: MicKEy 17
+Tags:
+STRANGE
+Podcast: MicKEy 17 Author: Bong Joon-Ho Language: EN
+Tags:
+STRANGE
+Show removed successfully.
+Show does not exist.
+Podcast: MicKEy 17 Author: Bong Joon-Ho Language: EN
+Tags:
+STRANGE
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+authorshows - List all shows of an author
+removeshow - removes a show
+removevideo - removes a publishable video
+authorsproductivity - List authors by their productivity
+addtag - adds a tag to a show or podcast
+removetag - removes a tag from a show or podcast
+tagged - List content tagged with a given tag
+help - shows the available commands
+exit - terminates the execution of the program
+Bye!

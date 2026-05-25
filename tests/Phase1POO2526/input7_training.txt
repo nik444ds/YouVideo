@@ -1,0 +1,97 @@
+HeLp
+UnKnOwNcOmMaNd
+rEmOvEvIdEo nonexistent001
+ReMoVeViDeO nonexistent002
+CrEaTePuBlIsHaBlE PuB001 360 https://cdn.education.com/java/basics/2024/java-fundamentals.mp4
+Code Academy Inc.
+Java Programming Fundamentals
+EN
+cReAtEpUbLiShAbLe pUb002 480 https://stream.techschool.pt/python/advanced/curso-python-avancado.mp4
+Tech School Solutions
+Python Advanced Concepts
+ES
+CrEaTePrEmIUm PrE001 540 https://vod.webmasters.com/courses/fullstack/web-dev-full-2025.mp4
+Web Masters LLC
+Full Stack Web Development
+PT
+https://subtitles.webmasters.com/fullstack/pt.vtt
+PT
+cReAtEpReMiUm pRe002 420 https://vod.datasciencehub.com/courses/data-science-with-python/main.mp4
+Data Science Hub
+Data Science with Python
+FR
+https://subtitles.datasciencehub.com/python/fr.vtt
+FR
+gEtViDeO PuB001
+GeTvIdEo pUb002
+gEtViDeO PrE001
+GeTvIdEo pRe002
+ReMoVeViDeO PuB001
+gEtViDeO pub001
+ReMoVeViDeO pUb002
+gEtViDeO pub002
+ReMoVeViDeO PrE001
+gEtViDeO pre001
+ReMoVeViDeO pRe002
+gEtViDeO pre002
+CrEaTePoDcAsT TECH TALK PODCAST
+John Smith
+EN
+cReAtEpOdCaSt code stories podcast
+Jane Doe
+EN
+aDdEpIsOdE TECH TALK PODCAST
+Ep001 45 http://example.com/tech-ep1.mp3
+2025-03-15
+AdDePiSoDe tech talk podcast
+Ep002 52 http://example.com/tech-ep2.mp3
+2025-03-22
+aDdEpIsOdE CODE STORIES PODCAST
+Ep101 55 http://example.com/code-ep1.mp3
+2025-03-20
+AdDePiSoDe code stories podcast
+Ep102 62 http://example.com/code-ep2.mp3
+2025-03-27
+ePiSoDeS TECH TALK PODCAST
+EpIsOdEs code stories podcast
+ReMoVeViDeO Ep001
+ReMoVeViDeO Ep002
+ReMoVeViDeO Ep101
+ReMoVeViDeO Ep102
+gEtViDeO Ep001
+gEtViDeO Ep002
+gEtViDeO Ep101
+gEtViDeO Ep102
+CrEaTePuBlIsHaBlE PuB003 600 https://example.com/react-complete.mp4
+React Masters LLC
+REACT COMPLETE GUIDE
+EN
+cReAtEpReMiUm PrE003 900 https://example.com/devops-full.mp4
+DevOps Academy
+DEVOPS ENGINEERING
+EN
+https://example.com/subtitles-en.vtt
+EN
+cReAtEsHoW JOHN DOE
+PuB003 2025-04-15
+cReAtEsHoW jane smith
+PrE003 2025-04-16
+GETSHOW John Doe
+gEtShOw REACT COMPLETE GUIDE
+GeTsHoW devops engineering
+ReMoVeViDeO pub003
+ReMoVeViDeO pre003
+gEtViDeO pub003
+gEtViDeO pre003
+getshow REACT COMPLETE GUIDE
+GETSHOW John Doe
+getshow devoPs engineering
+ReMoVeShOw REACT COMPLETE GUIDE
+ReMoVeShOw devops engineering
+ReMoVeViDeO PuB003
+ReMoVeViDeO PrE003
+gEtViDeO pub003
+gEtViDeO pre003
+HeLp
+UnKnOwNcOmMaNd
+eXiT

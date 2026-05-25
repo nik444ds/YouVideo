@@ -1,0 +1,185 @@
+No productive authors.
+Video par001 created successfully.
+Video mem001 created successfully.
+Video mick001 created successfully.
+Video snow001 created successfully.
+PREMIUM Video inc001 created successfully.
+PREMIUM Video inter001 created successfully.
+PREMIUM Video grav001 created successfully.
+Video mul001 created successfully.
+Video elep001 created successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Invalid language type in subtitle.
+Subtitle added successfully.
+Video par001 132 Title: PARASITE
+File: https://films.com/parasite.mp4 Publisher: CJ Entertainment Language: KOREAN
+PREMIUM Video inc001 148 Title: Inception
+File: https://films.com/inception.mp4 Publisher: WARner Bros Language: ENGLISH
+PREMIUM Video inter001 169 Title: interstellar
+File: https://films.com/interstellar.mp4 Publisher: Warner Bros Language: ENGLISH
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Podcast created successfully.
+Episode added successfully.
+Episode date must be >= than latest episode date.
+Episode added successfully.
+Podcast created successfully.
+Episode added successfully.
+Episodes for podcast the real Parasites:
+Episode BJH03: 20 min Date: 2025-03-20
+URL: http://example.com/real1.mp3
+Episodes for podcast The cRAFT OF THE DIRECTOR:
+Episode BJH02: 32 min Date: 2025-03-20
+URL: http://example.com/craft2.mp3
+Episode BJH01: 30 min Date: 2025-03-10
+URL: http://example.com/craft1.mp3
+Shows by author BONG JOON-HO:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: Memories OF Murder Duration: 128 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Podcasts by author BONG JOON-HO:
+Podcast: The CRAFT OF THE DIRECTOR Author: Bong Joon-Ho Language: EN
+Podcast: The real Parasites Author: Bong Joon-Ho Language: KO
+Authors productivity:
+Bong Joon-Ho with 6 contributions.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Shows by author CHRISTOPHER NOLAN:
+Date: 2025-01-20 Show: GravitY Duration: 91 Language: EN
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+No podcasts found for this author.
+Authors productivity:
+Bong Joon-Ho with 6 contributions.
+Christopher Nolan with 3 contributions.
+Show created successfully.
+Show created successfully.
+Podcast created successfully.
+Episode added successfully.
+Episode date must be >= than latest episode date.
+Episode added successfully.
+Episodes for podcast The CRAFT of DAVID LYNCH:
+Episode DL02: 22 min Date: 2025-02-19
+URL: http://example.com/LYNCH2.mp3
+Episode DL01: 20 min Date: 2025-01-20
+URL: http://example.com/LYNCH1.mp3
+Shows by author david lynch:
+Date: 2025-06-12 Show: ELEPHANT Duration: 124 Language: EN
+Date: 2025-06-12 Show: Mulholland DRIVE Duration: 113 Language: FR
+Podcasts by author David LYNCH:
+Podcast: The CRAFT of DAVID LYNCH Author: David Lynch Language: EN
+Authors productivity:
+Bong Joon-Ho with 6 contributions.
+Christopher Nolan with 3 contributions.
+David Lynch with 3 contributions.
+Podcast removed successfully.
+Authors productivity:
+Bong Joon-Ho with 6 contributions.
+Christopher Nolan with 3 contributions.
+David Lynch with 2 contributions.
+Shows by author Bong Joon-Ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: Memories OF Murder Duration: 128 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Shows by author bong joon-ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: Memories OF Murder Duration: 128 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Shows by author Christopher Nolan:
+Date: 2025-01-20 Show: GravitY Duration: 91 Language: EN
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+Shows by author David Lynch:
+Date: 2025-06-12 Show: ELEPHANT Duration: 124 Language: EN
+Date: 2025-06-12 Show: Mulholland DRIVE Duration: 113 Language: FR
+No shows found for this author.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: Inception
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: interstellar
+Show Date: 2025-06-12 Author: David Lynch
+Video: Mulholland DRIVE
+Show removed successfully.
+Shows by author Bong Joon-Ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Show does not exist.
+Video removed successfully.
+Cannot remove: video is used in a show.
+Cannot remove: video is used in a show.
+Cannot remove: video is used in a show.
+Shows by author Christopher Nolan:
+Date: 2025-01-20 Show: GravitY Duration: 91 Language: EN
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+Show removed successfully.
+Subtitles for video GravitY:
+- https://subs.com/gravity_pt.srt (PORTUGUESE)
+- https://subs.com/gravity_ES.srt (SPANISH)
+Video removed successfully.
+No Premium Video with ID.
+Shows by author Christopher Nolan:
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+Show removed successfully.
+Show removed successfully.
+Video elep001 124 Title: ELEPHANT
+File: https://films.com/elephant.mp4 Publisher: Universal Pictures Language: ENGLISH
+Video removed successfully.
+No shows found for this author.
+Publishable Video elep001 does not exist.
+Show removed successfully.
+Show does not exist.
+Show removed successfully.
+Shows by author Bong Joon-Ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Show removed successfully.
+No shows found for this author.
+Show removed successfully.
+Show removed successfully.
+No shows found for this author.
+Show does not exist.
+No shows found for this author.
+Show does not exist.
+Show does not exist.
+No shows found for this author.
+Podcast removed successfully.
+Podcast removed successfully.
+No podcasts found for this author.
+Podcast does not exist.
+No podcasts found for this author.
+No productive authors.
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+authorshows - List all shows of an author
+removeshow - removes a show
+removevideo - removes a publishable video
+authorsproductivity - List authors by their productivity
+addtag - adds a tag to a show or podcast
+removetag - removes a tag from a show or podcast
+tagged - List content tagged with a given tag
+help - shows the available commands
+exit - terminates the execution of the program
+Bye!

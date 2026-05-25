@@ -1,0 +1,102 @@
+createpublishable par001 132 https://films.com/parasite.mp4
+CJ Entertainment
+PARASITE
+ko
+createpublishable mem001 128 https://films.com/memories.mp4
+CJ Entertainment
+Memories OF Murder
+ko
+createpublishable mick001 139 https://films.com/mickey17.mp4
+Warner BROS
+MicKEy 17
+en
+createpublishable snow001 126 https://films.com/snowpiercer.mp4
+CJ Entertainment
+SnoWPiercer
+FR
+createpremium inc001 148 https://films.com/inception.mp4
+WARner Bros
+Inception
+EN
+https://subs.com/inception_pt.srt
+pt
+createpremium inter001 169 https://films.com/interstellar.mp4
+Warner Bros
+interstellar
+en
+https://subs.com/interstellar_fr.srt
+fr
+createpremium grav001 91 https://films.com/gravity.mp4
+Warner Bros
+GravitY
+en
+https://subs.com/gravity_pt.srt
+pt
+createpublishable mul001 113 https://films.com/mulholland.mp4
+Universal Pictures
+Mulholland DRIVE
+fr
+createpublishable elep001 124 https://films.com/elephant.mp4
+Universal Pictures
+ELEPHANT
+en
+addsubtitle inc001 https://subs.com/inception_fr.srt
+fr
+addsubtitle inter001 https://subs.com/interstellar_pt.srt
+pt
+addsubtitle inter001 https://subs.com/interstellar_ko.srt
+ko
+addsubtitle GRAV001 https://subs.com/gravity_XX.srt
+XX
+addsubtitle GRAV001 https://subs.com/gravity_ES.srt
+ES
+getvideo par001
+getvideo inc001
+getvideo inter001
+createshow Bong Joon-Ho
+par001 2025-04-22
+createshow bong joon-ho
+mem001 2025-06-12
+createshow BONG JOON-HO
+mick001 2025-06-12
+createshow Bong Joon-Ho
+snow001 2025-03-10
+createshow Christopher Nolan
+inc001 2025-05-15
+createshow christopher nolan
+inter001 2025-05-15
+createshow Christopher Nolan
+grav001 2025-01-20
+createshow David Lynch
+mul001 2025-06-12
+createshow DAVID LYNCH
+elep001 2025-06-12
+authorshows Bong Joon-Ho
+authorshows bong joon-ho
+authorshows Christopher Nolan
+authorshows David Lynch
+authorshows Unknown Director
+getshow Parasite
+getshow Inception
+getshow Interstellar
+getshow Mulholland Drive
+removeshow Memories of Murder
+authorshows Bong Joon-Ho
+getshow Memories of Murder
+removevideo mem001
+removevideo par001
+removevideo inc001
+removevideo elep001
+authorshows Christopher Nolan
+removeshow Gravity
+subtitles Grav001
+removevideo grav001
+SUBTITLES GraV001
+authorshows Christopher Nolan
+removeshow Mulholland Drive
+removeSHOW ELEPHANT
+getvideo elep001
+removevideo elep001
+authorshows DAVID LYNCH
+getvideo elep001
+exit

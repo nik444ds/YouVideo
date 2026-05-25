@@ -19,7 +19,18 @@ public interface Podcast extends TaggedContent, Languaged, Iterable<Episode> {
      */
     Iterator<Episode> getEpisodesIterator();
 
+
+    /**
+     * Displays all episodes of the podcast to standard output.
+     * Shows each episode's information (title, duration, etc.) on a new line.
+     */
+
     void displayEpisodes();
+
+    /**
+     * Displays podcast metadata to standard output.
+     * Includes title, author, language, tags, and total episode count.
+     */
 
     void display();
 }

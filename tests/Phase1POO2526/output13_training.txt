@@ -1,0 +1,178 @@
+No content tagged with SciFi.
+No content tagged with SciFi.
+No content tagged with KoreanCinema.
+No content tagged with KoreanCinema.
+Invalid tagged parameters.
+Invalid tagged parameters.
+Invalid tagged parameters.
+Video par001 created successfully.
+Video mem001 created successfully.
+Video mick001 created successfully.
+Video snow001 created successfully.
+PREMIUM Video inc001 created successfully.
+PREMIUM Video inter001 created successfully.
+Video mul001 created successfully.
+Video elep001 created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Podcast created successfully.
+Title does not exist.
+Tag added successfully.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+KoreanCinema
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Tags:
+KoreanCinema
+Title is already tagged with KoreanCinema.
+Tag added successfully.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Tags:
+KoreanCinema
+thriller
+Podcast: PARASITE Author: Bong Joon-Ho Language: KO
+Tags:
+KoreanCinema
+thriller
+Tag added successfully.
+Title is already tagged with SCIFI.
+Tag added successfully.
+Tag added successfully.
+Tag added successfully.
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: Inception
+Tags:
+SciFi
+thriller
+Podcast: Inception Author: Christopher Nolan Language: EN
+Tags:
+SciFi
+thriller
+Tag added successfully.
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: interstellar
+Tags:
+SciFi
+Podcast does not exist.
+Tag added successfully.
+Tag added successfully.
+Podcast: ZebraDoc Author: David Lynch Language: EN
+Tag added successfully.
+Tag added successfully.
+Tag added successfully.
+Tag added successfully.
+Show Date: 2025-06-12 Author: David Lynch
+Video: Mulholland DRIVE
+Tags:
+surrealism
+Tag added successfully.
+Podcast: SurReaLiSm Author: David Lynch Language: FR
+Tags:
+surrealism
+Tag added successfully.
+Content tagged with SciFi in Ascending order:
+Show Title: Inception Author: Christopher Nolan
+Show Title: interstellar Author: Christopher Nolan
+Show Title: MicKEy 17 Author: Bong Joon-Ho
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Content tagged with scifi in Descending order:
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Show Title: MicKEy 17 Author: Bong Joon-Ho
+Show Title: interstellar Author: Christopher Nolan
+Show Title: Inception Author: Christopher Nolan
+Content tagged with SCIFI in Ascending order:
+Podcast Title: Inception Author: Christopher Nolan
+Podcast Title: MicKEy 17 Author: Bong Joon-Ho
+Content tagged with SCIFI in Descending order:
+Podcast Title: MicKEy 17 Author: Bong Joon-Ho
+Podcast Title: Inception Author: Christopher Nolan
+No content tagged with podcastonly.
+Content tagged with podcastonly in Ascending order:
+Podcast Title: ZebraDoc Author: David Lynch
+Content tagged with podcastonly in Descending order:
+Podcast Title: ZebraDoc Author: David Lynch
+Content tagged with SciFi in Ascending order:
+Show Title: Inception Author: Christopher Nolan
+Podcast Title: Inception Author: Christopher Nolan
+Show Title: interstellar Author: Christopher Nolan
+Show Title: MicKEy 17 Author: Bong Joon-Ho
+Podcast Title: MicKEy 17 Author: Bong Joon-Ho
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Content tagged with SciFi in Descending order:
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Show Title: MicKEy 17 Author: Bong Joon-Ho
+Podcast Title: MicKEy 17 Author: Bong Joon-Ho
+Show Title: interstellar Author: Christopher Nolan
+Show Title: Inception Author: Christopher Nolan
+Podcast Title: Inception Author: Christopher Nolan
+Content tagged with thriller in Ascending order:
+Show Title: Inception Author: Christopher Nolan
+Podcast Title: Inception Author: Christopher Nolan
+Show Title: Memories OF Murder Author: Bong Joon-Ho
+Show Title: PARASITE Author: Bong Joon-Ho
+Podcast Title: PARASITE Author: Bong Joon-Ho
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Content tagged with KoreanCinema in Descending order:
+Show Title: PARASITE Author: Bong Joon-Ho
+Podcast Title: PARASITE Author: Bong Joon-Ho
+Show Title: Memories OF Murder Author: Bong Joon-Ho
+Content tagged with surrealism in Ascending order:
+Show Title: ELEPHANT Author: David Lynch
+Show Title: Mulholland DRIVE Author: David Lynch
+Podcast Title: SurReaLiSm Author: David Lynch
+Content tagged with action in Ascending order:
+Show Title: MicKEy 17 Author: Bong Joon-Ho
+Podcast Title: MicKEy 17 Author: Bong Joon-Ho
+No content tagged with nonexistenttag.
+Tag removed successfully.
+Title is not tagged with KoreanCinema.
+Title is not tagged with nonexistenttag.
+Title does not exist.
+Content tagged with KoreanCinema in Ascending order:
+Show Title: Memories OF Murder Author: Bong Joon-Ho
+Tag removed successfully.
+Content tagged with SciFi in Ascending order:
+Show Title: Inception Author: Christopher Nolan
+Podcast Title: Inception Author: Christopher Nolan
+Show Title: interstellar Author: Christopher Nolan
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Content tagged with SciFi in Descending order:
+Show Title: SnoWPiercer Author: Bong Joon-Ho
+Show Title: interstellar Author: Christopher Nolan
+Show Title: Inception Author: Christopher Nolan
+Podcast Title: Inception Author: Christopher Nolan
+createpublishable - creates a new publishable video
+createpremium - creates a new publishable Premium video
+addsubtitle - adds subtitle to Premium video
+getvideo - presents publishable video data from its id
+subtitles - Lists Premium video subtitles
+createpodcast - creates a new podcast with no episodes
+addepisode - adds an episode to a podcast
+getpodcast - presents podcast data from its title
+episodes - List podcast episodes
+authorpodcasts - List all podcasts of an author
+removepodcast - removes a podcast
+createshow - creates show using an existing publishable video
+getshow - presents show data from its title
+authorshows - List all shows of an author
+removeshow - removes a show
+removevideo - removes a publishable video
+authorsproductivity - List authors by their productivity
+addtag - adds a tag to a show or podcast
+removetag - removes a tag from a show or podcast
+tagged - List content tagged with a given tag
+help - shows the available commands
+exit - terminates the execution of the program
+Bye!

@@ -1,0 +1,86 @@
+Video par001 created successfully.
+Video mem001 created successfully.
+Video mick001 created successfully.
+Video snow001 created successfully.
+PREMIUM Video inc001 created successfully.
+PREMIUM Video inter001 created successfully.
+PREMIUM Video grav001 created successfully.
+Video mul001 created successfully.
+Video elep001 created successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Subtitle added successfully.
+Invalid language type in subtitle.
+Subtitle added successfully.
+Video par001 132 Title: PARASITE
+File: https://films.com/parasite.mp4 Publisher: CJ Entertainment Language: KOREAN
+PREMIUM Video inc001 148 Title: Inception
+File: https://films.com/inception.mp4 Publisher: WARner Bros Language: ENGLISH
+PREMIUM Video inter001 169 Title: interstellar
+File: https://films.com/interstellar.mp4 Publisher: Warner Bros Language: ENGLISH
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Show created successfully.
+Shows by author Bong Joon-Ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: Memories OF Murder Duration: 128 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Shows by author bong joon-ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: Memories OF Murder Duration: 128 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Shows by author Christopher Nolan:
+Date: 2025-01-20 Show: GravitY Duration: 91 Language: EN
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+Shows by author David Lynch:
+Date: 2025-06-12 Show: ELEPHANT Duration: 124 Language: EN
+Date: 2025-06-12 Show: Mulholland DRIVE Duration: 113 Language: FR
+No shows found for this author.
+Show Date: 2025-04-22 Author: Bong Joon-Ho
+Video: PARASITE
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: Inception
+Show Date: 2025-05-15 Author: Christopher Nolan
+Video: interstellar
+Show Date: 2025-06-12 Author: David Lynch
+Video: Mulholland DRIVE
+Show removed successfully.
+Shows by author Bong Joon-Ho:
+Date: 2025-03-10 Show: SnoWPiercer Duration: 126 Language: FR
+Date: 2025-04-22 Show: PARASITE Duration: 132 Language: KO
+Date: 2025-06-12 Show: MicKEy 17 Duration: 139 Language: EN
+Show does not exist.
+Video removed successfully.
+Cannot remove: video is used in a show.
+Cannot remove: video is used in a show.
+Cannot remove: video is used in a show.
+Shows by author Christopher Nolan:
+Date: 2025-01-20 Show: GravitY Duration: 91 Language: EN
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+Show removed successfully.
+Subtitles for video GravitY:
+- https://subs.com/gravity_pt.srt (PORTUGUESE)
+- https://subs.com/gravity_ES.srt (SPANISH)
+Video removed successfully.
+No Premium Video with ID.
+Shows by author Christopher Nolan:
+Date: 2025-05-15 Show: Inception Duration: 148 Language: EN
+Date: 2025-05-15 Show: interstellar Duration: 169 Language: EN
+Show removed successfully.
+Show removed successfully.
+Video elep001 124 Title: ELEPHANT
+File: https://films.com/elephant.mp4 Publisher: Universal Pictures Language: ENGLISH
+Video removed successfully.
+No shows found for this author.
+Publishable Video elep001 does not exist.
+Bye!
