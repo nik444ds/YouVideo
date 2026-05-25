@@ -420,7 +420,7 @@ public class Main {
      * Handles the removepodcast command.
      *
      * @param sc       input scanner
-     * @param platform video network
+     * @param platform video network.
      */
     private static void removePodcast(Scanner sc, VideoNetwork platform) {
         String title = sc.nextLine().trim();
