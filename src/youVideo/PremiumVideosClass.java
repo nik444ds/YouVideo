@@ -13,7 +13,6 @@ public class PremiumVideosClass extends PublishableVideosClass implements Premiu
 
     public PremiumVideosClass(String id, int duration, String url, String publisher, String title, String language, String subLanguage, String subUrl) {
         super(id, duration, url, publisher, title, language);
-        Subtitles subtitle = new SubtitlesClass(subLanguage, subUrl);
         subtitles.add(new SubtitlesClass(subLanguage,subUrl));
     }
 

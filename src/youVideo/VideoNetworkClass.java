@@ -108,7 +108,6 @@ public class VideoNetworkClass implements VideoNetwork {
         if (video == null)
             throw new VideoDoesNotExistException();
 
-        // FIX: use PremiumVideos interface, not PremiumVideosClass
         if (!(video instanceof PremiumVideos premium))
             throw new NotAPremiumVideoException();
 
@@ -119,7 +118,6 @@ public class VideoNetworkClass implements VideoNetwork {
     public PublishableVideos getVideo(String id) throws InvalidPublishableVideoException {
         VideoStructure video = videos.get(id.toLowerCase());
         // Episodes are not publishable videos — both null and episode cases throw
-        // FIX: use Episode interface, not EpisodeClass
         if (video == null || video instanceof Episode)
             throw new InvalidPublishableVideoException();
         return (PublishableVideos) video;
@@ -128,7 +126,6 @@ public class VideoNetworkClass implements VideoNetwork {
     @Override
     public PremiumVideos getPremiumVideo(String id) throws NotAPremiumVideoException {
         VideoStructure video = videos.get(id.toLowerCase());
-        // FIX: use PremiumVideos interface, not PremiumVideosClass
         if (!(video instanceof PremiumVideos premiumVideo))
             throw new NotAPremiumVideoException();
         return premiumVideo;
@@ -141,7 +138,7 @@ public class VideoNetworkClass implements VideoNetwork {
         VideoStructure video = videos.get(id.toLowerCase());
         if (video == null)
             throw new VideoDoesNotExistException();
-        // FIX: use Episode interface, not EpisodeClass
+
         if (video instanceof Episode)
             throw new CannotRemoveEpisodeException();
 
@@ -164,7 +161,6 @@ public class VideoNetworkClass implements VideoNetwork {
         if (podcasts.containsKey(title.toLowerCase()))
             throw new TitleAlreadyExistException();
 
-        // FIX: register before getCanonical so first-seen casing is preserved
         if (!authorRegistry.exists(author))
             authorRegistry.register(author);
         String canonicalAuthor = authorRegistry.getCanonical(author);
@@ -271,7 +267,6 @@ public class VideoNetworkClass implements VideoNetwork {
         if (shows.containsKey(showTitle.toLowerCase()))
             throw new ShowAlreadyExistsException();
 
-        // FIX: register before getCanonical so first-seen casing is preserved
         if (!authorRegistry.exists(author))
             authorRegistry.register(author);
         String canonicalAuthor = authorRegistry.getCanonical(author);

@@ -4,7 +4,6 @@ package youVideo;
  * Defines shared attributes like ID, duration, and URL that all video types must possess.
  */
 public abstract class AbstractVideoStructureClass implements VideoStructure{
-    // Using final for immutability as these core attributes shouldn't change after creation
     private final String id;
     private final int duration;
     private final String url;

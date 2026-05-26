@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/nik20/Documents/GitHub/YouVideo/src</OriginalElement>
+  <nodes>
+    <node x="1502.4524075919999" y="828.5932154420298">youVideo.PremiumVideos</node>
+    <node x="1917.6064876538273" y="394.40665049909853">youVideo.ShowByDateTitleComparator</node>
+    <node x="2415.800183470311" y="258.1672683773148">youVideo.Titled</node>
+    <node x="649.5241400494342" y="493.7854518492813">youVideo.Exceptions.InvalidPublishableVideoException</node>
+    <node x="1551.4682658357754" y="1206.1788636104293">Main</node>
+    <node x="2415.4929224159177" y="101.7392694843657">youVideo.Exceptions.InvalidLanguageException</node>
+    <node x="1376.7208708262608" y="216.56817785566574">youVideo.ComparatorClass</node>
+    <node x="1234.4722179721996" y="-13.731943064780438">youVideo.Exceptions.IdAlreadyExistsException</node>
+    <node x="2285.3487302635294" y="386.88902723735947">youVideo.Authored</node>
+    <node x="320.034190569423" y="171.49990072229588">youVideo.Exceptions.InvalidDurationException</node>
+    <node x="-84.41423974080749" y="161.41845521671178">youVideo.Exceptions.TitleAlreadyExistException</node>
+    <node x="2558.5498440422703" y="364.4698241494838">youVideo.Exceptions.ShowAlreadyExistsException</node>
+    <node x="737.3757470059866" y="1711.2266462708462">youVideo.PremiumVideosClass</node>
+    <node x="1573.0961265074623" y="365.7366966662523">youVideo.Languaged</node>
+    <node x="772.5094494571704" y="705.3905959356271">youVideo.PublishableVideosClass</node>
+    <node x="1262.019835779673" y="1753.3833274937062">youVideo.IdentityRegistryClass</node>
+    <node x="194.05593693666685" y="500.0606235059679">youVideo.Episode</node>
+    <node x="285.8417449787448" y="612.3534546755241">youVideo.Exceptions.PodcastDoesNotExistsException</node>
+    <node x="1659.504986593004" y="455.9188872523433">youVideo.PublishableVideos</node>
+    <node x="1673.0239049048262" y="587.1289188175108">youVideo.Exceptions.InvalidDateException</node>
+    <node x="1813.6782435482037" y="984.2374208303294">youVideo.PodcastClass</node>
+    <node x="1070.2746986710174" y="167.33369700938508">youVideo.Exceptions.TaggedException</node>
+    <node x="103.86953603592553" y="327.1027791728292">youVideo.VideoStructure</node>
+    <node x="2048.2362109709766" y="894.4391708231872">youVideo.Podcast</node>
+    <node x="1245.92955827094" y="523.2944630937109">youVideo.AbstractVideoStructureClass</node>
+    <node x="1554.1335161018371" y="92.57089977378772">youVideo.Exceptions.ShowDoesNotExistException</node>
+    <node x="1022.3937606895614" y="399.97763003996783">youVideo.Exceptions.CannotRemoveShowVideoException</node>
+    <node x="2437.6613499017476" y="934.4791449424931">youVideo.VideoNetwork</node>
+    <node x="1791.3021117012615" y="219.75201285542826">youVideo.SubtitlesClass</node>
+    <node x="2304.946231041795" y="697.329800248802">youVideo.TaggedContent</node>
+    <node x="1737.60539483928" y="780.4280894016168">youVideo.IdentityRegistry</node>
+    <node x="343.56112849304327" y="370.16185929846495">youVideo.Exceptions.InvalidTagParametersException</node>
+    <node x="2085.916428266218" y="193.59259805391045">youVideo.Exceptions.NoContentTaggedException</node>
+    <node x="1911.8902477914396" y="1794.082071007068">youVideo.VideoNetworkClass</node>
+    <node x="1889.8532427853024" y="-10.151801835173586">youVideo.Exceptions.TitleDoesNotExistsException</node>
+    <node x="1110.0019761618396" y="903.1939458566019">youVideo.Exceptions.InvalidLanguageSubtitleException</node>
+    <node x="1963.5533378099615" y="623.5531476881537">youVideo.Exceptions.NotAPremiumVideoException</node>
+    <node x="446.79163417263857" y="904.7455082292166">youVideo.Exceptions.CannotRemoveEpisodeException</node>
+    <node x="1890.978068624434" y="131.16734362481415">youVideo.Subtitles</node>
+    <node x="-171.08206308402578" y="590.7539379897879">youVideo.Exceptions.VideoForShowDoesNotExistException</node>
+    <node x="124.35689867455278" y="737.944264966589">youVideo.EpisodeClass</node>
+    <node x="2168.7018246297876" y="1023.0884633884128">youVideo.ShowClass</node>
+    <node x="727.0219237424822" y="271.01095690756586">youVideo.Exceptions.TagNotPresentException</node>
+    <node x="2325.312979766549" y="808.0530604072253">youVideo.Show</node>
+    <node x="77.51206287553259" y="894.6560747434875">youVideo.Exceptions.VideoDoesNotExistException</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="youVideo.PublishableVideosClass" target="youVideo.PublishableVideos" relationship="REALIZATION">
+      <point x="204.00000000000006" y="-16.06059593562702" />
+      <point x="1612.42955827094" y="757.83" />
+      <point x="1612.42955827094" y="470.47763003996783" />
+      <point x="-97.0" y="0.5587427876245101" />
+    </edge>
+    <edge source="youVideo.PublishableVideos" target="youVideo.Titled" relationship="INTERFACE_GENERALIZATION">
+      <point x="15.000013406996004" y="-13.999887252343342" />
+      <point x="1771.505" y="360.0" />
+      <point x="2462.8" y="360.0" />
+      <point x="-1.8347031095800048E-4" y="13.999731622685204" />
+    </edge>
+    <edge source="youVideo.Podcast" target="youVideo.TaggedContent" relationship="INTERFACE_GENERALIZATION">
+      <point x="14.999789029023532" y="-14.000170823187204" />
+      <point x="2119.736" y="866.0" />
+      <point x="2312.446" y="866.0" />
+      <point x="-77.50023104179468" y="14.00019975119801" />
+    </edge>
+    <edge source="youVideo.ShowClass" target="youVideo.Show" relationship="REALIZATION">
+      <point x="50.11117537021255" y="-68.5" />
+      <point x="15.00002023345155" y="14.0" />
+    </edge>
+    <edge source="youVideo.PublishableVideosClass" target="youVideo.AbstractVideoStructureClass" relationship="GENERALIZATION">
+      <point x="-4.4945717030486776E-4" y="-68.4995959356271" />
+      <point x="976.509" y="683.0" />
+      <point x="1420.4299999999998" y="683.0" />
+      <point x="4.4172905984396493E-4" y="68.49953690628911" />
+    </edge>
+    <edge source="youVideo.VideoNetworkClass" target="youVideo.VideoNetwork" relationship="REALIZATION">
+      <point x="178.5" y="0.0" />
+      <point x="2523.2018246297876" y="1910.582071007068" />
+      <point x="5.040474728039953" y="14.0" />
+    </edge>
+    <edge source="youVideo.PodcastClass" target="youVideo.Podcast" relationship="REALIZATION">
+      <point x="130.5" y="-80.5" />
+      <point x="-22.55796742277289" y="14.0" />
+    </edge>
+    <edge source="youVideo.TaggedContent" target="youVideo.Titled" relationship="INTERFACE_GENERALIZATION">
+      <point x="34.90276895820534" y="-13.99980024880199" />
+      <point x="2424.849" y="360.0" />
+      <point x="2462.8" y="360.0" />
+      <point x="-1.8347031095800048E-4" y="13.999731622685204" />
+    </edge>
+    <edge source="youVideo.IdentityRegistryClass" target="youVideo.IdentityRegistry" relationship="REALIZATION">
+      <point x="76.98214038216634" y="-44.5" />
+      <point x="1453.5019761618396" y="794.4280894016168" />
+      <point x="-85.5" y="0.0" />
+    </edge>
+    <edge source="youVideo.PublishableVideos" target="youVideo.VideoStructure" relationship="INTERFACE_GENERALIZATION">
+      <point x="1.3406996004050598E-5" y="14.000112747656658" />
+      <point x="1756.505" y="501.419" />
+      <point x="979.024" y="501.419" />
+      <point x="979.024" y="464.0" />
+      <point x="187.37" y="464.0" />
+      <point x="4.639640744699136E-4" y="14.000220827170835" />
+    </edge>
+    <edge source="youVideo.PremiumVideos" target="youVideo.PublishableVideos" relationship="INTERFACE_GENERALIZATION">
+      <point x="86.5" y="10.959844965195543" />
+      <point x="1926.10539483928" y="853.5530604072253" />
+      <point x="1926.10539483928" y="474.90665049909853" />
+      <point x="97.0" y="4.9877632467552075" />
+    </edge>
+    <edge source="youVideo.TaggedContent" target="youVideo.Authored" relationship="INTERFACE_GENERALIZATION">
+      <point x="-43.59750077826516" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="youVideo.EpisodeClass" target="youVideo.AbstractVideoStructureClass" relationship="GENERALIZATION">
+      <point x="150.00010132544722" y="-2.649665890430697E-4" />
+      <point x="746.292" y="782.444" />
+      <point x="746.292" y="683.0" />
+      <point x="1420.4299999999998" y="683.0" />
+      <point x="4.4172905984396493E-4" y="68.49953690628911" />
+    </edge>
+    <edge source="youVideo.PremiumVideosClass" target="youVideo.PublishableVideosClass" relationship="GENERALIZATION">
+      <point x="38.63370245118375" y="-44.5" />
+      <point x="0.0" y="68.5" />
+    </edge>
+    <edge source="youVideo.AbstractVideoStructureClass" target="youVideo.VideoStructure" relationship="REALIZATION">
+      <point x="-174.5" y="6.45947489607704" />
+      <point x="994.024" y="598.2539379897879" />
+      <point x="994.024" y="-31.231943064780438" />
+      <point x="190.0857602591925" y="-31.231943064780438" />
+      <point x="2.716224223266977" y="-14.0" />
+    </edge>
+    <edge source="youVideo.Episode" target="youVideo.VideoStructure" relationship="INTERFACE_GENERALIZATION">
+      <point x="6.306333312977586E-5" y="-13.999623505967918" />
+      <point x="250.05599999999998" y="464.0" />
+      <point x="187.37" y="464.0" />
+      <point x="4.639640744699136E-4" y="14.000220827170835" />
+    </edge>
+    <edge source="youVideo.EpisodeClass" target="youVideo.Episode" relationship="REALIZATION">
+      <point x="-24.300961737885928" y="-44.5" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="youVideo.Podcast" target="youVideo.Languaged" relationship="INTERFACE_GENERALIZATION">
+      <point x="-2.109709764681611E-4" y="-14.000170823187204" />
+      <point x="2104.736" y="757.83" />
+      <point x="1642.005" y="757.83" />
+      <point x="1642.005" y="425.0" />
+      <point x="1640.596" y="425.0" />
+      <point x="-1.265074622551765E-4" y="14.000303333747695" />
+    </edge>
+    <edge source="youVideo.Show" target="youVideo.TaggedContent" relationship="INTERFACE_GENERALIZATION">
+      <point x="2.023345155066636E-5" y="13.999939592774695" />
+      <point x="2372.313" y="866.0" />
+      <point x="2312.446" y="866.0" />
+      <point x="-77.50023104179468" y="14.00019975119801" />
+    </edge>
+    <edge source="youVideo.PublishableVideos" target="youVideo.Languaged" relationship="INTERFACE_GENERALIZATION">
+      <point x="1.3406996004050598E-5" y="-13.999887252343342" />
+      <point x="1756.505" y="425.0" />
+      <point x="1640.596" y="425.0" />
+      <point x="-1.265074622551765E-4" y="14.000303333747695" />
+    </edge>
+    <edge source="youVideo.SubtitlesClass" target="youVideo.Subtitles" relationship="REALIZATION">
+      <point x="41.67595692317241" y="-56.5" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="youVideo.PremiumVideosClass" target="youVideo.PremiumVideos" relationship="REALIZATION">
+      <point x="0.0" y="44.5" />
+      <point x="937.8757470059866" y="1859.8833274937062" />
+      <point x="1533.9682658357754" y="1859.8833274937062" />
+      <point x="-54.98414175622463" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.4253349788434415" showDependencies="false" x="1188.0915025906734" y="1179.6920207253884" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
